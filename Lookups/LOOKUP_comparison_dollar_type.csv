@@ -1,7 +1,0 @@
-comparison.dollar.type,comparison.dollar.type.sum,comparison.dollar.type.detail
-OutlayNoOffsetAccount.2013,Gross Outlay,Gross Outlays
-Outlay.2013,Net Outlay,Net Outlays
-OutlayOffsetAccount.2013,Net Outlay,Offset-Financed Outlays
-ContractObligatedAmount.2013,Contract,Contract Obligations
-Fed_Grant_Funding_Amount.2013,Grant,Grant Awards
-ResidualOutlay.2013,Outlay,Other Outlays (Gross Outlays - Contract Obligations - Grant Awards)
