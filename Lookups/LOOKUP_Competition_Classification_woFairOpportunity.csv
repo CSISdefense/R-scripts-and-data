@@ -1,0 +1,10 @@
+Extent.Competed.Sum,Offers,Original.Competition,Competition.Correlation
+Competed,Multiple,Multiple Offers,Multiple Offers
+Competed,Null or Zero,Unlabeled,Unlabeled
+Competed,One,Single Offer,Other
+Uncompeted,Multiple,Unlabeled,Unlabeled
+Uncompeted,Null or Zero,No Competition,Other
+Uncompeted,One,No Competition,Other
+Unlabeled,Multiple,Unlabeled,Unlabeled
+Unlabeled,Null or Zero,Unlabeled,Unlabeled
+Unlabeled,One,Unlabeled,Unlabeled

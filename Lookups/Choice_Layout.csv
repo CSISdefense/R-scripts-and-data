@@ -1,0 +1,9 @@
+Layout Name,page.orientation,page.layout,page.width,page.height,page.nrows,page.ncols,base.y.line,name.column,dollar.column,prevrank.column,table.title.x,table.width,table.height,table.fontsize,axis.text.size,strip.text.size,legend.text.size,title.text.size
+portrait grid,portrait,grid,6,8,3,2,4,1,15.75,18.25,0.25,,,9,5,4,4,10
+landscape grid,landscape,grid,9,6,2,3,6,1.5,17,19.5,0.15,,,9,5,4,4,10
+landscape single,landscape,single,9,6,1,1,6,1.5,17,19.5,0.15,2.75,4.25,9,5,4,4,10
+portrait single,portrait,single,9,5,1,1,4,1,17,18.25,0.5,4.5,2.625,5.65,5,4,4,10
+tall single,portrait,single,6,5,1,1,4,1,15.75,18.25,0.25,2.75,6,9,5,4,4,10
+single column,portrait,single,3,3,1,1,4,1,15.75,18.25,0.25,2.75,4.25,9,5,4,4,10
+portrait small,portrait,single,4.5,2.625,1,1,4,1,17,18.25,0.5,4.5,2.625,5.65,5,4,4,10
+landscape small,portrait,single,6,2.625,1,1,4,1,17,18.25,0.5,4.5,2.625,5.65,5,4,4,10
