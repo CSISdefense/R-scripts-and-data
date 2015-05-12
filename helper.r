@@ -2435,8 +2435,8 @@ LatticePercentLineWrapper<-function(VAR.name
         #     labels.DF$variable<-factor(laply(strwrap(as.character(labels.DF$variable), width=15, simplify=FALSE), 
         #                                        paste, collapse="\n"))                   
         
-        
-        VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/sum(y.variable))
+        VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, y.total=sum(y.variable))
+        VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/y.total)
         
     } else {
         
@@ -2458,10 +2458,12 @@ LatticePercentLineWrapper<-function(VAR.name
             )
             names(VAR.long.DF)<-c("x.variable","category","second","Graph",...,"y.variable")
             if(VAR.facet.primary==VAR.y.series){
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, y.total=sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/y.total)
             }
             else{
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, p=y.variable/sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, y.total=sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, p=y.variable/y.total)
             }
         }
         else {
@@ -2483,7 +2485,8 @@ LatticePercentLineWrapper<-function(VAR.name
                 VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, third), transform, p=y.variable/sum(y.variable))
             }
             else{
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, p=y.variable/sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, y.total=sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, p=y.variable/y.total)
             }
             
         }
