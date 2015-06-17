@@ -824,6 +824,7 @@ append_contract_fixes<- function(VAR.path,VAR.df){
     
     
     VAR.df$Action.Obligation<-FactorToNumber(VAR.df$Action.Obligation)
+    
     VAR.df$Actions<-FactorToNumber(VAR.df$Actions)  
     
     
@@ -838,271 +839,27 @@ append_contract_fixes<- function(VAR.path,VAR.df){
     VAR.df
 }
 #***********************Standardize Variable Names
-standardize_variable_names<- function(VAR.df){
+standardize_variable_names<- function(VAR.Path,VAR.df){
     #***Standardize variable names
-    # Fiscal Year
-    if("fiscal_year" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="fiscal_year"]<-"Fiscal.Year"
+    NameList<-read.csv(
+        paste(
+                  VAR.Path,
+            "Lookups\\","Lookup_StandardizeVariableNames.csv",sep=""),
+        header=TRUE, sep=",", na.strings=c("NA","NULL"), dec=".", strip.white=TRUE, 
+        stringsAsFactors=FALSE
+    )
+    
+    for(x in 1:length(NameList)){
+        colnames(VAR.df)[toupper(colnames(VAR.df))==toupper(NameList$Original)]<-NameList$Replacement
     }
     
-    if("ServicesCategory" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="ServicesCategory"]<-"ProductOrServiceArea"
-    }
-    
-    
-    if("DEPLOYMENT" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="DEPLOYMENT"]<-"Deployment"
-    }
-    
-    if("Statecode" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Statecode"]<-"StateCode"
-    }
-    
-    if("Fiscal_Year" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Fiscal_Year"]<-"Fiscal.Year"
-    }
-    
-    if("fiscal.year" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="fiscal.year"]<-"Fiscal.Year"
-    }
-    if("AnnualSubCustomerVendorRank" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="AnnualSubCustomerVendorRank"]<-"VendorRank"
-    }
-    if("ContractAnnualCustomerVendorRank" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="ContractAnnualCustomerVendorRank"]<-"VendorRank"
-    }
-    if("AnnualSimpleBucketVendorRank" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="AnnualSimpleBucketVendorRank"]<-"VendorRank"
-    }
-    #Top Vendor/Recipient Variables
-    
-    if("ParentOrPartnerName" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="ParentOrPartnerName"]<-"ContractorDisplayName"
-    }
-    
-    
-    #Other variables
-    if("FundingMechanismClassification" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="FundingMechanismClassification"]<-"Pricing.Mechanism"
-    }
-    
-    if("PoPStateCode" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="PoPStateCode"]<-"PoPstateCode"
-    }
-    
-    if("popStatecode" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="popStatecode"]<-"PoPstateCode"
-    }
-    
-    
-    
-    if("PoPStatecode" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="PoPStatecode"]<-"PoPstateCode"
-    }
-    
-    
-    if("StateCode" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="StateCode"]<-"PoPstateCode"
-    }
-    
-    
-    if("TypeofContractPricingtext" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="TypeofContractPricingtext"]<-"Pricing.Mechanism"
-    }
-    
-    
-    
-    if("TypeOfContractPricing" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="TypeOfContractPricing"]<-"Pricing.Mechanism.Code"
-    }
-    
-    
-    
-    
-    if("SumOfobligatedAmount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumOfobligatedAmount"]<-"Action.Obligation"
-    }
-    
-    if("SumofObligatedAmount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumofObligatedAmount"]<-"Action.Obligation"
-    }
-    
-    if("Sumofbaseandalloptionsvalue" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Sumofbaseandalloptionsvalue"]<-"ContractBaseAndAllOptionsValue"
-    }
-    if("SumOfbaseandexercisedoptionsvalue" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumOfbaseandexercisedoptionsvalue"]<-"ContractBaseAndExercisedOptionsValue"
-    }
-    if("SumOfUnmodifiedbaseandexercisedoptionsvalue" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumOfUnmodifiedbaseandexercisedoptionsvalue"]<-"UnmodifiedContractBaseAndExercisedOptionsValue"
-    }
-    if("SumOfUnmodifiedbaseandalloptionsvalue" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumOfUnmodifiedbaseandalloptionsvalue"]<-"UnmodifiedContractBaseAndAllOptionsValue"
-    }
-    if("SumOfUnmodifiedobligatedAmount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumOfUnmodifiedobligatedAmount"]<-"UnmodifiedContractObligatedAmount"
-    }
-    
-    if("Simple" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Simple"]<-"ProductOrServiceArea"
-    }
-    
-    if("Services.Category" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Services.Category"]<-"ProductOrServiceArea"
-    }
-    
-    if("ServiceCategory" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="ServiceCategory"]<-"ProductOrServiceArea"
-    }
-    
-    if("ProductorServiceArea" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="ProductorServiceArea"]<-"ProductOrServiceArea"
-    }
-    
-    if("ProductsCategory" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="ProductsCategory"]<-"ProductOrServiceArea"
-    }
-    
-    if("customer" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="customer"]<-"Customer"
-    }
-    
-    if("Sub_Customer" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Sub_Customer"]<-"SubCustomer"
-    }
-    
-    if("Majorcommandid" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Majorcommandid"]<-"MajorCommandID"
-    }
-    
-    
-    
-    if("SubCustomerSum" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SubCustomerSum"]<-"SubCustomer"
-    }
-    
-    
-    if("SumOfContractObligatedAmount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumOfContractObligatedAmount"]<-"ContractObligatedAmount"
-    }
-    
-    if("ContractObligatedAmount" %in% names(VAR.df))
-    {
-        VAR.df$Action.Obligation <-VAR.df$ContractObligatedAmount
-    }
-    
-    
-    if("Size" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="Size"]<-"Vendor.Size"
-    }
-    if("VendorSize" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="VendorSize"]<-"Vendor.Size"
-    }
-    
-    if("SingleYearObligatedAmount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SingleYearObligatedAmount"]<-"Contract.Size"
-    }
-    
-    if("vehicleclassification" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="vehicleclassification"]<-"Vehicle"
-    }
-    
-    
-    if("majorcommandid" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="majorcommandid"]<-"MajorCommandID"
-    }
-    
-    if("simplearea" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="simplearea"]<-"SimpleArea"
-    }
-    
-    
-    if("SumofGBKdisbursements" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumofGBKdisbursements"]<-"GBKdisbursements"
-    }
-    
-    if("SumofGBKObligations" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumofGBKObligations"]<-"GBKObligations"
-    }
-    
-    if("SumofOutlayNoOffsetAccount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumofOutlayNoOffsetAccount"]<-"OutlayNoOffsetAccount"
-    }
-    
-    if("VehicleClassification" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="VehicleClassification"]<-"Vehicle"
-    }
-    
-    if("SumofOutlayOffsetAccount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumofOutlayOffsetAccount"]<-"OutlayOffsetAccount"
-    }
-    
-    if("SumofOutlayOffsetAccount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SumofOutlay"]<-"OutlayOffsetAccount"
-    }
-    
-    if("SizeOfSumOfObligatedAmount" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="SizeOfSumOfObligatedAmount"]<-"Contract.Size"
-    }
-    
-    if("ContractingAgencyID" %in% names(VAR.df))
-    {
-        colnames(VAR.df)[colnames(VAR.df)=="ContractingAgencyID"]<-"Contracting.Agency.ID"
-    }
     VAR.df
 }
 
 
 #***********************Apply Lookups***********************
 apply_lookups<- function(VAR.path,VAR.df){
-    VAR.df<-standardize_variable_names(VAR.df)
+    VAR.df<-standardize_variable_names(VAR.path,VAR.df)
     
     
     #***Pivot the data frame when necessary.
@@ -1288,6 +1045,9 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     if("Product.or.Service.Code" %in% names(VAR.df))
     {
+        if(is.integer(VAR.df$Product.or.Service.Code)){
+            VAR.df$Product.or.Service.Code<-factor(VAR.df$Product.or.Service.Code)
+        }
         
         if("Product.or.Service.Description" %in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(Product.or.Service.Description))
@@ -1295,30 +1055,12 @@ apply_lookups<- function(VAR.path,VAR.df){
         
         #           debug(read_and_join)
         VAR.df<-read_and_join(VAR.path,"Lookup_ProdServ_Codes.csv",VAR.df)
-        NA.check.df<-subset(VAR.df, is.na(ProductOrServiceArea), select=c("Fiscal.Year","Product.or.Service.Code"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductOrServiceArea"))
-        }
+        #         NA.check.df<-subset(VAR.df, is.na(ProductOrServiceArea), select=c("Product.or.Service.Code"))
+        #         if(nrow(NA.check.df)>0){
+        #             print(unique(NA.check.df))
+        #             stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductOrServiceArea"))
+        #         }
     }
-    
-    if("Product.or.Service.Code" %in% names(VAR.df))
-    {
-        
-        if("Product.or.Service.Description" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Product.or.Service.Description))
-        }
-        
-        #           debug(read_and_join)
-        VAR.df<-read_and_join(VAR.path,"Lookup_ProdServ_Codes.csv",VAR.df)
-        NA.check.df<-subset(VAR.df, is.na(ProductOrServiceArea), select=c("Fiscal.Year","Product.or.Service.Code"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductOrServiceArea"))
-        }
-    }
-    
-    
     
     
     if(("OMBagencyCode" %in% names(VAR.df))
@@ -1520,7 +1262,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     if("Fair.Opportunity.Limited.Sources" %in% names(VAR.df)){
         VAR.df<-read_and_join(VAR.path,"LOOKUP_Fair_Opportunity.csv",VAR.df)
         
-        NA.check.df<-subset(VAR.df, is.na(Fair.Competed), select=c("Fair.Opportunity.Limited.Sources","Fair.Competed"))
+        NA.check.df<-subset(VAR.df, is.na(Fair.Competed) & !is.na(Fair.Opportunity.Limited.Sources), select=c("Fair.Opportunity.Limited.Sources","Fair.Competed"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
             stop(paste(nrow(NA.check.df),"rows of NAs generated in Fair.Competed"))
@@ -1569,7 +1311,7 @@ apply_lookups<- function(VAR.path,VAR.df){
             stop(paste(nrow(NA.check.df),"rows of NAs generated in Countries"))
         }
     }
-#     browser()
+    #     browser()
     if("Pricing.Mechanism" %in% names(VAR.df)){ 
         
         #Handle NA values if present
@@ -2294,182 +2036,195 @@ apply_lookups<- function(VAR.path,VAR.df){
         VAR.df$Fiscal.Year <-as.Date(paste("9/30/",as.character(VAR.df$Fiscal.Year),sep=""),"%m/%d/%Y")
     }
     
-    if("SignedMonth"%in% names(VAR.df)){
-        VAR.df$SignedMonth <-as.Date(as.character(VAR.df$SignedMonth),"%Y-%m-%d")
-    }
-    
-    
-    if("YEAR"%in% names(VAR.df)){
-        VAR.df$YEAR <-as.Date(paste("12/31/",as.character(VAR.df$YEAR),sep=""),"%m/%d/%Y")
-    }
-    
-    if(!("Graph" %in% names(VAR.df))){
-        VAR.df$Graph<-TRUE
-    }
-    if("ProductOrServiceArea.Graph"%in% names(VAR.df)){
-        VAR.df$Graph<-VAR.df$Graph&&VAR.df$ProductOrServiceArea.Graph
-        VAR.df<-subset(VAR.df, select=-c(ProductOrServiceArea.Graph)) 
-    }
-    if("Contract.Size.Graph"%in% names(VAR.df)){
-        VAR.df$Graph<-VAR.df$Graph&&VAR.df$Contract.Size.Graph
-        VAR.df<-subset(VAR.df, select=-c(Contract.Size.Graph)) 
-    }
-    
-    if("Competition.Graph"%in% names(VAR.df)){
-        VAR.df$Graph<-VAR.df$Graph&&VAR.df$Competition.Graph
-        VAR.df<-subset(VAR.df, select=-c(Competition.Graph)) 
-    }
-    if("Vehicle.Graph"%in% names(VAR.df)){
-        VAR.df$Graph<-VAR.df$Graph&&VAR.df$Vehicle.Graph
-        VAR.df<-subset(VAR.df, select=-c(Vehicle.Graph)) 
-    }
-    if("Pricing.Mechanism.Graph"%in% names(VAR.df)){
-        VAR.df$Graph<-VAR.df$Graph&&VAR.df$Pricing.Mechanism.Graph
-        VAR.df<-subset(VAR.df, select=-c(Pricing.Mechanism.Graph)) 
-    }
-    if("Customer.Graph"%in% names(VAR.df)){
-        VAR.df$Graph<-VAR.df$Graph&&VAR.df$Customer.Graph
-        VAR.df<-subset(VAR.df, select=-c(Customer.Graph)) 
-    }        
-    if("LastCurrentCompletionDate"%in% names(VAR.df)&"MinOfEffectiveDate"%in% names(VAR.df)){
+    if("Date.Signed"%in% names(VAR.df)){
         
-        VAR.df$CurrentMonths<-as.numeric(difftime(strptime(VAR.df$LastCurrentCompletionDate,"%Y-%m-%d")
-                                                  , strptime(VAR.df$MinOfEffectiveDate,"%Y-%m-%d")
-                                                  , unit="weeks"
-        ))
-        VAR.df$CategoryOfCurrentMonths<-CreateDuration(VAR.df$CurrentMonths)
-        VAR.df$CurrentMonths<-ceiling(VAR.df$CurrentMonths/4)
-    }
-    
-    
-    if("UnmodifiedCurrentCompletionDate"%in% names(VAR.df)&"MinOfEffectiveDate"%in% names(VAR.df)){
-        
-        VAR.df$UnmodifiedMonths<-as.numeric(difftime(strptime(VAR.df$UnmodifiedCurrentCompletionDate,"%Y-%m-%d")
-                                                     , strptime(VAR.df$MinOfEffectiveDate,"%Y-%m-%d")
-                                                     , unit="weeks"
-        ))
-        VAR.df$CategoryOfUnmodifiedMonths<-CreateDuration(VAR.df$UnmodifiedMonths)
-        VAR.df$UnmodifiedMonths<-ceiling(VAR.df$UnmodifiedMonths/4)
-        
-    }
-    
-    if("UnmodifiedIsSomeCompetition" %in% names(VAR.df))
-    {
-        VAR.df$UnmodifiedIsSomeCompetition<-factor(VAR.df$UnmodifiedIsSomeCompetition, 
-                                                   exclude=NULL,
-                                                   levels = c(1,0,NA),
-                                                   labels = c("Comp.", "No Comp.","Unlabeled")
-        )
-    }
-    
-    if("IsSomeCompetition" %in% names(VAR.df))
-    {
-        
-        
-        
-        if ("IsFullAndOpen" %in% names(VAR.df)&
-                "IsOnlyOneSource" %in% names(VAR.df)){
-            VAR.df$UnmodifiedCompetition[VAR.df$IsFullAndOpen==1]<-1
-            VAR.df$UnmodifiedCompetition[VAR.df$IsSomeCompetition==1
-                                         &is.na(VAR.df$UnmodifiedCompetition)]<-2
-            VAR.df$UnmodifiedCompetition[VAR.df$IsOnlyOneSource==1
-                                         &is.na(VAR.df$UnmodifiedCompetition)]<-3
-            VAR.df$UnmodifiedCompetition[VAR.df$IsOnlyOneSource==0
-                                         &is.na(VAR.df$UnmodifiedCompetition)]<-4
-            VAR.df$UnmodifiedCompetition<-factor(VAR.df$UnmodifiedCompetition
-                                                 ,exclude=NULL
-                                                 ,levels=c(1,2,3,4,NA)
-                                                 ,labels=c("Full and Open"
-                                                           ,"Some Comp."
-                                                           ,"No Comp.\n1 Source"
-                                                           ,"No Comp.\nOther"
-                                                           ,"Unlabeled"
-                                                 )
-            )
-            
+            if(max(nchar(as.character(VAR.df$Date.Signed)))==10){
+#         if((max(substring(as.character(VAR.df$Date.Signed),7,8))=="99" | 
+#                max(substring(as.character(VAR.df$Date.Signed),7,8))<"20") &
+#                !max(substring(as.character(VAR.df$Date.Signed),1,2))>"12"){
+            VAR.df$Date.Signed <-as.Date(as.character(VAR.df$Date.Signed),"%m/%d/%Y")
         }
-        VAR.df$IsSomeCompetition<-factor(VAR.df$IsSomeCompetition, 
-                                         exclude=NULL,
-                                         levels = c(1,0,NA),
-                                         labels = c("Comp.", "No Comp.","Mixed or \nUnlabeled")
-        )
-        
-        if("IsFullAndOpen" %in% names(VAR.df))
-        {
-            VAR.df$IsFullAndOpen<-factor(VAR.df$IsFullAndOpen, 
-                                         exclude=NULL,
-                                         levels = c(1,0,NA),
-                                         labels = c("Full & Open", "Not Full \n& Open","Mixed or \nUnlabeled")
-            )
+        else{
+            VAR.df$Date.Signed <-as.Date(as.character(VAR.df$Date.Signed),"%y/%m/%d")
         }
-        
-        
-        
-        if("UnmodifiedIsFullAndOpen" %in% names(VAR.df))
-        {
-            VAR.df$UnmodifiedIsFullAndOpen<-factor(VAR.df$UnmodifiedIsFullAndOpen, 
-                                                   exclude=NULL,
-                                                   levels = c(1,0,NA),
-                                                   labels = c("Full & Open", "Not Full \n& Open","Unlabeled")
-            )
-        }
-        if("IsOnlyOneSource" %in% names(VAR.df))
-        {
-            VAR.df$IsOnlyOneSource<-factor(VAR.df$IsOnlyOneSource, 
-                                           exclude=NULL,
-                                           levels = c(1,0,NA),
-                                           labels = c("Only One Source", "Not Only Once Source","Unlabeled")
-            )
-        }
-        
-        
-        
-        
-        if ("IsIDV" %in% names(VAR.df)&
-                "multipleorsingleawardidc" %in% names(VAR.df)&
-                "AwardOrIDVcontractactiontype" %in% names(VAR.df)
-        ){
-            VAR.df$UnmodifiedVehicle[is.na(VAR.df$IsIDV)]<-NA
-            VAR.df$UnmodifiedVehicle[VAR.df$AwardOrIDVcontractactiontype %in% c("Definitive Contract")
-                                     &is.na(VAR.df$UnmodifiedVehicle)]<-1
-            VAR.df$UnmodifiedVehicle[VAR.df$AwardOrIDVcontractactiontype %in% c("Purchase Order")
-                                     &is.na(VAR.df$UnmodifiedVehicle)]<-2
-            VAR.df$UnmodifiedVehicle[VAR.df$AwardOrIDVcontractactiontype %in% c("Blanket Purchase Agreement"
-                                                                                ,"Federal Supply Schedule"
-                                                                                ,"Government Wide Acquisition Contract"
-                                                                                ,"Basic Ordering Agreement")
-                                     &is.na(VAR.df$UnmodifiedVehicle)]<-5
-            
-            VAR.df$UnmodifiedVehicle[VAR.df$multipleorsingleawardidc=="MULTIPLE AWARD"
-                                     &is.na(VAR.df$UnmodifiedVehicle)]<-4
-            VAR.df$UnmodifiedVehicle[VAR.df$multipleorsingleawardidc=="SINGLE AWARD"
-                                     &is.na(VAR.df$UnmodifiedVehicle)]<-3
-            VAR.df$UnmodifiedVehicle[is.na(VAR.df$UnmodifiedVehicle)]<-6
-            VAR.df$UnmodifiedVehicle<-factor(VAR.df$UnmodifiedVehicle
+}
+
+if("SignedMonth"%in% names(VAR.df)){
+    VAR.df$SignedMonth <-as.Date(as.character(VAR.df$SignedMonth),"%Y-%m-%d")
+}
+
+
+if("YEAR"%in% names(VAR.df)){
+    VAR.df$YEAR <-as.Date(paste("12/31/",as.character(VAR.df$YEAR),sep=""),"%m/%d/%Y")
+}
+
+if(!("Graph" %in% names(VAR.df))){
+    VAR.df$Graph<-TRUE
+}
+if("ProductOrServiceArea.Graph"%in% names(VAR.df)){
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$ProductOrServiceArea.Graph
+    VAR.df<-subset(VAR.df, select=-c(ProductOrServiceArea.Graph)) 
+}
+if("Contract.Size.Graph"%in% names(VAR.df)){
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Contract.Size.Graph
+    VAR.df<-subset(VAR.df, select=-c(Contract.Size.Graph)) 
+}
+
+if("Competition.Graph"%in% names(VAR.df)){
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Competition.Graph
+    VAR.df<-subset(VAR.df, select=-c(Competition.Graph)) 
+}
+if("Vehicle.Graph"%in% names(VAR.df)){
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Vehicle.Graph
+    VAR.df<-subset(VAR.df, select=-c(Vehicle.Graph)) 
+}
+if("Pricing.Mechanism.Graph"%in% names(VAR.df)){
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Pricing.Mechanism.Graph
+    VAR.df<-subset(VAR.df, select=-c(Pricing.Mechanism.Graph)) 
+}
+if("Customer.Graph"%in% names(VAR.df)){
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Customer.Graph
+    VAR.df<-subset(VAR.df, select=-c(Customer.Graph)) 
+}        
+if("LastCurrentCompletionDate"%in% names(VAR.df)&"MinOfEffectiveDate"%in% names(VAR.df)){
+    
+    VAR.df$CurrentMonths<-as.numeric(difftime(strptime(VAR.df$LastCurrentCompletionDate,"%Y-%m-%d")
+                                              , strptime(VAR.df$MinOfEffectiveDate,"%Y-%m-%d")
+                                              , unit="weeks"
+    ))
+    VAR.df$CategoryOfCurrentMonths<-CreateDuration(VAR.df$CurrentMonths)
+    VAR.df$CurrentMonths<-ceiling(VAR.df$CurrentMonths/4)
+}
+
+
+if("UnmodifiedCurrentCompletionDate"%in% names(VAR.df)&"MinOfEffectiveDate"%in% names(VAR.df)){
+    
+    VAR.df$UnmodifiedMonths<-as.numeric(difftime(strptime(VAR.df$UnmodifiedCurrentCompletionDate,"%Y-%m-%d")
+                                                 , strptime(VAR.df$MinOfEffectiveDate,"%Y-%m-%d")
+                                                 , unit="weeks"
+    ))
+    VAR.df$CategoryOfUnmodifiedMonths<-CreateDuration(VAR.df$UnmodifiedMonths)
+    VAR.df$UnmodifiedMonths<-ceiling(VAR.df$UnmodifiedMonths/4)
+    
+}
+
+if("UnmodifiedIsSomeCompetition" %in% names(VAR.df))
+{
+    VAR.df$UnmodifiedIsSomeCompetition<-factor(VAR.df$UnmodifiedIsSomeCompetition, 
+                                               exclude=NULL,
+                                               levels = c(1,0,NA),
+                                               labels = c("Comp.", "No Comp.","Unlabeled")
+    )
+}
+
+if("IsSomeCompetition" %in% names(VAR.df))
+{
+    
+    
+    
+    if ("IsFullAndOpen" %in% names(VAR.df)&
+            "IsOnlyOneSource" %in% names(VAR.df)){
+        VAR.df$UnmodifiedCompetition[VAR.df$IsFullAndOpen==1]<-1
+        VAR.df$UnmodifiedCompetition[VAR.df$IsSomeCompetition==1
+                                     &is.na(VAR.df$UnmodifiedCompetition)]<-2
+        VAR.df$UnmodifiedCompetition[VAR.df$IsOnlyOneSource==1
+                                     &is.na(VAR.df$UnmodifiedCompetition)]<-3
+        VAR.df$UnmodifiedCompetition[VAR.df$IsOnlyOneSource==0
+                                     &is.na(VAR.df$UnmodifiedCompetition)]<-4
+        VAR.df$UnmodifiedCompetition<-factor(VAR.df$UnmodifiedCompetition
                                              ,exclude=NULL
-                                             ,levels=c(1
-                                                       ,2
-                                                       ,3
-                                                       ,4
-                                                       ,5
-                                                       ,6
-                                                       ,NA)
-                                             ,labels=c("Definitive"
-                                                       ,"Purchase\nOrder"
-                                                       ,"Single-Award\nIDC"
-                                                       ,"Multi-Award\nIDC"
-                                                       ,"Other IDC"
-                                                       ,"Unlabeled\nIDC"
+                                             ,levels=c(1,2,3,4,NA)
+                                             ,labels=c("Full and Open"
+                                                       ,"Some Comp."
+                                                       ,"No Comp.\n1 Source"
+                                                       ,"No Comp.\nOther"
                                                        ,"Unlabeled"
                                              )
-            )
-            
-        }
+        )
         
-        
+    }
+    VAR.df$IsSomeCompetition<-factor(VAR.df$IsSomeCompetition, 
+                                     exclude=NULL,
+                                     levels = c(1,0,NA),
+                                     labels = c("Comp.", "No Comp.","Mixed or \nUnlabeled")
+    )
+    
+    if("IsFullAndOpen" %in% names(VAR.df))
+    {
+        VAR.df$IsFullAndOpen<-factor(VAR.df$IsFullAndOpen, 
+                                     exclude=NULL,
+                                     levels = c(1,0,NA),
+                                     labels = c("Full & Open", "Not Full \n& Open","Mixed or \nUnlabeled")
+        )
     }
     
     
     
-    VAR.df
+    if("UnmodifiedIsFullAndOpen" %in% names(VAR.df))
+    {
+        VAR.df$UnmodifiedIsFullAndOpen<-factor(VAR.df$UnmodifiedIsFullAndOpen, 
+                                               exclude=NULL,
+                                               levels = c(1,0,NA),
+                                               labels = c("Full & Open", "Not Full \n& Open","Unlabeled")
+        )
+    }
+    if("IsOnlyOneSource" %in% names(VAR.df))
+    {
+        VAR.df$IsOnlyOneSource<-factor(VAR.df$IsOnlyOneSource, 
+                                       exclude=NULL,
+                                       levels = c(1,0,NA),
+                                       labels = c("Only One Source", "Not Only Once Source","Unlabeled")
+        )
+    }
+    
+    
+    
+    
+    if ("IsIDV" %in% names(VAR.df)&
+            "multipleorsingleawardidc" %in% names(VAR.df)&
+            "AwardOrIDVcontractactiontype" %in% names(VAR.df)
+    ){
+        VAR.df$UnmodifiedVehicle[is.na(VAR.df$IsIDV)]<-NA
+        VAR.df$UnmodifiedVehicle[VAR.df$AwardOrIDVcontractactiontype %in% c("Definitive Contract")
+                                 &is.na(VAR.df$UnmodifiedVehicle)]<-1
+        VAR.df$UnmodifiedVehicle[VAR.df$AwardOrIDVcontractactiontype %in% c("Purchase Order")
+                                 &is.na(VAR.df$UnmodifiedVehicle)]<-2
+        VAR.df$UnmodifiedVehicle[VAR.df$AwardOrIDVcontractactiontype %in% c("Blanket Purchase Agreement"
+                                                                            ,"Federal Supply Schedule"
+                                                                            ,"Government Wide Acquisition Contract"
+                                                                            ,"Basic Ordering Agreement")
+                                 &is.na(VAR.df$UnmodifiedVehicle)]<-5
+        
+        VAR.df$UnmodifiedVehicle[VAR.df$multipleorsingleawardidc=="MULTIPLE AWARD"
+                                 &is.na(VAR.df$UnmodifiedVehicle)]<-4
+        VAR.df$UnmodifiedVehicle[VAR.df$multipleorsingleawardidc=="SINGLE AWARD"
+                                 &is.na(VAR.df$UnmodifiedVehicle)]<-3
+        VAR.df$UnmodifiedVehicle[is.na(VAR.df$UnmodifiedVehicle)]<-6
+        VAR.df$UnmodifiedVehicle<-factor(VAR.df$UnmodifiedVehicle
+                                         ,exclude=NULL
+                                         ,levels=c(1
+                                                   ,2
+                                                   ,3
+                                                   ,4
+                                                   ,5
+                                                   ,6
+                                                   ,NA)
+                                         ,labels=c("Definitive"
+                                                   ,"Purchase\nOrder"
+                                                   ,"Single-Award\nIDC"
+                                                   ,"Multi-Award\nIDC"
+                                                   ,"Other IDC"
+                                                   ,"Unlabeled\nIDC"
+                                                   ,"Unlabeled"
+                                         )
+        )
+        
+    }
+    
+    
+}
+
+
+
+VAR.df
 }
