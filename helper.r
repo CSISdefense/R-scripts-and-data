@@ -11,32 +11,37 @@ VariableNumericalFormat<-function(VAR.number,VAR.detail=0){
         stop("VariableNumericalFormat is for number values only.")
     }
     #   stop("test")
-    VAR.number[VAR.number>=-3&VAR.number<=3]<-round(VAR.number[VAR.number>=-3&VAR.number<=3],1+VAR.detail)
-    #   format(
-    #     round(VAR.number[VAR.number>=-3&VAR.number<=3],2)
-    #     , digits=2
-    #     , drop0trailing=TRUE
-    #     , trim=TRUE
-    #     , big.mark=","
-    #     )
-    VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]<-  round(as.numeric(VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]),0+VAR.detail)
-    first<-length(VAR.number)
-    #   VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]<-format(
-    #     round(as.numeric(VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]),0)
-    # #     , digits=1
-    #     , drop0trailing=TRUE
-    #     , trim=TRUE
-    #     , big.mark=","
-    #   )
-    second<-length(VAR.number)
-    if(first!=second){stop("mismatch")}
-    #   if(VAR.number>=-3&VAR.number<=3){
-    #     VAR.number<-format(round(VAR.number,2), digits=1, drop0trailing=TRUE, trim=TRUE, big.mark=",")
-    #   }
-    #   else{
-    #     VAR.number<-format(round(VAR.number,1), digits=0, trim=TRUE, big.mark=",")
-    #   }
-    #   
+    if(all(VAR.number<1)){
+        VAR.number<-percent(VAR.number)
+    }
+    else{
+        VAR.number[VAR.number>=-3&VAR.number<=3]<-round(VAR.number[VAR.number>=-3&VAR.number<=3],1+VAR.detail)
+        #   format(
+        #     round(VAR.number[VAR.number>=-3&VAR.number<=3],2)
+        #     , digits=2
+        #     , drop0trailing=TRUE
+        #     , trim=TRUE
+        #     , big.mark=","
+        #     )
+        VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]<-  round(as.numeric(VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]),0+VAR.detail)
+        first<-length(VAR.number)
+        #   VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]<-format(
+        #     round(as.numeric(VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]),0)
+        # #     , digits=1
+        #     , drop0trailing=TRUE
+        #     , trim=TRUE
+        #     , big.mark=","
+        #   )
+        second<-length(VAR.number)
+        if(first!=second){stop("mismatch")}
+        #   if(VAR.number>=-3&VAR.number<=3){
+        #     VAR.number<-format(round(VAR.number,2), digits=1, drop0trailing=TRUE, trim=TRUE, big.mark=",")
+        #   }
+        #   else{
+        #     VAR.number<-format(round(VAR.number,1), digits=0, trim=TRUE, big.mark=",")
+        #   }
+        #   
+    }
     VAR.number
 }
 
@@ -172,7 +177,7 @@ CreateChartOrTable<-function(VAR.note #unused
     
     if(VAR.sectionSTR!="Overall"){
         VAR.long.DF<-subset(VAR.long.DF
-                            ,VAR.long.DF[[choice.figures$section.variable[VAR.which.figure]]]==as.character(VAR.sectionSTR)
+                            ,VAR.long.DF[[VAR.choice.figures$section.variable[VAR.which.figure]]]==as.character(VAR.sectionSTR)
         )
     }
     
@@ -529,7 +534,7 @@ CreateTable<-function(VAR.note #unused
     
     if(VAR.sectionSTR!="Overall"){
         VAR.long.DF<-subset(VAR.long.DF
-                            ,VAR.long.DF[[choice.figures$section.variable[VAR.which.figure]]]==as.character(VAR.sectionSTR)&
+                            ,VAR.long.DF[[VAR.choice.figures$section.variable[VAR.which.figure]]]==as.character(VAR.sectionSTR)&
                                 Graph==TRUE
                             &ContractorDisplayName!="Unranked Vendor"
                             &!is.na(Fiscal.Year)
@@ -713,7 +718,7 @@ CreateChart<-function(VAR.note
     if (VAR.sectionSTR!="Overall"){
         VAR.long.DF<-subset(
             VAR.long.DF
-            , VAR.long.DF[[choice.figures$section.variable[VAR.which.figure]]]==as.character(VAR.sectionSTR)
+            , VAR.long.DF[[VAR.choice.figures$section.variable[VAR.which.figure]]]==as.character(VAR.sectionSTR)
         )
     }
     
@@ -2005,7 +2010,7 @@ LatticePlot<-function(VAR.name
     #     )  
     #   }
     
-    color.list<-c(as.character(labels.DF$colorRGB))
+    color.list<-c(as.character(labels.DF$ColorRGB))
     names(color.list)<-c(labels.DF$variable)
     
     
@@ -2108,8 +2113,12 @@ LatticePlot<-function(VAR.name
         )+scale_y_continuous(labels=comma)
         # +scale_y_continuous(expand=c(0,0.75)#)+scale_y_continuous(expand=c(0,0.75)
         #     )
+        
+        #Drop the labeling detail for crowded graphs.
+        NumericalDetail<-1
+        if(nrow(VAR.long.DF)>50){ NumericalDetail<-0 }
         print.figure<-print.figure+
-            geom_text(aes(label=VariableNumericalFormat(y.variable,1)
+            geom_text(aes(label=VariableNumericalFormat(y.variable,NumericalDetail)
                           #                     format(round(y.variable,3),  scientific=FALSE, trim=TRUE, big.mark=",")
                           #                   format(y.variable, digits=1, drop0trailing=TRUE, trim=TRUE, big.mark=",")
                           #apply(y.variable,VariableNumericalFormat)
@@ -2157,6 +2166,219 @@ LatticePlot<-function(VAR.name
        ,print.figure
        ,old.theme
     )
+}
+
+LatticePlotWrapper<-function(VAR.name
+                             ,VAR.proper.name
+                             ,VAR.X.label
+                             ,VAR.Y.label
+                             ,VAR.Coloration
+                             ,VAR.long.DF
+                             ,VAR.ncol=NA
+                             ,VAR.x.variable
+                             ,VAR.y.variable
+                             ,VAR.y.series
+                             ,VAR.facet.primary
+                             ,VAR.facet.secondary=NA
+                             #                       ,VAR.override.coloration=NA
+){
+    #     debug(PrepareLabelsAndColors)
+    
+    if("Graph" %in% names(VAR.long.DF)){
+        VAR.long.DF<-subset(VAR.long.DF, Graph==TRUE)
+    }  
+    if(is.na(VAR.y.series)) VAR.y.series<-VAR.facet.primary
+    
+    #Prepare labels for the category variable
+    #   if(is.na(VAR.override.coloration)){
+    labels.DF<-PrepareLabelsAndColors(VAR.Coloration
+                                      ,VAR.long.DF
+                                      ,VAR.y.series
+                                      #                                     ,VAR.override.coloration
+    )  
+    
+    labels.primary.DF<-PrepareLabelsAndColors(VAR.Coloration
+                                              ,VAR.long.DF
+                                              ,VAR.facet.primary
+                                              #                                     ,VAR.override.coloration
+    )
+    #   }
+    #   else{
+    #     labels.DF<-PrepareLabelsAndColors(VAR.Coloration
+    #                                       ,VAR.long.DF
+    #                                       ,VAR.override.coloration
+    #     )  
+    #   }
+    
+    color.list<-c(as.character(labels.DF$ColorRGB))
+    names(color.list)<-c(labels.DF$variable)
+    
+    
+    
+    
+    old.theme<-theme_set(theme_grey())
+    
+    #Reduce the number of rows by aggregating to one row per unique entry in the VAR.facet.primary column.
+    if(is.na(VAR.facet.secondary)){
+        VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
+                               , by=list(VAR.long.DF[,VAR.x.variable]
+                                         ,VAR.long.DF[,VAR.y.series]
+                                         ,VAR.long.DF[,VAR.facet.primary]
+                               )
+                               ,FUN = "sum"
+                               ,na.rm =TRUE
+        )
+        names(VAR.long.DF)<-c("x.variable","category","primary","y.variable")
+        VAR.long.DF<-ddply(VAR.long.DF,.(x.variable,primary),mutate,ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
+        
+    }
+    else{
+        second.labels.DF<-PrepareLabelsAndColors(VAR.Coloration
+                                                 ,VAR.long.DF
+                                                 ,VAR.facet.secondary)  
+        
+        VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
+                               , by=list(VAR.long.DF[,VAR.x.variable]
+                                         ,VAR.long.DF[,VAR.y.series]
+                                         ,VAR.long.DF[,VAR.facet.primary]
+                                         ,VAR.long.DF[,VAR.facet.secondary]
+                               )
+                               ,FUN = "sum"
+                               ,na.rm =TRUE
+        )
+        names(VAR.long.DF)<-c("x.variable","category","primary","secondary","y.variable")
+        
+        VAR.long.DF$secondary<-factor(VAR.long.DF$secondary,levels=second.labels.DF$variable)
+        rm(second.labels.DF)
+        
+    }
+    VAR.long.DF$category<-factor(VAR.long.DF$category,levels=c(labels.DF$variable))
+    VAR.long.DF$primary<-factor(VAR.long.DF$primary,levels=c(labels.primary.DF$variable))
+    
+    
+    if(class(VAR.long.DF$x.variable)=="Date"){
+        VAR.long.DF$x.variable<-format(VAR.long.DF$x.variable,"%Y")
+    }
+    
+    original<-qplot(
+        x=x.variable
+        , y=y.variable
+        , data=VAR.long.DF
+        , ylab=VAR.Y.label
+        , main=VAR.proper.name
+        , xlab=VAR.X.label
+        , geom="bar"
+        , stat="identity"
+        , fill=factor(category,levels=labels.DF$variable),
+    )#+ geom_bar(stat="identity")
+    
+    
+    tick.marks<-2
+    print.figure<-original
+    if(class(VAR.long.DF$x.variable)=="Date"){
+        print.figure<-print.figure+scale_x_discrete(
+            breaks=
+                c(seq(
+                    as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
+                    as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
+                    by=tick.marks)),
+            labels=
+                paste("'",format(as.Date(as.character(
+                    c(seq(
+                        as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
+                        as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
+                        by=tick.marks))
+                ),"%Y"),"%y"),sep="")  
+        )
+    }
+    
+    #   print.figure<-print.figure+geom_bar(
+    #     colour="black",
+    #     stat = "identity",
+    #     property= "identity"
+    #   )
+    
+    #, labels=c(labels.DF$Label) Section labels don't work with facets.
+    #  http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/
+    
+    print.figure<-print.figure+scale_fill_manual(
+        VAR.name
+        ,  values=color.list
+        , breaks=c(labels.DF$variable)
+        
+    ) 
+    
+    
+    
+    
+    if(is.na(VAR.facet.secondary)){
+        if(!is.na(VAR.ncol)){
+            print.figure<-print.figure+facet_wrap(~ primary
+                                                  ,ncol=VAR.ncol
+                                                  #                                           , labeller=Label_Wrap
+                                                  #                                           , scales="fixed", space="free_y"
+            )+scale_y_continuous(labels=comma)    
+        }
+        else{
+            print.figure<-print.figure+facet_wrap(~ primary
+                                                  #                                           ,ncol=VAR.ncol
+                                                  #                                           , labeller=Label_Wrap
+                                                  #                                           , scales="fixed", space="free_y"
+            )+scale_y_continuous(labels=comma)
+        }
+        # +scale_y_continuous(expand=c(0,0.75)#)+scale_y_continuous(expand=c(0,0.75)
+        #     )
+        
+        
+        #Don't add numbers at all if there's over 10 facets
+        if(length(levels(VAR.long.DF$primary))<=10){
+            #Drop the labeling detail for crowded graphs.
+            NumericalDetail<-1
+            if(nrow(VAR.long.DF)>50){ NumericalDetail<-0 }
+            print.figure<-print.figure+
+                geom_text(aes(label=VariableNumericalFormat(y.variable,NumericalDetail)
+                              #                     format(round(y.variable,3),  scientific=FALSE, trim=TRUE, big.mark=",")
+                              #                   format(y.variable, digits=1, drop0trailing=TRUE, trim=TRUE, big.mark=",")
+                              #apply(y.variable,VariableNumericalFormat)
+                              ,y=ytextposition)
+                          ,size=geom.text.size
+                          ,hjust=0.5
+                          ,vjust=0.5
+                          #,color=color.list This doesn't work yet
+                )
+        }
+    }
+    else{
+        print.figure<-print.figure+facet_grid(primary ~ secondary
+                                              , labeller=Label_Wrap
+                                              , scales="free_y" #The scales actually do stay fixed
+                                              , space="free_y"#But only because the space is free
+        )+scale_y_continuous(expand=c(0,0.75)
+                             ,labels=comma
+        )+theme(strip.text.y=element_text(size=axis.text.size,family="times",face="bold",angle=0)
+        )
+        
+    }
+    
+    #   
+    
+    print.figure<-print.figure+
+        theme(axis.text.x=element_text(size=axis.text.size))+
+        theme(axis.text.y=element_text(size=axis.text.size))+
+        theme(strip.text.x=element_text(size=strip.text.size,face="bold"))+
+        theme(strip.text.y=element_text(size=strip.text.size))+
+        theme(axis.title.x=element_text(size=axis.text.size))+
+        theme(axis.title.y=element_text(size=axis.text.size, angle=90))+
+        theme(plot.title=element_text(size=title.text.size))+
+        theme(legend.position="none")+
+        theme(legend.title=element_text(size=legend.text.size,hjust=0))+
+        theme(legend.text=element_text(size=legend.text.size))
+    #     theme(legend.key.width=unit(0.1,"npc"))
+    #   print.figure<-facetAdjust(print.figure,"down")
+    theme_set(old.theme)
+    print.figure
+    
+    
 }
 
 LatticePercentLinePlot<-function(VAR.name
@@ -2274,7 +2496,10 @@ LatticePercentLinePlot<-function(VAR.name
     VAR.long.DF$category=factor(VAR.long.DF$category
                                 ,levels=c(labels.DF$variable))
     
-    
+    if(!any(!is.nan(VAR.long.DF$p))){
+        warning(paste('No values in',VAR.proper.name))
+        return(NULL)
+    }
     original<-qplot(
         , data=VAR.long.DF
         , x=format(x.variable,"%Y")
@@ -2388,7 +2613,7 @@ LatticePercentLineWrapper<-function(VAR.name
                                     ,VAR.Y.label
                                     ,VAR.Coloration
                                     ,VAR.long.DF
-                                    ,VAR.ncol
+                                    ,VAR.ncol=NA
                                     ,VAR.x.variable
                                     ,VAR.y.variable
                                     ,VAR.y.series
@@ -2420,9 +2645,9 @@ LatticePercentLineWrapper<-function(VAR.name
     if(is.na(VAR.facet.primary) ){
         VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                , by=cbind(VAR.long.DF[,VAR.x.variable]
-                                         ,VAR.long.DF[,VAR.y.series]
-                                         ,VAR.long.DF$Graph
-                                         ,VAR.long.DF[,c(...)]
+                                          ,VAR.long.DF[,VAR.y.series]
+                                          ,VAR.long.DF$Graph
+                                          ,VAR.long.DF[,c(...)]
                                )
                                ,FUN = "sum"
                                ,na.rm =TRUE
@@ -2440,18 +2665,18 @@ LatticePercentLineWrapper<-function(VAR.name
         
     } else {
         
-#         second.labels.DF<-PrepareLabelsAndColors(VAR.Coloration
-#                                                  ,VAR.long.DF
-#                                                  ,VAR.facet.primary
-                                                 
-#         )  
+        #         second.labels.DF<-PrepareLabelsAndColors(VAR.Coloration
+        #                                                  ,VAR.long.DF
+        #                                                  ,VAR.facet.primary
+        
+        #         )  
         if(is.na(VAR.facet.secondary)){
             VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                    , by=cbind(VAR.long.DF[,VAR.x.variable]
-                                             ,VAR.long.DF[,VAR.y.series]
-                                             ,VAR.long.DF[,VAR.facet.primary]
-                                             ,VAR.long.DF$Graph
-                                             ,VAR.long.DF[,c(...)]
+                                              ,VAR.long.DF[,VAR.y.series]
+                                              ,VAR.long.DF[,VAR.facet.primary]
+                                              ,VAR.long.DF$Graph
+                                              ,VAR.long.DF[,c(...)]
                                    )
                                    ,FUN = "sum"
                                    ,na.rm =TRUE
@@ -2487,8 +2712,8 @@ LatticePercentLineWrapper<-function(VAR.name
             }
             
         }
-#         VAR.long.DF$second<-factor(VAR.long.DF$second,levels=second.labels.DF$variable)
-#         rm(second.labels.DF)
+        #         VAR.long.DF$second<-factor(VAR.long.DF$second,levels=second.labels.DF$variable)
+        #         rm(second.labels.DF)
     }
     
     
@@ -2547,7 +2772,7 @@ LatticePercentLineWrapper<-function(VAR.name
     #   )
     
     if(!is.na(VAR.facet.secondary)){
-    
+        
         print.figure<-print.figure+facet_grid(second ~ third
                                               , scales="free_x"
                                               , space="free_x"
@@ -2558,20 +2783,22 @@ LatticePercentLineWrapper<-function(VAR.name
         
     }
     else if (!is.na(VAR.facet.primary)){
-        if (VAR.ncol==1 | is.na(VAR.ncol)){
-        print.figure<-print.figure+facet_wrap(~ second
-                                              #                                           , labeller=Label_Wrap
-                                                                                        ,ncol=VAR.ncol
-                                              #                                           , scales="fixed", space="free_y"
-        )
-        }
-        else{
+        if ( is.na(VAR.ncol)){#VAR.ncol==1 |
             print.figure<-print.figure+facet_grid(. ~ second  ,
                                                   #                                           , labeller=Label_Wrap
-#                                                   ncol=VAR.ncol, 
+                                                  #                                                   ncol=VAR.ncol, 
                                                   scales="free_x", 
                                                   space="free_x"
             )
+            
+        }
+        else{
+            print.figure<-print.figure+facet_wrap(~ second
+                                                  #                                           , labeller=Label_Wrap
+                                                  ,ncol=VAR.ncol
+                                                  #                                           , scales="fixed", space="free_y"
+            )
+            
         }
         
     }
@@ -2624,18 +2851,18 @@ LatticeLinePlot<-function(VAR.name
                           ,VAR.facet.secondary=NA){
     
     print.figure<-LatticePercentLineWrapper(VAR.name
-                                                ,VAR.proper.name
-                                                ,VAR.X.label
-                                                ,VAR.Y.label
-                                                ,VAR.Coloration
-                                                ,VAR.long.DF
-                                                ,VAR.ncol
-                                                ,VAR.x.variable
-                                                ,VAR.y.variable
-                                                ,VAR.y.series
-                                                ,VAR.facet.primary
-                                                ,VAR.facet.secondary
-                                                ,...)
+                                            ,VAR.proper.name
+                                            ,VAR.X.label
+                                            ,VAR.Y.label
+                                            ,VAR.Coloration
+                                            ,VAR.long.DF
+                                            ,VAR.ncol
+                                            ,VAR.x.variable
+                                            ,VAR.y.variable
+                                            ,VAR.y.series
+                                            ,VAR.facet.primary
+                                            ,VAR.facet.secondary
+                                            ,...)
     
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
@@ -3747,7 +3974,7 @@ Boxplot<-function(
     )  
     
     theme_set(old.theme)
-
+    
 }
 
 

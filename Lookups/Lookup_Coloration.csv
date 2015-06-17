@@ -27,30 +27,55 @@ Dollar Type,Other Outlays (Contract Obligations - Grant Awards),Other Outlays (G
 Dollar Type,Contract Obligations / Gross Outlays,Contract Obligations / Gross Outlays,1,orange,0,0.397,0.986,0.141,219,132,3
 Dollar Type,Grant Awards / Gross Outlays,Grant Awards / Gross Outlays,2,olive green,0.17,0,0.527,0.353,137,165,78
 ,,,,,,,,,,,
+PBL,No history [0-3],No history [0-3],1,red,0,0.588,0.606,0.333,170,70,67
+PBL,Outer edge [4-5],Outer edge [4-5],2,pink,0,0.3088,0.318,0.149,217,150,148
+PBL,Uncommon [6-8],Uncommon [6-8],3,yellow,0,0.247,1,0,255,192,0
+PBL,Promising [9-10],Promising [9-10],4,blue,0.587,0.317,0,0.345,69,114,167
+PBL,1,1,1,red,0,0.588,0.606,0.333,170,70,67
+PBL,2,2,2,red,0,0.588,0.606,0.333,170,70,67
+PBL,3,3,3,red,0,0.588,0.606,0.333,170,70,67
+PBL,4,4,4,pink,0,0.3088,0.318,0.149,217,150,148
+PBL,5,5,5,pink,0,0.3088,0.318,0.149,217,150,148
+PBL,6,6,6,yellow,0,0.247,1,0,255,192,0
+PBL,7,7,7,yellow,0,0.247,1,0,255,192,0
+PBL,8,8,8,yellow,0,0.247,1,0,255,192,0
+PBL,9,9,9,blue,0.587,0.317,0,0.345,69,114,167
+PBL,10,10,10,blue,0.587,0.317,0,0.345,69,114,167
+PBL,Official PBL,Official PBL,1,olive green,0.17,0,0.527,0.353,137,165,78
+PBL,Other,Other,2,orange,0,0.397,0.986,0.141,219,132,3
+PBL,Not PBL,Not PBL,3,dark gray,0,0,0,0.498,128,128,128
+,,,,,,,,,,,
 Area,Services (Non-R&D),Services (Non-R&D),1,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
 Area,Services (All),Services (All),1,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
 Area,All Services,All Services,1,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
 Area,PAMS,PAMS,2,teal,0.629,0.131,0,0.314,65,152,175
-Area,R&D,R&D,3,purple,0.21,0.385,0,0.439,113,88,143
+Area,ICT,ICT,3,blue,0.587,0.317,0,0.345,69,114,167
 Area,ERS,ERS,4,red,0,0.588,0.606,0.333,170,70,67
 Area,FRS&C,FRS&C,5,olive green,0.17,0,0.527,0.353,137,165,78
-Area,ICT,ICT,3,blue,0.587,0.317,0,0.345,69,114,167
 Area,MED,MED,7,orange,0,0.397,0.986,0.141,219,132,3
-Area,Products,Products,8,light blue,0.29,0.184,0,0.188,147,169,207
-Area,Products (All),Products,8,light blue,0.29,0.184,0,0.188,147,169,207
-Area,Fuels,Fuels,8,dark gray,0,0,0,0.498,128,128,128
-Area,Unlabeled,Unlabeled,12,white,0,0.008,0.055,0.067,238,236,225
+Area,Other Services,Services (All),8,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
+Area,R&D,R&D,9,purple,0.21,0.385,0,0.439,113,88,143
 ,,,,,,,,,,,
-Area,Fuels,Fuels,7,indigo,,,,,75,0,130
-Area,Ships,Ships,3,Blue,,,,,0,112,192
+Area,Products,Products,10,light blue,0.29,0.184,0,0.188,147,169,207
+Area,Products (All),Products,10,light blue,0.29,0.184,0,0.188,147,169,207
 Area,Other,Other,10,peach,,,,,253,200,200
-Area,Missiles & Space,Missiles & Space,4,Light Red,,,,,209,147,146
-Area,Launchers & Munitions,Launchers & Munitions,8,dark orange,,,,,255,140,0
-Area,Ground Vehicles,Ground Vehicles,2,dark olive green,,,,,85,107,47
-Area,Engines & Power Plants,Engines & Power Plants,5,red,,,,,192,80,77
-Area,Electronics & Communications,Electronics & Communications,6,dodger blue,,,,,30,144,255
-Area,Clothing & Subsistence,Clothing & Subsistence,9,purple,,,,,179,162,199
-Area,Aircraft,Aircraft,1,light Blue,,,,,147,205,221
+Area,Aircraft,Aircraft,11,light Blue,,,,,147,205,221
+Area,Ground Vehicles,Ground Vehicles,12,dark olive green,,,,,85,107,47
+Area,Ships,Ships,13,Blue,,,,,0,112,192
+Area,Missiles & Space,Missiles & Space,14,Light Red,,,,,209,147,146
+Area,Engines & Power Plants,Engines & Power Plants,15,red,,,,,192,80,77
+Area,Electronics & Communications,Electronics & Communications,16,dodger blue,,,,,30,144,255
+Area,Launchers & Munitions,Launchers & Munitions,18,dark orange,,,,,255,140,0
+Area,Clothing & Subsistence,Clothing & Subsistence,19,purple,,,,,179,162,199
+Area,Fuels,Fuels,21,dark gray,0,0,0,0.498,128,128,128
+Area,Unlabeled,Unlabeled,25,reddish gray,0,0.008,0.055,0.067,150,120,120
+,,,,,,,,,,,
+Area,Other Products,Products,21,light blue,0.29,0.184,0,0.188,147,169,207
+Area,Launchers & Mun.,Launchers & Munitions,18,dark orange,,,,,255,140,0
+Area,Engines & Power Pl.,Engines & Power Plants,15,red,,,,,192,80,77
+Area,Electronics & Comm.,Electronics & Communications,16,dodger blue,,,,,30,144,255
+Area,Clothing & Sub.,Clothing & Subsistence,19,purple,,,,,179,162,199
+Area,Other Platform/Weap.,,13,Light Red,,,,,209,147,146
 ,,,,,,,,,,,
 Agencies,Defense,Defense,1,Olive Green,0.171,0,0.524,0.267,155,187,89
 Agencies,Energy,Energy,2,Blue,1,0.417,0,0.247,0,112,192
@@ -61,7 +86,7 @@ Agencies,State and USAID,State&AID,6,Orange,0,0.397,0.721,0.141,219,132,61
 Agencies,State and IAP,State&IAP,6,Orange,0,0.397,0.721,0.141,219,132,61
 Agencies,DHS,DHS,7,Purpleblue,0.29,0.184,0,0.188,147,169,207
 Agencies,Other Agencies,Other,8,Light Red,0,0.297,0.301,0.18,209,147,146
-Agencies,Unlabeled,Unlabeled,9,white,0,0.008,0.055,0.067,238,236,225
+Agencies,Unlabeled,Unlabeled,9,reddish gray,0,0.008,0.055,0.067,150,120,120
 ,,,,,,,,,,,
 Agencies,"Energy
 (5% 2013-2014, -6% 2012-2013)","Energy
@@ -104,7 +129,7 @@ Agencies,Other,Other,12,Light Red,0,0.297,0.301,0.18,209,147,146
 Agencies,Remaining DoD Agencies,Remaining DoD Agencies,12,Light Red,0,0.297,0.301,0.18,255,0,0
 Agencies,Additional DoD Components,Additional DoD Components,12,Light Red,0,0.297,0.301,0.18,255,0,0
 Agencies,Additional\nDoD\nComponents,Additional\nDoD\nComponents,12,Light Red,0,0.297,0.301,0.18,255,0,0
-Agencies,Unlabeled,Unlabeled,9,reddish gray,0,0.008,0.055,0.067,150,120,120
+Agencies,Unlabeled,Unlabeled,13,reddish gray,0,0.008,0.055,0.067,150,120,120
 ,,,,,,,,,,,
 Agencies,State,State,1,light Blue,0.3005,0.1872,0,0.2039,142,165,203
 Agencies,USAID,USAID,2,Orange,0,0.4018,0.726,0.1412,219,131,60
@@ -135,7 +160,7 @@ Vehicles,Letter Contract,Letter,,blue,,,,,0,0,255
 Vehicles,Other IDV,Other IDV,7,peach,0,0.196,0.2,0.098,230,185,184
 Vehicles,Unlbd. IDV,Unlbd. IDV,8,redish-white,0,0.008,0.055,0.067,255,235,255
 Vehicles,Unlbd. Awd.,Unlbd. Awd.,8,white,0,0.0084,0.0546,0.0667,238,236,225
-Vehicles,Unlabeled,Unlabeled,12,white,0,0.008,0.055,0.067,238,236,225
+Vehicles,Unlabeled,Unlabeled,12,reddish gray,0,0.008,0.055,0.067,150,120,120
 Pricing,Fixed,Fixed,1,dark blue,0.587,0.317,0,0.345,69,114,167
 Pricing,Fixed Price (Firm),Fixed Price (Firm),2,blue,0.5,0.3174,0,0.3451,50,100,150
 Pricing,Fixed Price (Other),Fixed Price (Other),3,Blue,0.192,0.105,0,0.102,185,205,229
@@ -145,7 +170,7 @@ Pricing,Cost (Other),Cost (Other),6,Red,0,0.583,0.599,0.247,192,80,77
 Pricing,Time/Mat.,Time/Mat.,7,orange,0,0.393,0.717,0.031,247,150,70
 Pricing,Other,Other,8,green,0.298,0,0.615,0.184,146,208,80
 Pricing,Combination,Combination,9,purple,0.101,0.186,0,0.22,179,162,199
-Pricing,Unlabeled,Unlabeled,10,white,0,0.008,0.055,0.067,238,236,225
+Pricing,Unlabeled,Unlabeled,10,reddish gray,0,0.008,0.055,0.067,150,120,120
 ,,,,,,,,,,,
 Contract Size,Deobligation,Deobligation,1,red,0,0.583,0.599,0.247,192,80,77
 Contract Size,Zero value,Zero value,2,pink,0,0.3088,0.318,0.149,217,150,148
@@ -157,7 +182,7 @@ Contract Size,$5 - <$25 million,$5 - <$25 million,6,Blue,0.192,0.105,0,0.102,185
 Contract Size,$25 - <$100 million,$25 - <$100 million,7,light blue,0.307,0.167,0,0.157,149,179,215
 Contract Size,$100 - <$500 million,$100 - <$500 million,8,green,0.298,0,0.615,0.184,146,208,80
 Contract Size,$500 million and greater,$500 million and greater,9,orange,0,0.393,0.717,0.031,247,150,70
-Contract Size,Unlabeled,Unlabeled,10,white,0,0.008,0.055,0.067,238,236,225
+Contract Size,Unlabeled,Unlabeled,12,reddish gray,0,0.008,0.055,0.067,150,120,120
 ,,,,,,,,,,,
 Contract.Size.Sum,Deobligation,Deobligation,1,red,0,0.583,0.599,0.247,192,80,77
 Contract.Size.Sum,Zero value,Zero value,2,pink,0,0.3088,0.318,0.149,217,150,148
@@ -169,10 +194,11 @@ Contract.Size.Sum,$5 - <$25 million,$5 - <$25 million,6,Blue,0.192,0.105,0,0.102
 Contract.Size.Sum,$25 - <$100 million,$25 - <$100 million,7,light blue,0.307,0.167,0,0.157,149,179,215
 Contract.Size.Sum,$100 - <$500 million,$100 - <$500 million,8,green,0.298,0,0.615,0.184,146,208,80
 Contract.Size.Sum,$500 million and greater,$500 million and greater,9,orange,0,0.393,0.717,0.031,247,150,70
-Contract.Size.Sum,Unlabeled,Unlabeled,10,white,0,0.008,0.055,0.067,238,236,225
+Contract.Size.Sum,Unlabeled,Unlabeled,12,reddish gray,0,0.008,0.055,0.067,150,120,120
 ,,,,,,,,,,,
 Competition,Full and Open (2+ offers),Full and Open Comp. (2+ offers),10,dark blue,0.587,0.317,0,0.345,69,114,167
 Competition,Limited Comp. (2+ offers),Limited Comp. (2+ offers),8,blue,0.5,0.3174,0,0.3451,50,100,150
+Competition,2+ Offers,2+ Offers,8,blue,0.5,0.3174,0,0.3451,50,100,150
 Competition,2 Offers,2 Offers,8,light blue,0.192,0.105,0,0.102,96,180,233
 Competition,5+ Offers,5+ Offers,10,dark blue,0.587,0.317,0,0.345,31,78,120
 Competition,3+ Offers,3+ Offers,9,blue,0.582,0.317,0,0.259,79,129,189
@@ -193,7 +219,7 @@ Vendors,Medium (<1B),Medium (<1B),3,Light Red,0,0.297,0.301,0.18,209,147,146
 Vendors,Medium (>1B),Medium (>1B),4,Dark Red,0,0.494,0.494,0.396,255,78,78
 Vendors,Large,Large,5,green,0.298,0,0.615,0.184,146,208,80
 Vendors,Large (Big 6),Large (Big 6),6,olive green,0.17,0,0.527,0.353,137,165,78
-Vendors,Unlabeled,Unlabeled,10,white,0,0.008,0.055,0.067,238,236,225
+Vendors,Unlabeled,Unlabeled,10,reddish gray,0,0.008,0.055,0.067,150,120,120
 Vendors,Always Small,Always Small,1,blue,0.582,0.317,0,0.259,79,129,189
 Vendors,Sometimes Small,Sometimes Small,1,"Purple, Accent 1",0.2099,0.3827,0,0.3647,128,100,162
 Vendors,Large: Big 6 ,Large: Big 6 ,6,olive green,0.17,0,0.527,0.353,137,165,78
@@ -301,7 +327,7 @@ PlatformPortfolio,Electronics and Communications,Electronics and Comm.,7,,0,0.34
 PlatformPortfolio,Facilities and Construction,Facilities and Construction,8,,0,0.149,0.6,0,255,217,102
 PlatformPortfolio,Other Services,Other Services,9,,0.191,0,0.382,0.22,161,199,123
 PlatformPortfolio,Other R&D and Knowledge Based,Other R&D and Know. Based,10,,0.317,0.152,0,0.098,157,195,230
-PlatformPortfolio,Unlabeled,Unlabeled,11,,0,0.299,0.439,0.043,244,171,137
+PlatformPortfolio,Unlabeled,Unlabeled,11,reddish gray,0,0.008,0.055,0.067,150,120,120
 ,,,,,,,,,,,
 Deployment,Dividends,Dividends,1,orange,0,0.397,0.986,0.141,219,132,3
 Deployment,Acquisitions,Acquisitions,4,olive green,0.17,0,0.527,0.353,137,165,78

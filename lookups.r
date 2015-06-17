@@ -851,11 +851,27 @@ standardize_variable_names<- function(VAR.df){
         colnames(VAR.df)[colnames(VAR.df)=="ServicesCategory"]<-"ProductOrServiceArea"
     }
     
+    if("ï..fiscal_year" %in% names(VAR.df))
+    {
+        colnames(VAR.df)[colnames(VAR.df)=="ï..fiscal_year"]<-"Fiscal.Year"
+    }
+    
     
     if("DEPLOYMENT" %in% names(VAR.df))
     {
         colnames(VAR.df)[colnames(VAR.df)=="DEPLOYMENT"]<-"Deployment"
     }
+
+if("PoPStatecode" %in% names(VAR.df))
+    {
+        colnames(VAR.df)[colnames(VAR.df)=="PoPStatecode"]<-"StateCode"
+    }
+    
+    if("PoPstateCode" %in% names(VAR.df))
+    {
+        colnames(VAR.df)[colnames(VAR.df)=="PoPstateCode"]<-"StateCode"
+    }
+    
     
     if("Statecode" %in% names(VAR.df))
     {
@@ -899,25 +915,25 @@ standardize_variable_names<- function(VAR.df){
     
     if("PoPStateCode" %in% names(VAR.df))
     {
-        colnames(VAR.df)[colnames(VAR.df)=="PoPStateCode"]<-"PoPstateCode"
+        colnames(VAR.df)[colnames(VAR.df)=="PoPStateCode"]<-"StateCode"
     }
     
     if("popStatecode" %in% names(VAR.df))
     {
-        colnames(VAR.df)[colnames(VAR.df)=="popStatecode"]<-"PoPstateCode"
+        colnames(VAR.df)[colnames(VAR.df)=="popStatecode"]<-"StateCode"
     }
     
     
     
     if("PoPStatecode" %in% names(VAR.df))
     {
-        colnames(VAR.df)[colnames(VAR.df)=="PoPStatecode"]<-"PoPstateCode"
+        colnames(VAR.df)[colnames(VAR.df)=="PoPStatecode"]<-"StateCode"
     }
     
     
     if("StateCode" %in% names(VAR.df))
     {
-        colnames(VAR.df)[colnames(VAR.df)=="StateCode"]<-"PoPstateCode"
+        colnames(VAR.df)[colnames(VAR.df)=="StateCode"]<-"StateCode"
     }
     
     
@@ -933,7 +949,12 @@ standardize_variable_names<- function(VAR.df){
         colnames(VAR.df)[colnames(VAR.df)=="TypeOfContractPricing"]<-"Pricing.Mechanism.Code"
     }
     
-    
+
+if("ObligatedAmount" %in% names(VAR.df))
+{
+    colnames(VAR.df)[colnames(VAR.df)=="ObligatedAmount"]<-"Action.Obligation"
+}
+
     
     
     if("SumOfobligatedAmount" %in% names(VAR.df))
@@ -1002,6 +1023,12 @@ standardize_variable_names<- function(VAR.df){
         colnames(VAR.df)[colnames(VAR.df)=="Sub_Customer"]<-"SubCustomer"
     }
     
+
+if("subcustomer" %in% names(VAR.df))
+{
+    colnames(VAR.df)[colnames(VAR.df)=="subcustomer"]<-"SubCustomer"
+}
+
     if("Majorcommandid" %in% names(VAR.df))
     {
         colnames(VAR.df)[colnames(VAR.df)=="Majorcommandid"]<-"MajorCommandID"
@@ -1571,6 +1598,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
 #     browser()
     if("Pricing.Mechanism" %in% names(VAR.df)){ 
+        VAR.df$Pricing.Mechanism[VAR.df$Pricing.Mechanism==""]<-NA
         
         #Handle NA values if present
         if(any(is.na(VAR.df$Pricing.Mechanism))){

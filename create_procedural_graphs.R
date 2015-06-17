@@ -1,4 +1,5 @@
 
+
 #*************************************Source Files*****************************************************
 Path<-"K:\\2007-01 PROFESSIONAL SERVICES\\R scripts and data\\"
 # Path<-"~\\FPDS\\R scripts and data\\"
@@ -233,8 +234,10 @@ create_procedural_graphs<-function(data.name,section.variable.name,start.year=NU
                 stringsAsFactors=FALSE
         )
         
-        # which.layout<-choice.layout$Layout.Name=="portrait single"
-        which.layout<-choice.layout$Layout.Name=="portrait small"
+        which.layout<-choice.layout$Layout.Name=="portrait single"
+#         which.layout<-choice.layout$Layout.Name=="portrait small"
+#         which.layout<-choice.layout$Layout.Name=="small wide"
+# which.layout<-choice.layout$Layout.Name=="tiny wide"
         # which.layout<-choice.layout$Layout.Name=="portrait grid"
         # which.layout<-choice.layout$Layout.Name=="single column"
         # which.layout<-choice.layout$Layout.Name=="landscape grid"
@@ -244,7 +247,7 @@ create_procedural_graphs<-function(data.name,section.variable.name,start.year=NU
         #table.text.size<-0.750
         #title.text.size<-1.15
         
-        axis.text.size<-5
+        axis.text.size<-4
         strip.text.size<-4
         legend.text.size<-4
         # table.text.size<-5.75
