@@ -1,3 +1,4 @@
+Original,Replacement
 SumOfobligatedAmount,Action.Obligation
 SingleYearObligatedAmount,Contract.Size
 SizeOfSumOfObligatedAmount,Contract.Size

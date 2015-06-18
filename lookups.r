@@ -849,8 +849,9 @@ standardize_variable_names<- function(VAR.Path,VAR.df){
         stringsAsFactors=FALSE
     )
     
-    for(x in 1:length(NameList)){
-        colnames(VAR.df)[toupper(colnames(VAR.df))==toupper(NameList$Original)]<-NameList$Replacement
+    for(x in 1:nrow(NameList)){
+        colnames(VAR.df)[toupper(colnames(VAR.df))==toupper(NameList$Original[[x]])]<-
+            NameList$Replacement[[x]]
     }
     
     VAR.df
