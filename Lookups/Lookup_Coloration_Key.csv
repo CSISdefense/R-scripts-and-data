@@ -1,0 +1,45 @@
+category,coloration.key
+Customer.detail,Agencies
+Customer.manual.subtitles,Agencies
+Customer.sum,Agencies
+ServicesCategory.detail,Area
+ServicesCategory.sum,Area
+ServicesCategory.sum,Area
+ProductsCategory.detail,Area
+ProductOrServiceArea,Area
+ProductOrServiceArea.DLA,Area
+Competition.detail,Competition
+Competition.detail,Competition
+Competition.multisum,Competition
+Competition.sum,Competition
+Competition.effective.only,Competition
+Pricing.Mechanism.detail,Pricing
+Pricing.Mechanism.sum,Pricing
+Indicator,Europe
+Vehicle.detail,Vehicles
+Vehicle.sum,Vehicles
+Vendor.Size.detail,Vendors
+Vendor.Size.sum,Vendors
+RoughUniqueEntitySize,Vendors
+comparison.dollar.type.detail,Dollar Type
+comparison.dollar.type.sum,Dollar Type
+SubFunder.Detail,Agencies
+SubCustomer.detail,Agencies
+SubCustomer.sum,Agencies
+SubCustomer.component,Agencies
+Contract.Size.detail,Contract Size
+Contract.Size.sum,Contract Size
+PlatformPortfolio,PlatformPortfolio
+PlatformPortfolio.sum,PlatformPortfolio
+PlatformPortfolio.AnD,PlatformPortfolio
+Europe,Europe
+Country,Europe
+Coloring,Europe
+Country.Proper,Europe
+European.Region,Europe
+Europe.Region.Block,Europe
+Deployment,Deployment
+Term,Performance
+AddressCat,PBL
+MaxOfIsOfficialPBL,PBL
+JointScore,PBL

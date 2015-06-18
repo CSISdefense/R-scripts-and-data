@@ -1,0 +1,24 @@
+ProductOrServiceArea,ServicesCategory.detail,ServicesCategory.sum,ProductsCategory.detail,ProductOrServiceArea.DLA,ProductOrServicesCategory.Graph
+PAMS,PAMS,Services (Non-R&D),Services,PAMS,TRUE
+R&D,R&D,R&D,R&D,Other Services,TRUE
+ERS,ERS,Services (Non-R&D),Services (Non-R&D),Other Services,TRUE
+FRS&C,FRS&C,Services (Non-R&D),Services (Non-R&D),FRS&C,TRUE
+ICT,ICT,Services (Non-R&D),Services (Non-R&D),ICT,TRUE
+MED,MED,Services (Non-R&D),Services (Non-R&D),Other Services,TRUE
+Other,Products,Products (All),Other,Other Products,TRUE
+Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE
+Products,Products,Products (All),Products (All),Products,TRUE
+Fuels,Fuels,Products (All),Fuels,Fuels,TRUE
+NULL,Unlabeled,Unlabeled,Unlabeled,NULL,FALSE
+Fuel,Fuels,Products (All),Fuels,Fuels,TRUE
+All Services,All Services,All Services,All Services,All Services,TRUE
+Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),TRUE
+Services,Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services,TRUE
+Ships,Products,Products (All),Ships,Other Platform/Weap.,TRUE
+Missiles & Space,Products,Products (All),Missiles & Space,Other Platform/Weap.,TRUE
+Launchers & Munitions,Products,Products (All),Launchers & Munitions,Other Platform/Weap.,TRUE
+Ground Vehicles,Products,Products (All),Ground Vehicles,Ground Vehicles,TRUE
+Engines & Power Plants,Products,Products (All),Engines & Power Plants,Engines & Power Pl.,TRUE
+Electronics & Communications,Products,Products (All),Electronics & Communications,Electronics & Comm.,TRUE
+Clothing & Subsistence,Products,Products (All),Clothing & Subsistence,Clothing & Sub.,TRUE
+Aircraft,Products,Products (All),Aircraft,Aircraft,TRUE
