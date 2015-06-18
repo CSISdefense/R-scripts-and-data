@@ -1,14 +1,14 @@
-Competition,Competition.detail,Competition.only.detail,Competition.sum,Competition.effective.only
-Full Competition (Multiple Offers),Full and Open (2+ offers),2 Offers,2 Offers,Effective Comp.
-Limited Competition with multiple offers,Limited Comp. (2+ offers),2 Offers,2 Offers,Effective Comp.
-Competition with single offer,1 Offer,1 Offer,1 Offer,Not Effective Comp.
-No Competition (Follow on to competed action),Follow on to Competed Action,No Comp.,No Comp.,Not Effective Comp.
-No Competition (Only One Source Exception),No Comp. (Only 1 Source),No Comp.,No Comp.,Not Effective Comp.
-No Competition (Other Exception),No Comp. (Other),No Comp.,No Comp.,Not Effective Comp.
-No Competition (Unlabeled Exception),No Comp. (Unlabeled),No Comp.,No Comp.,Not Effective Comp.
-Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled
-Competition with two offers,2 Offers,2 Offers,2 Offers,Effective Comp.
-Competition with 3-4 offers,3-4 Offers,3-4 Offers,3+ Offers,Effective Comp.
-Competition with 5+ offers,5+ Offers,5+ Offers,3+ Offers,Effective Comp.
-No competition; Overrode blank Extent Competed),No Comp. (Unlabeled),No Comp.,No Comp.,Not Effective Comp.
-Unlabeled: No competition; multiple offers; Overrode blank Extent Competed),Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Competition,Competition.detail,Competition.only.detail,Competition.sum,Competition.effective.only,Competition.multisum
+Full Competition (Multiple Offers),Full and Open (2+ offers),2 Offers,2 Offers,Effective Comp.,2+ Offers
+Limited Competition with multiple offers,Limited Comp. (2+ offers),2 Offers,2 Offers,Effective Comp.,2+ Offers
+Competition with single offer,1 Offer,1 Offer,1 Offer,Not Effective Comp.,1 Offer
+No Competition (Follow on to competed action),Follow on to Competed Action,No Comp.,No Comp.,Not Effective Comp.,No Comp.
+No Competition (Only One Source Exception),No Comp. (Only 1 Source),No Comp.,No Comp.,Not Effective Comp.,No Comp.
+No Competition (Other Exception),No Comp. (Other),No Comp.,No Comp.,Not Effective Comp.,No Comp.
+No Competition (Unlabeled Exception),No Comp. (Unlabeled),No Comp.,No Comp.,Not Effective Comp.,No Comp.
+Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Competition with two offers,2 Offers,2 Offers,2 Offers,Effective Comp.,2+ Offers
+Competition with 3-4 offers,3-4 Offers,3-4 Offers,3+ Offers,Effective Comp.,2+ Offers
+Competition with 5+ offers,5+ Offers,5+ Offers,3+ Offers,Effective Comp.,2+ Offers
+No competition; Overrode blank Extent Competed),No Comp. (Unlabeled),No Comp.,No Comp.,Not Effective Comp.,No Comp.
+Unlabeled: No competition; multiple offers; Overrode blank Extent Competed),Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled
