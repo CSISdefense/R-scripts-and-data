@@ -1,0 +1,19 @@
+Pricing.Mechanism.Classification,Pricing.Mechanism
+,Unlabeled
+COMBINATION (APPLIES TO AWARDS WHERE TWO OR MORE OF THE ABOVE APPLY),Combination
+COST NO FEE,Cost.Reimbursement.Other
+COST PLUS AWARD FEE,Cost.Reimbursement.Other
+COST PLUS FIXED FEE,Cost.Reimbursement.Other
+COST PLUS INCENTIVE FEE,Cost.Plus.Incentive
+Cost Sharing,Cost.Reimbursement.Other
+FIRM FIXED PRICE,Firm.Fixed.Price
+FIXED PRICE AWARD FEE,Fixed.Price.Other
+FIXED PRICE INCENTIVE,Fixed.Price.Other
+FIXED PRICE LEVEL OF EFFORT,Fixed.Price.Other
+FIXED PRICE REDTERMINATION,Fixed.Price.Other
+FIXED PRICE WITH ECONOMIC PRICE ADJUSTMENT,Fixed.Price.Other
+LABOR HOURS,Time.And.Materials
+NO,Unlabeled
+Order Dependent (This applies to IDVs only. IDV allows pricing arrangements to be determined seperately for each order),Other
+Other (This applies to Awards only applies to awardswhere none of the above apply),Other
+TIME AND MATERIALS,Time.And.Materials

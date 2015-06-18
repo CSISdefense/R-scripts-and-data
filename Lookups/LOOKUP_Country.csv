@@ -1,0 +1,180 @@
+Country,Destination.Country,ISR_Region,Region,ROK_Region,Tier,Country.Proper,USAorRestOfWorld,Europe Region Block,Europe Region Alignment
+Algeria,Algeria,Africa,Africa,Other,,Algeria,RestOfWorld,,
+Angola,Angola,Africa,Africa,Other,,Angola,RestOfWorld,,
+Benin,Benin,Africa,Africa,Other,,Benin,RestOfWorld,,
+Biafra,Biafra,Africa,Africa,Other,,Biafra,RestOfWorld,,
+Botswana,Botswana,Africa,Africa,Other,,Botswana,RestOfWorld,,
+Burkina Faso,Burkina Faso,Africa,Africa,Other,,Burkina Faso,RestOfWorld,,
+Cameroon,Cameroon,Africa,Africa,Other,,Cameroon,RestOfWorld,,
+Central African Republic,Central African Republic,Africa,Africa,Other,,Central African Republic,RestOfWorld,,
+Chad,Chad,Africa,Africa,Other,,Chad,RestOfWorld,,
+Congo,Congo,Africa,Africa,Other,,Congo,RestOfWorld,,
+Cote d'Ivoire,Cote d'Ivoire,Africa,Africa,Other,,Cote d'Ivoire,RestOfWorld,,
+Djibouti,Djibouti,Africa,Africa,Other,,Djibouti,RestOfWorld,,
+DRC (Zaire),DRC (Zaire),Africa,Africa,Other,,DRC (Zaire),RestOfWorld,,
+Equatorial Guinea,Equatorial Guinea,Africa,Africa,Other,,Equatorial Guinea,RestOfWorld,,
+Eritrea,Eritrea,Africa,Africa,Other,,Eritrea,RestOfWorld,,
+Ethiopia,Ethiopia,Africa,Africa,Other,,Ethiopia,RestOfWorld,,
+Gabon,Gabon,Africa,Africa,Other,,Gabon,RestOfWorld,,
+Ghana,Ghana,Africa,Africa,Other,,Ghana,RestOfWorld,,
+Guinea,Guinea,Africa,Africa,Other,,Guinea,RestOfWorld,,
+Kenya,Kenya,Africa,Africa,Other,,Kenya,RestOfWorld,,
+Lesotho,Lesotho,Africa,Africa,Other,,Lesotho,RestOfWorld,,
+Liberia,Liberia,Africa,Africa,Other,,Liberia,RestOfWorld,,
+Madagascar,Madagascar,Africa,Africa,Other,,Madagascar,RestOfWorld,,
+Malawi,Malawi,Africa,Africa,Other,,Malawi,RestOfWorld,,
+Mali,Mali,Africa,Africa,Other,,Mali,RestOfWorld,,
+Mauritania,Mauritania,Africa,Africa,Other,,Mauritania,RestOfWorld,,
+Mauritius,Mauritius,Africa,Africa,Other,,Mauritius,RestOfWorld,,
+Morocco,Morocco,Africa,Africa,Other,,Morocco,RestOfWorld,,
+Namibia,Namibia,Africa,Africa,Other,,Namibia,RestOfWorld,,
+Niger,Niger,Africa,Africa,Other,,Niger,RestOfWorld,,
+Nigeria,Nigeria,Africa,Africa,Other,,Nigeria,RestOfWorld,,
+Rwanda,Rwanda,Africa,Africa,Other,,Rwanda,RestOfWorld,,
+Senegal,Senegal,Africa,Africa,Other,,Senegal,RestOfWorld,,
+Seychelles,Seychelles,Africa,Africa,Other,,Seychelles,RestOfWorld,,
+Sierra Leone,Sierra Leone,Africa,Africa,Other,,Sierra Leone,RestOfWorld,,
+Somalia,Somalia,Africa,Africa,Other,,Somalia,RestOfWorld,,
+South Africa,South Africa,Africa,Africa,Other,,South Africa,RestOfWorld,,
+Sudan,Sudan,Africa,Africa,Other,,Sudan,RestOfWorld,,
+Swaziland,Swaziland,Africa,Africa,Other,,Swaziland,RestOfWorld,,
+Tanzania,Tanzania,Africa,Africa,Other,,Tanzania,RestOfWorld,,
+Togo,Togo,Africa,Africa,Other,,Togo,RestOfWorld,,
+Uganda,Uganda,Africa,Africa,Other,,Uganda,RestOfWorld,,
+Zimbabwe,Zimbabwe,Africa,Africa,Other,,Zimbabwe,RestOfWorld,,
+Afghanistan,Afghanistan,Asia,Asia,Asia (Other),,Afghanistan,RestOfWorld,,
+Australia,Australia,Asia,Asia,Asia (Other),,Australia,RestOfWorld,,
+Bangladesh,Bangladesh,Asia,Asia,Asia (Other),,Bangladesh,RestOfWorld,,
+Brunei,Brunei,Asia,Asia,Asia (Other),,Brunei,RestOfWorld,,
+Cambodia,Cambodia,Asia,Asia,Asia (Other),,Cambodia,RestOfWorld,,
+China,China,Asia,Asia,Asia (Other),,China,RestOfWorld,,
+Fiji,Fiji,Asia,Asia,Asia (Other),,Fiji,RestOfWorld,,
+India,India,Asia,Asia,Asia (Other),,India,RestOfWorld,,
+Indonesia,Indonesia,Asia,Asia,Indonesia,,Indonesia,RestOfWorld,,
+Japan,Japan,Asia,Asia,Asia (Other),,Japan,RestOfWorld,,
+Kazakhstan,Kazakhstan,Asia,Asia,Asia (Other),,Kazakhstan,RestOfWorld,,
+Laos,Laos,Asia,Asia,Asia (Other),,Laos,RestOfWorld,,
+Malaysia,Malaysia,Asia,Asia,Asia (Other),,Malaysia,RestOfWorld,,
+Marshall Islands,Marshall Islands,Asia,Asia,Asia (Other),,Marshall Islands,RestOfWorld,,
+Micronesia,Micronesia,Asia,Asia,Asia (Other),,Micronesia,RestOfWorld,,
+Myanmar,Myanmar,Asia,Asia,Asia (Other),,Myanmar,RestOfWorld,,
+Nepal,Nepal,Asia,Asia,Asia (Other),,Nepal,RestOfWorld,,
+New Zealand,New Zealand,Asia,Asia,Asia (Other),,New Zealand,RestOfWorld,,
+North Korea,North Korea,Asia,Asia,Asia (Other),,North Korea,RestOfWorld,,
+Pakistan,Pakistan,Asia,Asia,Asia (Other),,Pakistan,RestOfWorld,,
+Palau,Palau,Asia,Asia,Asia (Other),,Palau,RestOfWorld,,
+Papua New Guinea,Papua New Guinea,Asia,Asia,Asia (Other),,Papua New Guinea,RestOfWorld,,
+Philippines,Philippines,Asia,Asia,Asia (Other),,Philippines,RestOfWorld,,
+Singapore,Singapore,Asia,Asia,Asia (Other),,Singapore,RestOfWorld,,
+South Korea,South Korea,Asia,Asia,Asia (Other),,South Korea,RestOfWorld,,
+South Vietnam,South Vietnam,Asia,Asia,Asia (Other),,South Vietnam,RestOfWorld,,
+Sri Lanka,Sri Lanka,Asia,Asia,Asia (Other),,Sri Lanka,RestOfWorld,,
+Taiwan,Taiwan,Asia,Asia,Asia (Other),,Taiwan,RestOfWorld,,
+Thailand,Thailand,Asia,Asia,Asia (Other),,Thailand,RestOfWorld,,
+Tonga,Tonga,Asia,Asia,Asia (Other),,Tonga,RestOfWorld,,
+Viet Nam,Viet Nam,Asia,Asia,Asia (Other),,Viet Nam,RestOfWorld,,
+Albania,Albania,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Albania,RestOfWorld,Other Central and Eastern Europe,Non-Aligned Eastern Europe
+Austria,Austria,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Austria,RestOfWorld,Other Western Europe,Western Europe
+Belgium,Belgium,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Belgium,RestOfWorld,Other Western Europe,Western Europe
+Bosnia & Herzegovina,Bosnia-Herzegovina,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Bos. & Herz.,RestOfWorld,Other Central and Eastern Europe,Non-Aligned Eastern Europe
+Bulgaria,Bulgaria,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Bulgaria,RestOfWorld,Other Central and Eastern Europe,Eastern Europe
+Croatia,Croatia,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Croatia,RestOfWorld,Other Central and Eastern Europe,Non-Aligned Eastern Europe
+Cyprus,Cyprus,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Cyprus,RestOfWorld,Southern Europe,Southern Europe
+Czech Republic,Czech Republic,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Czech Republic,RestOfWorld,Visegrad Four,Eastern Europe
+Denmark,Denmark,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Denmark,RestOfWorld,Northern Europe,Northern Europe
+Estonia,Estonia,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Estonia,RestOfWorld,Baltic Region,Eastern Europe
+Finland,Finland,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Finland,RestOfWorld,Northern Europe,Northern Europe
+France,France,France/Germany/UK,Europe & Russia,France/Germany/UK,First Tier,France,RestOfWorld,France,France
+Georgia,Georgia,Europe (All Other),Europe & Russia,Europe & Russia (Other),,Georgia,RestOfWorld,,
+Germany,Germany (FRG),France/Germany/UK,Europe & Russia,France/Germany/UK,First Tier,Germany,RestOfWorld,Germany,Germany
+Greece,Greece,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Greece,RestOfWorld,Southern Europe,Southern Europe
+Hungary,Hungary,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Hungary,RestOfWorld,Visegrad Four,Eastern Europe
+Ireland,Ireland,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Ireland,RestOfWorld,Other Western Europe,Western Europe
+Italy,Italy,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Italy,RestOfWorld,Southern Europe,Southern Europe
+Latvia,Latvia,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Latvia,RestOfWorld,Baltic Region,Eastern Europe
+Lithuania,Lithuania,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Lithuania,RestOfWorld,Baltic Region,Eastern Europe
+Luxembourg,Luxembourg,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Luxembourg,RestOfWorld,Other Western Europe,Western Europe
+Macedonia,Macedonia,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Macedonia,RestOfWorld,Other Central and Eastern Europe,Non-Aligned Eastern Europe
+Malta,Malta,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Malta,RestOfWorld,Southern Europe,Southern Europe
+Moldova,Moldova,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Moldova,RestOfWorld,Other Central and Eastern Europe,Non-Aligned Eastern Europe
+Montenegro,Montenegro,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Montenegro,RestOfWorld,Other Central and Eastern Europe,Non-Aligned Eastern Europe
+Netherlands,Netherlands,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Netherlands,RestOfWorld,Other Western Europe,Western Europe
+Norway,Norway,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Norway,RestOfWorld,Northern Europe,Northern Europe
+Poland,Poland,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Poland,RestOfWorld,Visegrad Four,Eastern Europe
+Portugal,Portugal,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Portugal,RestOfWorld,Southern Europe,Southern Europe
+Romania,Romania,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Romania,RestOfWorld,Other Central and Eastern Europe,Eastern Europe
+Russia,Russia,Europe (All Other),Europe & Russia,Europe & Russia (Other),,Russia,RestOfWorld,,
+Serbia*,Serbia,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Serbia,RestOfWorld,Other Central and Eastern Europe,Non-Aligned Eastern Europe
+Slovenia,Slovenia,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Slovenia,RestOfWorld,Other Central and Eastern Europe,Eastern Europe
+Slovakia,Slovakia,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Slovakia,RestOfWorld,Visegrad Four,Eastern Europe
+Spain,Spain,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Spain,RestOfWorld,Southern Europe,Southern Europe
+Sweden,Sweden,Europe (All Other),Europe & Russia,Europe & Russia (Other),First Tier,Sweden,RestOfWorld,Northern Europe,Northern Europe
+Switzerland,Switzerland,Europe (All Other),Europe & Russia,Europe & Russia (Other),Second Tier,Switzerland,RestOfWorld,Other Western Europe,Western Europe
+Turkey,Turkey,Europe (All Other),Europe & Russia,Turkey,First Tier,Turkey,RestOfWorld,Southern Europe,Southern Europe
+United Kingdom,UK,France/Germany/UK,Europe & Russia,France/Germany/UK,First Tier,United Kingdom,RestOfWorld,United Kingdom,United Kingdom
+Ukraine,Ukraine,Europe (All Other),Europe & Russia,Europe & Russia (Other),,Ukraine,RestOfWorld,,
+Yugoslavia,Yugoslavia,Europe (All Other),Europe & Russia,Europe & Russia (Other),,Yugoslavia,RestOfWorld,,
+Azerbaijan,Azerbaijan,Other,Middle East,Other,,Azerbaijan,RestOfWorld,,
+Bahrain,Bahrain,Other,Middle East,Other,,Bahrain,RestOfWorld,,
+Egypt,Egypt,Other,Middle East,Other,,Egypt,RestOfWorld,,
+Iran,Iran,Other,Middle East,Other,,Iran,RestOfWorld,,
+Israel,Israel,Other,Middle East,Other,,Israel,RestOfWorld,,
+Jordan,Jordan,Other,Middle East,Other,,Jordan,RestOfWorld,,
+Kuwait,Kuwait,Other,Middle East,Other,,Kuwait,RestOfWorld,,
+Lebanon,Lebanon,Other,Middle East,Other,,Lebanon,RestOfWorld,,
+Libya,Libya,Other,Middle East,Other,,Libya,RestOfWorld,,
+North Yemen,North Yemen,Other,Middle East,Other,,North Yemen,RestOfWorld,,
+Oman,Oman,Other,Middle East,Other,,Oman,RestOfWorld,,
+Qatar,Qatar,Other,Middle East,Other,,Qatar,RestOfWorld,,
+Saudi Arabia,Saudi Arabia,Other,Middle East,Other,,Saudi Arabia,RestOfWorld,,
+Syria,Syria,Other,Middle East,Other,,Syria,RestOfWorld,,
+Tunisia,Tunisia,Other,Middle East,Other,,Tunisia,RestOfWorld,,
+UAE,UAE,Other,Middle East,Other,,UAE,RestOfWorld,,
+Yemen,Yemen,Other,Middle East,Other,,Yemen,RestOfWorld,,
+Afghanistan/Mujahideen,Afghanistan/Mujahideen,Other,Nonstate Actor,Other,,Afghanistan/Mujahideen,RestOfWorld,,
+Angola/UNITA,Angola/UNITA,Other,Nonstate Actor,Other,,Angola/UNITA,RestOfWorld,,
+Cuba/Anti-Castro rebels,Cuba/Anti-Castro rebels,Other,Nonstate Actor,Other,,Cuba/Anti-Castro rebels,RestOfWorld,,
+Guatemala/Armas,Guatemala/Armas,Other,Nonstate Actor,Other,,Guatemala/Armas,RestOfWorld,,
+Haiti/rebels,Haiti/rebels,Other,Nonstate Actor,Other,,Haiti/rebels,RestOfWorld,,
+Indonesia/rebels,Indonesia/rebels,Other,Nonstate Actor,Other,,Indonesia/rebels,RestOfWorld,,
+Iraq,Iraq,Other,Nonstate Actor,Other,,Iraq,RestOfWorld,,
+Lebanon/LF,Lebanon/LF,Other,Nonstate Actor,Other,,Lebanon/LF,RestOfWorld,,
+Lebanon/SLA,Lebanon/SLA,Other,Nonstate Actor,Other,,Lebanon/SLA,RestOfWorld,,
+NATO,NATO,Europe (All Other),Europe & Russia,Europe & Russia (Other),,NATO,RestOfWorld,,
+Nicaragua/Contras,Nicaragua/Contras,Other,Nonstate Actor,Other,,Nicaragua/Contras,RestOfWorld,,
+Reg. Sec. System,Reg. Sec. System,Other,Nonstate Actor,Other,,Reg. Sec. System,RestOfWorld,,
+United Nations,United Nations,Other,Nonstate Actor,Other,,United Nations,RestOfWorld,,
+Unknown country,Unknown country,Unknown,Unknown,Unknown,,Unknown country,RestOfWorld,,
+Argentina,Argentina,Americas (Other),The Americas & Caribbean,Other,,Argentina,RestOfWorld,,
+Aruba,Aruba,Americas (Other),The Americas & Caribbean,Other,,Aruba,RestOfWorld,,
+Bahamas,Bahamas,Americas (Other),The Americas & Caribbean,Other,,Bahamas,RestOfWorld,,
+Barbados,Barbados,Americas (Other),The Americas & Caribbean,Other,,Barbados,RestOfWorld,,
+Belize,Belize,Americas (Other),The Americas & Caribbean,Other,,Belize,RestOfWorld,,
+Bolivia,Bolivia,Americas (Other),The Americas & Caribbean,Other,,Bolivia,RestOfWorld,,
+Brazil,Brazil,Americas (Other),The Americas & Caribbean,Other,,Brazil,RestOfWorld,,
+Canada,Canada,Americas (Other),The Americas & Caribbean,Other,,Canada,RestOfWorld,,
+Chile,Chile,Americas (Other),The Americas & Caribbean,Other,,Chile,RestOfWorld,,
+Colombia,Colombia,Americas (Other),The Americas & Caribbean,Other,,Colombia,RestOfWorld,,
+Costa Rica,Costa Rica,Americas (Other),The Americas & Caribbean,Other,,Costa Rica,RestOfWorld,,
+Cuba,Cuba,Americas (Other),The Americas & Caribbean,Other,,Cuba,RestOfWorld,,
+Dominican Republic,Dominican Republic,Americas (Other),The Americas & Caribbean,Other,,Dominican Republic,RestOfWorld,,
+Ecuador,Ecuador,Americas (Other),The Americas & Caribbean,Other,,Ecuador,RestOfWorld,,
+El Salvador,El Salvador,Americas (Other),The Americas & Caribbean,Other,,El Salvador,RestOfWorld,,
+Guatemala,Guatemala,Americas (Other),The Americas & Caribbean,Other,,Guatemala,RestOfWorld,,
+Guyana,Guyana,Americas (Other),The Americas & Caribbean,Other,,Guyana,RestOfWorld,,
+Haiti,Haiti,Americas (Other),The Americas & Caribbean,Other,,Haiti,RestOfWorld,,
+Honduras,Honduras,Americas (Other),The Americas & Caribbean,Other,,Honduras,RestOfWorld,,
+Jamaica,Jamaica,Americas (Other),The Americas & Caribbean,Other,,Jamaica,RestOfWorld,,
+Mexico,Mexico,Americas (Other),The Americas & Caribbean,Other,,Mexico,RestOfWorld,,
+Nicaragua,Nicaragua,Americas (Other),The Americas & Caribbean,Other,,Nicaragua,RestOfWorld,,
+Panama,Panama,Americas (Other),The Americas & Caribbean,Other,,Panama,RestOfWorld,,
+Paraguay,Paraguay,Americas (Other),The Americas & Caribbean,Other,,Paraguay,RestOfWorld,,
+Peru,Peru,Americas (Other),The Americas & Caribbean,Other,,Peru,RestOfWorld,,
+St Kitts and Nevis,St Kitts and Nevis,Americas (Other),The Americas & Caribbean,Other,,St Kitts and Nevis,RestOfWorld,,
+St Vincent,St Vincent,Americas (Other),The Americas & Caribbean,Other,,St Vincent,RestOfWorld,,
+Suriname,Suriname,Americas (Other),The Americas & Caribbean,Other,,Suriname,RestOfWorld,,
+Trinidad & Tobago,Trinidad & Tobago,Americas (Other),The Americas & Caribbean,Other,,Trinidad & Tobago,RestOfWorld,,
+Uruguay,Uruguay,Americas (Other),The Americas & Caribbean,Other,,Uruguay,RestOfWorld,,
+USA,USA,United States,United States,United States,,United States,USA,,
+Venezuela,Venezuela,Americas (Other),The Americas & Caribbean,Other,,Venezuela,RestOfWorld,,
+Total,Total,Total,Total,Total,Total,Total,Total,Total,Total

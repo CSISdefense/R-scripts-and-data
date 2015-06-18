@@ -1,0 +1,186 @@
+figure number,figure title,legend name,form,order,which.file,append legend,section.variable,x.variable,y.variable,facet.variable,coloration.override.variable,x.axis.title,y.axis.title,percentage.y.axis.title,data file,file type,section.compare,subset.variable,subset.criteria,Layout Name,wide.section.variable,lookup.series.variable,subset.agency.variable,use.all.agencies
+,Competition,Competition,chart,2,2,FALSE,MajorCommandCode,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Office_SP_DefenseCompetitionHistoryBucketPlatformSubCustomerMajorCommand.csv,SQL output,1,,,,,,Customer,FALSE
+,Competition,Competition,chart,2,2,FALSE,StateCode,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Location_SP_DefenseCompetitionLocationHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Services vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pService,pEffectiveComp,,,% Services Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent R&D vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pRnD,pEffectiveComp,,,% R&D Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Products vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pProduct,pEffectiveComp,,,% Products Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Land vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pLand,pEffectiveComp,,,% Land Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Air vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pAir,pEffectiveComp,,,% Air Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Vessel vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pVessel,pEffectiveComp,,,% Vessel Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Missile & Space vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pMnS,pEffectiveComp,,,% Missiles & Space Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Electronics & Communcations vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pEnC,pEffectiveComp,,,% Electronics & Communications Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Weapons & Ammunition vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pWnA,pEffectiveComp,,,% Weapons & Ammunition Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Cost Plus vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pCostPlus,pEffectiveComp,,,% Cost Plus Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Fixed Price vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pFixed,pEffectiveComp,,,% Fixed Price Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Incentive Fee vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pIncentFee,pEffectiveComp,,,% Incentive Fee Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Average Contract Size vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,avSize,pEffectiveComp,,,Avegae Size of Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent 25M or Less vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,p25orLess,pEffectiveComp,,,% 25M or Less Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent 25M to 100M vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,p25to100,pEffectiveComp,,,% 25M to 100M Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent 100M to 500M vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,p100to500,pEffectiveComp,,,% 100M to 500M Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent 500M or Over vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,p500orMore,pEffectiveComp,,,% 500M or More Contracts (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Award Contract Vehicle vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,pAward,pEffectiveComp,,,% Award Contract Vehicles (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent IDV Contract Vehicle vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,Overall,pIDV,pEffectiveComp,,,% IDV Contract Vehicles (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Single IDV Contract Vehicle vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,pSingleIDV,pEffectiveComp,,,% Single IDV Contract Vehicles (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,"Percent Multiple IDV Contract Vehicle vs. Effective Competition by Major Command",,scatterplot,2,2,FALSE,,pMultipleIDV,pEffectiveComp,,,% Multiple IDV Contract Vehicles (2013 $-weighted),% Multioffer Competition ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,Percent Services vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pService,lwavOffers,,,% Services Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,1,,,,,,Customer,FALSE
+,Percent R&D vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pRnD,lwavOffers,,,% R&D Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,2,,,,,,Customer,FALSE
+,Percent Products vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pProduct,lwavOffers,,,% Products Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,3,,,,,,Customer,FALSE
+,Percent Land vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pLand,lwavOffers,,,% Land Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,4,,,,,,Customer,FALSE
+,Percent Air vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pAir,lwavOffers,,,% Air Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,5,,,,,,Customer,FALSE
+,Percent Vessel vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pVessel,lwavOffers,,,% Vessel Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,6,,,,,,Customer,FALSE
+,Percent Missile & Space vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pMnS,lwavOffers,,,% Missiles & Space Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,7,,,,,,Customer,FALSE
+,Percent Electronics & Communcations vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pEnC,lwavOffers,,,% Electronics & Communications Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,8,,,,,,Customer,FALSE
+,Percent Weapons & Ammunition vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pWnA,lwavOffers,,,% Weapons & Ammunition Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,9,,,,,,Customer,FALSE
+,Percent Cost Plus vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pCostPlus,lwavOffers,,,% Cost Plus Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,10,,,,,,Customer,FALSE
+,Percent Fixed Price vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pFixed,lwavOffers,,,% Fixed Price Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,11,,,,,,Customer,FALSE
+,Percent Incentive Fee vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pIncentFee,lwavOffers,,,% Incentive Fee Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,12,,,,,,Customer,FALSE
+,Average Contract Size vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,avSize,lwavOffers,,,Avegae Size of Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,13,,,,,,Customer,FALSE
+,Percent 25M or Less vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,p25orLess,lwavOffers,,,% 25M or Less Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,14,,,,,,Customer,FALSE
+,Percent 25M to 100M vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,p25to100,lwavOffers,,,% 25M to 100M Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,15,,,,,,Customer,FALSE
+,Percent 100M to 500M vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,p100to500,lwavOffers,,,% 100M to 500M Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,16,,,,,,Customer,FALSE
+,Percent 500M or Over vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,p500orMore,lwavOffers,,,% 500M or More Contracts (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,17,,,,,,Customer,FALSE
+,Percent Award Contract Vehicle vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,pAward,lwavOffers,,,% Award Contract Vehicles (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,18,,,,,,Customer,FALSE
+,Percent IDV Contract Vehicle vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,Overall,pIDV,lwavOffers,,,% IDV Contract Vehicles (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,19,,,,,,Customer,FALSE
+,Percent Single IDV Contract Vehicle vs. Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,pSingleIDV,lwavOffers,,,% Single IDV Contract Vehicles (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,20,,,,,,Customer,FALSE
+,Percent Multiple IDV Contract Vehicle vs.Number of Offers Received by Major Command,,scatterplot,2,2,FALSE,,pMultipleIDV,lwavOffers,,,% Multiple IDV Contract Vehicles (2013 $-weighted),Log of Average Number of Offers Received ($-weighted),,mcc_competition_combined.csv,SQL output,21,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+4.01,,,,,,,,,,,,,,,,,,,,,,,,
+4.02,,,,,,,,,,,,,,,,,,,,,,,,
+4.03,,,,,,,,,,,,,,,,,,,,,,,,
+4.04,,,,,,,,,,,,,,,,,,,,,,,,
+4.05,,,,,,,,,,,,,,,,,,,,,,,,
+4.06,,,,,,,,,,,,,,,,,,,,,,,,
+4.07,,,,,,,,,,,,,,,,,,,,,,,,
+4.08,,,,,,,,,,,,,,,,,,,,,,,,
+4.09,,,,,,,,,,,,,,,,,,,,,,,,
+4.1,,,,,,,,,,,,,,,,,,,,,,,,
+4.11,,,,,,,,,,,,,,,,,,,,,,,,

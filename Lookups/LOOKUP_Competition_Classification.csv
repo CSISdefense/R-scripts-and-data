@@ -1,0 +1,56 @@
+Competed.Criteria,Fair.Competed,Extent.Competed.Sum,Offers,False.Positive,False.Negative,Updated.Competition,Original.Competition
+Extent Competed,Competed,Competed,Multiple,No,No,Multiple Offers,Multiple Offers
+Extent Competed,Uncompeted,Competed,Multiple,No,No,Multiple Offers,Multiple Offers
+Extent Competed,Unlabeled,Competed,Multiple,No,No,Multiple Offers,Multiple Offers
+Fair Opportunity,Competed,Competed,Multiple,No,No,Multiple Offers,Multiple Offers
+Unlisted,Competed,Competed,Multiple,No,No,Multiple Offers,Multiple Offers
+Fair Opportunity,Competed,Uncompeted,Multiple,No,Yes,Multiple Offers,Unlabeled
+Unlisted,Competed,Unlabeled,Multiple,No,Yes,Multiple Offers,Unlabeled
+Extent Competed,Uncompeted,Uncompeted,Null or Zero,No,No,No Competition,No Competition
+Extent Competed,Unlabeled,Uncompeted,Null or Zero,No,No,No Competition,No Competition
+Fair Opportunity,Uncompeted,Uncompeted,Null or Zero,No,No,No Competition,No Competition
+Unlisted,Uncompeted,Uncompeted,Null or Zero,No,No,No Competition,No Competition
+Extent Competed,Uncompeted,Uncompeted,One,No,No,No Competition,No Competition
+Extent Competed,Unlabeled,Uncompeted,One,No,No,No Competition,No Competition
+Fair Opportunity,Uncompeted,Uncompeted,One,No,No,No Competition,No Competition
+Fair Opportunity,Uncompeted,Competed,One,Yes,No,No Competition,Single Offer
+Unlisted,Uncompeted,Competed,One,Yes,No,No Competition,Single Offer
+Fair Opportunity,Uncompeted,Competed,Null or Zero,No,No,No Competition,Unlabeled
+Fair Opportunity,Uncompeted,Unlabeled,Null or Zero,No,No,No Competition,Unlabeled
+Fair Opportunity,Competed,Uncompeted,One,No,Yes,Single Offer,No Competition
+Extent Competed,Competed,Competed,One,No,No,Single Offer,Single Offer
+Extent Competed,Uncompeted,Competed,One,No,No,Single Offer,Single Offer
+Extent Competed,Unlabeled,Competed,One,No,No,Single Offer,Single Offer
+Fair Opportunity,Competed,Competed,One,No,No,Single Offer,Single Offer
+Unlisted,Competed,Competed,One,No,No,Single Offer,Single Offer
+Fair Opportunity,Competed,Unlabeled,Multiple,No,Yes,Single Offer,Unlabeled
+Fair Opportunity,Competed,Unlabeled,One,No,Yes,Single Offer,Unlabeled
+Fair Opportunity,Uncompeted,Competed,Multiple,Yes,No,Unlabeled,Multiple Offers
+Fair Opportunity,Unlabeled,Competed,Multiple,Yes,No,Unlabeled,Multiple Offers
+Unlisted,Uncompeted,Competed,Multiple,Yes,No,Unlabeled,Multiple Offers
+Unlisted,Unlabeled,Competed,Multiple,Yes,No,Unlabeled,Multiple Offers
+Fair Opportunity,Competed,Uncompeted,Null or Zero,No,Yes,Unlabeled,No Competition
+Fair Opportunity,Unlabeled,Uncompeted,Null or Zero,No,No,Unlabeled,No Competition
+Unlisted,Unlabeled,Uncompeted,Null or Zero,No,No,Unlabeled,No Competition
+Fair Opportunity,Unlabeled,Uncompeted,One,No,No,Unlabeled,No Competition
+Unlisted,Unlabeled,Uncompeted,One,No,No,Unlabeled,No Competition
+Fair Opportunity,Unlabeled,Competed,One,Yes,No,Unlabeled,Single Offer
+Unlisted,Unlabeled,Competed,One,No,No,Unlabeled,Single Offer
+Extent Competed,Unlabeled,Competed,Null or Zero,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Competed,Competed,Null or Zero,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Unlabeled,Competed,Null or Zero,No,No,Unlabeled,Unlabeled
+Unlisted,Unlabeled,Competed,Null or Zero,No,No,Unlabeled,Unlabeled
+Extent Competed,Uncompeted,Uncompeted,Multiple,No,No,Unlabeled,Unlabeled
+Extent Competed,Unlabeled,Uncompeted,Multiple,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Uncompeted,Uncompeted,Multiple,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Unlabeled,Uncompeted,Multiple,No,No,Unlabeled,Unlabeled
+Unlisted,Unlabeled,Uncompeted,Multiple,No,No,Unlabeled,Unlabeled
+Extent Competed,Unlabeled,Unlabeled,Multiple,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Unlabeled,Unlabeled,Multiple,No,No,Unlabeled,Unlabeled
+Extent Competed,Unlabeled,Unlabeled,Null or Zero,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Competed,Unlabeled,Null or Zero,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Unlabeled ,Unlabeled,Null or Zero,No,No,Unlabeled,Unlabeled
+Unlisted,Unlabeled,Unlabeled,Null or Zero,No,No,Unlabeled,Unlabeled
+Extent Competed,Unlabeled,Unlabeled,One,No,No,Unlabeled,Unlabeled
+Fair Opportunity,Unlabeled,Unlabeled,One,No,No,Unlabeled,Unlabeled
+Unlisted,Unlabeled,Unlabeled,One,No,No,Unlabeled,Unlabeled

@@ -1,0 +1,7 @@
+Contractor.Size,Contractor.Size.detail,Contractor.Size.sum,Contractor.Size.correlation
+Small,Small,Small,Small.Medium
+Medium.lt.1B,Medium (<1B),Medium,Small.Medium
+Medium.gt.1B,Medium (>1B),Medium,Small.Medium
+Large,Large,Large,Large
+Large.Big6,Large (Big 6),Large (Big 6),Large
+Large.Big6.JV,Large,Large,Large

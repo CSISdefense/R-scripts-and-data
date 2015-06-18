@@ -1,0 +1,293 @@
+figure number,figure title,legend name,form,order,which.file,append legend,section.variable,x.variable,x.axis.title,y.variable,y.axis.title,facet.variable,coloration.override.variable,percentage.y.axis.title,data file,file type,section.compare,subset.variable,subset.criteria,Layout Name,wide.section.variable,lookup.series.variable,subset.agency.variable,use.all.agencies
+,"Expected Duration of Contracts in Months
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedMonths,Initial Period of Performance in Months,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,"Expected Duration of Contracts in Months
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,CategoryOfUnmodifiedMonths,Initial Period of Performance in Months,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,"Actual Duration of Contracts in Months
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,CurrentMonths,Final Period of Performance in Months,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,"Actual Duration of Contracts in Months
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,CategoryOfCurrentMonths,Final Period of Performance in Months,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,"Expected Duration of Contracts in Months
+(2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedMonths,Initial Period of Performance in Months,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,"Expected Duration of Contracts in Months
+(2000-2013)",,histogram,2,2,FALSE,Overall,CategoryOfUnmodifiedMonths,Initial Period of Performance in Months,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,"Actual Duration of Contracts in Months
+(2000-2013)",,histogram,2,2,FALSE,Overall,CurrentMonths,Final Period of Performance in Months,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,"Actual Duration of Contracts in Months
+(2000-2013)",,histogram,2,2,FALSE,Overall,CategoryOfCurrentMonths,Final Period of Performance in Months,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+2.01,"Number of Terminated Contracts
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+2.02,"Number of Changed Contracts
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+2.03,"Distribution of Change Orders for Changed Contracts
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+2.04,"Distribution of Change Orders for Changed Contracts 
+by Pricing Mechanism (2000-2013)",,boxplot,2,2,FALSE,Overall,IsFixedPrice,Pricing Mechanism,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+2.05,"Distribution of Potential Change Cost for Changed Contracts 
+by Pricing Mechanism (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+2.06,"Distribution of Potential Change Cost for Changed Contracts 
+by Pricing Mechanism (2007-2013)",,boxplot,2,2,FALSE,Overall,IsFixedPrice,Pricing Mechanism,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+2.07,"Initial Extent of Competition 
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,IsSomeCompetition,Initial Extent of Competition Category,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+2.08,"Categories of Number of Offers for Competed Contracts 
+by Pricing Mechanism (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,IsFixedPrice,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+2.09,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Pricing Mechanism (2000-2013)",,boxplot,2,2,FALSE,Overall,IsFixedPrice,Pricing Mechanism,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.01,"Number of Terminated Contracts
+by Defense Component (2000-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,SubCustomer,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.02,"Number of Changed Contracts
+by Defense Component (2000-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,SubCustomer,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.03,"Distribution of Change Orders for Changed Contracts
+by Defense Component (2000-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,SubCustomer,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.04,"Distribution of Change Orders for Changed Contracts 
+by Defense Component (2000-2013)",,boxplot,2,2,FALSE,Overall,SubCustomer,Defense Component,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.05,"Distribution of Potential Change Cost for Changed Contracts 
+by Defense Component (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,SubCustomer,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.06,"Distribution of Potential Change Cost for Changed Contracts 
+by Defense Component (2007-2013)",,boxplot,2,2,FALSE,Overall,SubCustomer,Defense Component,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.07,"Initial Extent of Competition 
+by Defense Component (2000-2013)",,histogram,2,2,FALSE,Overall,IsSomeCompetition,Initial Extent of Competition Category,,Number of Contracts,SubCustomer,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.08,"Categories of Number of Offers for Competed Contracts 
+by Defense Component (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,SubCustomer,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+3.09,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Defense Component (2000-2013)",,boxplot,2,2,FALSE,Overall,SubCustomer,Defense Component,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.1,"Number of Contracts and Pricing Mechanism 
+by Major Command (2000-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,TotalCount,Number of Contracts,,,,office_MajorCommandID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.11,"Percentage of Terminated Contracts and Pricing Mechanism
+by Major Command (2000-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,pTerminated,% Terminated,,,,office_MajorCommandID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.12,"Percentage of Changed Contracts and Pricing Mechanism
+by Major Command (2000-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,pChanged,% Changed Contracts,,,,office_MajorCommandID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.13,"Average Number of Change Orders for Changed Contracts 
+and Pricing Mechanism by Major Command (2000-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,avNumberOfChangeOrders,Average Number of Change Orders Per Contract,,,,office_MajorCommandID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.14,"Average Potential Change Cost for Changed Contracts 
+and Pricing Mechanism by Major Command (2007-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,avChangeOrderGrowth,"Average % Growth in  Base and All Options Value Amount
+from Change Orders",,,,office_MajorCommandID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+3.15,"Percent of Contracts with Some Competition 
+and Pricing Mechanism by Major Command (2000-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,pSomeCompetition,% Contracts with Some Competition,,,,office_MajorCommandID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.16,"Distribution of Number of Offers for Labeled Competed Contracts 
+and Pricing Mechanism by Major Command (2000-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,avOffers,Average Initial Number of Offers,,,,office_MajorCommandID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.17,"Percent of Labeled Competed Contracts Receiving a Single Offer
+and Pricing Mechanism by Major Command (2000-2013)",,scatterplot,2,2,FALSE,Overall,pFixedPrice,% of Exclusively Fixed Price Contracts,pSingleOffer,"% Contracts with 
+Initial Single Offer Competition",,,,office_MajorCommandID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.18,"Number of Terminated Contracts
+by Product/Service/R&D (2000-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,SimpleArea,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.19,"Number of Changed Contracts
+by Product/Service/R&D (2000-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,SimpleArea,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.2,"Distribution of Change Orders for Changed Contracts
+by Product/Service/R&D (2000-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,SimpleArea,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.21,"Distribution of Change Orders for Changed Contracts 
+by Product/Service/R&D (2000-2013)",,boxplot,2,2,FALSE,Overall,SimpleArea,Product/Service/R&D,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.22,"Distribution of Potential Change Cost for Changed Contracts 
+by Product/Service/R&D (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,SimpleArea,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.23,"Distribution of Potential Change Cost for Changed Contracts 
+by Product/Service/R&D (2007-2013)",,boxplot,2,2,FALSE,Overall,SimpleArea,Product/Service/R&D,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.24,"Initial Extent of Competition 
+by Product/Service/R&D (2000-2013)",,histogram,2,2,FALSE,Overall,IsSomeCompetition,Initial Extent of Competition Category,,Number of Contracts by Initial Extent of Competition,SimpleArea,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.25,"Categories of Number of Offers for Competed Contracts 
+by Product/Service/R&D (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,SimpleArea,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+3.26,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Product/Service/R&D (2000-2013)",,boxplot,2,2,FALSE,Overall,SimpleArea,Product/Service/R&D,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.27,"Number of Terminated Contracts
+by Initial Contract Base and All Options Value Amount (2007-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,SizeOfUnmodifiedContractBaseAndAll,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+3.28,"Number of Changed Contracts
+by Initial Contract Base and All Options Value Amount (2007-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,SizeOfUnmodifiedContractBaseAndAll,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+3.29,"Distribution of Change Orders for Changed Contracts
+by Initial Contract Base and All Options Value Amount (2007-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,SizeOfUnmodifiedContractBaseAndAll,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.3,"Distribution of Change Orders for Changed Contracts 
+by Initial Contract Base and All Options Value Amount (2007-2013)",,boxplot,2,2,FALSE,Overall,SizeOfUnmodifiedContractBaseAndAll,Initial Contract Base and All Options Value Amount,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.31,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Contract Base and All Options Value Amount (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,SizeOfUnmodifiedContractBaseAndAll,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.32,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Contract Base and All Options Value Amount (2007-2013)",,boxplot,2,2,FALSE,Overall,SizeOfUnmodifiedContractBaseAndAll,Initial Contract Base and All Options Value Amount,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.33,"Initial Extent of Competition 
+by Initial Contract Base and All Options Value Amount (2007-2013)",,histogram,2,2,FALSE,Overall,IsSomeCompetition,Initial Extent of Competition Category,,Number of Contracts,SizeOfUnmodifiedContractBaseAndAll,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+3.34,"Categories of Number of Offers for Competed Contracts 
+by Initial Contract Base and All Options Value Amount (2007-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,SizeOfUnmodifiedContractBaseAndAll,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007_isCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+3.35,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Initial Contract Base and All Options Value Amount (2007-2013)",,boxplot,2,2,FALSE,Overall,SizeOfUnmodifiedContractBaseAndAll,Initial Contract Base and All Options Value Amount,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007_isCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.36,"Number of Terminated Contracts
+by Initial Expected Duration (2000-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,CategoryOfUnmodifiedMonths,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.37,"Number of Changed Contracts
+by Initial Expected Duration (2000-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,CategoryOfUnmodifiedMonths,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.38,"Distribution of Change Orders for Changed Contracts
+by Initial Expected Duration (2000-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,CategoryOfUnmodifiedMonths,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.39,"Distribution of Change Orders for Changed Contracts 
+by Initial Expected Duration (2000-2013)",,boxplot,2,2,FALSE,Overall,CategoryOfUnmodifiedMonths,Initial Extent of Duration,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.4,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Expected Duration (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,CategoryOfUnmodifiedMonths,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.41,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Expected Duration (2007-2013)",,boxplot,2,2,FALSE,Overall,CategoryOfUnmodifiedMonths,Initial Extent of Duration,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.42,"Initial Extent of Competition 
+by Initial Expected Duration (2000-2013)",,histogram,2,2,FALSE,Overall,IsSomeCompetition,Initial Extent of Competition Category,,Number of Contracts,SizeOfUnmodifiedContractBaseAndAll,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+3.43,"Categories of Number of Offers for Competed Contracts 
+by Initial Expected Duration (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,CategoryOfUnmodifiedMonths,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+3.44,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Initial Expected Duration (2000-2013)",,boxplot,2,2,FALSE,Overall,CategoryOfUnmodifiedMonths,Initial Extent of Duration,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.45,"Number of Terminated Contracts
+by Initial Extent of Competition (2000-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,UnmodifiedCompetition,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.46,"Number of Changed Contracts
+by Initial Extent of Competition (2000-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,UnmodifiedCompetition,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.47,"Distribution of Change Orders for Changed Contracts
+by Initial Extent of Competition (2000-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,UnmodifiedCompetition,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.48,"Distribution of Change Orders for Changed Contracts 
+by Initial Extent of Competition (2000-2013)",,boxplot,2,2,FALSE,Overall,UnmodifiedCompetition,Initial Extent of Competition,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.49,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Extent of Competition (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,UnmodifiedCompetition,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.5,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Extent of Competition (2007-2013)",,boxplot,2,2,FALSE,Overall,UnmodifiedCompetition,Initial Extent of Competition,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.51,,,,,,,,,,,,,,,,,,,,,,,,
+3.52,"Categories of Number of Offers for Competed Contracts 
+by Initial Extent of Competition (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,UnmodifiedCompetition,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+3.53,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Initial Extent of Competition (2000-2013)",,boxplot,2,2,FALSE,Overall,UnmodifiedCompetition,Initial Extent of Competition,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.54,"Number of Terminated Contracts
+by Initial Contract Vehicle (2000-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,UnmodifiedVehicle,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.55,"Number of Changed Contracts
+by Initial Contract Vehicle (2000-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,UnmodifiedVehicle,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.56,"Distribution of Change Orders for Changed Contracts
+by Initial Contract Vehicle (2000-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,UnmodifiedVehicle,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.57,"Distribution of Change Orders for Changed Contracts 
+by Initial Contract Vehicle (2000-2013)",,boxplot,2,2,FALSE,Overall,UnmodifiedVehicle,Initial Contract Vehicle,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.58,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Contract Vehicle (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,UnmodifiedVehicle,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.59,"Distribution of Potential Change Cost for Changed Contracts 
+by Initial Contract Vehicle (2007-2013)",,boxplot,2,2,FALSE,Overall,UnmodifiedVehicle,Initial Contract Vehicle,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+3.6,"Initial Extent of Competition 
+by Initial Contract Vehicle (2000-2013)",,histogram,2,2,FALSE,Overall,IsSomeCompetition,Initial Extent of Competition Category,,Number of Contracts,UnmodifiedVehicle,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+3.61,"Categories of Number of Offers for Competed Contracts 
+by Initial Contract Vehicle (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,UnmodifiedVehicle,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+3.62,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Initial Contract Vehicle (2000-2013)",,boxplot,2,2,FALSE,Overall,UnmodifiedVehicle,Initial Contract Vehicle,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,scatterplot,2,2,FALSE,2,LogOfAction.Obligation,SumofObligatedAmount,LogOfContractBaseAndExercisedOptionsValue,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandalloptionsvalue,,scatterplot,2,2,FALSE,2,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,ContractObligatedAmount,LogOfContractBaseAndExercisedOptionsValue,Contractbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandalloptionsvalue,,scatterplot,2,2,FALSE,2,LogOfUnmodifiedContractBaseAndAllOptionsValue,ContractObligatedAmount,LogOfContractBaseAndAllOptionsValue,Contractbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandalloptionsvalue,,scatterplot,2,2,FALSE,,LogOfAction.Obligation,SumofObligatedAmount,LogOfContractBaseAndAllOptionsValue,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,LogOfUnmodifiedContractObligatedAmount,SumofObligatedAmount,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,SumOfisChangeOrder,SumofObligatedAmount,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pUnmodifiedContractBaseAndExercised,SumofObligatedAmount,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pUnmodifiedContractBaseAndAll,SumofObligatedAmount,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pUnmodifiedContractObligated,SumofObligatedAmount,,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pChangeOrderVsUnmodifiedObligatedAmount,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pNewWorkVsUnmodifiedObligatedAmount,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pNewWorkVsContractObligatedAmount,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pChangeOrderVsContractObligatedAmount,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,,pChangeOrderVsUnmodifiedObligatedAmount,SumofObligatedAmount,,Number of Contracts,MaxOfisChangeOrder,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,,pNewWorkVsUnmodifiedObligatedAmount,SumofObligatedAmount,,Number of Contracts,MaxOfisNewWork,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,,pNewWorkVsContractObligatedAmount,SumofObligatedAmount,,Number of Contracts,MaxOfisNewWork,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,,pChangeOrderVsContractObligatedAmount,SumofObligatedAmount,,Number of Contracts,MaxOfisChangeOrder,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractObligatedAmount,SumofObligatedAmount,pChangeOrderVsUnmodifiedObligatedAmount,SumOfObligatedAmount,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfAction.Obligation,SumofObligatedAmount,pNewWorkVsUnmodifiedObligatedAmount,SumOfObligatedAmount,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfAction.Obligation,SumofObligatedAmount,pChangeOrderVsUnmodifiedObligatedAmount,SumOfObligatedAmount,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractObligatedAmount,SumofObligatedAmount,pNewWorkVsContractObligatedAmount,SumOfObligatedAmount,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractObligatedAmount,SumofObligatedAmount,pChangeOrderVsContractObligatedAmount,SumOfObligatedAmount,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfAction.Obligation,SumofObligatedAmount,pNewWorkVsContractObligatedAmount,SumOfObligatedAmount,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfAction.Obligation,SumofObligatedAmount,pChangeOrderVsContractObligatedAmount,SumOfObligatedAmount,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandalloptionsvalue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,ContractObligatedAmount,LogOfUnmodifiedContractObligatedAmount,Contractbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. UnmodifiedContractbaseandalloptionsvalue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,ContractObligatedAmount,LogOfAction.Obligation,Contractbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,SumofObligatedAmount,LogOfContractBaseAndExercisedOptionsValue,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pNewWorkVsUnmodifiedBaseAndExercised,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndExercised,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pNewWorkVsContractBaseAndExercised,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pChangeOrderVsContractBaseAndExercised,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pNewWorkVsUnmodifiedBaseAndExercised,SumofObligatedAmount,,Number of Contracts,MaxOfisNewWork,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pChangeOrderVsUnmodifiedBaseAndExercised,SumofObligatedAmount,,Number of Contracts,MaxOfisChangeOrder,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pNewWorkVsContractBaseAndExercised,SumofObligatedAmount,,Number of Contracts,MaxOfisNewWork,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pChangeOrderVsContractBaseAndExercised,SumofObligatedAmount,,Number of Contracts,MaxOfisChangeOrder,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pNewWorkVsUnmodifiedBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pNewWorkVsUnmodifiedBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pNewWorkVsContractBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pChangeOrderVsContractBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pNewWorkVsContractBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. ContractBaseAndExercisedOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndExercisedOptionsValue,SumofObligatedAmount,pChangeOrderVsContractBaseAndExercised,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandalloptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndAllOptionsValue,SumofObligatedAmount,LogOfContractBaseAndAllOptionsValue,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandexercisedoptionsvalue v. LogOfUnmodifiedContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndAllOptionsValue,SumofObligatedAmount,LogOfUnmodifiedContractObligatedAmount,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandalloptionsvalue v. LogOfUnmodifiedContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndAllOptionsValue,SumofObligatedAmount,LogOfContractBaseAndAllOptionsValue,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractbaseandalloptionsvalue v. LogOfUnmodifiedContractObligatedAmount,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndAllOptionsValue,SumofObligatedAmount,LogOfAction.Obligation,SumOfbaseandexercisedoptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndAllOptionsValue,SumofObligatedAmount,pNewWorkVsUnmodifiedBaseAndAll,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfUnmodifiedContractBaseAndAllOptionsValue,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndAll,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndAllOptionsValue,SumofObligatedAmount,pNewWorkVsUnmodifiedBaseAndAll,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndAllOptionsValue,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndAll,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndAllOptionsValue,SumofObligatedAmount,pNewWorkVsContractBaseAndAllOptionsValue,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndAllOptionsValue,SumofObligatedAmount,pChangeOrderVsContractBaseAndAllOptionsValue,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndAllOptionsValue,SumofObligatedAmount,pNewWorkVsContractBaseAndAllOptionsValue,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractBaseAndAllOptionsvalue v. ContractBaseAndAllOptionsValue,,scatterplot,2,2,FALSE,,LogOfContractBaseAndAllOptionsValue,SumofObligatedAmount,pChangeOrderVsContractBaseAndAllOptionsValue,SumOfBaseAndAllOptionsvalue,StartFiscal_Year,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pNewWorkVsUnmodifiedBaseAndAll,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndAll,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,,StartFiscal_Year,SumofObligatedAmount,pNewWorkVsContractBaseAndAllOptionsValue,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,boxplot,2,2,FALSE,2,StartFiscal_Year,SumofObligatedAmount,pChangeOrderVsContractBaseAndAllOptionsValue,Number of Contracts,,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pNewWorkVsUnmodifiedBaseAndAll,SumofObligatedAmount,pNewWorkVsUnmodifiedBaseAndAll,Number of Contracts,MaxOfisNewWork,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pChangeOrderVsUnmodifiedBaseAndAll,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndAll,Number of Contracts,MaxOfisChangeOrder,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pNewWorkVsContractBaseAndAllOptionsValue,SumofObligatedAmount,pNewWorkVsContractBaseAndAllOptionsValue,Number of Contracts,MaxOfisNewWork,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,UnmodifiedContractObligatedAmount v. ContractObligatedAmount,,histogram,2,2,FALSE,2,pChangeOrderVsContractBaseAndAllOptionsValue,SumofObligatedAmount,pChangeOrderVsContractBaseAndAllOptionsValue,Number of Contracts,MaxOfisChangeOrder,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,IsBasePlusSample,TRUE,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,scatterplot,2,2,FALSE,,LogOfAction.Obligation,SumofObligatedAmount,LogOfContractBaseAndExercisedOptionsValue,SumOfbaseandexercisedoptionsvalue,extentcompeted,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandalloptionsvalue,,scatterplot,2,2,FALSE,,LogOfAction.Obligation,SumofObligatedAmount,LogOfContractBaseAndAllOptionsValue,SumOfbaseandexercisedoptionsvalue,extentcompeted,,,contract_CSIScontractID_sample_15000_SumofObligatedAmount.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+,Log of ObligatedAmount v. log of baseandalloptionsvalue by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,LogOfAction.Obligation,SumofObligatedAmount,LogOfContractBaseAndAllOptionsValue,SumOfbaseandexercisedoptionsvalue,,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+,ObligatedAmount v. baseandalloptionsvalue by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,Action.Obligation,SumofObligatedAmount,ContractBaseAndAllOptionsValue,SumOfbaseandexercisedoptionsvalue,,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+,Contract Terminations by ObligatedAmount by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,Action.Obligation,SumofObligatedAmount,IsTerminated,IsTerminated,,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,Contract Closures by ObligatedAmount by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,Action.Obligation,SumofObligatedAmount,IsClosed,IsClosed,,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,Number of Offers by ObligatedAmount by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,Action.Obligation,SumofObligatedAmount,UnmodifiedNumberOfOffersReceived,UnmodifiedNumberOfOffersReceived,,,,contract_CSIScontractID_sample_systemEquipmentCode_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,ObligatedAmount v. baseandalloptionsvalue by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,LogOfAction.Obligation,SumofObligatedAmount,ContractBaseAndAllOptionsValue,SumOfbaseandexercisedoptionsvalue,,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+,Contract Terminations by ObligatedAmount by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,LogOfAction.Obligation,SumofObligatedAmount,IsTerminated,IsTerminated,,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,Contract Closures by ObligatedAmount by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,LogOfAction.Obligation,SumofObligatedAmount,IsClosed,IsClosed,,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,Number of Offers by ObligatedAmount by SystemEquipmentCode,,scatterplot,2,2,FALSE,systemequipmentshorttext,LogOfAction.Obligation,SumofObligatedAmount,UnmodifiedNumberOfOffersReceived,UnmodifiedNumberOfOffersReceived,,,,contract_CSIScontractID_sample_systemEquipmentCode_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,histogram,2,2,FALSE,systemequipmentshorttext,IsTerminated,SumofObligatedAmount,,SumOfbaseandexercisedoptionsvalue,IsFixedPrice,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,histogram,2,2,FALSE,systemequipmentshorttext,MaxOfisChangeOrder,SumofObligatedAmount,,SumOfbaseandexercisedoptionsvalue,IsFixedPrice,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,histogram,2,2,FALSE,systemequipmentshorttext,SumOfisChangeOrder,SumofObligatedAmount,,SumOfbaseandexercisedoptionsvalue,IsFixedPrice,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,boxplot,2,2,FALSE,systemequipmentshorttext,IsFixedPrice,SumofObligatedAmount,SumOfisChangeOrder,SumOfbaseandexercisedoptionsvalue,,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,histogram,2,2,FALSE,systemequipmentshorttext,pChangeOrderVsUnmodifiedBaseAndAll,SumofObligatedAmount,,SumOfbaseandexercisedoptionsvalue,IsFixedPrice,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,density,2,2,FALSE,,pChangeOrderVsUnmodifiedBaseAndAll,SumofObligatedAmount,,SumOfbaseandexercisedoptionsvalue,IsFixedPrice,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,boxplot,2,2,FALSE,systemequipmentshorttext,IsFixedPrice,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndAll,SumOfbaseandexercisedoptionsvalue,,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+,ContractObligatedAmount v. Contractbaseandexercisedoptionsvalue,,boxplot,2,2,FALSE,systemequipmentshorttext,MaxOfisChangeOrder,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndAll,SumOfbaseandexercisedoptionsvalue,IsFixedPrice,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,,,,,,Customer,FALSE
+,,,boxplot,2,2,FALSE,systemequipmentshorttext,IsFixedPrice,SumofObligatedAmount,SumOfisChangeOrder,SumOfbaseandexercisedoptionsvalue,,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+,,,boxplot,2,2,FALSE,systemequipmentshorttext,IsFixedPrice,SumofObligatedAmount,pChangeOrderVsUnmodifiedBaseAndAll,SumOfbaseandexercisedoptionsvalue,,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,
+4.01,"Distribution of Log of Contract Obligations
+by Major Defense Acquisition Project (2000-2013)",,histogram,2,2,FALSE,Overall,LogOfAction.Obligation,Log of Contract Obligations,,Number of Contracts,systemequipmentshorttext,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+4.02,"Number of Terminated Contracts
+by Major Defense Acquisition Project (2000-2013)",,histogram,2,2,FALSE,Overall,IsTerminated,Termination Category,,Number of Contracts,systemequipmentshorttext,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+4.03,"Number of Changed Contracts
+by Major Defense Acquisition Project (2000-2013)",,histogram,2,2,FALSE,Overall,MaxOfisChangeOrder,Change Order Category,,Number of Contracts,systemequipmentshorttext,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+4.04,"Distribution of Change Orders for Changed Contracts
+by Major Defense Acquisition Project (2000-2013)",,histogram,2,2,FALSE,Overall,SumOfisChangeOrder,Number of Change Orders Per Contract,,Number of Contracts,systemequipmentshorttext,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+4.05,"Distribution of Change Orders for Changed Contracts 
+by Major Defense Acquisition Project (2000-2013)",,boxplot,2,2,FALSE,Overall,systemequipmentshorttext,Major Defense Acquisition Project,SumOfisChangeOrder,Number of Change Orders Per Contract,,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+4.06,"Distribution of Potential Change Cost for Changed Contracts 
+by Major Defense Acquisition Project (2007-2013)",,histogram,2,2,FALSE,Overall,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,Number of Contracts,systemequipmentshorttext,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+4.07,"Distribution of Potential Change Cost for Changed Contracts 
+by Major Defense Acquisition Project (2007-2013)",,boxplot,2,2,FALSE,Overall,systemequipmentshorttext,Major Defense Acquisition Project,pChangeOrderVsUnmodifiedBaseAndAll,"% Growth in  Base and All Options Value Amount
+from Change Orders",,,,contract_CSIScontractID_sample_systemEquipmentCode_gte_2007.csv,SQL output,1,MaxOfisChangeOrder,Change Order(s),,,,Customer,FALSE
+4.08,"Initial Extent of Competition 
+by Major Defense Acquisition Project (2000-2013)",,histogram,2,2,FALSE,Overall,IsSomeCompetition,Initial Extent of Competition Category,,Number of Contracts,systemequipmentshorttext,,,contract_CSIScontractID_sample_systemEquipmentCode.csv,SQL output,1,,,,,,Customer,FALSE
+4.09,"Categories of Number of Offers for Competed Contracts 
+by Major Defense Acquisition Project (2000-2013)",,histogram,2,2,FALSE,Overall,UnmodifiedNumberOfOffersSummary,Category of Initial Number of Offers Received,,Number of Contracts,systemequipmentshorttext,,,contract_CSIScontractID_sample_systemEquipmentCode_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
+4.1,"Distribution of Number of Offers for Labeled Competed Contracts 
+by Major Defense Acquisition Project (2000-2013)",,boxplot,2,2,FALSE,Overall,systemequipmentshorttext,Major Defense Acquisition Project,UnmodifiedNumberOfOffersReceived,Initial Number of Offers Received,,,,contract_CSIScontractID_sample_systemEquipmentCode_IsCompeted.csv,SQL output,1,,,,,,Customer,FALSE
