@@ -2010,7 +2010,7 @@ LatticePlot<-function(VAR.name
     #     )  
     #   }
     
-    color.list<-c(as.character(labels.DF$ColorRGB))
+    color.list<-c(as.character(labels.DF$colorRGB))
     names(color.list)<-c(labels.DF$variable)
     
     
@@ -2660,33 +2660,35 @@ LatticePercentLineWrapper<-function(VAR.name
         #     labels.DF$variable<-factor(laply(strwrap(as.character(labels.DF$variable), width=15, simplify=FALSE), 
         #                                        paste, collapse="\n"))                   
         
-        
-        VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/sum(y.variable))
+        VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, y.total=sum(y.variable))
+        VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/y.total)
         
     } else {
         
-        #         second.labels.DF<-PrepareLabelsAndColors(VAR.Coloration
-        #                                                  ,VAR.long.DF
-        #                                                  ,VAR.facet.primary
-        
-        #         )  
+#         second.labels.DF<-PrepareLabelsAndColors(VAR.Coloration
+#                                                  ,VAR.long.DF
+#                                                  ,VAR.facet.primary
+                                                 
+#         )  
         if(is.na(VAR.facet.secondary)){
             VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                    , by=cbind(VAR.long.DF[,VAR.x.variable]
-                                              ,VAR.long.DF[,VAR.y.series]
-                                              ,VAR.long.DF[,VAR.facet.primary]
-                                              ,VAR.long.DF$Graph
-                                              ,VAR.long.DF[,c(...)]
+                                             ,VAR.long.DF[,VAR.y.series]
+                                             ,VAR.long.DF[,VAR.facet.primary]
+                                             ,VAR.long.DF$Graph
+                                             ,VAR.long.DF[,c(...)]
                                    )
                                    ,FUN = "sum"
                                    ,na.rm =TRUE
             )
             names(VAR.long.DF)<-c("x.variable","category","second","Graph",...,"y.variable")
             if(VAR.facet.primary==VAR.y.series){
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, y.total=sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/y.total)
             }
             else{
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, p=y.variable/sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, y.total=sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, p=y.variable/y.total)
             }
         }
         else {
@@ -2708,12 +2710,13 @@ LatticePercentLineWrapper<-function(VAR.name
                 VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, third), transform, p=y.variable/sum(y.variable))
             }
             else{
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, p=y.variable/sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, y.total=sum(y.variable))
+                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, p=y.variable/y.total)
             }
             
         }
-        #         VAR.long.DF$second<-factor(VAR.long.DF$second,levels=second.labels.DF$variable)
-        #         rm(second.labels.DF)
+#         VAR.long.DF$second<-factor(VAR.long.DF$second,levels=second.labels.DF$variable)
+#         rm(second.labels.DF)
     }
     
     
@@ -2772,7 +2775,7 @@ LatticePercentLineWrapper<-function(VAR.name
     #   )
     
     if(!is.na(VAR.facet.secondary)){
-        
+    
         print.figure<-print.figure+facet_grid(second ~ third
                                               , scales="free_x"
                                               , space="free_x"
@@ -2783,22 +2786,20 @@ LatticePercentLineWrapper<-function(VAR.name
         
     }
     else if (!is.na(VAR.facet.primary)){
-        if ( is.na(VAR.ncol)){#VAR.ncol==1 |
+        if (VAR.ncol==1 | is.na(VAR.ncol)){
+        print.figure<-print.figure+facet_wrap(~ second
+                                              #                                           , labeller=Label_Wrap
+                                                                                        ,ncol=VAR.ncol
+                                              #                                           , scales="fixed", space="free_y"
+        )
+        }
+        else{
             print.figure<-print.figure+facet_grid(. ~ second  ,
                                                   #                                           , labeller=Label_Wrap
-                                                  #                                                   ncol=VAR.ncol, 
+#                                                   ncol=VAR.ncol, 
                                                   scales="free_x", 
                                                   space="free_x"
             )
-            
-        }
-        else{
-            print.figure<-print.figure+facet_wrap(~ second
-                                                  #                                           , labeller=Label_Wrap
-                                                  ,ncol=VAR.ncol
-                                                  #                                           , scales="fixed", space="free_y"
-            )
-            
         }
         
     }
@@ -2851,18 +2852,18 @@ LatticeLinePlot<-function(VAR.name
                           ,VAR.facet.secondary=NA){
     
     print.figure<-LatticePercentLineWrapper(VAR.name
-                                            ,VAR.proper.name
-                                            ,VAR.X.label
-                                            ,VAR.Y.label
-                                            ,VAR.Coloration
-                                            ,VAR.long.DF
-                                            ,VAR.ncol
-                                            ,VAR.x.variable
-                                            ,VAR.y.variable
-                                            ,VAR.y.series
-                                            ,VAR.facet.primary
-                                            ,VAR.facet.secondary
-                                            ,...)
+                                                ,VAR.proper.name
+                                                ,VAR.X.label
+                                                ,VAR.Y.label
+                                                ,VAR.Coloration
+                                                ,VAR.long.DF
+                                                ,VAR.ncol
+                                                ,VAR.x.variable
+                                                ,VAR.y.variable
+                                                ,VAR.y.series
+                                                ,VAR.facet.primary
+                                                ,VAR.facet.secondary
+                                                ,...)
     
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
@@ -3974,7 +3975,7 @@ Boxplot<-function(
     )  
     
     theme_set(old.theme)
-    
+
 }
 
 
