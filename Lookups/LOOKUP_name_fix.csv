@@ -1,0 +1,81 @@
+variable,name.fix
+PAMS,PAMS
+R.D,R&D
+ERS,ERS
+FRS.C,FRS&C
+ICT,ICT
+MED,MED
+Other,Other
+Unlabeled,Unlabeled
+Products,Products
+Fuels,Fuels
+Full.Competition..Multiple.Offers.,Full Competition (Multiple Offers)
+Limited.Competition.with.multiple.offers,Limited Competition with multiple offers
+Competition.with.single.offer,Competition with single offer
+No.Competition..Follow.on.to.competed.action.,No Competition (Follow on to competed action)
+No.Competition..Only.One.Source.Exception.,No Competition (Only One Source Exception)
+No.Competition..Other.Exception.,No Competition (Other Exception)
+No.Competition..Unlabeled.Exception.,No Competition (Unlabeled Exception)
+Competition.with.two.offers,Competition with two offers
+Competition.with.3.4.offers,Competition with 3-4 offers
+Competition.with.5..offers,Competition with 5+ offers
+Defense,Defense
+Energy,Energy
+GSA,GSA
+NASA,NASA
+HHS,HHS
+State.and.USAID,State and USAID
+DHS,DHS
+Other.Agencies,Other Agencies
+Unlabeled.Customer,Unlabeled Customer
+Army,Army
+Navy,Navy
+Air.Force,Air Force
+DLA,DLA
+Other.DoD,Other DoD
+CBP,CBP
+Coast.Guard,Coast Guard
+TSA,TSA
+OSEC,OSEC
+FEMA,FEMA
+ICE,ICE
+Other.DHS,Other DHS
+State,State
+USAID,USAID
+IAP,IAP
+Firm.Fixed.Price,Firm Fixed Price
+Fixed.Price.Other,Fixed Price Other
+Cost.Plus.Incentive,Cost Plus Incentive
+Cost.Reimbursement.Other,Cost Reimbursement Other
+Time.And.Materials,Time And Materials
+Combination,Combination
+Other,Other
+Unlabeled,Unlabeled
+DEFINITIVE.CONTRACT,DEFINITIVE CONTRACT
+Unmodified.DEFINITIVE.CONTRACT,Unmodified DEFINITIVE CONTRACT
+Modified.DEFINITIVE.CONTRACT,Modified DEFINITIVE CONTRACT
+PURCHASE.ORDER,PURCHASE ORDER
+SINGLE.AWARD.IDC,SINGLE AWARD IDC
+MULTIPLE.AWARD.IDC,MULTIPLE AWARD IDC
+BPA.FSS.or.other.IDV,BPA FSS or other IDV
+Unlabeled.IDV,Unlabeled IDV
+Unlabeled.Award,Unlabeled Award
+FSS.or.other.IDV,FSS or other IDV
+BPA,BPA
+FSS,FSS
+Small,Small
+Medium..1B,Medium (<1B)
+Medium..1B.1,Medium (>1B)
+Large,Large
+Large..Big.6.,Large (Big 6)
+RnD,R&D
+FRS.and.Construction,FRS&C
+Medical.Services,MED
+Full.Competition.Multiple.Offers,Full Competition (Multiple Offers)
+No.Competition.Follow.on.to.competed.action,No Competition (Follow on to competed action)
+No.Competition.6.302.1.Only.One.Source.Exception,No Competition (Only One Source Exception)
+No.Competition.Other.Exception,No Competition (Other Exception)
+No.Competition.Unlabeled.Exception,No Competition (Unlabeled Exception)
+Medium.lt.1B,Medium (<1B)
+Medium.gt.1B,Medium (>1B)
+Large.Big6,Large (Big 6)

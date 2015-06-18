@@ -1,0 +1,6 @@
+variable,variable.detail,variable.sum,correlation
+Small,Small,Small,
+Medium.lt.1B,Medium (<1B),Medium,
+Medium.gt.1B,Medium (>1B),Medium,
+Large,Large,Large,
+Large.Big6,Large (Big 6),Large (Big 6),

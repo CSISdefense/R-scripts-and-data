@@ -1,0 +1,26 @@
+Customer,Customer.detail,Customer.sum
+Defense,Defense,Defense
+Energy,Energy,Energy
+GSA,GSA,GSA
+NASA,NASA,NASA
+HHS,HHS,HHS
+State and USAID,State and USAID,State and USAID
+DHS,DHS,DHS
+Other Agencies,Other Agencies,Other Agencies
+Unlabeled Customer,Unlabeled Customer,Unlabeled
+Army,Army,Army
+Navy,Navy,Navy
+Air Force,Air Force,Air Force
+DLA,DLA,DLA
+Other DoD,Other DoD,Other DoD
+CBP,CBP,CBP
+Coast Guard,Coast Guard,Coast Guard
+TSA,TSA,TSA
+OSEC,OSEC,OSEC
+FEMA,FEMA,FEMA
+ICE,ICE,ICE
+Other DHS,Other DHS,Other DHS
+State,State,State
+USAID,USAID,USAID
+IAP,IAP,IAP
+State and IAP,State and IAP,State and IAP

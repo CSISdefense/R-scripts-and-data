@@ -1,0 +1,24 @@
+ProductOrServiceArea,ServicesCategory.detail,ServicesCategory.sum,ProductsCategory.detail,ProductOrServicesCategory.Graph
+PAMS,PAMS,Services (Non-R&D),Services,TRUE
+R&D,R&D,R&D,R&D,TRUE
+ERS,ERS,Services (Non-R&D),Services (Non-R&D),TRUE
+FRS&C,FRS&C,Services (Non-R&D),Services (Non-R&D),TRUE
+ICT,ICT,Services (Non-R&D),Services (Non-R&D),TRUE
+MED,MED,Services (Non-R&D),Services (Non-R&D),TRUE
+Other,Products,Products (All),Other,TRUE
+Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE
+Products,Products,Products (All),Products (All),TRUE
+Fuels,Fuels,Products (All),Fuels,TRUE
+NULL,Unlabeled,Unlabeled,Unlabeled,FALSE
+Fuel,Fuels,Products (All),Fuels,TRUE
+All Services,All Services,All Services,All Services,TRUE
+Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),TRUE
+Services,Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),TRUE
+Ships,Products,Products (All),Ships,TRUE
+Missiles & Space,Products,Products (All),Missiles & Space,TRUE
+Launchers & Munitions,Products,Products (All),Launchers & Munitions,TRUE
+Ground Vehicles,Products,Products (All),Ground Vehicles,TRUE
+Engines & Power Plants,Products,Products (All),Engines & Power Plants,TRUE
+Electronics & Communications,Products,Products (All),Electronics & Communications,TRUE
+Clothing & Subsistence,Products,Products (All),Clothing & Subsistence,TRUE
+Aircraft,Products,Products (All),Aircraft,TRUE

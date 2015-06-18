@@ -1,0 +1,25 @@
+Pricing Mechanism,Pricing.Mechanism.Code,Pricing.Mechanism.detail,Pricing.Mechanism.sum,Pricing.Mechanism.hypothesis,Pricing.Mechanism.Incentive,Pricing Mechanism Correlation,Pricing.Mechanism.Graph,IsCostBased,IsFixedPrice,IsIncentive
+Combination,#N/A,Combination,Combination,Unlabeled,FALSE,Other,TRUE,NULL,NULL,NULL
+Combination (two or more),2,Combination,Combination,Unlabeled,,Other,TRUE,NULL,NULL,NULL
+Cost No Fee,S,Cost (Other),Cost+,Cost+,,Other,TRUE,NULL,NULL,NULL
+Cost Plus Award Fee,R,Cost (Other),Cost+,Cost+,,Other,TRUE,NULL,NULL,NULL
+Cost Plus Fixed Fee,U,Cost (Other),Cost+,Cost+,,Other,TRUE,NULL,NULL,NULL
+Cost Plus Incentive,V,Cost (Plus Incentive),Cost+,Cost+,,Other,TRUE,NULL,NULL,NULL
+Cost Sharing,T,Cost (Other),Cost+,Cost+,,Other,TRUE,NULL,NULL,NULL
+Firm Fixed Price,J,Fixed Price (Firm),Fixed,Fixed,FALSE,Fixed,TRUE,NULL,NULL,NULL
+Fixed Price Award Fee,M,Fixed Price (Other),Fixed,Fixed,FALSE,Fixed,TRUE,0,1,0
+Fixed Price Incentive,L,Fixed Price (Other),Fixed,Fixed,TRUE,Fixed,TRUE,1,0,1
+Fixed Price Level of Effort,B,Fixed Price (Other),Fixed,Other,FALSE,Fixed,TRUE,1,0,1
+Fixed Price Redetermination,A,Fixed Price (Other),Fixed,Fixed,FALSE,Fixed,TRUE,1,0,1
+Fixed Price with Economic Price Adjustment,K,Fixed Price (Other),Fixed,Fixed,FALSE,Fixed,TRUE,1,0,1
+Labor Hours,Z,Time/Mat.,Time/Mat.,Other,FALSE,Other,TRUE,1,0,1
+Not Reported,NO,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1
+Order Dependent (IDV only),1,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1
+Other (none of the above),3,Other,Other,Other,FALSE,Other,FALSE,1,0,1
+Time and Materials,Y,Time/Mat.,Time/Mat.,Other,FALSE,Other,TRUE,1,0,1
+NULL, ,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+NULL,*,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type 0,0,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type O,O,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type P,P,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type X,X,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL

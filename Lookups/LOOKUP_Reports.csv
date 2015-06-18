@@ -1,0 +1,6 @@
+prefix,customer.prefix,PSCodes,Big_Customer
+defense_services_,DoD,services,Defense
+defense_,DoD,all,Defense
+dhs_,DHS,all,DHS
+dos_iap_,DoS&IAP,all,State and IAP
+dos_usaid_,DoS&USAID,all,State and USAID

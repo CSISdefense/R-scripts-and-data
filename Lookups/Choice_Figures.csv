@@ -1,0 +1,186 @@
+figure number,figure title,legend name,form,order,which.file,append legend,section.variable,x.variable,y.variable,facet.variable,coloration.override.variable,x.axis.title,y.axis.title,percentage.y.axis.title,data file,file type,section.compare,subset.variable,subset.criteria,Layout Name,wide.section.variable,lookup.series.variable,subset.agency.variable,use.all.agencies
+,Customer by Bucket,Components,chart,1,1,TRUE,ServicesCategory.detail,SubCustomer.detail,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_HistoryBucketCustomer.csv,SQL output,,,,,,,Customer,FALSE
+,Competition,Competition,chart,2,2,FALSE,ServicesCategory.detail,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+,Pricing Mechanism,Pricing,chart,3,3,FALSE,ServicesCategory.detail,Pricing.Mechanism.sum,Pricing.Mechanism.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_FundingMechanismHistoryBucket.csv,SQL output,1,,,,,,Customer,FALSE
+,Vehicle,Vehicles,chart,4,4,FALSE,ServicesCategory.detail,Vehicle.sum,Vehicle.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_VehicleHistoryBucket.csv,SQL output,1,,,,,,Customer,FALSE
+,Top Vendor,Top Vendors,table,5,5,FALSE,ServicesCategory.detail,ContractorDisplayName,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_TopVendorHistoryBucket.csv,SQL output,,,,,,,Customer,FALSE
+,Vendor Size,Vendors,chart,6,6,FALSE,ServicesCategory.detail,Vendor.Size.sum,Vendor.Size.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_ContractorbySizeDollarsBucketSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+,Component,Components,chart,1,1,TRUE,ServicesCategory.sum,SubCustomer.detail,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_HistoryBucketCustomer.csv,SQL output,,,,,,,Customer,FALSE
+,Competition,Competition,chart,2,2,FALSE,,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+,Pricing Mechanism,Pricing,chart,3,3,FALSE,,Pricing.Mechanism.sum,Pricing.Mechanism.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_FundingMechanismHistoryBucket.csv,SQL output,1,,,,,,Customer,FALSE
+2.01,Vehicle,Vehicles,chart,4,4,FALSE,,Vehicle.sum,Vehicle.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_VehicleHistoryBucket.csv,SQL output,1,,,,,,Customer,FALSE
+2.02,Top Vendor,Top Vendors,table,5,5,FALSE,ServicesCategory.sum,ContractorDisplayName,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_TopVendorHistorySimpleBucket.csv,SQL output,,,,,,,Customer,FALSE
+2.03,Vendor Size,Vendors,chart,6,6,FALSE,ServicesCategory.sum,Vendor.Size.sum,Vendor.Size.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_ContractorbySizeDollarsBucketSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+2.04,Competition by Vendor Size and Area,Competition by Vendor Size and Area,chart,7,7,FALSE,,Vendor.Size.sum,Vendor.Size.sum,Competition.sum,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+2.05,by Services Category,Area,chart,1,1,FALSE,,ServicesCategory.detail,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_HistoryBucketCustomer.csv,SQL output,,,,,,,Customer,FALSE
+2.06,Competition,Competition,chart,2,2,FALSE,SubCustomer.detail,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+2.07,Pricing Mechanism,Pricing,chart,3,3,FALSE,,Pricing.Mechanism.sum,Pricing.Mechanism.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_FundingMechanismHistoryCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+2.08,Vehicle,Vehicles,chart,4,4,FALSE,,Vehicle.sum,Vehicle.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_VehicleHistoryCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+2.09,Top Vendor,Top Vendors,table,5,5,FALSE,,ContractorDisplayName,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_TopVendorHistorySubCustomer.csv,SQL output,,,,,,,Customer,FALSE
+2.10,Vendor Size,Vendors,chart,6,6,FALSE,,Vendor.Size.sum,Vendor.Size.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_ContractorbySizeDollarsBucketSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+,Platform Porfolio,Platform Porfolio,chart,8,8,FALSE,,PlatformPortfolio.sum,PlatformPortfolio.sum,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.01,Bucket by Customer,Simple Area,chart,7,1,FALSE,,ServicesCategory.sum,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_HistoryBucketCustomer.csv,SQL output,,,,,,,Customer,FALSE
+3.02,Competition by Vendor Size,Competition by Vendor Size,chart,8,8,FALSE,,Competition.sum,Competition.detail,Vendor.Size.sum,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.03,Contract Size,Contract Size,chart,9,9,FALSE,,Contract.Size.sum,Contract.Size.detail,,,Fiscal Year,Gross Constant 2013 $ Billions,Percent of Gross Dollars Obligated,Contract_SP_CompetitionContractSizeHistorySubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.04,Component,Components,chart,1,1,TRUE,Vendor.Size.sum,SubCustomer.detail,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,,,,,,,Customer,FALSE
+3.05,Competition,Competition,chart,2,2,FALSE,Vendor.Size.sum,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.06,Area,Vendors,chart,5,5,FALSE,Vendor.Size.sum,ServicesCategory.sum,ServicesCategory.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.07,Competition by Vendor Size and Area,Competition by Vendor Size and Area,chart,6,6,FALSE,Vendor.Size.sum,Competition.sum,Competition.sum,ServicesCategory.sum,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.08,Competition by Area,Competition by Area,chart,1,1,FALSE,PlatformPortfolio.sum,Competition.sum,Competition.sum,ServicesCategory.sum,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,SQL_Platform_Portfolio_Services_Competition.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.09,Competition,Competition,chart,1,1,FALSE,PlatformPortfolio.sum,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,SQL_Platform_Portfolio_Services_Competition.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.10,Component,Components,chart,1,1,FALSE,PlatformPortfolio.sum,SubCustomer.detail,SubCustomer.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,SQL_Platform_Portfolio_Services_Competition.csv,SQL output,,,,portrait single,,,Customer,FALSE
+,Area,Area,chart,1,1,FALSE,PlatformPortfolio.sum,ServicesCategory.sum,ServicesCategory.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,SQL_Platform_Portfolio_Services_Competition.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.11,Vendor Size,Vendor Size,chart,1,1,FALSE,PlatformPortfolio.sum,Vendor.Size.sum,Vendor.Size.sum,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.12,Competition by Contract Size,Competition by Contract Size,chart,1,1,FALSE,Contract.Size.sum,Competition.sum,Competition.detail,,,Fiscal Year,Gross Constant 2013 $ Billions,Percent of Gross Dollars Obligated,Contract_SP_CompetitionContractSizeHistorySubCustomer.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.13,Contract Size by Competition,Contract Size by Competition,chart,1,1,FALSE,Competition.sum,Contract.Size.sum,Contract.Size.sum,,,Fiscal Year,Gross Constant 2013 $ Billions,Percent of Gross Dollars Obligated,Contract_SP_CompetitionContractSizeHistorySubCustomer.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.14,Components,Components,chart,1,1,TRUE,Overall,SubCustomer.detail,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_HistoryBucketCustomer.csv,SQL output,,,,,,,Customer,FALSE
+3.15,Areas,Area,chart,2,2,FALSE,Overall,ServicesCategory.detail,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_HistoryBucketCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.16,Simple Area,Simple Area,chart,2,2,FALSE,Overall,ServicesCategory.sum,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_HistoryBucketCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.17,Pricing Mechanism,Pricing,chart,3,3,FALSE,,Pricing.Mechanism.sum,Pricing.Mechanism.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_FundingMechanismHistoryCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.18,Vehicle,Vehicles,chart,4,4,FALSE,,Vehicle.sum,Vehicle.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Summary_SP_VehicleHistoryCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.19,Competition,Competition,chart,5,5,FALSE,,Competition.sum,Competition.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.20,Effective Competition by Platform Portfolio,Competition,chart,5,5,FALSE,,Competition.effective.only,SubCustomer.detail,ServicesCategory.sum,,Fiscal Year,Constant 2013 $ Billions Effectively Competed,Percent of Effective Competition by Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,Competition.effective.only,Effective Comp.,,,,Customer,FALSE
+,Effective Competition by Platform Portfolio,Competition,chart,5,5,FALSE,,Competition.effective.only,Competition.effective.only,PlatformPortfolio.sum,,Fiscal Year,Constant 2013 $ Billions Effectively Competed,Percent of Effective Competition by Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,Competition.effective.only,Effective Comp.,,,,Customer,FALSE
+3.21,Vendor Size,Vendors,chart,6,6,FALSE,,Vendor.Size.sum,Vendor.Size.detail,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_ContractorbySizeDollarsBucketSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.22,Contract Size,Contract Size,chart,6,6,FALSE,,Contract.Size.sum,Contract.Size.detail,,,Fiscal Year,Gross Constant 2013 $ Billions,Percent of Gross Dollars Obligated,Contract_SP_CompetitionContractSizeHistorySubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.23,Top Vendor,Top Vendors,table,7,7,FALSE,,ContractorDisplayName,,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_TopVendorHistoryCustomer.csv,SQL output,,,,,,,Customer,FALSE
+3.24,Platform Porfolio,Platform Porfolio,chart,8,8,FALSE,,PlatformPortfolio.sum,PlatformPortfolio.sum,,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.25,Platform Portfolio by Component,Platform Portfolio by Component,chart,8,8,FALSE,,PlatformPortfolio.sum,PlatformPortfolio.sum,SubCustomer.detail,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.26,Component by Platform Portfolio,Component by Platform Portfolio,chart,8,8,FALSE,,SubCustomer.detail,SubCustomer.detail,PlatformPortfolio.sum,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,,,,Customer,FALSE
+3.27,"Platform Portfolio by Component, Major Weapon Systems",Platform Portfolio by Component,chart,8,8,FALSE,,PlatformPortfolio.sum,PlatformPortfolio.sum,SubCustomer.detail,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,Platform.page,Major Weapons,,,,Customer,FALSE
+3.28,"Platform Portfolio by Component, Other Systems",Platform Portfolio by Component,chart,8,8,FALSE,,PlatformPortfolio.sum,PlatformPortfolio.sum,SubCustomer.detail,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,Platform.page,Other Systems,,,,Customer,FALSE
+3.29,Competition by Vendor Size,Competition by Vendor Size,chart,9,9,FALSE,,,Competition.detail,Vendor.Size.sum,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,portrait single,,,Customer,FALSE
+3.30,Competition by Contract Size,Competition by Contract Size,chart,10,10,FALSE,,,Competition.detail,Contract.Size.sum,,Fiscal Year,Gross Constant 2013 $ Billions,Percent of Gross Dollars Obligated,Contract_SP_CompetitionContractSizeHistorySubCustomer.csv,SQL output,1,,,portrait single,,,Customer,FALSE
+,Vendor Size by Area,Vendor Size by Area,chart,11,11,FALSE,,,ServicesCategory.sum,Vendor.Size.sum,,Fiscal Year,Constant 2013 $ Billions,Percent of Dollars Obligated,Vendor_SP_CompetitionVendorSizeHistoryBucketPlatformSubCustomer.csv,SQL output,1,,,portrait single,,,Customer,FALSE
+3.31,Vendor Size by Contract Size,Vendor Size by Contract Size,chart,12,12,FALSE,,,Vendor.Size.sum,Contract.Size.sum,,Fiscal Year,Gross Constant 2013 $ Billions,Percent of Gross Dollars Obligated,Contract_SP_VendorSizeContractSizeHistory.csv,SQL output,1,,,portrait single,,,Customer,FALSE
+3.32,Contract Size by Component,Contract Size by Component,chart,13,13,FALSE,,,SubCustomer.detail,Contract.Size.sum,,Fiscal Year,Gross Constant 2013 $ Billions,Percent of Gross Dollars Obligated,Contract_SP_CompetitionContractSizeHistorySubCustomer.csv,SQL output,1,,,portrait single,,,Customer,FALSE
+3.33,Number of Vendors,Vendor Size,chart,14,14,FALSE,,RoughUniqueEntitySize,RoughUniqueEntitySize,,,Fiscal Year,Number of Vendors,Percent of Vendors,Vendor_SP_VendorSizeHistoryCustomerCount.csv,SQL output,1,,,portrait single,,,Customer,TRUE
+3.34,Imports and Exports,Region,chart,1,1,TRUE,Source.Country,,Indicator,USAorRestOfWorld,,Years,SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,Percent of SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,ArmsCountries.csv,,,,,portrait single,,,Customer,FALSE
+3.35,Imports and Exports,Region,chart,2,1,TRUE,Source.Country,,Indicator,Region,,Years,SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,Percent of SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,,,,USAorRestOfWorld,RestOfWorld,tall single,,,Customer,FALSE
+3.36,Imports and Exports,Region,chart,3,1,TRUE,Source.Country,,Indicator,ROK_Region,,Years,SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,Percent of SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,,,,USAorRestOfWorld,RestOfWorld,tall single,,,Customer,FALSE
+3.37,Imports and Exports,Region,chart,4,1,TRUE,Source.Country,,Indicator,ISR_Region,,Years,SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,Percent of SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,,,,USAorRestOfWorld,RestOfWorld,tall single,,,Customer,FALSE
+3.38,Imports and Exports,Region,chart,5,1,TRUE,Source.Country,,Indicator,ISR_Region,,Years,SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,Percent of SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,,,,USAorRestOfWorld,RestOfWorld,tall single,,,Customer,FALSE
+3.39,Imports and Exports,Type,chart,6,2,TRUE,Source.Country,,Indicator,Arms.Summary,,Years,SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,Percent of SIPRI Trend Indicator Values (TIVs) Rolling 3-year average,ArmsType.csv,,,Arms.Data.Type,Detail,tall single,,,Customer,FALSE
+3.40,,,chart,1,1,TRUE,Country,,Program or account,Country,,Years,"obligations in millions, constant 2011 $US",Percent of obligations,,,,"Military Assistance, Total",,,,,Customer,FALSE
+,Defense Budget,Country,chart,1,1,FALSE,,,Country.Proper,,Coloring,Years,"Spending (constant 2013, in € millions)",,,,,Tier,First Tier,,,,Customer,FALSE
+3.41,Defense Budget,Country,chart,1,1,FALSE,,,Country.Proper,,Coloring,Years,"Spending (constant 2013, in € millions)",,,,,Tier,Second Tier,,,,Customer,FALSE
+3.42,Defense Budget,Country,chart,1,1,FALSE,,,Country.Proper,,Coloring,Years,"Spending (constant 2013, in € millions)",,,,,Selected.Countries,TRUE,,,,Customer,FALSE
+3.43,Defense Budget,Country or Region,chart,1,1,FALSE,,,Europe.Region.Block,,,Years,"Spending (constant 2013, in € millions)",,,,,,,,,,Customer,FALSE
+3.44,Spending in Context,Components,chart,1,1,FALSE,,,Implementer,,,Fiscal Year,Constant 2013 $ Billions,Constant 2013 $ Billions,budget_comparison.csv,SQL output,,,,portrait single,,,Customer,FALSE
+3.45,,,,,,,,,,,,,,,,,,,,,,,,
+3.46,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.47,,,,,,,,,,,,,,,,,,,,,,,,
+3.48,,,,,,,,,,,,,,,,,,,,,,,,
+3.49,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+3.50,,,,,,,,,,,,,,,,,,,,,,,,
+3.51,,,,,,,,,,,,,,,,,,,,,,,,
+3.52,,,,,,,,,,,,,,,,,,,,,,,,
+3.53,,,,,,,,,,,,,,,,,,,,,,,,
+3.54,,,,,,,,,,,,,,,,,,,,,,,,
+3.55,,,,,,,,,,,,,,,,,,,,,,,,
+3.56,,,,,,,,,,,,,,,,,,,,,,,,
+3.57,,,,,,,,,,,,,,,,,,,,,,,,
+3.58,,,,,,,,,,,,,,,,,,,,,,,,
+3.59,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+4.01,,,,,,,,,,,,,,,,,,,,,,,,
+4.02,,,,,,,,,,,,,,,,,,,,,,,,
+4.03,,,,,,,,,,,,,,,,,,,,,,,,
+4.04,,,,,,,,,,,,,,,,,,,,,,,,
+4.05,,,,,,,,,,,,,,,,,,,,,,,,
+4.06,,,,,,,,,,,,,,,,,,,,,,,,
+4.07,,,,,,,,,,,,,,,,,,,,,,,,
+4.08,,,,,,,,,,,,,,,,,,,,,,,,
+4.09,,,,,,,,,,,,,,,,,,,,,,,,
+4.10,,,,,,,,,,,,,,,,,,,,,,,,
+4.11,,,,,,,,,,,,,,,,,,,,,,,,
