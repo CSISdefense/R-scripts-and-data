@@ -17,9 +17,8 @@ Not Reported,NO,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1
 Order Dependent (IDV only),1,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1
 Other (none of the above),3,Other,Other,Other,FALSE,Other,FALSE,1,0,1
 Time and Materials,Y,Time/Mat.,Time/Mat.,Other,FALSE,Other,TRUE,1,0,1
-NULL, ,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
-NULL,*,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
-Unused type 0,0,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
-Unused type O,O,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
-Unused type P,P,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
-Unused type X,X,NULL,NULL,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unlabeled,*,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type 0,0,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type O,O,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type P,P,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL
+Unused type X,X,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL

@@ -1,0 +1,209 @@
+Command,Country Name,Country Code[23]
+USCENTCOM,Afghanistan,AF
+USEUCOM,Albania,AL
+USAFRICOM,Algeria,DZ
+USEUCOM,Andorra,AD
+USAFRICOM,Angola,AO
+USPACOM,Antarctica,AQ
+USSOUTHCOM,Antigua and Barbuda,AG
+USSOUTHCOM,Argentina,AR
+USEUCOM,Armenia,AM
+USSOUTHCOM,Aruba,AW
+USPACOM,Australia,AU
+USEUCOM,Austria,AT
+USEUCOM,Azerbaijan,AZ
+USNORTHCOM,Bahamas,BS
+USCENTCOM,Bahrain,BH
+USPACOM,Bangladesh,BD
+USSOUTHCOM,Barbados,BB
+USEUCOM,Belarus,BY
+USEUCOM,Belgium,BE
+USSOUTHCOM,Belize,BZ
+USAFRICOM,Benin,BJ
+USNORTHCOM,Bermuda,BM
+USPACOM,Bhutan,BT
+USSOUTHCOM,Bolivia,BO
+USAFRICOM,Botswana,BW
+USEUCOM,Boznia and Herzegovina,BA
+USSOUTHCOM,Brazil,BR
+USNORTHCOM,British Virgin Islands,VG
+USPACOM,Brunei,BN
+USEUCOM,Bulgaria,BG
+USAFRICOM,Burkina Faso,BF
+USPACOM,Burma,BU
+USAFRICOM,Burundi,BI
+USPACOM,Cambodia,KH
+USAFRICOM,Cameroon,CM
+USNORTHCOM,Canada,CA
+USAFRICOM,Cape Verde,CV
+USSOUTHCOM,Cayman Islands,KY
+USAFRICOM,Central African Republic,CF
+USAFRICOM,Chad,TD
+USSOUTHCOM,Chile,CL
+USPACOM,China,CN
+USSOUTHCOM,Colombia,CO
+USAFRICOM,Comoros,KM
+USSOUTHCOM,Costa Rica,CR
+USEUCOM,Croatia,HR
+USSOUTHCOM,Cuba,CU
+USSOUTHCOM,Curacao,CW
+USEUCOM,Cyprus,CY
+USEUCOM,Czech Republic,CZ
+USAFRICOM,Democratic Republic of the Congo,CD
+USEUCOM,Denmark,DK
+USAFRICOM,Djibouti,DJ
+USSOUTHCOM,Dominica,DM
+USSOUTHCOM,Dominican Republic,DO
+USSOUTHCOM,Ecuador,EC
+USCENTCOM,Egypt,EG
+USSOUTHCOM,El Salvador,SV
+USAFRICOM,Equatorial Guinea,GQ
+USAFRICOM,Eritrea,ER
+USEUCOM,Estonia,EE
+USAFRICOM,Ethiopia,ET
+USPACOM,Fiji,FJ
+USEUCOM,Finland,FI
+USEUCOM,France,FR
+USAFRICOM,Gabon,GA
+USAFRICOM,Gambia,GM
+USEUCOM,Georgia,GE
+USEUCOM,Germany,DE
+USAFRICOM,Ghana,GH
+USEUCOM,Greece,GR
+USSOUTHCOM,Grenada,GD
+USAFRICOM,Guinea,GN
+USAFRICOM,Guinea-Bissau,GW
+USSOUTHCOM,Guyana,GY
+USSOUTHCOM,Haiti,HT
+USEUCOM,Holy See (The Vatican),VA
+USSOUTHCOM,Honduras,HN
+USEUCOM,Hungary,HU
+USEUCOM,Iceland,IS
+USPACOM,India,IN
+USPACOM,Indonesia,ID
+USCENTCOM,Iran,IR
+USCENTCOM,Iraq,IQ
+USEUCOM,Ireland,IE
+USEUCOM,Israel,IL
+USEUCOM,Italy,IT
+USAFRICOM,Ivory Coast,CI
+USSOUTHCOM,Jamaica,JM
+USPACOM,Japan,JP
+USCENTCOM,Jordan,JO
+USCENTCOM,Kazakhstan,KZ
+USAFRICOM,Kenya,KE
+USPACOM,Kiribati,KI
+USEUCOM,Kosovo,XK
+USCENTCOM,Kuwait,KW
+USCENTCOM,Kyrgyzstan,KG
+USPACOM,Laos,LA
+USEUCOM,Latvia,LV
+USCENTCOM,Lebanon,LB
+USAFRICOM,Lesotho,LS
+USAFRICOM,Liberia,LR
+USAFRICOM,Libya,LY
+USEUCOM,Liechtenstein,LI
+USEUCOM,Lithuania,LT
+USEUCOM,Luxembourg,LU
+USEUCOM,Macedonia,MK
+USAFRICOM,Madagascar,MG
+USAFRICOM,Malawi,MW
+USPACOM,Malaysia,MY
+USPACOM,Maldives,MV
+USAFRICOM,Mali,ML
+USEUCOM,Malta,MT
+USPACOM,Marshall Islands,MH
+USAFRICOM,Mauritania,MR
+USAFRICOM,Mauritius,MU
+USAFRICOM,Mayotte,YT
+USNORTHCOM,Mexico,MX
+USPACOM,Micronesia,FM
+USEUCOM,Moldova,MD
+USEUCOM,Monaco,MC
+USPACOM,Mongolia,MN
+USEUCOM,Montenegro,ME
+USAFRICOM,Morocco,MA
+USAFRICOM,Mozambique,MZ
+USPACOM,Myanmar,MM
+USAFRICOM,Namibia,NA
+USPACOM,Nauru,NR
+USPACOM,Nepal,NP
+USEUCOM,Netherlands,NL
+USPACOM,New Zealand,NZ
+USSOUTHCOM,Nicaragua,NI
+USAFRICOM,Niger,NE
+USAFRICOM,Nigeria,NG
+USPACOM,North Korea,KP
+USEUCOM,Norway,NO
+USCENTCOM,Oman,OM
+USCENTCOM,Pakistan,PK
+USPACOM,Palau,PW
+USSOUTHCOM,Panama,PA
+USPACOM,Papua New Guinea,PG
+USSOUTHCOM,Paraguay,PY
+USSOUTHCOM,Peru,PE
+USPACOM,Philippines,PH
+USEUCOM,Poland,PL
+USEUCOM,Portugal,PT
+USCENTCOM,Qatar,QA
+USAFRICOM,Republic of the Congo,CG
+USAFRICOM,Réunion,RE
+USEUCOM,Romania,RO
+USEUCOM,Russia,RU
+USAFRICOM,Rwanda,RW
+USAFRICOM,"Saint Helena, Ascension and Tristan da Cunha",SH
+USSOUTHCOM,Saint Kitts and Nevis,KN
+USSOUTHCOM,Saint Lucia,LC
+USNORTHCOM,Saint Pierre and Miquelon,PM
+USSOUTHCOM,Saint Vincent and the Grenadines,VC
+USPACOM,Samoa,WS
+USEUCOM,San Marino,SM
+USAFRICOM,Sao Tome and Principe,ST
+USCENTCOM,Saudi Arabia,SA
+USAFRICOM,Senegal,SN
+USEUCOM,Serbia,RS
+USAFRICOM,Seychelles,SC
+USAFRICOM,Sierra Leone,SL
+USPACOM,Singapore,SG
+USEUCOM,Slovakia,SK
+USEUCOM,Slovenia,SI
+USPACOM,Solomon Islands,SB
+USAFRICOM,Somalia,SO
+USAFRICOM,South Africa,ZA
+USPACOM,South Korea,KR
+USAFRICOM,South Sudan,SS
+USEUCOM,Spain,ES
+USPACOM,Sri Lanka,LK
+USAFRICOM,Sudan,SD
+USSOUTHCOM,Suriname,SR
+USAFRICOM,Swaziland,SZ
+USEUCOM,Sweden,SE
+USEUCOM,Switzerland,CH
+USCENTCOM,Syria,SY
+USPACOM,Taiwan,TW
+USCENTCOM,Tajikistan,TJ
+USAFRICOM,Tanzania,TZ
+USPACOM,Thailand,TH
+USPACOM,Timor-Leste,TL
+USAFRICOM,Togo,TG
+USPACOM,Tonga,TO
+USSOUTHCOM,Trinidad and Tobago,TT
+USAFRICOM,Tunisia,TN
+USEUCOM,Turkey,TR
+USCENTCOM,Turkmenistan,TM
+USNORTHCOM,Turks & Caicos Islands,TC
+USPACOM,Tuvalu,TV
+USAFRICOM,Uganda,UG
+USEUCOM,Ukraine,UA
+USCENTCOM,United Arab Emirates,AE
+USEUCOM,United Kingdom,GB
+USNORTHCOM,United States,US
+USSOUTHCOM,Uruguay,UY
+USCENTCOM,Uzbekistan,UZ
+USPACOM,Vanuatu,VU
+USSOUTHCOM,Venezuela,VE
+USPACOM,Vietnam,VN
+USAFRICOM,Western Sahara,EH
+USCENTCOM,Yemen,YE
+USAFRICOM,Zambia,ZM
+USAFRICOM,Zimbabwe,ZW

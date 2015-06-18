@@ -10,6 +10,13 @@ Defense,State,ERROR,ERROR,ERROR,FALSE
 Defense,"Retiree, Payment+Health","Retiree, Payment+Health","Retiree, Payment+Health","Retiree, Payment+Health",FALSE
 Defense,MDA,Other DoD,Other DoD,MDA,FALSE
 Defense,MilitaryHealth,Other DoD,Other DoD,MilitaryHealth,FALSE
+Defense,NULL,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Other DoD,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,NULL,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Army,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Air Force,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,DLA,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Interior,Uncategorized,Uncategorized,Uncategorized,FALSE
 DHS,COAST GUARD,COAST GUARD,COAST GUARD,COAST GUARD,FALSE
 DHS,OPO,OPO,OPO,OPO,FALSE
 DHS,FEMA,FEMA,FEMA,FEMA,FALSE
@@ -25,7 +32,7 @@ HHS,HHS,HHS,HHS,HHS,FALSE
 HHS,Uncategorized,Uncategorized,Uncategorized,Uncategorized,FALSE
 NASA,NASA,NASA,NASA,NASA,FALSE
 NASA,Uncategorized,Uncategorized,Uncategorized,Uncategorized,FALSE
-NULL,Uncategorized,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Uncategorized,Uncategorized,Uncategorized,Uncategorized,FALSE
 Other Agencies,Interior,Interior,Interior,Interior,FALSE
 Other Agencies,Transportation,Transportation,Transportation,Transportation,FALSE
 Other Agencies,All other Customers,All other Customers,All other Customers,All other Customers,FALSE
@@ -114,3 +121,6 @@ State and IAP,INTER-AMERICAN FOUNDATION,INTER-AMERICAN FOUNDATION,INTER-AMERICAN
 State and IAP,IAP,IAP,IAP,IAP,FALSE
 State and IAP,OVERSEAS PRIVATE INVESTMENT CORPORATION,OVERSEAS PRIVATE INVESTMENT CORPORATION,OVERSEAS PRIVATE INVESTMENT CORPORATION,OVERSEAS PRIVATE INVESTMENT CORPORATION,FALSE
 State and IAP,Uncategorized,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Uncategorized,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Air Force,Uncategorized,Uncategorized,Uncategorized,FALSE
+Uncategorized,Other DoD,Uncategorized,Uncategorized,Uncategorized,FALSE

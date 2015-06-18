@@ -1311,8 +1311,9 @@ apply_lookups<- function(VAR.path,VAR.df){
             stop(paste(nrow(NA.check.df),"rows of NAs generated in Countries"))
         }
     }
-    #     browser()
+#     browser()
     if("Pricing.Mechanism" %in% names(VAR.df)){ 
+        VAR.df$Pricing.Mechanism[VAR.df$Pricing.Mechanism==""]<-NA
         
         #Handle NA values if present
         if(any(is.na(VAR.df$Pricing.Mechanism))){
