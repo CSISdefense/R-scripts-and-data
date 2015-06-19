@@ -337,3 +337,8 @@ Deployment,Debt Reduction,Debt Reduction,3,teal,0.629,0.131,0,0.314,65,152,175
 Deployment,Share Buyback,Share Buyback,2,dark blue,0.587,0.317,0,0.345,69,114,167
 Deployment,Taxes,Taxes,8,dark gray,0,0,0,0.498,128,128,128
 Deployment,R&D Expenditure,R&D Expenditure,6,pink,0,0.3088,0.318,0.149,217,150,148
+,,,,,,,,,,,
+Regime,YOUNG,,1,teal,0.629,0.131,0,0.314,65,152,175
+Regime,CARTER\n pre-IFT,,2,dark blue,0.587,0.317,0,0.345,69,114,167
+Regime,Small Business\nTask Force,,3,dark gray,0,0,0,0.498,128,128,128
+Regime,BBP2,,4,pink,0,0.3088,0.318,0.149,217,150,148

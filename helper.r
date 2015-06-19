@@ -2619,7 +2619,11 @@ LatticePercentLineWrapper<-function(VAR.name
                                     ,VAR.y.series
                                     ,VAR.facet.primary=NA
                                     ,VAR.facet.secondary=NA
-                                    ,...){
+                                    ,...
+                                    ,HorseTail=FALSE
+                                    ,MovingAverage=1
+                                    ,MovingSides=1){
+                                    
     #     debug(PrepareLabelsAndColors)
     
     if(is.na(VAR.y.series)) VAR.y.series<-VAR.facet.primary
@@ -2653,6 +2657,13 @@ LatticePercentLineWrapper<-function(VAR.name
                                ,na.rm =TRUE
         )
         names(VAR.long.DF)<-c("x.variable","category","Graph",...,"y.variable")
+        
+        if(is.numeric(MovingAverage) & MovingAverage>1){
+            SampleRate<-rep(1/MovingAverage,MovingAverage)
+            VAR.long.DF$y.raw<-VAR.long.DF$y.variable
+            VAR.long.DF$y.variable<- filter(VAR.long.DF$y.variable, SampleRate, sides=MovingSides)
+        }
+        
         #     
         #     VAR.long.DF$category<-factor(laply(strwrap(as.character(VAR.long.DF$category), width=15, simplify=FALSE), 
         #           paste, collapse="\n"))
@@ -2665,30 +2676,43 @@ LatticePercentLineWrapper<-function(VAR.name
         
     } else {
         
-#         second.labels.DF<-PrepareLabelsAndColors(VAR.Coloration
-#                                                  ,VAR.long.DF
-#                                                  ,VAR.facet.primary
-                                                 
-#         )  
+        #         second.labels.DF<-PrepareLabelsAndColors(VAR.Coloration
+        #                                                  ,VAR.long.DF
+        #                                                  ,VAR.facet.primary
+        
+        #         )  
         if(is.na(VAR.facet.secondary)){
             VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                    , by=cbind(VAR.long.DF[,VAR.x.variable]
-                                             ,VAR.long.DF[,VAR.y.series]
-                                             ,VAR.long.DF[,VAR.facet.primary]
-                                             ,VAR.long.DF$Graph
-                                             ,VAR.long.DF[,c(...)]
+                                              ,VAR.long.DF[,VAR.y.series]
+                                              ,VAR.long.DF[,VAR.facet.primary]
+                                              ,VAR.long.DF$Graph
+                                              ,VAR.long.DF[,c(...)]
                                    )
                                    ,FUN = "sum"
                                    ,na.rm =TRUE
             )
             names(VAR.long.DF)<-c("x.variable","category","second","Graph",...,"y.variable")
+            
+            if(is.numeric(MovingAverage) & MovingAverage>1){
+                SampleRate<-rep(1/MovingAverage,MovingAverage)
+                VAR.long.DF$y.raw<-VAR.long.DF$y.variable
+                VAR.long.DF$y.variable<- filter(VAR.long.DF$y.variable, SampleRate, sides=MovingSides)
+            }
+            
             if(VAR.facet.primary==VAR.y.series){
                 VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, y.total=sum(y.variable))
                 VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/y.total)
             }
             else{
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, y.total=sum(y.variable))
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, p=y.variable/y.total)
+                if(HorseTail==TRUE){
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, category), transform, y.total=sum(y.variable))
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, category), transform, p=y.variable/y.total)
+                }
+                else{
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, y.total=sum(y.variable))
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second), transform, p=y.variable/y.total)
+                }
             }
         }
         else {
@@ -2705,18 +2729,34 @@ LatticePercentLineWrapper<-function(VAR.name
                                    ,FUN = "sum"
                                    ,na.rm =TRUE
             )
+            
+            if(is.numeric(MovingAverage) & MovingAverage>1){
+                SampleRate<-rep(1/MovingAverage,MovingAverage)
+                VAR.long.DF$y.raw<-VAR.long.DF$y.variable
+                VAR.long.DF$y.variable<- filter(VAR.long.DF$y.variable, SampleRate, sides=MovingSides)
+            }
+            
             names(VAR.long.DF)<-c("x.variable","category","second","third","Graph",...,"y.variable") 
             if(VAR.facet.primary==VAR.y.series){
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, third), transform, p=y.variable/sum(y.variable))
+                
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, third), transform, y.total=sum(y.variable))
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, third), transform, p=y.variable/y.total)
+                
             }
             else{
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, y.total=sum(y.variable))
-                VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, p=y.variable/y.total)
+                if(HorseTail==TRUE){
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, category, third), transform, y.total=sum(y.variable))
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, category, third), transform, p=y.variable/y.total)
+                }
+                else{
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second, third), transform, y.total=sum(y.variable))
+                    VAR.long.DF<-ddply(VAR.long.DF, .(x.variable, second,  third), transform, p=y.variable/y.total)
+                }
             }
             
         }
-#         VAR.long.DF$second<-factor(VAR.long.DF$second,levels=second.labels.DF$variable)
-#         rm(second.labels.DF)
+        #         VAR.long.DF$second<-factor(VAR.long.DF$second,levels=second.labels.DF$variable)
+        #         rm(second.labels.DF)
     }
     
     
