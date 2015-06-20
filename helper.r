@@ -2330,8 +2330,8 @@ LatticePlotWrapper<-function(VAR.name
         #     )
         
         
-        #Don't add numbers at all if there's over 10 facets
-        if(length(levels(VAR.long.DF$primary))<=10){
+        #Don't add numbers at all if there's over 10 facets or 500 rows
+        if(length(levels(VAR.long.DF$primary))<=10 & nrow(VAR.long.DF)<200){
             #Drop the labeling detail for crowded graphs.
             NumericalDetail<-1
             if(nrow(VAR.long.DF)>50){ NumericalDetail<-0 }
