@@ -5,6 +5,22 @@ require(reshape2)
 require(plyr)
 require(scales)
 
+CleanFileName<-function(Name){
+    gsub("__+","_",
+         gsub("Overall_Overall_","Overall_",
+              gsub("NA_","", 
+                   gsub("[/|:|*]","-",
+                        gsub("[.| |<|>|$|,]","_",
+                             
+                                 Name
+                             
+                        )
+                   )
+              )
+         )
+    )
+}
+
 
 VariableNumericalFormat<-function(VAR.number,VAR.detail=0){
     if(!is.numeric(VAR.number)){
@@ -15,7 +31,7 @@ VariableNumericalFormat<-function(VAR.number,VAR.detail=0){
         VAR.number<-percent(VAR.number)
     }
     else{
-        VAR.number[VAR.number>=-3&VAR.number<=3]<-round(VAR.number[VAR.number>=-3&VAR.number<=3],1+VAR.detail)
+        VAR.number[VAR.number>=-3&VAR.number<=3&!is.na(VAR.number)]<-round(VAR.number[VAR.number>=-3&VAR.number<=3&!is.na(VAR.number)],1+VAR.detail)
         #   format(
         #     round(VAR.number[VAR.number>=-3&VAR.number<=3],2)
         #     , digits=2
@@ -23,7 +39,8 @@ VariableNumericalFormat<-function(VAR.number,VAR.detail=0){
         #     , trim=TRUE
         #     , big.mark=","
         #     )
-        VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]<-  round(as.numeric(VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]),0+VAR.detail)
+        VAR.number[((as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3))&!is.na(VAR.number)]<-
+            round(as.numeric(VAR.number[((as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3))&!is.na(VAR.number)]),0+VAR.detail)
         first<-length(VAR.number)
         #   VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]<-format(
         #     round(as.numeric(VAR.number[as.numeric(VAR.number)<(-3)|as.numeric(VAR.number)>3]),0)
@@ -81,22 +98,13 @@ new_page <- function(VAR.topic
     png(
         paste(Var.OutputPath
               
-              ,gsub("__+","_",
-                    gsub("Overall_Overall_","Overall_",
-                         gsub("NA_","", 
-                              gsub("[/|:|*]","-",
-                                   gsub("[.| |<|>|$|,]","_",
-                                        paste(
+              ,CleanFileName(paste(
                                             VAR.prefix
                                             ,VAR.sectionSTR
                                             ,VAR.topic
                                             ,endtext
                                             , sep="")
                                    )
-                              )
-                         )
-                    )
-              )
               ,".png"
               , sep=""
         )
