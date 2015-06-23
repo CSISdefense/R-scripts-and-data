@@ -1580,11 +1580,11 @@ apply_lookups<- function(VAR.path,VAR.df){
         
         
         #Handle NA values if present
-        if(any(is.na(VAR.df$vehicle))){
+        if(any(is.na(VAR.df$Vehicle))){
             #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$vehicle))){
-                VAR.df$vehicle<-addNA(VAR.df$vehicle,ifany=TRUE)
-                levels(VAR.df$vehicle)[is.na(levels(VAR.df$vehicle))] <- "Unlabeled"
+            if (!("Unlabeled" %in% levels(VAR.df$Vehicle))){
+                VAR.df$Vehicle<-addNA(VAR.df$Vehicle,ifany=TRUE)
+                levels(VAR.df$Vehicle)[is.na(levels(VAR.df$Vehicle))] <- "Unlabeled"
             }
         }
         
@@ -1601,7 +1601,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         VAR.df<-read_and_join(VAR.path,"LOOKUP_Vehicle.csv",VAR.df)
         
         
-        NA.check.df<-subset(VAR.df, is.na(Vehicle.sum), select=c("Vehicle"))
+        NA.check.df<-subset(VAR.df, is.na(Vehicle.sum) , select=c("Vehicle"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
             stop(paste(nrow(NA.check.df),"rows of NAs generated in Vehicle.sum"))
