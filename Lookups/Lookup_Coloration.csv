@@ -47,6 +47,7 @@ PBL,Not PBL,Not PBL,3,dark gray,0,0,0,0.498,128,128,128
 ,,,,,,,,,,,
 Area,Services (Non-R&D),Services (Non-R&D),1,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
 Area,Services (All),Services (All),1,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
+Area,Services,Services,1,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
 Area,All Services,All Services,1,"Red, Accent 1",0,0.5833,0.599,0.2471,192,80,77
 Area,PAMS,PAMS,2,teal,0.629,0.131,0,0.314,65,152,175
 Area,ICT,ICT,3,blue,0.587,0.317,0,0.345,69,114,167
@@ -68,6 +69,7 @@ Area,Electronics & Communications,Electronics & Communications,16,dodger blue,,,
 Area,Launchers & Munitions,Launchers & Munitions,18,dark orange,,,,,255,140,0
 Area,Clothing & Subsistence,Clothing & Subsistence,19,purple,,,,,179,162,199
 Area,Fuels,Fuels,21,dark gray,0,0,0,0.498,128,128,128
+Area,Fuel,Fuel,21,dark gray,0,0,0,0.498,128,128,128
 Area,Unlabeled,Unlabeled,25,reddish gray,0,0.008,0.055,0.067,150,120,120
 ,,,,,,,,,,,
 Area,Other Products,Products,21,light blue,0.29,0.184,0,0.188,147,169,207
@@ -328,6 +330,7 @@ PlatformPortfolio,Facilities and Construction,Facilities and Construction,8,,0,0
 PlatformPortfolio,Other Services,Other Services,9,,0.191,0,0.382,0.22,161,199,123
 PlatformPortfolio,Other R&D and Knowledge Based,Other R&D and Know. Based,10,,0.317,0.152,0,0.098,157,195,230
 PlatformPortfolio,Unlabeled,Unlabeled,11,reddish gray,0,0.008,0.055,0.067,150,120,120
+PlatformPortfolio,Other Services,Other,9,,0.191,0,0.382,0.22,161,199,123
 ,,,,,,,,,,,
 Deployment,Dividends,Dividends,1,orange,0,0.397,0.986,0.141,219,132,3
 Deployment,Acquisitions,Acquisitions,4,olive green,0.17,0,0.527,0.353,137,165,78
@@ -349,3 +352,4 @@ Regime, 2009 NDAA\nSec. 864 Impl.,,3,blue,0.582,0.317,0,0.259,79,129,189
 Regime,CARTER pre-Task\n& Delivery Comp.,,2,olive green,0.17,0,0.527,0.353,137,165,78
 Regime,Task &\nDelivery Comp.,,3,blue,0.582,0.317,0,0.259,79,129,189
 Regime,Impl. of\n863-09,,4,orange,0,0.397,0.986,0.141,219,132,3
+Regime,Section 808\nFY12 NDAA\nImplem.,,4,orange,0,0.397,0.986,0.141,219,132,3
