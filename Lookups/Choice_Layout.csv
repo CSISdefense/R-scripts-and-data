@@ -7,5 +7,6 @@ tall single,portrait,single,6,5,1,1,4,1,15.75,18.25,0.25,2.75,6,9,5,4,4,10
 single column,portrait,single,3,3,1,1,4,1,15.75,18.25,0.25,2.75,4.25,9,5,4,4,10
 portrait small,portrait,single,4.5,2.625,1,1,4,1,17,18.25,0.5,4.5,2.625,5.65,5,4,4,10
 landscape small,portrait,single,6,2.625,1,1,4,1,17,18.25,0.5,4.5,2.625,5.65,5,4,4,10
-small wide,portrait,single,3,1.5,1,1,4,1,15.75,18.25,0.25,2.75,4.25,9,5,4,4,10
+small wide,portrait,single,3,1.5,1,1,4,1,25,18.25,0.25,3,1.5,5.65,5,4,4,10
 tiny wide,portrait,single,4.5,1.5,1,1,4,1,15.75,18.25,0.25,2.75,4.25,9,12,12,12,12
+top 10 table,portrait,single,2.8,1.5,1,1,4,1,29,30.05,0.5,2.8,1.5,5.65,5,4,4,10
