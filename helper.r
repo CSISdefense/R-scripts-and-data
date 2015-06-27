@@ -9,10 +9,10 @@ CleanFileName<-function(Name){
     gsub("__+","_",
          gsub("Overall_Overall_","Overall_",
               gsub("NA_","", 
-                   gsub("[/|:|*]","-",
+                   gsub("[/|:|*|\n]","-",
                         gsub("[.| |<|>|$|,]","_",
                              
-                                 Name
+                             Name
                              
                         )
                    )
@@ -58,6 +58,7 @@ VariableNumericalFormat<-function(VAR.number,VAR.detail=0){
         #     VAR.number<-format(round(VAR.number,1), digits=0, trim=TRUE, big.mark=",")
         #   }
         #   
+        VAR.number<-format(VAR.number, trim=TRUE, big.mark=",")
     }
     VAR.number
 }
@@ -96,15 +97,15 @@ new_page <- function(VAR.topic
     
     
     png(
-        paste(Var.OutputPath
+        paste(Var.OutputPath,
               
-              ,CleanFileName(paste(
-                                            VAR.prefix
-                                            ,VAR.sectionSTR
-                                            ,VAR.topic
-                                            ,endtext
-                                            , sep="")
-                                   )
+              CleanFileName(paste(
+                  VAR.prefix
+                  ,VAR.sectionSTR
+                  ,VAR.topic
+                  ,endtext
+                  , sep="")
+              )       
               ,".png"
               , sep=""
         )
@@ -318,74 +319,76 @@ CreateTopVendorList<-function(
     VAR.choice.layout
     ,VAR.which.layout
     ,VAR.long.DF
-    ,VAR.y.variable
+    ,name.variable
+    ,value.variable
     ,VAR.row 
     ,VAR.col 
     ,VAR.top.count
-    ,VAR.year
-    ,VAR.x.offset
+    ,VAR.year=NA
+    ,VAR.x.offset=0
+    ,rank.variable=NA
+    ,value.label=NA
+    ,name.label="Vendors"
+    ,total.label=NA
 ){
     
-    constant.year<-max(VAR.long.DF$Fiscal.Year)
-    
-    VAR.long.DF <-subset(VAR.long.DF 
-                         ,Fiscal.Year==as.Date(paste(as.character(VAR.year),"/09/30/", sep = ""))
-    )
+    if(is.na(name.label)){
+        name.label<-paste(as.character(format(max(VAR.long.DF$Fiscal.Year),"%Y")),"$ Millions")
+    }
+    if(!is.na(VAR.year)){
+        VAR.long.DF <-subset(VAR.long.DF 
+                             ,Fiscal.Year==as.Date(paste(as.character(VAR.year),"/09/30/", sep = ""))
+        )
+        name.label<-paste(name.label,"in",VAR.year)
+    }
+    if(is.na(total.label)){
+        total.label<-"Total Obligations"
+    }
+    else{
+        total.label<-paste("Total",total.label,"Obligations")
+    }
     
     attach(VAR.long.DF)
     
-    VendorF<-factor(ContractorDisplayName)
-    #Reduce the count in case the number of entries is less than the default
-    VAR.top.count<-min(VAR.top.count,length(VAR.long.DF$ContractorDisplayName))
-    value<-VAR.long.DF[,VAR.y.variable]*1000
-    #Optional Top Row, only used in the longer top 20 lists
-    if (VAR.choice.layout$page.layout[VAR.which.layout]=="single"){
-        #     print(
-        #       grid.text("Top 20"
-        #                 ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+2,"lines")
-        #                 ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
-        #                 ,hjust=0
-        #                 ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-        #       , vp=vplayout(VAR.row,VAR.col)
-        #     )
-        print(
-            grid.text(paste("Vendors in", VAR.year)
-                      ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
-                      ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
-                      ,hjust=0
-                      ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-            , vp=vplayout(VAR.row,VAR.col)
-        )
-        
-        #     print(
-        #       grid.text("Obligations in"
-        #                 ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+2,"lines")
-        #                 ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
-        #                 ,hjust=1
-        #                 ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-        #                 , vp=vplayout(VAR.row,VAR.col)
-        #       )
-        
+    if(is.na(rank.variable)){
+        if("AnnualSubCustomerVendorRank" %in% names(VAR.long.DF))
+        {
+            rank.variable<-'AnnualSubCustomerVendorRank'
+        }
+        else if("ContractAnnualCustomerVendorRank" %in% names(VAR.long.DF))
+        {
+            rank.variable<-'ContractAnnualCustomerVendorRank'
+        }
+        else if("VendorRank" %in% names(VAR.long.DF))
+        {
+            rank.variable<-'VendorRank'
+        }
+        else stop ("Unknown VendorRank")
     }
-    else{
-        print(
-            grid.text("Vendors"
-                      ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
-                      ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
-                      ,hjust=0
-                      ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-            , vp=vplayout(VAR.row,VAR.col)
-        )
-    }
+    #     VAR.long.DF<-VAR.long.DF[order(VAR.long.DF,VAR.long.DF[,rank.variable])]
     
+    #Reduce the count in case the number of entries is less than the default
+    VAR.top.count<-min(VAR.top.count,length(VAR.long.DF[,name.variable]))
+    
+    #Optional Top Row, only used in the longer top 20 lists
+    print(
+        grid.text(name.label
+                  ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
+                  ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
+                  ,hjust=0
+                  ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        , vp=vplayout(VAR.row,VAR.col)
+    )
     
     print(
-        grid.text(paste(as.character(format(constant.year,"%Y")),"$ Millions")
+        grid.text(value.label
                   ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
                   ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
                   ,hjust=1
                   ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
         , vp=vplayout(VAR.row,VAR.col))
+    
+    # Prior year ratings
     #   print(
     #     grid.text(as.character(VAR.year-1)
     #               ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+2,"lines")
@@ -405,35 +408,41 @@ CreateTopVendorList<-function(
                             ,VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+0.5)
                           ,"lines")
                    ,x=unit(c(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
-                             ,VAR.x.offset+VAR.choice.layout$prevrank.column[VAR.which.layout])
+                             ,VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout])#Used to go to prevrank
                            ,"lines")
                    ,gp=gpar(fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
         , vp=vplayout(VAR.row,VAR.col)
     )
-    for(i in 1:VAR.top.count) {
+    
+    TopTotal<-0
+    for(i in 1:VAR.top.count){
         print(
-            grid.text(VendorF[[VAR.top.count+1-i]]
+            grid.text(VAR.long.DF[VAR.top.count+1-i,name.variable]
                       ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i,"lines")
                       ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
                       ,hjust=0
                       ,gp=gpar(fontface="plain"
                                ,fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
             , vp=vplayout(VAR.row,VAR.col))
+        TopTotal<-TopTotal+VAR.long.DF[VAR.top.count+1-i,value.variable]*1000
         print(
-            if(format(round(value[[VAR.top.count+1-i]],-1), trim=TRUE, big.mark=",")==0){
+            if(round(VAR.long.DF[VAR.top.count+1-i,value.variable]*1000,-1)==0){
                 grid.text("<1"
                           ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i,"lines")
                           ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
                           ,hjust=1,gp=gpar(fontface="plain",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+                
             }
             else{
                 grid.text(
-                    format(round(value[[VAR.top.count+1-i]],-1), trim=TRUE, big.mark=",")
+                    format(round(VAR.long.DF[VAR.top.count+1-i,value.variable]*1000,-1), trim=TRUE, big.mark=",")
                     ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i,"lines")
                     ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
                     ,hjust=1,gp=gpar(fontface="plain",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+                
             }
             , vp=vplayout(VAR.row,VAR.col))
+        #Previous rank
         #         print(
         #           grid.text(cleanup.top.20.rank(Previous.Rank[[VAR.top.count+1-i]])
         #                     ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i
@@ -468,18 +477,10 @@ CreateTopVendorList<-function(
         , vp=vplayout(VAR.row,VAR.col)
     )
     
-    if("AnnualSubCustomerVendorRank" %in% names(VAR.long.DF))
-    {
-        colnames(VAR.long.DF)[colnames(VAR.long.DF)=="AnnualSubCustomerVendorRank"]<-"VendorRank"
-    }
-    if("ContractAnnualCustomerVendorRank" %in% names(VAR.long.DF))
-    {
-        colnames(VAR.long.DF)[colnames(VAR.long.DF)=="ContractAnnualCustomerVendorRank"]<-"VendorRank"
-    }
-    TopTotal<-sum(VAR.long.DF[VendorRank!=0&VendorRank<=VAR.top.count][,VAR.y.variable])
+    
     
     print(
-        grid.text(format(round(sum(TopTotal)*1000,-1), trim=TRUE, big.mark=",")
+        grid.text(format(round(TopTotal,-1), trim=TRUE, big.mark=",")
                   ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]
                           ,"lines")
                   ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout]
@@ -497,18 +498,17 @@ CreateTopVendorList<-function(
         , vp=vplayout(VAR.row,VAR.col)
     )
     print(
-        grid.text(paste("Total"
-                        #                     ,Categories$Short[[sectionNUM]]
-                        ,"Obligations")
-                  ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]-1
-                          ,"lines")
-                  ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
-                          ,"lines")
-                  ,hjust=0,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-        , vp=vplayout(VAR.row,VAR.col)
+        grid.text(total.label,
+                  y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]-1
+                          ,"lines"),
+                  x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
+                          ,"lines"),
+                  just=c("left","top"),
+                  gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout])),
+         vp=vplayout(VAR.row,VAR.col)
     )
     print(
-        grid.text(VariableNumericalFormat(round(sum(VAR.long.DF$value)*1000,-1))
+        grid.text(VariableNumericalFormat(round(sum(VAR.long.DF[,value.variable])*1000,-1))
                   ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]-1
                           ,"lines")
                   ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout]
@@ -521,6 +521,219 @@ CreateTopVendorList<-function(
     
     detach(VAR.long.DF) # clean up
 }
+
+
+
+
+CreateTopVendorListWrapper<-function(
+    VAR.choice.layout
+    ,VAR.which.layout
+    ,value.label
+    ,name.label
+    ,VAR.long.DF
+    ,name.variable
+    ,value.variable
+    ,rank.variable
+    ,VAR.top.count
+    ,VAR.year=NA
+    ,VAR.x.offset=0
+){
+    
+    
+    
+    if(!is.na(VAR.year)){
+        VAR.long.DF <-subset(VAR.long.DF 
+                             ,Fiscal.Year==as.Date(paste(as.character(VAR.year),"/09/30/", sep = ""))
+        )
+    }
+    
+    attach(VAR.long.DF)
+    
+    
+    #Reduce the count in case the number of entries is less than the default
+    VAR.top.count<-min(VAR.top.count,length(VAR.long.DF[,name.variable]))
+    
+    #Optional Top Row, only used in the longer top 20 lists
+    if (VAR.choice.layout$page.layout[VAR.which.layout]=="single"){
+        #     print(
+        #       grid.text("Top 20"
+        #                 ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+2,"lines")
+        #                 ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
+        #                 ,hjust=0
+        #                 ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        #       
+        #     )
+        toptable<-(
+            grid.text(paste("Vendors in", VAR.year)
+                      ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
+                      ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
+                      ,hjust=0
+                      ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+            
+        )
+        
+        #     toptable<-toptable+(
+        #       grid.text("Obligations in"
+        #                 ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+2,"lines")
+        #                 ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
+        #                 ,hjust=1
+        #                 ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        #                 
+        #       )
+        
+    }
+    else{
+        toptable<-(
+            grid.text(value.label
+                      ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
+                      ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
+                      ,hjust=0
+                      ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+            
+        )
+    }
+    
+    
+    
+    toptable<-toptable+
+        grid.text(name.label
+                  ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
+                  ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
+                  ,hjust=1
+                  ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+    
+    #   toptable<-toptable+(
+    #     grid.text(as.character(VAR.year-1)
+    #               ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+2,"lines")
+    #               ,x=unit(VAR.x.offset+VAR.choice.layout$prevrank.column[VAR.which.layout],"lines")
+    #               ,hjust=1
+    #               ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+    #     )
+    #   toptable<-toptable+(
+    #     grid.text("Rank"
+    #               ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+1,"lines")
+    #               ,x=unit(VAR.x.offset+VAR.choice.layout$prevrank.column[VAR.which.layout],"lines")
+    #               ,hjust=1
+    #               ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+    #     )
+    toptable<-toptable+(
+        grid.lines(y=unit(c(VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+0.5
+                            ,VAR.choice.layout$base.y.line[VAR.which.layout]+VAR.top.count+0.5)
+                          ,"lines")
+                   ,x=unit(c(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
+                             ,VAR.x.offset+VAR.choice.layout$prevrank.column[VAR.which.layout])
+                           ,"lines")
+                   ,gp=gpar(fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        
+    )
+    for(i in 1:VAR.top.count) {
+        toptable<-toptable+(
+            grid.text(VAR.long.DF[[VAR.top.count+1-i,name.variable]]
+                      ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i,"lines")
+                      ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout],"lines")
+                      ,hjust=0
+                      ,gp=gpar(fontface="plain"
+                               ,fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        )
+        toptable<-toptable+(
+            if(format(round(value[[VAR.top.count+1-i]],-1), trim=TRUE, big.mark=",")==0){
+                grid.text("<1"
+                          ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i,"lines")
+                          ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
+                          ,hjust=1,gp=gpar(fontface="plain",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+            }
+            else{
+                grid.text(
+                    format(round(value[[VAR.top.count+1-i]],-1), trim=TRUE, big.mark=",")
+                    ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i,"lines")
+                    ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout],"lines")
+                    ,hjust=1,gp=gpar(fontface="plain",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+            }
+        )
+        #         toptable<-toptable+(
+        #           grid.text(cleanup.top.20.rank(Previous.Rank[[VAR.top.count+1-i]])
+        #                     ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+i
+        #                             ,"lines")
+        #                     ,x=unit(VAR.x.offset+VAR.choice.layout$prevrank.column[VAR.which.layout]
+        #                             ,"lines")
+        #                     ,hjust=1
+        #                     ,gp=gpar(fontface="plain"
+        #                              ,fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        #           
+        #         )
+    }
+    toptable<-toptable+(
+        grid.lines(y=unit(c(VAR.choice.layout$base.y.line[VAR.which.layout]+0.5,VAR.choice.layout$base.y.line[VAR.which.layout]+0.5)
+                          ,"lines")
+                   ,x=unit(c(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
+                             ,VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout])
+                           ,"lines")
+                   ,gp=gpar(fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        
+    )
+    toptable<-toptable+(
+        grid.text(paste("Top"
+                        #                     ,VAR.top.count,Categories$Short[[sectionNUM]]
+                        ,"Obligations")
+                  ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]
+                          ,"lines")
+                  ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
+                          ,"lines")
+                  ,hjust=0,gp=gpar(fontface="bold"
+                                   ,fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        
+    )
+    
+    TopTotal<-sum(VAR.long.DF[VAR.long.DF[,rank.variable]!=0&
+                                  VAR.long.DF[,rank.variable]<=VAR.top.count
+                              ,value.variable])
+    
+    toptable<-toptable+(
+        grid.text(format(round(sum(TopTotal)*1000,-1), trim=TRUE, big.mark=",")
+                  ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]
+                          ,"lines")
+                  ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout]
+                          ,"lines")
+                  ,hjust=1,gp=gpar(fontface="bold"
+                                   ,fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        
+    )
+    toptable<-toptable+(
+        grid.lines(y=unit(c(VAR.choice.layout$base.y.line[VAR.which.layout]-0.5
+                            ,VAR.choice.layout$base.y.line[VAR.which.layout]-0.5),"lines")
+                   ,x=unit(c(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
+                             ,VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout]),"lines")
+                   ,gp=gpar(fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        
+    )
+    toptable<-toptable+(
+        grid.text(paste("Total"
+                        #                     ,Categories$Short[[sectionNUM]]
+                        ,"Obligations")
+                  ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]-1
+                          ,"lines")
+                  ,x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
+                          ,"lines")
+                  ,hjust=0,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        
+    )
+    toptable<-toptable+(
+        grid.text(VariableNumericalFormat(round(sum(VAR.long.DF$value)*1000,-1))
+                  ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]-1
+                          ,"lines")
+                  ,x=unit(VAR.x.offset+VAR.choice.layout$dollar.column[VAR.which.layout]
+                          ,"lines")
+                  ,hjust=1,gp=gpar(fontface="bold"
+                                   ,fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
+        
+    )
+    
+    
+    detach(VAR.long.DF) # clean up
+    toptable
+}
+
+
 
 CreateTable<-function(VAR.note #unused
                       ,VAR.choice.layout
@@ -609,17 +822,17 @@ CreateTable<-function(VAR.note #unused
     
     if (VAR.choice.layout$page.layout[which.layout]=="grid"){
         left.offset<-0
-        print(
+        toptable<-toptable+(
             grid.text(paste("Top",top.count,"Vendors")
                       ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+top.count+2.5,"lines")
                       ,x=unit(VAR.choice.layout$table.title.x[VAR.which.layout],"npc")
                       ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-            , vp=vplayout(VAR.row,VAR.col)
+            
         )  
     }
     else{
         left.offset<-4.25
-        print(
+        toptable<-toptable+(
             grid.text(paste("Top"
                             ,top.count
                             ,VAR.sectionSTR 
@@ -630,7 +843,7 @@ CreateTable<-function(VAR.note #unused
                       ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]+top.count+3.5,"lines")
                       ,x=unit(VAR.choice.layout$table.title.x[VAR.which.layout],"npc")
                       ,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-            , vp=vplayout(VAR.row,VAR.col)
+            
         )  
     }
     #   debug(CreateTopVendorList)
@@ -661,13 +874,13 @@ CreateTable<-function(VAR.note #unused
         )
     }
     
-    print(
+    toptable<-toptable+(
         grid.text("* Joint Venture" 
                   ,y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]-3,"lines")
                   ,x=unit(VAR.choice.layout$name.column[VAR.which.layout]
                           ,"lines")
                   ,hjust=0,gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout]))
-        , vp=vplayout(VAR.row,VAR.col)
+        
     )
     
     Title(Categories
@@ -676,26 +889,26 @@ CreateTable<-function(VAR.note #unused
     )
     
     
-    print(
+    toptable<-toptable+(
         grid.text(paste("Source: FPDS and CSIS analysis;")
                   ,y=unit(1,"line")
                   ,x=unit(15,"line")
                   ,vjust="bottom",
                   ,hjust=0,
                   ,gp=gpar(fontface="plain",fontsize=6))
-        , vp=vplayout(VAR.row,VAR.col)
+        
     )  
     
     
     #   
-    #   print(
+    #   toptable<-toptable+(
     #     grid.text(paste("Available online at www.csis.org/NSPIR/DoD")
     #               ,y=unit(1,"line")
     #               ,x=unit(28,"line")
     #               ,vjust="bottom",
     #               ,hjust=0,
     #               ,gp=gpar(fontface="plain",fontsize=6))
-    #     , vp=vplayout(VAR.row,VAR.col)
+    #     
     #   )  
     #   
     
@@ -1490,8 +1703,8 @@ Title<-function(VAR.Services_Categories,VAR.note,VAR.x.dimension,VAR.page.orient
     #text(VAR.x.dimension*-0.45,baseY+text.height*4,paste("Note: ","Due to differences in download date, contract vehicle totals may not match totals in other figures."),font=1,cex=note.text.size,adj=c(0,0))
     if(VAR.note!=""){
         #		text(VAR.x.dimension*-0.45,baseY+text.height*3,paste("Note:",VAR.note),font=1,cex=note.text.size,adj=c(0,0))
-        print("Note")
-        print(VAR.note)
+        toptable<-toptable+("Note")
+        toptable<-toptable+(VAR.note)
     }
 }
 
@@ -2704,17 +2917,17 @@ LatticePercentLineWrapper<-function(VAR.name
     
     if(!is.na(VAR.facet.secondary)){
         if(!HorseTail){
-        print.figure<-print.figure+facet_grid(second ~ third
-                                              , scales="free_x"
-                                              , space="free_x"
-                                              #                                               , labeller=Label_Wrap
-        )+theme(strip.text.y=element_text(size=axis.text.size,angle=0)
-        )#+scale_y_continuous(expand=c(0,0.75))
+            print.figure<-print.figure+facet_grid(second ~ third
+                                                  , scales="free_x"
+                                                  , space="free_x"
+                                                  #                                               , labeller=Label_Wrap
+            )+theme(strip.text.y=element_text(size=axis.text.size,angle=0)
+            )#+scale_y_continuous(expand=c(0,0.75))
         }
         else{
             print.figure<-print.figure+facet_grid(third ~ second
-#                                                   , scales="free_x"
-#                                                   , space="free_x"
+                                                  #                                                   , scales="free_x"
+                                                  #                                                   , space="free_x"
                                                   #                                               , labeller=Label_Wrap
             )+theme(strip.text.y=element_text(size=axis.text.size,angle=0)
             )#+scale_y_continuous(expand=c(0,0.75))
