@@ -2063,29 +2063,29 @@ if("YEAR"%in% names(VAR.df)){
 if(!("Graph" %in% names(VAR.df))){
     VAR.df$Graph<-TRUE
 }
-if("ProductOrServicesCategory.Graph"%in% names(VAR.df)){
-    VAR.df$Graph<-VAR.df$Graph&VAR.df$ProductOrServicesCategory.Graph
-    VAR.df<-subset(VAR.df, select=-c(ProductOrServicesCategory.Graph)) 
+if("ProductOrServiceArea.Graph"%in% names(VAR.df)){
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$ProductOrServiceArea.Graph
+    VAR.df<-subset(VAR.df, select=-c(ProductOrServiceArea.Graph)) 
 }
 if("Contract.Size.Graph"%in% names(VAR.df)){
-    VAR.df$Graph<-VAR.df$Graph&VAR.df$Contract.Size.Graph
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Contract.Size.Graph
     VAR.df<-subset(VAR.df, select=-c(Contract.Size.Graph)) 
 }
 
 if("Competition.Graph"%in% names(VAR.df)){
-    VAR.df$Graph<-VAR.df$Graph&VAR.df$Competition.Graph
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Competition.Graph
     VAR.df<-subset(VAR.df, select=-c(Competition.Graph)) 
 }
 if("Vehicle.Graph"%in% names(VAR.df)){
-    VAR.df$Graph<-VAR.df$Graph&VAR.df$Vehicle.Graph
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Vehicle.Graph
     VAR.df<-subset(VAR.df, select=-c(Vehicle.Graph)) 
 }
 if("Pricing.Mechanism.Graph"%in% names(VAR.df)){
-    VAR.df$Graph<-VAR.df$Graph&VAR.df$Pricing.Mechanism.Graph
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Pricing.Mechanism.Graph
     VAR.df<-subset(VAR.df, select=-c(Pricing.Mechanism.Graph)) 
 }
 if("Customer.Graph"%in% names(VAR.df)){
-    VAR.df$Graph<-VAR.df$Graph&VAR.df$Customer.Graph
+    VAR.df$Graph<-VAR.df$Graph&&VAR.df$Customer.Graph
     VAR.df<-subset(VAR.df, select=-c(Customer.Graph)) 
 }        
 if("LastCurrentCompletionDate"%in% names(VAR.df)&"MinOfEffectiveDate"%in% names(VAR.df)){
