@@ -4,7 +4,7 @@
 Path<-"K:\\2007-01 PROFESSIONAL SERVICES\\R scripts and data\\"
 # Path<-"~\\FPDS\\R scripts and data\\"
 # Path<-"C:\\Users\\Greg Sanders\\SkyDrive\\Documents\\R Scripts and Data SkyDrive\\"
-# setwd("K:\\Development\\Defense")
+
 
 #*************************************Required Libraries******************************************
 require(plyr)

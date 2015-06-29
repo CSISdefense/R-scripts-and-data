@@ -1,5 +1,6 @@
 Original,Replacement
 SumOfobligatedAmount,Action.Obligation
+ObligatedAmount,Action.Obligation
 SingleYearObligatedAmount,Contract.Size
 SizeOfSumOfObligatedAmount,Contract.Size
 Base.and.All.Options.Value,ContractBaseAndAllOptionsValue
@@ -42,3 +43,5 @@ VendorSize,Vendor.Size
 AnnualSimpleBucketVendorRank,VendorRank
 AnnualSubCustomerVendorRank,VendorRank
 ContractAnnualCustomerVendorRank,VendorRank
+subcustomer,SubCustomer
+ï..fiscal_year,Fiscal.Year
