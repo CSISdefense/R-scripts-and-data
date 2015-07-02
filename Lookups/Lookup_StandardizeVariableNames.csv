@@ -24,12 +24,12 @@ StateCode,PoPstateCode
 FundingMechanismClassification,Pricing.Mechanism
 TypeofContractPricingtext,Pricing.Mechanism
 TypeOfContractPricing,Pricing.Mechanism.Code
+Simple,SimpleArea
 ProductorServiceArea,ProductOrServiceArea
 ProductsCategory,ProductOrServiceArea
 ServiceCategory,ProductOrServiceArea
 Services.Category,ProductOrServiceArea
 ServicesCategory,ProductOrServiceArea
-Simple,ProductOrServiceArea
 simplearea,SimpleArea
 Statecode,StateCode
 Sub_Customer,SubCustomer
@@ -45,3 +45,62 @@ AnnualSubCustomerVendorRank,VendorRank
 ContractAnnualCustomerVendorRank,VendorRank
 subcustomer,SubCustomer
 ï..fiscal_year,Fiscal.Year
+pCEffNot Effective Comp.,pEffComp
+pCEffEffective Comp.,pNoEffComp
+pPlatElectronics and Communications ,pPlatEnC
+pPlatFacilities and Construction,pPlatFnC
+pPlatLand Vehicles,pPlatLand
+pPlatWeapons and Ammunition,pPlatWnA
+pPlatOther,pPlatOther
+pPlatMissile and Space Systems,pPaltMnS
+pPlatAircraft and Drones,pPlatAir
+pPlatShips & Submarines,pPlatVessel
+pPSRProducts (All),pProducts
+pPSRServices (Non-R&D),pServices
+pPSRR&D,pRnD
+pPSCElectronics & Communications,pPscEnC
+pPSCOther                     ,pPscOther                     
+pPSCFuels,pPscFuels
+pPSCICT,pPscICT
+pPSCFRS&C,pPscFRSnC
+pPSCPAMS,pPscPAMS
+pPSCERS,pPscERS
+pPSCEngines & Power Plants,pPscEngines
+pPSCLaunchers & Munitions,pPscLnM
+pPSCMED,pPscMED
+pPSCMissiles & Space,pPscMnS
+pPSCAircraft,pPscAir
+pPSCGround Vehicles,pPscLand
+pPSCR&D,pPscRnD
+pPSCShips,pPscShips
+pPscClothing & Subsistence,pPscCloth
+pPriceFixed,pPriceFixed
+pPriceTime/Mat.,pPriceTime
+pPriceCost+,pPriceCost
+pPriceOther,pPriceOther
+pPriceCombination,pPriceComb
+pFeeNone,pFeeNone
+pFeeRedetermination,pFeeRedermination
+pFeeEPA,pFeeEPA
+pFeeFixed,pFeeFixed
+pFeeAward,pFeeAward
+pFeeIncentive,pFeeIncentive
+pFeeLevel Of Effort,pFeeEffort
+pCompNo Comp.,pCompNoComp
+pComp1 Offer,pComp1Offer
+pComp2 Offers,pComp2Offers
+pComp3+ Offers,pComp3pOffers
+pComp3-4 Offers,pComp3or4Offers
+pComp5+ Offers,pComp5pOffers
+pCompNo Comp. (Other),pNoCompOther
+pCompNo Comp. (Only 1 Source),pNoComp1Source
+pCompFollow on to Competed Action,pNoCompFollowOn
+pIDVIDV,pIDV
+pIDVAward,pAward
+pVehFSS,pVehFSS
+pVehSingle-Awd.,pVehSAC
+pVehPur. Order,pVehPur
+pVehDefinitive,pVehDef
+pVehMulti-Awd.,pVehMAC
+pVehUnlbd. IDV,pVehIDVUnl
+pVehOther IDV,pVehOIDV
