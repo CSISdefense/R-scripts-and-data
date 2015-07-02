@@ -673,7 +673,7 @@ read_and_join<-function(VAR.path,
     
     
     #   #Fixes for Excel's penchent to drop leading 0s.
-    if("Contracting.Agency.ID" %in% names(lookup.file)){
+    if("Contracting.Agency.ID" %in% names(lookup.file) & "VAR.existing.df" %in% names(lookup.file)){
         #     append.fixed.tasks$Fair.Opportunity.Limited.Sources[is.na(append.fixed.tasks$Fair.Opportunity.Limited.Sources)]<-""
         #     lookup.file$Contracting.Agency.ID<-sprintf("%04d",lookup.file$Contracting.Agency.ID)
         #     debug(LeadingZeros)
@@ -1149,7 +1149,9 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
     
     
-    if("MajorCommandID" %in%  names(VAR.df) && "ContractingOfficeID" %in%  names(VAR.df)){
+    if("MajorCommandID" %in%  names(VAR.df) & 
+           "ContractingOfficeID" %in%  names(VAR.df)  &
+           !("ContractingOfficeName" %in%  names(VAR.df))){
         
         if("MajorCommandCode"%in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
@@ -1171,9 +1173,15 @@ apply_lookups<- function(VAR.path,VAR.df){
             }
         }
         
-        VAR.df<-read_and_join(VAR.path,"Lookup_MajorCommandID.csv",VAR.df)
+        VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
         
-        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode), select=c("MajorCommandID","MajorCommandCode","MajorCommandName"))
+        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & MajorCommandID!="Uncategorized",
+                            select=c("Fiscal.Year",
+                                     "ContractingOfficeID",
+                                     "ContractingOfficeName",
+                                     "MajorCommandID",
+                                     "MajorCommandCode",
+                                     "MajorCommandName"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
             stop(paste(nrow(NA.check.df),"rows of NAs generated in MajorCommandCode"))
@@ -1211,7 +1219,8 @@ apply_lookups<- function(VAR.path,VAR.df){
             }
         }
         
-        VAR.df<-read_and_join(VAR.path,"Lookup_MajorCommandID.csv",VAR.df)
+        VAR.df<-read_and_join(VAR.path,"Lookup_MajorCommandID.csv",VAR.df,
+                              by="MajorCommandID")
         NA.check.df<-subset(VAR.df,is.na(MajorCommandCode), select=c("MajorCommandID"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
