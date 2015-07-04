@@ -1044,24 +1044,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         }
     }
     
-    if("Product.or.Service.Code" %in% names(VAR.df))
-    {
-        if(is.integer(VAR.df$Product.or.Service.Code)){
-            VAR.df$Product.or.Service.Code<-factor(VAR.df$Product.or.Service.Code)
-        }
-        
-        if("Product.or.Service.Description" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Product.or.Service.Description))
-        }
-        
-        #           debug(read_and_join)
-        VAR.df<-read_and_join(VAR.path,"Lookup_ProdServ_Codes.csv",VAR.df)
-        #         NA.check.df<-subset(VAR.df, is.na(ProductOrServiceArea), select=c("Product.or.Service.Code"))
-        #         if(nrow(NA.check.df)>0){
-        #             print(unique(NA.check.df))
-        #             stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductOrServiceArea"))
-        #         }
-    }
+   
     
     
     if(("OMBagencyCode" %in% names(VAR.df))
@@ -1102,21 +1085,24 @@ apply_lookups<- function(VAR.path,VAR.df){
         
     }
     
-    else if("ServicesCategory.detail" %in% names(VAR.df))
+    
+    if("Product.or.Service.Code" %in% names(VAR.df))
     {
-        
-        if("ServicesCategory.sum" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
+        if(is.integer(VAR.df$Product.or.Service.Code)){
+            VAR.df$Product.or.Service.Code<-factor(VAR.df$Product.or.Service.Code)
         }
         
-        #     debug(read_and_join)
-        VAR.df<-read_and_join(VAR.path,"LOOKUP_Buckets.csv",VAR.df)
-        NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("Fiscal.Year","ServicesCategory.detail"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in ServicesCategory.sum"))
+        if("Product.or.Service.Description" %in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(Product.or.Service.Description))
         }
         
+        #           debug(read_and_join)
+        VAR.df<-read_and_join(VAR.path,"Lookup_ProdServ_Codes.csv",VAR.df)
+        #         NA.check.df<-subset(VAR.df, is.na(ProductOrServiceArea), select=c("Product.or.Service.Code"))
+        #         if(nrow(NA.check.df)>0){
+        #             print(unique(NA.check.df))
+        #             stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductOrServiceArea"))
+        #         }
     }
     else if("ProductOrServiceArea" %in% names(VAR.df))
     {
@@ -1137,7 +1123,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("ProductOrServiceArea"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in ServicesCategory.sum"))
+            stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductOrServiceArea"))
         }
         
         NA.check.df<-subset(VAR.df, is.na(ServicesCategory.detail), select=c("ProductOrServiceArea"))
@@ -1147,7 +1133,22 @@ apply_lookups<- function(VAR.path,VAR.df){
         }
         
     }
-    
+    else if("ServicesCategory.detail" %in% names(VAR.df))
+    {
+        
+        if("ServicesCategory.sum" %in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
+        }
+        
+        #     debug(read_and_join)
+        VAR.df<-read_and_join(VAR.path,"LOOKUP_Buckets.csv",VAR.df)
+        NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("Fiscal.Year","ServicesCategory.detail"))
+        if(nrow(NA.check.df)>0){
+            print(unique(NA.check.df))
+            stop(paste(nrow(NA.check.df),"rows of NAs generated in ServicesCategory.sum"))
+        }
+        
+    }
     
     if("MajorCommandID" %in%  names(VAR.df) & 
            "ContractingOfficeID" %in%  names(VAR.df)  &
