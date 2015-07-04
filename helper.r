@@ -2086,9 +2086,13 @@ PrepareLabelsAndColors<-function(VAR.Coloration
     
     #Limit the lookup table to those series that match the variable   
     labels.DF<-subset(VAR.Coloration, coloration.key==Coloration.Key$coloration.key[1] )
+    
+    #Fix oddities involving text
     labels.DF$variable <- gsub("\\\\n","\n",labels.DF$variable)
+    
     #Check for any values in the VAR.y.series field that are not assigned a color.
     NA.labels<-subset(VAR.long.DF,!(VAR.long.DF[,VAR.y.series] %in% labels.DF$variable))
+    
     if (nrow(NA.labels)>0){
         print(unique(NA.labels[,VAR.y.series]))
         stop(paste("Lookup_Coloration.csv is missing"
@@ -2439,7 +2443,6 @@ LatticePlotWrapper<-function(VAR.name
     
     
     
-    
     old.theme<-theme_set(theme_grey())
     
     #Reduce the number of rows by aggregating to one row per unique entry in the VAR.facet.primary column.
@@ -2495,12 +2498,17 @@ LatticePlotWrapper<-function(VAR.name
             VAR.long.DF$y.variable<-VAR.long.DF$MovingAverage
         }
         
-        VAR.long.DF$secondary<-factor(VAR.long.DF$secondary,levels=second.labels.DF$variable)
+        VAR.long.DF$secondary<-factor(VAR.long.DF$secondary
+                                      ,levels=second.labels.DF$variable
+                                      ,labels=second.labels.DF$Label)
         rm(second.labels.DF)
         
     }
-    VAR.long.DF$category<-factor(VAR.long.DF$category,levels=c(labels.DF$variable))
-    VAR.long.DF$primary<-factor(VAR.long.DF$primary,levels=c(labels.primary.DF$variable))
+    VAR.long.DF$category<-factor(VAR.long.DF$category,levels=c(labels.DF$variable),
+                                 labels=c(labels.DF$Label))
+    VAR.long.DF$primary<-factor(VAR.long.DF$primary,
+                                levels=c(labels.primary.DF$variable),
+                                labels=c(labels.primary.DF$Label))
     
     
     if(class(VAR.long.DF$x.variable)=="Date"){
@@ -3317,6 +3325,7 @@ FullBarPlot<-function(
     
     VAR.long.DF[,VAR.y.series]<-ordered(VAR.long.DF[,VAR.y.series]
                                         ,levels=labels.DF$variable
+                                        ,labels=labels.DF$Label
     )
     VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                            , by=list(VAR.long.DF[,VAR.x.variable]
