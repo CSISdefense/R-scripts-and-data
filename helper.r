@@ -2091,6 +2091,7 @@ PrepareLabelsAndColors<-function(VAR.Coloration
     
     #Fix oddities involving text
     labels.category.DF$variable <- gsub("\\\\n","\n",labels.category.DF$variable)
+    labels.category.DF$Label <- gsub("\\\\n","\n",labels.category.DF$Label)
     
     #Check for any values in the VAR.y.series field that are not assigned a color.
     NA.labels<-subset(VAR.long.DF,!(VAR.long.DF[,VAR.y.series] %in% labels.category.DF$variable))
