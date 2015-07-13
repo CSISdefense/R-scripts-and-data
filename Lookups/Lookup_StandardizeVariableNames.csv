@@ -45,8 +45,8 @@ AnnualSubCustomerVendorRank,VendorRank
 ContractAnnualCustomerVendorRank,VendorRank
 subcustomer,SubCustomer
 ï..fiscal_year,Fiscal.Year
-pCEffNot Effective Comp.,pEffComp
-pCEffEffective Comp.,pNoEffComp
+pCEffNot Effective Comp.,pNoEffComp
+pCEffEffective Comp.,pEffComp
 pPlatElectronics and Communications ,pPlatEnC
 pPlatFacilities and Construction,pPlatFnC
 pPlatLand Vehicles,pPlatLand
