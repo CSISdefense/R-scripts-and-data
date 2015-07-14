@@ -52,11 +52,11 @@ pPlatFacilities and Construction,pPlatFnC
 pPlatLand Vehicles,pPlatLand
 pPlatWeapons and Ammunition,pPlatWnA
 pPlatOther,pPlatOther
-pPlatMissile and Space Systems,pPaltMnS
+pPlatMissile and Space Systems,pPlatMnS
 pPlatAircraft and Drones,pPlatAir
 pPlatShips & Submarines,pPlatVessel
-pPSRProducts (All),pProducts
-pPSRServices (Non-R&D),pServices
+pPSRProducts (All),pPSRProducts
+pPSRServices (Non-R&D),pPSRServices
 pPSRR&D,pRnD
 pPSCElectronics & Communications,pPscEnC
 pPSCOther                     ,pPscOther                     

@@ -4256,6 +4256,7 @@ ScatterPlot<-function(
         #     stat=identity,
         #     geom="bar"
     )+geom_point()+
+        geom_smooth(method = 'loess')+
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
         ggtitle(VAR.proper.name)#+ scale_fill_hue()
@@ -4307,14 +4308,14 @@ ScatterPlot<-function(
     
     
     
-    #   print.figure<-print.figure+
-    #     theme(axis.text.x=element_text(size=axis.text.size))+
-    #     theme(axis.text.y=element_text(size=axis.text.size))+
-    #     theme(axis.title.x=element_text(size=axis.text.size))+
-    #     theme(axis.title.y=element_text(size=axis.text.size, angle=90))+
-    #     theme(plot.title=element_text(size=title.text.size))+
-    #     theme(legend.title=element_text(size=legend.text.size,hjust=0))+
-    #     theme(legend.text=element_text(size=legend.text.size))#+
+      original<-original+
+        theme(axis.text.x=element_text(size=axis.text.size))+
+        theme(axis.text.y=element_text(size=axis.text.size))+
+        theme(axis.title.x=element_text(size=axis.text.size))+
+        theme(axis.title.y=element_text(size=axis.text.size, angle=90))+
+        theme(plot.title=element_text(size=title.text.size))+
+        theme(legend.title=element_text(size=legend.text.size,hjust=0))+
+        theme(legend.text=element_text(size=legend.text.size))#+
     
     # print.figure<-print.figure+geom_bar(colour="black")#
     #   print.figure<-print.figure+
