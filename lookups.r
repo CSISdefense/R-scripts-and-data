@@ -921,6 +921,99 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     
     #***Join relevant variables to lookup tables
+    if("MajorCommandID" %in%  names(VAR.df) & 
+           "ContractingOfficeID" %in%  names(VAR.df)  &
+           !("ContractingOfficeName" %in%  names(VAR.df))){
+        
+        if("MajorCommandCode"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
+        }
+        
+        if("MajorCommandName"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(MajorCommandName))
+        }
+        
+        
+        #     stop("hammer time")
+        
+        #Handle NA values if present
+        if(any(is.na(VAR.df$MajorCommandID))){
+            #Make sure unlabeled is within the list of levels
+            if (!("Uncategorized" %in% levels(VAR.df$MajorCommandID))){
+                VAR.df$MajorCommandID<-addNA(VAR.df$MajorCommandID,ifany=TRUE)
+                levels(VAR.df$MajorCommandID)[is.na(levels(VAR.df$MajorCommandID))] <- "Uncategorized"
+            }
+        }
+        
+        VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
+        
+        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & MajorCommandID!="Uncategorized",
+                            select=c("Fiscal.Year",
+                                     "ContractingOfficeID",
+                                     "ContractingOfficeName",
+                                     "MajorCommandID",
+                                     "MajorCommandCode",
+                                     "MajorCommandName"))
+        if(nrow(NA.check.df)>0){
+            print(unique(NA.check.df))
+            stop(paste(nrow(NA.check.df),"rows of NAs generated in MajorCommandCode"))
+        }
+        #     
+        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
+        #     if(nrow(NA.check.df)>0){
+        #       print(unique(NA.check.df))
+        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.detail"))
+        #     }
+        #     
+        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
+        #     if(nrow(NA.check.df)>0){
+        #       print(unique(NA.check.df))
+        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
+        #     }
+        #     
+    }
+    else if("MajorCommandID" %in%  names(VAR.df)){
+        
+        if("MajorCommandCode"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
+        }
+        
+        if("MajorCommandName"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(MajorCommandName))
+        }
+        
+        #Handle NA values if present
+        if(any(is.na(VAR.df$MajorCommandID))){
+            #Make sure unlabeled is within the list of levels
+            if (!("Unlabeled" %in% levels(VAR.df$MajorCommandID))){
+                VAR.df$MajorCommandID<-addNA(VAR.df$MajorCommandID,ifany=TRUE)
+                levels(VAR.df$MajorCommandID)[is.na(levels(VAR.df$MajorCommandID))] <- "Uncategorized"
+            }
+        }
+        
+        VAR.df<-read_and_join(VAR.path,"Lookup_MajorCommandID.csv",VAR.df,
+                              by="MajorCommandID")
+        NA.check.df<-subset(VAR.df,is.na(MajorCommandCode), select=c("MajorCommandID"))
+        if(nrow(NA.check.df)>0){
+            print(unique(NA.check.df))
+            stop(paste(nrow(NA.check.df),"rows of NAs generated in MajorCommandCode"))
+        }
+        #     
+        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
+        #     if(nrow(NA.check.df)>0){
+        #       print(unique(NA.check.df))
+        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.detail"))
+        #     }
+        #     
+        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
+        #     if(nrow(NA.check.df)>0){
+        #       print(unique(NA.check.df))
+        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
+        #     }
+        #     
+    }
+    
+    
     
     if("Contracting.Agency.ID" %in% names(VAR.df))
     {
@@ -937,9 +1030,16 @@ apply_lookups<- function(VAR.path,VAR.df){
         if("SubCustomer"%in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(SubCustomer))
         }
+        if(any(is.na(VAR.df$Contracting.Agency.ID))){
+            #Make sure unlabeled is within the list of levels
+            if (!("Uncategorized" %in% levels(VAR.df$Contracting.Agency.ID))){
+                VAR.df$Contracting.Agency.ID<-addNA(VAR.df$Contracting.Agency.ID,ifany=TRUE)
+                levels(VAR.df$Contracting.Agency.ID)[is.na(levels(VAR.df$Contracting.Agency.ID))] <- "Uncategorized"
+            }
+        }
         #     debug(read_and_join)
         VAR.df<-read_and_join(VAR.path,"LOOKUP_Contracting_Agencies.csv",VAR.df)
-        NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name), select=c("Contracting.Agency.ID"))
+        NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name) , select=c("Contracting.Agency.ID"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
             stop(paste(nrow(NA.check.df),"rows of NAs generated in Contracting.Agency.Name"))
@@ -1158,97 +1258,6 @@ apply_lookups<- function(VAR.path,VAR.df){
         
     }
     
-    if("MajorCommandID" %in%  names(VAR.df) & 
-           "ContractingOfficeID" %in%  names(VAR.df)  &
-           !("ContractingOfficeName" %in%  names(VAR.df))){
-        
-        if("MajorCommandCode"%in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
-        }
-        
-        if("MajorCommandName"%in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(MajorCommandName))
-        }
-        
-        
-        #     stop("hammer time")
-        
-        #Handle NA values if present
-        if(any(is.na(VAR.df$MajorCommandID))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Uncategorized" %in% levels(VAR.df$MajorCommandID))){
-                VAR.df$MajorCommandID<-addNA(VAR.df$MajorCommandID,ifany=TRUE)
-                levels(VAR.df$MajorCommandID)[is.na(levels(VAR.df$MajorCommandID))] <- "Uncategorized"
-            }
-        }
-        
-        VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
-        
-        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & MajorCommandID!="Uncategorized",
-                            select=c("Fiscal.Year",
-                                     "ContractingOfficeID",
-                                     "ContractingOfficeName",
-                                     "MajorCommandID",
-                                     "MajorCommandCode",
-                                     "MajorCommandName"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in MajorCommandCode"))
-        }
-        #     
-        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-        #     if(nrow(NA.check.df)>0){
-        #       print(unique(NA.check.df))
-        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.detail"))
-        #     }
-        #     
-        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-        #     if(nrow(NA.check.df)>0){
-        #       print(unique(NA.check.df))
-        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
-        #     }
-        #     
-    }
-    else if("MajorCommandID" %in%  names(VAR.df)){
-        
-        if("MajorCommandCode"%in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
-        }
-        
-        if("MajorCommandName"%in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(MajorCommandName))
-        }
-        
-        #Handle NA values if present
-        if(any(is.na(VAR.df$MajorCommandID))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$MajorCommandID))){
-                VAR.df$MajorCommandID<-addNA(VAR.df$MajorCommandID,ifany=TRUE)
-                levels(VAR.df$MajorCommandID)[is.na(levels(VAR.df$MajorCommandID))] <- "Uncategorized"
-            }
-        }
-        
-        VAR.df<-read_and_join(VAR.path,"Lookup_MajorCommandID.csv",VAR.df,
-                              by="MajorCommandID")
-        NA.check.df<-subset(VAR.df,is.na(MajorCommandCode), select=c("MajorCommandID"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in MajorCommandCode"))
-        }
-        #     
-        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-        #     if(nrow(NA.check.df)>0){
-        #       print(unique(NA.check.df))
-        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.detail"))
-        #     }
-        #     
-        #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-        #     if(nrow(NA.check.df)>0){
-        #       print(unique(NA.check.df))
-        #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
-        #     }
-        #     
-    }
     
     
     if("PlatformPortfolio" %in% names(VAR.df))

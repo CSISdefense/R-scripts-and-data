@@ -1021,6 +1021,7 @@ CreateChart<-function(VAR.note
                 ,VAR.choice.figures$x.variable[VAR.which.figure]
                 ,VAR.choice.figures$y.variable[VAR.which.figure]
                 ,VAR.choice.figures$facet.primary[VAR.which.figure]
+                ,VAR.choice.figures$y.series[VAR.which.figure]
             )
         }
     }
@@ -4183,8 +4184,9 @@ ScatterPlot<-function(
     ,VAR.base.col
     ,VAR.long.DF
     ,VAR.x.variable
-    ,VAR.y.series
+    ,VAR.y.variable
     ,VAR.facet=NA
+    ,VAR.y.series=NA
 )
 {
     if("Graph" %in% names(VAR.long.DF)){
@@ -4198,8 +4200,8 @@ ScatterPlot<-function(
         stop(paste(VAR.x.variable,"not found in VAR.long.DF."))
     }  
     
-    if(!(VAR.y.series %in% names(VAR.long.DF)) ){
-        stop(paste(VAR.y.series,"not found in VAR.long.DF."))
+    if(!(VAR.y.variable %in% names(VAR.long.DF)) ){
+        stop(paste(VAR.y.variable,"not found in VAR.long.DF."))
     }  
     #   
     #   VAR.long.DF<-aggregate(VAR.long.DFVAR.y.variable
@@ -4209,7 +4211,7 @@ ScatterPlot<-function(
     #                          ,na.rm =TRUE
     #   )
     
-    #   names(VAR.long.DF)<-c("Fiscal.Year",VAR.x.variable,VAR.y.series)
+    #   names(VAR.long.DF)<-c("Fiscal.Year",VAR.x.variable,VAR.y.variable)
     
     
     
@@ -4236,16 +4238,16 @@ ScatterPlot<-function(
     
     
     #run the original least squares analysis
-    #   noNAs.DF<-subset(VAR.long.DF,!is.nan(VAR.long.DF[,VAR.x.variable])&!is.nan(VAR.long.DF[,VAR.y.series]))
-    validcount<-nrow(subset(VAR.long.DF,!is.na(VAR.long.DF[,VAR.x.variable])&!is.na(VAR.long.DF[,VAR.y.series])))
-    if(validcount>0 & !is.factor(VAR.long.DF[,VAR.x.variable]) & !is.factor(VAR.long.DF[,VAR.y.series])){
-        ols<-lm(VAR.long.DF[,VAR.x.variable]~VAR.long.DF[,VAR.y.series])
+    #   noNAs.DF<-subset(VAR.long.DF,!is.nan(VAR.long.DF[,VAR.x.variable])&!is.nan(VAR.long.DF[,VAR.y.variable]))
+    validcount<-nrow(subset(VAR.long.DF,!is.na(VAR.long.DF[,VAR.x.variable])&!is.na(VAR.long.DF[,VAR.y.variable])))
+    if(validcount>0 & !is.factor(VAR.long.DF[,VAR.x.variable]) & !is.factor(VAR.long.DF[,VAR.y.variable])){
+        ols<-lm(VAR.long.DF[,VAR.x.variable]~VAR.long.DF[,VAR.y.variable])
         summary(ols)
     }
     original<-ggplot(
         data=VAR.long.DF
         ,aes_string(x=VAR.x.variable,
-                    y=VAR.y.series)
+                    y=VAR.y.variable)
         #     y=value,
         #     data=VAR.long.DF,
         #     fill=factor(VAR.long.DF[,VAR.x.variable]
@@ -4255,13 +4257,22 @@ ScatterPlot<-function(
         #     gbinwidth=1,
         #     stat=identity,
         #     geom="bar"
-    )+geom_point()+
+    )
+    if(is.na(VAR.y.series)){
+        original<-original+geom_point()
+    }
+    else{
+        original<-original+geom_point(aes_string(color=VAR.y.series,shape=VAR.y.series))
+    }
+    
+    
+    original<-original+
         geom_smooth(method = 'loess')+
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
         ggtitle(VAR.proper.name)#+ scale_fill_hue()
-    #   if(validcount>0 & !is.factor(VAR.long.DF[,VAR.x.variable]) & !is.factor(VAR.long.DF[,VAR.y.series])){
-    #     original<-original+geom_abline(intercept=mean(VAR.long.DF[,VAR.y.series])#ols$coefficients[1]#
+    #   if(validcount>0 & !is.factor(VAR.long.DF[,VAR.x.variable]) & !is.factor(VAR.long.DF[,VAR.y.variable])){
+    #     original<-original+geom_abline(intercept=mean(VAR.long.DF[,VAR.y.variable])#ols$coefficients[1]#
     #                                    ,slope=ols$coefficients[2])
     #     
     #   }
@@ -4269,7 +4280,7 @@ ScatterPlot<-function(
     if(substr(VAR.x.variable,1,1)=="p"){
         original<-original+scale_x_continuous( labels = percent_format())
     }
-    if(substr(VAR.y.series,1,1)=="p"){
+    if(substr(VAR.y.variable,1,1)=="p"){
         original<-original+scale_y_continuous( labels = percent_format())
     }
     
