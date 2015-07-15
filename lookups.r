@@ -669,7 +669,12 @@ read_and_join<-function(VAR.path,
         header=TRUE, sep=",", na.strings=c("NA","NULL"), dec=".", strip.white=TRUE,
         stringsAsFactors=TRUE
     )
-    
+    #Clear out any fields held in common not used in the joining
+    if(!is.null(by)){
+        droplist<-names(lookup.file)[names(lookup.file) %in% names(VAR.existing.df)]
+        droplist<-droplist[droplist!=by]
+        VAR.existing.df<-VAR.existing.df[,!names(VAR.existing.df) %in% droplist]
+    }
     
     
     #   #Fixes for Excel's penchent to drop leading 0s.

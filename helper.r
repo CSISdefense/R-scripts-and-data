@@ -58,7 +58,7 @@ VariableNumericalFormat<-function(VAR.number,VAR.detail=0){
         #     VAR.number<-format(round(VAR.number,1), digits=0, trim=TRUE, big.mark=",")
         #   }
         #   
-        VAR.number<-format(VAR.number, trim=TRUE, big.mark=",")
+        VAR.number<-format(VAR.number, trim=TRUE, big.mark=",",digits=VAR.detail)
     }
     VAR.number
 }
@@ -2647,7 +2647,7 @@ LatticePlotWrapper<-function(VAR.name
         theme(legend.text=element_text(size=legend.text.size))
     #     theme(legend.key.width=unit(0.1,"npc"))
     #   print.figure<-facetAdjust(print.figure,"down")
-    theme_set(old.theme)
+
     print.figure
     
     

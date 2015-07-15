@@ -260,11 +260,11 @@ create_procedural_graphs<-function(data.name,section.variable.name,start.year=NU
     #table.text.size<-0.750
     #title.text.size<-1.15
     #         
-            axis.text.size<-3
-            strip.text.size<-3
-            legend.text.size<-3
+            axis.text.size<-8
+            strip.text.size<-8
+            legend.text.size<-8
             # table.text.size<-5.75
-            title.text.size<-1
+            title.text.size<-10
             geom.text.size<-1.75
     
     
