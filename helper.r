@@ -2258,7 +2258,10 @@ LatticePlot<-function(VAR.name
                                ,na.rm =TRUE
         )
         names(VAR.long.DF)<-c("x.variable","category","primary","y.variable")
-        VAR.long.DF<-ddply(VAR.long.DF,.(x.variable,primary),mutate,ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
+        VAR.long.DF<-ddply(VAR.long.DF,
+                           .(x.variable,primary),
+                           mutate,
+                           ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
         
     }
     else{
