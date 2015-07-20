@@ -500,12 +500,12 @@ CreateTopVendorList<-function(
     print(
         grid.text(total.label,
                   y=unit(VAR.choice.layout$base.y.line[VAR.which.layout]-1
-                          ,"lines"),
+                         ,"lines"),
                   x=unit(VAR.x.offset+VAR.choice.layout$name.column[VAR.which.layout]
-                          ,"lines"),
+                         ,"lines"),
                   just=c("left","top"),
                   gp=gpar(fontface="bold",fontsize=VAR.choice.layout$table.fontsize[VAR.which.layout])),
-         vp=vplayout(VAR.row,VAR.col)
+        vp=vplayout(VAR.row,VAR.col)
     )
     print(
         grid.text(VariableNumericalFormat(round(sum(VAR.long.DF[,value.variable])*1000,-1))
@@ -2030,7 +2030,7 @@ CompareAbstractVariables<-function(VAR.first.DF
     }
 }
 
-CheckTotals<-function(VAR.y.series.DF,VAR.matrix,VAR.name){
+CheckTotals<-function(VAR.y.series.DF,VAR.matrix,VAR.color.legend.label){
     result<-""
     runningtotal<-0
     for(i in 1:nrow(VAR.y.series.DF)) {
@@ -2042,9 +2042,9 @@ CheckTotals<-function(VAR.y.series.DF,VAR.matrix,VAR.name){
             result<-paste(result,Fiscal.Year[i],":",format(round(checksum,2),trim=TRUE, big.mark=","))
         }
         runningtotal<-runningtotal+abs(checksum)
-    }(paste(VAR.name," running total:",format(round(runningtotal,6), trim=TRUE, big.mark=",")))
+    }(paste(VAR.color.legend.label," running total:",format(round(runningtotal,6), trim=TRUE, big.mark=",")))
     if(abs(runningtotal)>0.0001){
-        result<-paste(VAR.name,result)
+        result<-paste(VAR.color.legend.label,result)
     }
     rm(runningtotal,i,j,checksum)
     result
@@ -2065,7 +2065,7 @@ PrepareLabelsAndColors<-function(VAR.Coloration
 )
 {
     
- 
+    
     
     #Confirm that the category is even available in the data set.
     if(!VAR.y.series %in% names(VAR.long.DF)){
@@ -2201,8 +2201,8 @@ PrepareLabelsAndColors<-function(VAR.Coloration
 
 
 
-LatticePlot<-function(VAR.name
-                      ,VAR.proper.name
+LatticePlot<-function(VAR.color.legend.label
+                      ,VAR.main.label
                       ,VAR.X.label
                       ,VAR.Y.label
                       ,VAR.Coloration
@@ -2227,9 +2227,9 @@ LatticePlot<-function(VAR.name
     #Prepare labels for the category variable
     #   if(is.na(VAR.override.coloration)){
     labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                      ,VAR.long.DF
-                                      ,VAR.y.series
-                                      #                                     ,VAR.override.coloration
+                                               ,VAR.long.DF
+                                               ,VAR.y.series
+                                               #                                     ,VAR.override.coloration
     )  
     #   }
     #   else{
@@ -2266,8 +2266,8 @@ LatticePlot<-function(VAR.name
     }
     else{
         labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                                 ,VAR.long.DF
-                                                 ,VAR.facet.secondary)  
+                                                    ,VAR.long.DF
+                                                    ,VAR.facet.secondary)  
         
         VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                , by=list(VAR.long.DF[,VAR.x.variable]
@@ -2291,7 +2291,7 @@ LatticePlot<-function(VAR.name
                                ,levels=c(labels.category.DF$variable)
                                ,labels=c(labels.category.DF$Label)
                                ,ordered=TRUE
-                               )
+    )
     
     
     original<-qplot(
@@ -2299,7 +2299,7 @@ LatticePlot<-function(VAR.name
         , y=y.variable
         , data=VAR.long.DF
         , ylab=VAR.Y.label
-        , main=VAR.proper.name
+        , main=VAR.main.label
         , xlab=VAR.X.label
         , geom="bar"
         , stat="identity"
@@ -2334,7 +2334,7 @@ LatticePlot<-function(VAR.name
     #  http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/
     
     print.figure<-print.figure+scale_fill_manual(
-        VAR.name
+        VAR.color.legend.label
         ,  values=color.list
         , breaks=c(labels.category.DF$variable)
         
@@ -2397,8 +2397,8 @@ LatticePlot<-function(VAR.name
     #   print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.name
-       ,VAR.proper.name
+    rm(VAR.color.legend.label
+       ,VAR.main.label
        ,VAR.base.row
        ,VAR.base.col
        ,original
@@ -2407,8 +2407,8 @@ LatticePlot<-function(VAR.name
     )
 }
 
-LatticePlotWrapper<-function(VAR.name
-                             ,VAR.proper.name
+LatticePlotWrapper<-function(VAR.color.legend.label
+                             ,VAR.main.label
                              ,VAR.X.label
                              ,VAR.Y.label
                              ,VAR.Coloration
@@ -2434,9 +2434,9 @@ LatticePlotWrapper<-function(VAR.name
     #Prepare labels for the category variable
     #   if(is.na(VAR.override.coloration)){
     labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                      ,VAR.long.DF
-                                      ,VAR.y.series
-                                      #                                     ,VAR.override.coloration
+                                               ,VAR.long.DF
+                                               ,VAR.y.series
+                                               #                                     ,VAR.override.coloration
     )  
     
     labels.primary.DF<-PrepareLabelsAndColors(VAR.Coloration
@@ -2487,8 +2487,8 @@ LatticePlotWrapper<-function(VAR.name
     }
     else{
         labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                                 ,VAR.long.DF
-                                                 ,VAR.facet.secondary)  
+                                                    ,VAR.long.DF
+                                                    ,VAR.facet.secondary)  
         
         VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                , by=list(VAR.long.DF[,VAR.x.variable]
@@ -2538,7 +2538,7 @@ LatticePlotWrapper<-function(VAR.name
         , y=y.variable
         , data=VAR.long.DF
         , ylab=VAR.Y.label
-        , main=VAR.proper.name
+        , main=VAR.main.label
         , xlab=VAR.X.label
         , geom="bar"
         , stat="identity"
@@ -2575,7 +2575,7 @@ LatticePlotWrapper<-function(VAR.name
     #  http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/
     
     print.figure<-print.figure+scale_fill_manual(
-        VAR.name
+        VAR.color.legend.label
         ,  values=color.list
         , breaks=c(labels.category.DF$variable)
         
@@ -2651,14 +2651,80 @@ LatticePlotWrapper<-function(VAR.name
         theme(legend.text=element_text(size=legend.text.size))
     #     theme(legend.key.width=unit(0.1,"npc"))
     #   print.figure<-facetAdjust(print.figure,"down")
-
+    
     print.figure
     
     
 }
 
-LatticePercentLinePlot<-function(VAR.name
-                                 ,VAR.proper.name
+PointRowWrapper<-function(VAR.main.label,
+                          VAR.row.label,
+                          VAR.data.label,
+                          VAR.color.legend.label,
+                          VAR.size.legend.label,
+                          VAR.Coloration,
+                          VAR.long.DF,
+                          VAR.row.variable,
+                          VAR.value.variable,
+                          VAR.series.variable,
+                          VAR.size.variable,
+                          VAR.facet.primary,
+                          VAR.facet.secondary=NA){
+    #Single Offer Competition
+    
+    figure<-ggplot(VAR.long.DF,
+                   aes_string(x=VAR.row.variable,
+                              color=VAR.series.variable,
+                              shape=VAR.series.variable,
+                              y=VAR.value.variable,
+                              size=VAR.size.variable
+                   ),
+                   main=VAR.main.label
+    )+geom_point()
+    figure<-figure+ggtitle(VAR.main.label)+
+        xlab(VAR.row.label)+
+        ylab(VAR.data.label)+
+        scale_color_discrete(name=VAR.color.legend.label)+
+        scale_shape_discrete(name=VAR.color.legend.label)+
+        scale_size_manual(name=VAR.size.legend.label,
+                            values=c("<0.01"=3,
+                                     "<0.05"=2.5,
+                                     "Not Significant\n(>0.05)"=1,
+                                     "Sample Too Small\nfor Chi-Squared"=2
+                                )
+        )
+    
+    
+    if(is.na(VAR.facet.secondary)){
+        figure<-figure+facet_grid(reformulate(VAR.facet.primary)
+                                  #                                               ,ncol=VAR.ncol
+                                  #                                                                                         , labeller=Label_Wrap
+                                  #                                               #                                           , scales="fixed", space="free_y"
+        )
+        
+        
+    }
+    else{
+        figure<-figure+facet_grid(reformulate(VAR.facet.secondary,VAR.facet.primary)
+                                  #                                           , labeller=Label_Wrap
+                                  #                                           , scales="free_y" #The scales actually do stay fixed
+                                  #                                           , space="free_y"#But only because the space is free
+        )   
+    }
+    
+    #     figure<-figure+facet_grid(reformulate(VAR.facet.secondary,VAR.facet.primary)) 
+    figure<-figure+coord_flip()+
+        theme(legend.position="bottom",axis.text.x = element_text(angle = 90, hjust = 1))+ 
+        scale_y_continuous(labels = percent_format()
+        )
+    figure
+    
+}
+
+
+
+LatticePercentLinePlot<-function(VAR.color.legend.label
+                                 ,VAR.main.label
                                  ,VAR.X.label
                                  ,VAR.Y.label
                                  ,VAR.Coloration
@@ -2672,8 +2738,8 @@ LatticePercentLinePlot<-function(VAR.name
                                  ,VAR.facet.primary=NA
                                  ,VAR.facet.secondary=NA){
     #     debug(PrepareLabelsAndColors)
-    print.figure<-LatticePercentLineWrapper(VAR.name
-                                            ,VAR.proper.name
+    print.figure<-LatticePercentLineWrapper(VAR.color.legend.label
+                                            ,VAR.main.label
                                             ,VAR.X.label
                                             ,VAR.Y.label
                                             ,VAR.Coloration
@@ -2690,8 +2756,8 @@ LatticePercentLinePlot<-function(VAR.name
     #   print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.name
-       ,VAR.proper.name
+    rm(VAR.color.legend.label
+       ,VAR.main.label
        ,VAR.base.row
        ,VAR.base.col
        ,original
@@ -2719,8 +2785,8 @@ TransformFilter<-function(df,MovingAverage,MovingSides=1,Source="y.variable"){
 }
 
 
-LatticePercentLineWrapper<-function(VAR.name
-                                    ,VAR.proper.name
+LatticePercentLineWrapper<-function(VAR.color.legend.label
+                                    ,VAR.main.label
                                     ,VAR.X.label
                                     ,VAR.Y.label
                                     ,VAR.Coloration
@@ -2746,8 +2812,8 @@ LatticePercentLineWrapper<-function(VAR.name
     
     #Prepare labels for the category variable
     labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                      ,VAR.long.DF
-                                      ,VAR.y.series
+                                               ,VAR.long.DF
+                                               ,VAR.y.series
     )  
     color.list<-c(as.character(labels.category.DF$ColorRGB))
     names(color.list)<-c(labels.category.DF$variable)
@@ -2840,7 +2906,7 @@ LatticePercentLineWrapper<-function(VAR.name
             labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration,
                                                         VAR.long.DF,
                                                         VAR.facet.secondary
-                                                        )  
+            )  
             
             VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                    , by=cbind(VAR.long.DF[,VAR.x.variable]
@@ -2884,14 +2950,14 @@ LatticePercentLineWrapper<-function(VAR.name
                 }
             }
             VAR.long.DF$third<-factor(VAR.long.DF$third,
-                                       levels=c(labels.secondary.DF$variable),
-                                       labels=c(labels.secondary.DF$Label),
-                                       ordered=TRUE)
+                                      levels=c(labels.secondary.DF$variable),
+                                      labels=c(labels.secondary.DF$Label),
+                                      ordered=TRUE)
         }
-                VAR.long.DF$second<-factor(VAR.long.DF$second,
-                                           levels=c(labels.primary.DF$variable),
-                                           labels=c(labels.primary.DF$Label),
-                                           ordered=TRUE)
+        VAR.long.DF$second<-factor(VAR.long.DF$second,
+                                   levels=c(labels.primary.DF$variable),
+                                   labels=c(labels.primary.DF$Label),
+                                   ordered=TRUE)
         #         rm(labels.secondary.DF)
     }
     
@@ -2912,7 +2978,7 @@ LatticePercentLineWrapper<-function(VAR.name
         , x=x.variable#format(x.variable,"%Y")
         , y=p
         , ylab=VAR.Y.label
-        , main=VAR.proper.name
+        , main=VAR.main.label
         , xlab=VAR.X.label
         , geom="line"
         
@@ -2923,11 +2989,11 @@ LatticePercentLineWrapper<-function(VAR.name
     )+ scale_y_continuous(labels = percent_format())  
     # + geom_line(aes(size=1))
     
-    #   main=VAR.proper.name,
+    #   main=VAR.main.label,
     tick.marks<-2
     print.figure<-original#+scale_x_continuous()
     #     print.figure<-original+scale_x_continuous(
-    #     name=VAR.proper.name,
+    #     name=VAR.main.label,
     #         breaks=
     #             c(seq(
     #                 as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
@@ -2947,7 +3013,7 @@ LatticePercentLineWrapper<-function(VAR.name
     #  http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/
     
     #   print.figure<-print.figure+scale_shape_discrete(
-    #     VAR.name
+    #     VAR.color.legend.label
     #     ,  values=color.list
     #     , breaks=c(labels.category.DF$variable) 
     #   )
@@ -2993,7 +3059,7 @@ LatticePercentLineWrapper<-function(VAR.name
     }
     
     print.figure<-print.figure+scale_color_manual(
-        VAR.name
+        VAR.color.legend.label
         ,  values=color.list
         , breaks=c(labels.category.DF$variable)
         , guide = guide_legend(reverse=TRUE)
@@ -3026,8 +3092,8 @@ LatticePercentLineWrapper<-function(VAR.name
 
 
 
-LatticeLinePlot<-function(VAR.name
-                          ,VAR.proper.name
+LatticeLinePlot<-function(VAR.color.legend.label
+                          ,VAR.main.label
                           ,VAR.X.label
                           ,VAR.Y.label
                           ,VAR.Coloration
@@ -3039,8 +3105,8 @@ LatticeLinePlot<-function(VAR.name
                           ,VAR.facet.primary=NA
                           ,VAR.facet.secondary=NA){
     
-    print.figure<-LatticePercentLineWrapper(VAR.name
-                                            ,VAR.proper.name
+    print.figure<-LatticePercentLineWrapper(VAR.color.legend.label
+                                            ,VAR.main.label
                                             ,VAR.X.label
                                             ,VAR.Y.label
                                             ,VAR.Coloration
@@ -3059,8 +3125,8 @@ LatticeLinePlot<-function(VAR.name
 
 
 
-LatticeTrellisPlot<-function(VAR.name
-                             ,VAR.proper.name
+LatticeTrellisPlot<-function(VAR.color.legend.label
+                             ,VAR.main.label
                              ,VAR.X.label
                              ,VAR.Y.label
                              ,VAR.Coloration
@@ -3072,8 +3138,8 @@ LatticeTrellisPlot<-function(VAR.name
 ){
     #   debug(PrepareLabelsAndColors)
     labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                      ,VAR.long.DF
-                                      ,VAR.y.series
+                                               ,VAR.long.DF
+                                               ,VAR.y.series
     )  
     color.list<-c(as.character(labels.category.DF$ColorRGB))
     names(color.list)<-c(labels.category.DF$variable)
@@ -3119,7 +3185,7 @@ LatticeTrellisPlot<-function(VAR.name
     
     #     ylab=VAR.Y.label,
     #     xlab=VAR.X.label,
-    #     main=VAR.proper.name,
+    #     main=VAR.main.label,
     #     geom="bar",
     #     fill=factor(category,levels=labels.category.DF$variable),
     #   )
@@ -3150,7 +3216,7 @@ LatticeTrellisPlot<-function(VAR.name
     
     
     print.figure<-print.figure+scale_fill_manual(
-        VAR.name,
+        VAR.color.legend.label,
         values=color.list, 
         breaks=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label)
@@ -3178,12 +3244,12 @@ LatticeTrellisPlot<-function(VAR.name
     #   print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.name,VAR.proper.name,VAR.base.row,VAR.base.col,original,print.figure,old.theme)
+    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,original,print.figure,old.theme)
 }
 
 #******************LatticeGGPlot************************************
-LatticeGGPlot<-function(VAR.name
-                        ,VAR.proper.name
+LatticeGGPlot<-function(VAR.color.legend.label
+                        ,VAR.main.label
                         ,VAR.X.label
                         ,VAR.Y.label
                         ,VAR.Coloration
@@ -3195,8 +3261,8 @@ LatticeGGPlot<-function(VAR.name
 ){
     #   debug(PrepareLabelsAndColors)
     labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                      ,VAR.long.DF
-                                      ,VAR.y.series
+                                               ,VAR.long.DF
+                                               ,VAR.y.series
     )  
     color.list<-c(as.character(labels.category.DF$ColorRGB))
     names(color.list)<-c(labels.category.DF$variable)
@@ -3242,7 +3308,7 @@ LatticeGGPlot<-function(VAR.name
     
     #     ylab=VAR.Y.label,
     #     xlab=VAR.X.label,
-    #     main=VAR.proper.name,
+    #     main=VAR.main.label,
     #     geom="bar",
     #     fill=factor(category,levels=labels.category.DF$variable),
     #   )
@@ -3273,7 +3339,7 @@ LatticeGGPlot<-function(VAR.name
     
     
     print.figure<-print.figure+scale_fill_manual(
-        VAR.name,
+        VAR.color.legend.label,
         values=color.list, 
         breaks=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label)
@@ -3301,13 +3367,13 @@ LatticeGGPlot<-function(VAR.name
     print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.name,VAR.proper.name,VAR.base.row,VAR.base.col,original,print.figure,old.theme)
+    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,original,print.figure,old.theme)
 }
 
 #**************************FullBarPlot********************************
 FullBarPlot<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -3347,13 +3413,13 @@ FullBarPlot<-function(
         ))
     } 
     
-    #   labels.category.DF<-subset(VAR.Coloration, Figure==VAR.name)
+    #   labels.category.DF<-subset(VAR.Coloration, Figure==VAR.color.legend.label)
     #   labels.category.DF<-subset(labels.category.DF, variable %in% unique(VAR.long.DF[,VAR.y.series]))
     #   labels.category.DF<-labels.category.DF[order(labels.category.DF$Display.Order),]
     #   
     labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                      ,VAR.long.DF
-                                      ,VAR.y.series
+                                               ,VAR.long.DF
+                                               ,VAR.y.series
     )  
     
     
@@ -3404,7 +3470,7 @@ FullBarPlot<-function(
         ),
         ylab=VAR.Y.label,
         xlab=VAR.X.label,
-        main=VAR.proper.name,
+        main=VAR.main.label,
         gbinwidth=1
         ,environment = environment()
         
@@ -3412,7 +3478,7 @@ FullBarPlot<-function(
         #     geom="bar"
     )#+ scale_fill_hue()
     print.figure<-original+scale_fill_manual(
-        VAR.name,
+        VAR.color.legend.label,
         values=color.list, 
         breaks=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label),
@@ -3510,8 +3576,8 @@ FullBarPlot<-function(
     #   )  
     
     theme_set(old.theme)
-    rm(VAR.name
-       ,VAR.proper.name
+    rm(VAR.color.legend.label
+       ,VAR.main.label
        ,VAR.base.row
        ,VAR.base.col
        ,print.figure
@@ -3522,8 +3588,8 @@ FullBarPlot<-function(
 #**************************HistogramOrDensity********************************
 
 HistogramOrDensityWrapper<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -3590,7 +3656,7 @@ HistogramOrDensityWrapper<-function(
     )+
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
-        ggtitle(VAR.proper.name)
+        ggtitle(VAR.main.label)
     #     gbinwidth=1,
     #     stat=identity,
     #     geom="bar"
@@ -3720,7 +3786,7 @@ HistogramOrDensityWrapper<-function(
     #   stop("defg")
     # }
     #   print.figure<-original+scale_fill_manual(
-    #     VAR.name,
+    #     VAR.color.legend.label,
     #     values=color.list, 
     #     breaks=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
@@ -3815,8 +3881,8 @@ HistogramOrDensityWrapper<-function(
 }
 
 HistogramOrDensity<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -3830,8 +3896,8 @@ HistogramOrDensity<-function(
 )
 {
     original<-HistogramOrDensityWrapper(
-        VAR.name
-        ,VAR.proper.name
+        VAR.color.legend.label
+        ,VAR.main.label
         ,VAR.X.label
         ,VAR.Y.label
         ,VAR.Coloration
@@ -3897,8 +3963,8 @@ HistogramOrDensity<-function(
     )  
     
     theme_set(old.theme)
-    rm(VAR.name
-       ,VAR.proper.name
+    rm(VAR.color.legend.label
+       ,VAR.main.label
        ,VAR.base.row
        ,VAR.base.col
        #      ,print.figure
@@ -3908,8 +3974,8 @@ HistogramOrDensity<-function(
 
 #**************************Boxplot********************************
 BoxplotWrapper<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -3984,14 +4050,14 @@ BoxplotWrapper<-function(
         #     ),
         #     ,ylab=VAR.Y.label
         #     ,xlab=VAR.X.label
-        #     ,main=VAR.proper.name
+        #     ,main=VAR.main.label
         #     gbinwidth=1,
         #     stat=identity,
         #     geom="bar"
     )+ geom_boxplot()+stat_summary(fun.y=mean, geom="point", shape=5, size=4)+
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
-        ggtitle(VAR.proper.name)
+        ggtitle(VAR.main.label)
     medians<-subset(VAR.long.DF,select=c(VAR.x.variable,VAR.y.series))
     colnames(medians)[colnames(medians)==VAR.x.variable]<-"x.series"
     colnames(medians)[colnames(medians)==VAR.y.series]<-"y.series"
@@ -4050,7 +4116,7 @@ BoxplotWrapper<-function(
     #   stop("defg")
     # }
     #   print.figure<-original+scale_fill_manual(
-    #     VAR.name,
+    #     VAR.color.legend.label,
     #     values=color.list, 
     #     breaks=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
@@ -4092,8 +4158,8 @@ BoxplotWrapper<-function(
 
 
 Boxplot<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -4106,8 +4172,8 @@ Boxplot<-function(
 )
 {
     original<-BoxplotWrapper(
-        VAR.name
-        ,VAR.proper.name
+        VAR.color.legend.label
+        ,VAR.main.label
         ,VAR.X.label
         ,VAR.Y.label
         ,VAR.Coloration
@@ -4178,8 +4244,8 @@ Boxplot<-function(
 
 #**************************ScatterPlot********************************
 ScatterPlot<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -4273,7 +4339,7 @@ ScatterPlot<-function(
         geom_smooth(method = 'loess')+
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
-        ggtitle(VAR.proper.name)#+ scale_fill_hue()
+        ggtitle(VAR.main.label)#+ scale_fill_hue()
     #   if(validcount>0 & !is.factor(VAR.long.DF[,VAR.x.variable]) & !is.factor(VAR.long.DF[,VAR.y.variable])){
     #     original<-original+geom_abline(intercept=mean(VAR.long.DF[,VAR.y.variable])#ols$coefficients[1]#
     #                                    ,slope=ols$coefficients[2])
@@ -4306,7 +4372,7 @@ ScatterPlot<-function(
     #   stop("defg")
     # }
     #   print.figure<-original+scale_fill_manual(
-    #     VAR.name,
+    #     VAR.color.legend.label,
     #     values=color.list, 
     #     breaks=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
@@ -4322,7 +4388,7 @@ ScatterPlot<-function(
     
     
     
-      original<-original+
+    original<-original+
         theme(axis.text.x=element_text(size=axis.text.size))+
         theme(axis.text.y=element_text(size=axis.text.size))+
         theme(axis.title.x=element_text(size=axis.text.size))+
@@ -4397,8 +4463,8 @@ ScatterPlot<-function(
     )  
     
     theme_set(old.theme)
-    rm(VAR.name
-       ,VAR.proper.name
+    rm(VAR.color.legend.label
+       ,VAR.main.label
        ,VAR.base.row
        ,VAR.base.col
        #      ,print.figure
@@ -4407,8 +4473,8 @@ ScatterPlot<-function(
 
 
 TablePlot<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -4426,7 +4492,7 @@ TablePlot<-function(
     #     VAR.long.DF<-subset(VAR.long.DF, Graph==TRUE&!is.na(Fiscal.Year))
     #   }  
     
-    #   labels.category.DF<-subset(VAR.Coloration, Figure==VAR.name)
+    #   labels.category.DF<-subset(VAR.Coloration, Figure==VAR.color.legend.label)
     #   labels.category.DF<-subset(labels.category.DF, variable %in% unique(VAR.long.DF[,VAR.y.series]))
     #   labels.category.DF<-labels.category.DF[order(labels.category.DF$Display.Order),]
     #   
@@ -4447,8 +4513,8 @@ TablePlot<-function(
     
     if(is.na(VAR.facet.primary)){
         labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                          ,VAR.long.DF
-                                          ,VAR.y.series
+                                                   ,VAR.long.DF
+                                                   ,VAR.y.series
         )  
         
         
@@ -4480,8 +4546,8 @@ TablePlot<-function(
         }
         else{
             labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                                     ,VAR.long.DF
-                                                     ,VAR.facet.secondary)  
+                                                        ,VAR.long.DF
+                                                        ,VAR.facet.secondary)  
             
             VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                    , by=list(VAR.long.DF[,VAR.x.variable]
@@ -4508,14 +4574,14 @@ TablePlot<-function(
         
         
         labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                          ,VAR.long.DF
-                                          ,VAR.facet.primary
+                                                   ,VAR.long.DF
+                                                   ,VAR.facet.primary
         )  
         
         
         labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                                 ,VAR.long.DF
-                                                 ,VAR.y.series
+                                                    ,VAR.long.DF
+                                                    ,VAR.y.series
         )  
     }
     
@@ -4550,7 +4616,7 @@ TablePlot<-function(
     #     #     ),
     #     ylab=VAR.Y.label,
     #     xlab=VAR.X.label,
-    #     main=VAR.proper.name,
+    #     main=VAR.main.label,
     #     #     gbinwidth=1,
     #     #     stat=identity,
     #         geom="text"
@@ -4605,7 +4671,7 @@ TablePlot<-function(
         )+ 
         xlab(VAR.X.label)   +
         ylab(VAR.Y.label)+
-        #     main(VAR.proper.name)+
+        #     main(VAR.main.label)+
         theme(strip.text.y = element_text(size = strip.text.size
                                           , angle = 360)
         )+
@@ -4622,19 +4688,13 @@ TablePlot<-function(
                                               #                                           , margins=c("second")
         )
     }
-    # data_table8<-data_table7 
-    
-    
-    
-    
-    # data_table6<-data_table5 
     
     #     theme(panel.grid.major = element_line(size = 0))+
     #     theme(panel.grid.minor = element_line(size = 0))+
     #     theme(axis.text.x=element_text(size=axis.text.size))+
     #     theme(axis.text.y=element_text(size=axis.text.size))+
     # +scale_fill_manual(
-    #     VAR.name,
+    #     VAR.color.legend.label,
     #     values=color.list, 
     #     breaks=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
@@ -4704,14 +4764,14 @@ TablePlot<-function(
     #   )  
     
     theme_set(old.theme)
-    rm(VAR.name,VAR.proper.name,VAR.base.row,VAR.base.col,print.figure)
+    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,print.figure)
 }
 
 
 
 MiniBarPlot<-function(
-    VAR.name
-    ,VAR.proper.name
+    VAR.color.legend.label
+    ,VAR.main.label
     ,VAR.X.label
     ,VAR.Y.label
     ,VAR.Coloration
@@ -4724,13 +4784,13 @@ MiniBarPlot<-function(
         VAR.long.DF<-subset(VAR.long.DF, Graph==TRUE)
     }  
     
-    labels.category.DF<-subset(VAR.Coloration, Figure==VAR.name)
+    labels.category.DF<-subset(VAR.Coloration, Figure==VAR.color.legend.label)
     
     labels.category.DF<-subset(labels.category.DF, variable %in% unique(VAR.long.DF[[VAR.y.series]]))
     
     if(nrow(labels.category.DF)==0){
         stop(paste("Error: Missing coloration data for Figure=="
-                   ,VAR.name
+                   ,VAR.color.legend.label
                    ,sep="")
         )
     }
@@ -4768,7 +4828,7 @@ MiniBarPlot<-function(
                     ordered=TRUE),
         ylab=VAR.Y.label,
         xlab=VAR.X.label,
-        main=VAR.proper.name,
+        main=VAR.main.label,
         gbinwidth=1
     )
     print.figure<-original+scale_x_discrete(
@@ -4786,7 +4846,7 @@ MiniBarPlot<-function(
             ),"%Y"),"%y"),sep="")
     )
     
-    print.figure<-print.figure+scale_fill_manual(VAR.name,values=color.list, breaks=c(labels.category.DF$variable), labels=c(labels.category.DF$Label))
+    print.figure<-print.figure+scale_fill_manual(VAR.color.legend.label,values=color.list, breaks=c(labels.category.DF$variable), labels=c(labels.category.DF$Label))
     print.figure<-print.figure+geom_bar(colour="black",stat="identity")
     
     
@@ -4803,7 +4863,7 @@ MiniBarPlot<-function(
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     
     theme_set(old.theme)
-    rm(VAR.name,VAR.proper.name,VAR.base.row,VAR.base.col,print.figure)
+    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,print.figure)
 }
 
 

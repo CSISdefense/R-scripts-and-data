@@ -1,0 +1,12 @@
+*.png
+Output/
+Legacy Code/
+*.csv~
+Backups/
+Madison's KIET Work/Creating Selective Subsets for Average Employee Data.R
+Map sample code/
+Madison's KIET Work/
+*.RDataTmp
+*.RDataTmp1
+*.RDataTmp2
+*.RDataTmp3
