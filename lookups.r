@@ -947,7 +947,8 @@ apply_lookups<- function(VAR.path,VAR.df){
         
         VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
         
-        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & MajorCommandID!="Uncategorized",
+        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & MajorCommandID!="Uncategorized" 
+                                & !is.na(Fiscal.Year),
                             select=c("Fiscal.Year",
                                      "ContractingOfficeID",
                                      "ContractingOfficeName",
@@ -1152,7 +1153,34 @@ apply_lookups<- function(VAR.path,VAR.df){
         }
     }
     
-   
+    
+    if("PoPstateCode" %in% names(VAR.df)){
+        
+        if("StateText"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(StateText))
+        }
+        
+        if("Census.Region"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(Census.Region))
+        }
+        
+        if("BEA.Region"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(BEA.Region))
+        }
+        
+        if("CSIS.Region"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(CSIS.Region))
+        }
+        
+        VAR.df<-read_and_join(VAR.path,"LOOKUP_State_Code.csv",VAR.df)
+        NA.check.df<-subset(VAR.df, is.na(StateText), select=c("PoPstateCode","StateText"))
+        if(nrow(NA.check.df)>0){
+            print(unique(NA.check.df))
+            stop(paste(nrow(NA.check.df),"rows of NAs generated in StateText"))
+        }
+    }
+    
+    
     
     
     if(("OMBagencyCode" %in% names(VAR.df))

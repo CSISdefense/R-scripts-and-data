@@ -954,6 +954,13 @@ CreateChart<-function(VAR.note
         ))
     } 
     
+    if(!VAR.choice.figures$x.variable[VAR.which.figure] %in% names(VAR.long.DF)){
+        stop (paste(
+            VAR.choice.figures$x.variable[VAR.which.figure],
+            "not found in VAR.long.DF."
+        ))
+    } 
+    
     if (VAR.choice.figures$y.series[VAR.which.data] %in% c("SubCustomer.detail","SubCustomer.sum")){
         legend.title<-paste(VAR.choice.data$Legend.Customer[VAR.which.data]
                             ,VAR.choice.figures$legend.name[VAR.which.figure])
@@ -964,6 +971,9 @@ CreateChart<-function(VAR.note
     if (!(is.na(VAR.startyear))){
         VAR.long.DF<-subset(VAR.long.DF,VAR.long.DF$Fiscal.Year>=as.Date(paste("9/30/",as.character(VAR.startyear),sep=""),"%m/%d/%Y"))
     }
+    
+
+    
     
     figure.title<-NULL
     if (!is.na(VAR.choice.figures$figure.title[VAR.which.figure])){
@@ -2345,7 +2355,7 @@ LatticePlot<-function(VAR.color.legend.label
     
     if(is.na(VAR.facet.secondary)){
         
-        print.figure<-print.figure+facet_wrap(~ primary
+        original<-original+facet_wrap(~ primary
                                               #                                           ,ncol=VAR.ncol
                                               #                                           , labeller=Label_Wrap
                                               #                                           , scales="fixed", space="free_y"
@@ -2669,15 +2679,25 @@ PointRowWrapper<-function(VAR.main.label,
                           VAR.series.variable,
                           VAR.size.variable,
                           VAR.facet.primary,
-                          VAR.facet.secondary=NA){
+                          VAR.facet.secondary=NA,
+                          low=NA,
+                          high=NA,
+                          Percentage=NA){
     #Single Offer Competition
+    
+    if(!is.na(low) | !is.na(high)){
+        VAR.long.DF<-SetExtremesToInf(VAR.long.DF,VAR.value.variable,low,high)
+    }
     
     figure<-ggplot(VAR.long.DF,
                    aes_string(x=VAR.row.variable,
                               color=VAR.series.variable,
+#                               fill=VAR.series.variable,
                               shape=VAR.series.variable,
                               y=VAR.value.variable,
-                              size=VAR.size.variable
+                              size=VAR.size.variable,
+                              alpha=VAR.size.variable
+
                    ),
                    main=VAR.main.label
     )+geom_point()
@@ -2688,12 +2708,21 @@ PointRowWrapper<-function(VAR.main.label,
         scale_shape_discrete(name=VAR.color.legend.label)+
         scale_size_manual(name=VAR.size.legend.label,
                             values=c("<0.01"=3,
-                                     "<0.05"=2.5,
-                                     "Not Significant\n(>0.05)"=1,
-                                     "Sample Too Small\nfor Chi-Squared"=2
+                                     "<0.05"=2,
+                                     "Not Signif.\n(>0.05)"=1,
+                                     "Sample Too\nSmall to Test"=2
                                 )
-        )
-    
+        )+
+        theme(plot.margin = unit(c(0.25,0.25,0.25,0.25), "cm"))+
+        theme(legend.margin = unit(-0.5, "cm"))+
+    theme(legend.key.size = unit(0.25, "cm"))
+    figure<-figure+scale_alpha_manual(name=VAR.size.legend.label,
+                    values=c("<0.01"=1,
+                             "<0.05"=1,
+                             "Not Signif.\n(>0.05)"=1,
+                             "Sample Too\nSmall to Test"=0.5
+                    )
+)#     
     
     if(is.na(VAR.facet.secondary)){
         figure<-figure+facet_grid(reformulate(VAR.facet.primary)
@@ -2714,12 +2743,42 @@ PointRowWrapper<-function(VAR.main.label,
     
     #     figure<-figure+facet_grid(reformulate(VAR.facet.secondary,VAR.facet.primary)) 
     figure<-figure+coord_flip()+
-        theme(legend.position="bottom",axis.text.x = element_text(angle = 90, hjust = 1))+ 
-        scale_y_continuous(labels = percent_format()
-        )
+        theme(legend.position="bottom",
+              axis.text.x = element_text(angle = 90, hjust = 1),
+              axis.title= element_text(size=10),
+              legend.title= element_text(size=9),
+              legend.title= element_text(size=9))
+    if(substr(VAR.value.variable,1,1)=="p" | (!is.na(Percentage) & Percentage==TRUE)){
+        figure<-figure+scale_y_continuous( labels = percent_format())
+    }
+    
     figure
     
 }
+
+SetExtremesToInf<-function(VAR.long.DF, column, low=NA,high=NA){
+    if(!is.na(low)){
+        VAR.long.DF[VAR.long.DF[,column]<low & !is.na(VAR.long.DF[,column]),column]<- -Inf
+    }
+    if(!is.na(high)){
+        VAR.long.DF[VAR.long.DF[,column]>high & !is.na(VAR.long.DF[,column]),column]<- Inf
+        
+    }
+    VAR.long.DF
+}
+
+ListOutliers<-function(VAR.long.DF, column, low=NA,high=NA){
+    outliers<-VAR.long.DF[0,]
+    if(!is.na(low)){
+        outliers<-rbind(outliers,VAR.long.DF[VAR.long.DF[,column]<low,])
+    }
+    if(!is.na(high)){
+        outliers<-rbind(outliers,VAR.long.DF[VAR.long.DF[,column]>high,])
+        
+    }
+    outliers
+}
+
 
 
 
@@ -2736,8 +2795,10 @@ LatticePercentLinePlot<-function(VAR.color.legend.label
                                  ,VAR.y.variable
                                  ,VAR.y.series
                                  ,VAR.facet.primary=NA
-                                 ,VAR.facet.secondary=NA){
-    #     debug(PrepareLabelsAndColors)
+                                 ,VAR.facet.secondary=NA
+                                 ){
+    #     debug(PrepareLabelsAndColors
+    
     print.figure<-LatticePercentLineWrapper(VAR.color.legend.label
                                             ,VAR.main.label
                                             ,VAR.X.label
@@ -3597,7 +3658,8 @@ HistogramOrDensityWrapper<-function(
     ,VAR.histogram.or.density
     ,VAR.x.variable
     ,VAR.y.series =NA
-    ,VAR.facet=NA
+    ,VAR.facet.primary=NA
+    ,VAR.facet.secondary=NA
 )
 {
     if("Graph" %in% names(VAR.long.DF)){
@@ -3651,12 +3713,16 @@ HistogramOrDensityWrapper<-function(
     original<-ggplot(
         data=VAR.long.DF
         ,aes_string(x=VAR.x.variable
-                    #                 ,y=VAR.y.series
+                    ,fill=VAR.y.series
         )
     )+
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
         ggtitle(VAR.main.label)
+if(!is.na(VAR.y.series)){
+    original+aes_string(color=VAR.y.series)
+}
+    
     #     gbinwidth=1,
     #     stat=identity,
     #     geom="bar"
@@ -3762,30 +3828,45 @@ HistogramOrDensityWrapper<-function(
     # compute lower and upper whiskers
     # ylim1 = boxplot.stats(VAR.long.DF[,VAR.y.series])$stats[c(1, 5)]
     
-    
-    
-    if(!is.na(VAR.facet)&validcount>0){
-        original<-original+facet_wrap(
-            #This is an indirect reference, it allows use of a column name variable rather than naming the column directly.
-            #This isn't used in some other graph functions because in those functions the data frames are aggergated.
-            #During that aggregation process, 
-            as.formula(sprintf('~ %s',VAR.facet))
+    original<-original+scale_y_continuous(labels=comma)
+    if(is.na(VAR.facet.secondary)){
+        if(!is.na(VAR.facet.primary)&validcount>0){
+            original<-original+facet_wrap(
+                #This is an indirect reference, it allows use of a column name variable rather than naming the column directly.
+                #This isn't used in some other graph functions because in those functions the data frames are aggergated.
+                #During that aggregation process, 
+                as.formula(sprintf('~ %s',VAR.facet.primary))
+                
+                #                                           ,ncol=VAR.ncol
+                #                                           , labeller=Label_Wrap
+                #                                           , scales="fixed", space="free_y"
+                
+            )
+            original<-original+scale_y_continuous( expand = c( 0.25 , 0.05 ))
+            # +scale_y_continuous(expand=c(0,0.75)#)+scale_y_continuous(expand=c(0,0.75)
             
-            #                                           ,ncol=VAR.ncol
-            #                                           , labeller=Label_Wrap
-            #                                           , scales="fixed", space="free_y"
             
+        }
+           }
+    else{
+        original<-original+facet_grid(reformulate(VAR.facet.primary ,VAR.facet.secondary)
+                                              , labeller=Label_Wrap
+                                              , scales="free_y" #The scales actually do stay fixed
+#                                               , space="free_y"#But only because the space is free
         )
-        original<-original+scale_y_continuous( expand = c( 0.25 , 0.05 ))
-        # +scale_y_continuous(expand=c(0,0.75)#)+scale_y_continuous(expand=c(0,0.75)
-        
+#         +scale_y_continuous(expand=c(0,0.75)
+#                              ,labels=comma
+#         )+theme(strip.text.y=element_text(size=axis.text.size,family="times",face="bold",angle=0)
+#         )
         
     }
+    
+    
     
     # if(VAR.x.variable=="avSize"){
     #   stop("defg")
     # }
-    #   print.figure<-original+scale_fill_manual(
+    #   original<-original+scale_fill_manual(
     #     VAR.color.legend.label,
     #     values=color.list, 
     #     breaks=c(labels.category.DF$variable), 
@@ -3892,7 +3973,7 @@ HistogramOrDensity<-function(
     ,VAR.histogram.or.density
     ,VAR.x.variable
     ,VAR.y.series =NA
-    ,VAR.facet=NA
+    ,VAR.facet.primary=NA
 )
 {
     original<-HistogramOrDensityWrapper(
@@ -3905,7 +3986,7 @@ HistogramOrDensity<-function(
         ,VAR.histogram.or.density
         ,VAR.x.variable
         ,VAR.y.series
-        ,VAR.facet
+        ,VAR.facet.primary
     )
     print(original, vp=subplot(VAR.base.row,VAR.base.col))
     
@@ -3982,7 +4063,7 @@ BoxplotWrapper<-function(
     ,VAR.long.DF
     ,VAR.x.variable
     ,VAR.y.series
-    ,VAR.facet=NA
+    ,VAR.facet.primary=NA
 )
 {
     if("Graph" %in% names(VAR.long.DF)){
@@ -4076,12 +4157,12 @@ BoxplotWrapper<-function(
     #     , fill="white"
     #   )
     
-    if(!is.na(VAR.facet)){
+    if(!is.na(VAR.facet.primary)){
         original<-original+facet_wrap(
             #This is an indirect reference, it allows use of a column name variable rather than naming the column directly.
             #This isn't used in some other graph functions because in those functions the data frames are aggergated.
             #During that aggregation process, 
-            as.formula(sprintf('~ %s',VAR.facet))
+            as.formula(sprintf('~ %s',VAR.facet.primary))
             #                                           ,ncol=VAR.ncol
             #                                           , labeller=Label_Wrap
             #                                           , scales="fixed", space="free_y"
@@ -4168,7 +4249,7 @@ Boxplot<-function(
     ,VAR.long.DF
     ,VAR.x.variable
     ,VAR.y.series
-    ,VAR.facet=NA
+    ,VAR.facet.primary=NA
 )
 {
     original<-BoxplotWrapper(
@@ -4180,7 +4261,7 @@ Boxplot<-function(
         ,VAR.long.DF
         ,VAR.x.variable
         ,VAR.y.series
-        ,VAR.facet
+        ,VAR.facet.primary
     )
     print(original, vp=subplot(VAR.base.row,VAR.base.col))
     
@@ -4254,7 +4335,7 @@ ScatterPlot<-function(
     ,VAR.long.DF
     ,VAR.x.variable
     ,VAR.y.variable
-    ,VAR.facet=NA
+    ,VAR.facet.primary=NA
     ,VAR.y.series=NA
 )
 {
@@ -4353,12 +4434,12 @@ ScatterPlot<-function(
         original<-original+scale_y_continuous( labels = percent_format())
     }
     
-    if(!is.na(VAR.facet)&validcount>0){
+    if(!is.na(VAR.facet.primary)&validcount>0){
         original<-original+facet_wrap(
             #This is an indirect reference, it allows use of a column name variable rather than naming the column directly.
             #This isn't used in some other graph functions because in those functions the data frames are aggergated.
             #During that aggregation process, 
-            as.formula(sprintf('~ %s',VAR.facet))
+            as.formula(sprintf('~ %s',VAR.facet.primary))
             #                                           ,ncol=VAR.ncol
             #                                           , labeller=Label_Wrap
             #                                           , scales="fixed", space="free_y"
