@@ -2864,9 +2864,21 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
                                     ,MovingAverage=1
                                     ,MovingSides=1){
     
+    if(!VAR.x.variable %in% names(VAR.long.DF)){
+        stop(paste(VAR.x.variable,"passed as VAR.x.variable and is not included in VAR.long.DF"))
+    }
+    
+    if(!VAR.y.variable %in% names(VAR.long.DF)){
+        stop(paste(VAR.y.variable,"passed as VAR.y.variable and is not included in VAR.long.DF"))
+    }
     #     debug(PrepareLabelsAndColors)
     
-    if(is.na(VAR.y.series)) VAR.y.series<-VAR.facet.primary
+    if(is.na(VAR.y.series)){ 
+        VAR.y.series<-VAR.facet.primary
+    } else if(!VAR.y.series %in% names(VAR.long.DF)){
+            stop(paste(VAR.y.series,"passed as VAR.y.series and is not included in VAR.long.DF"))
+        }
+    
     
     if(!("Graph" %in% names(VAR.long.DF))){
         VAR.long.DF$Graph<-NA
@@ -2926,6 +2938,10 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
         )
         
         if(is.na(VAR.facet.secondary)){
+            if(!VAR.facet.primary %in% names(VAR.long.DF)){
+                stop(paste(VAR.facet.primary," passed as VAR.facet.primary and is not included in VAR.long.DF"))
+            }
+            
             VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                    , by=cbind(VAR.long.DF[,VAR.x.variable]
                                               ,VAR.long.DF[,VAR.y.series]
@@ -2965,6 +2981,10 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
             }
         }
         else {
+            if(!VAR.facet.secondary %in% names(VAR.long.DF)){
+                stop(paste(VAR.facet.secondary,"passed as VAR.facet.secondary and is not included in VAR.long.DF"))
+            }
+            
             labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration,
                                                         VAR.long.DF,
                                                         VAR.facet.secondary
