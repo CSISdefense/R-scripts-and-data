@@ -1072,8 +1072,9 @@ CreateChart<-function(VAR.note
                 ,VAR.long.DF
                 ,VAR.choice.figures$form[VAR.which.figure]
                 ,VAR.choice.figures$x.variable[VAR.which.figure]
-                ,VAR.choice.figures$y.variable[VAR.which.figure]
+                ,VAR.choice.figures$y.series[VAR.which.figure]
                 ,VAR.choice.figures$facet.primary[VAR.which.figure]
+                ,VAR.choice.figures$facet.secondary[VAR.which.figure]
             )
         }
     }
@@ -3683,8 +3684,7 @@ HistogramOrDensityWrapper<-function(
     #   )
     
     #   names(VAR.long.DF)<-c("Fiscal.Year",VAR.x.variable,VAR.y.series)
-    
-    
+
     
     #Error checking for function calls with no data (possibly a result of the subset)
     if(nrow(VAR.long.DF)==0){
@@ -3713,14 +3713,14 @@ HistogramOrDensityWrapper<-function(
     original<-ggplot(
         data=VAR.long.DF
         ,aes_string(x=VAR.x.variable
-                    ,fill=VAR.y.series
         )
     )+
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
         ggtitle(VAR.main.label)
 if(!is.na(VAR.y.series)){
-    original+aes_string(color=VAR.y.series)
+    original+aes_string(color=VAR.y.series,
+                        ,fill=VAR.y.series)
 }
     
     #     gbinwidth=1,
@@ -3773,7 +3773,10 @@ if(!is.na(VAR.y.series)){
                 , colour="black"
                 , fill="white"
             )
-            original<-original+stat_bin(geom="text", aes(label=..count..), vjust=-0.25) 
+            original<-original+stat_bin(geom="text", 
+                                        aes(label=..count..),
+                                        vjust=-0.25,
+                                        size=geom.text.size) 
             
         }
         #     
@@ -3883,14 +3886,14 @@ if(!is.na(VAR.y.series)){
     
     
     
-    #   print.figure<-print.figure+
-    #     theme(axis.text.x=element_text(size=axis.text.size))+
-    #     theme(axis.text.y=element_text(size=axis.text.size))+
-    #     theme(axis.title.x=element_text(size=axis.text.size))+
-    #     theme(axis.title.y=element_text(size=axis.text.size, angle=90))+
-    #     theme(plot.title=element_text(size=title.text.size))+
-    #     theme(legend.title=element_text(size=legend.text.size,hjust=0))+
-    #     theme(legend.text=element_text(size=legend.text.size))#+
+      original<-original+
+        theme(axis.text.x=element_text(size=axis.text.size))+
+        theme(axis.text.y=element_text(size=axis.text.size))+
+        theme(axis.title.x=element_text(size=axis.text.size))+
+        theme(axis.title.y=element_text(size=axis.text.size, angle=90))+
+        theme(plot.title=element_text(size=title.text.size))+
+        theme(legend.title=element_text(size=legend.text.size,hjust=0))+
+        theme(legend.text=element_text(size=legend.text.size))#+
     
     # print.figure<-print.figure+geom_bar(colour="black")#
     #   print.figure<-print.figure+
@@ -3974,6 +3977,7 @@ HistogramOrDensity<-function(
     ,VAR.x.variable
     ,VAR.y.series =NA
     ,VAR.facet.primary=NA
+    ,VAR.facet.secondary=NA
 )
 {
     original<-HistogramOrDensityWrapper(
@@ -3987,6 +3991,7 @@ HistogramOrDensity<-function(
         ,VAR.x.variable
         ,VAR.y.series
         ,VAR.facet.primary
+        ,VAR.facet.secondary
     )
     print(original, vp=subplot(VAR.base.row,VAR.base.col))
     
@@ -4043,7 +4048,7 @@ HistogramOrDensity<-function(
         , vp=vplayout(VAR.row,VAR.col)
     )  
     
-    theme_set(old.theme)
+
     rm(VAR.color.legend.label
        ,VAR.main.label
        ,VAR.base.row
