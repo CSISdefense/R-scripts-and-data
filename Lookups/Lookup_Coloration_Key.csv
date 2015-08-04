@@ -24,6 +24,7 @@ RoughUniqueEntitySize,Vendors
 comparison.dollar.type.detail,Dollar Type
 comparison.dollar.type.sum,Dollar Type
 SubFunder.Detail,Agencies
+SubCustomer,Agencies
 SubCustomer.detail,Agencies
 SubCustomer.sum,Agencies
 SubCustomer.component,Agencies
