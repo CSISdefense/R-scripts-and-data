@@ -3049,11 +3049,6 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     }  
     
     
-    VAR.long.DF$category=factor(VAR.long.DF$category
-                                ,levels=c(labels.category.DF$variable)
-                                ,labels=c(labels.category.DF$Label),
-                                ordered=TRUE)
-    
     
     original<-qplot(
         , data=VAR.long.DF
@@ -3144,6 +3139,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
         VAR.color.legend.label
         ,  values=color.list
         , breaks=c(labels.category.DF$variable)
+        , labels=c(labels.category.DF$Label)
         , guide = guide_legend(reverse=TRUE)
         
     )
