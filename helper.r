@@ -2532,9 +2532,6 @@ LatticePlotWrapper<-function(VAR.color.legend.label
         
     }
     
-    VAR.long.DF$category<-factor(VAR.long.DF$category,levels=c(labels.category.DF$variable),
-                                 labels=c(labels.category.DF$Label),
-                                 ordered=TRUE)
     VAR.long.DF$primary<-factor(VAR.long.DF$primary,
                                 levels=c(labels.primary.DF$variable),
                                 labels=c(labels.primary.DF$Label),
@@ -2590,6 +2587,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
         VAR.color.legend.label
         ,  values=color.list
         , breaks=c(labels.category.DF$variable)
+        , labels=c(labels.category.DF$Label)
         
     ) 
     
