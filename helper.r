@@ -1051,7 +1051,7 @@ CreateChart<-function(VAR.note
                       #           ,VAR.choice.figures$subset.variable[VAR.which.figure]
                       ,VAR.choice.figures$subset.criteria[VAR.which.figure]
                       
-                      ,VAR.choice.figures$form[VAR.which.figure]
+                      ,ifelse(VAR.choice.figures$form[VAR.which.figure]=="densogram","histogram",VAR.choice.figures$form[VAR.which.figure])
                       ,sep="_"
                 )
                 #         VAR.choice.figures$figure.title[VAR.which.figure]
@@ -3781,6 +3781,7 @@ HistogramOrDensityWrapper<-function(
         if(substr(VAR.x.variable,1,1)=="p"){
             original<-original+scale_x_continuous( labels = percent_format())
         }
+        #Not using the extreme range cut offs for densograms for nwo
         if (!is.factor(VAR.long.DF[,VAR.x.variable]) & length(VAR.long.DF[,VAR.x.variable])>100){
             range.binwidth<-quantile(VAR.long.DF[,VAR.x.variable], c(0.05, 0.95),na.rm=TRUE)[2]
             range.binwidth<-range.binwidth-quantile(VAR.long.DF[,VAR.x.variable], c(0.05, 0.95),na.rm=TRUE)[1]
@@ -3821,24 +3822,25 @@ HistogramOrDensityWrapper<-function(
     #Source: http://stackoverflow.com/questions/5677885/ignore-outliers-in-ggplot2-boxplot
     # compute lower and upper whiskers
     # ylim1 = boxplot.stats(VAR.long.DF[,VAR.y.series])$stats[c(1, 5)]
-    if(!is.factor(VAR.long.DF[,VAR.x.variable])&length(VAR.long.DF[,VAR.x.variable])>100){
-        xlim1 = quantile(VAR.long.DF[,VAR.x.variable], c(0.05, 0.95),na.rm=TRUE)
-        max.x<-max(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
-        min.x<-min(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
-        if((xlim1[2]-xlim1[1])*1.5<(max.x-min.x)){
-            if(xlim1[1]<0)
-                xlim1[1]<-xlim1[1]*1.25
-            else xlim1[1]<-xlim1[1]*.75
-            if(xlim1[2]<0)
-                xlim1[2]<-xlim1[2]*.75
-            else xlim1[2]<-xlim1[2]*1.25
-            xlim1[1]<-max(xlim1[1],min.x)
-            xlim1[2]<-min(xlim1[2],max.x)
-            # scale x limits based on xlim1
-            original = original + coord_cartesian(xlim = xlim1)
-        }
-    }    
-    
+    if (VAR.histogram.or.density %in% c('density','histogram')){
+            if(!is.factor(VAR.long.DF[,VAR.x.variable])&length(VAR.long.DF[,VAR.x.variable])>100){
+                xlim1 = quantile(VAR.long.DF[,VAR.x.variable], c(0.05, 0.95),na.rm=TRUE)
+                max.x<-max(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
+                min.x<-min(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
+                if((xlim1[2]-xlim1[1])*1.5<(max.x-min.x)){
+                    if(xlim1[1]<0)
+                        xlim1[1]<-xlim1[1]*1.25
+                    else xlim1[1]<-xlim1[1]*.75
+                    if(xlim1[2]<0)
+                        xlim1[2]<-xlim1[2]*.75
+                    else xlim1[2]<-xlim1[2]*1.25
+                    xlim1[1]<-max(xlim1[1],min.x)
+                    xlim1[2]<-min(xlim1[2],max.x)
+                    # scale x limits based on xlim1
+                    original = original + coord_cartesian(xlim = xlim1)
+                }
+            }    
+    }
     
     
     original<-original+scale_y_continuous(labels=comma)
