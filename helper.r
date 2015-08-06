@@ -198,7 +198,8 @@ CreateChartOrTable<-function(VAR.note #unused
                                                             ,"scatterplot"
                                                             ,"histogram"
                                                             ,"density"
-                                                            ,"boxplot")
+                                                            ,"boxplot"
+                                                            ,"densogram")
         ){
             CreateChart(VAR.note
                         ,VAR.choice.layout
@@ -972,7 +973,7 @@ CreateChart<-function(VAR.note
         VAR.long.DF<-subset(VAR.long.DF,VAR.long.DF$Fiscal.Year>=as.Date(paste("9/30/",as.character(VAR.startyear),sep=""),"%m/%d/%Y"))
     }
     
-
+    
     
     
     figure.title<-NULL
@@ -1035,7 +1036,7 @@ CreateChart<-function(VAR.note
             )
         }
     }
-    else if(VAR.choice.figures$form[VAR.which.figure] %in% c("density","histogram")){
+    else if(VAR.choice.figures$form[VAR.which.figure] %in% c("density","histogram","densogram")){
         if(nrow(subset(VAR.long.DF
                        ,!is.na(VAR.long.DF[,VAR.choice.figures$x.variable[VAR.which.figure]])
                        #                    &!is.na(VAR.long.DF[,VAR.choice.figures$y.variable[VAR.which.figure]])
@@ -2357,9 +2358,9 @@ LatticePlot<-function(VAR.color.legend.label
     if(is.na(VAR.facet.secondary)){
         
         original<-original+facet_wrap(~ primary
-                                              #                                           ,ncol=VAR.ncol
-                                              #                                           , labeller=Label_Wrap
-                                              #                                           , scales="fixed", space="free_y"
+                                      #                                           ,ncol=VAR.ncol
+                                      #                                           , labeller=Label_Wrap
+                                      #                                           , scales="fixed", space="free_y"
         )+scale_y_continuous(labels=comma)
         # +scale_y_continuous(expand=c(0,0.75)#)+scale_y_continuous(expand=c(0,0.75)
         #     )
@@ -2693,12 +2694,12 @@ PointRowWrapper<-function(VAR.main.label,
     figure<-ggplot(VAR.long.DF,
                    aes_string(x=VAR.row.variable,
                               color=VAR.series.variable,
-#                               fill=VAR.series.variable,
+                              #                               fill=VAR.series.variable,
                               shape=VAR.series.variable,
                               y=VAR.value.variable,
                               size=VAR.size.variable,
                               alpha=VAR.size.variable
-
+                              
                    ),
                    main=VAR.main.label
     )+geom_point()
@@ -2708,22 +2709,22 @@ PointRowWrapper<-function(VAR.main.label,
         scale_color_discrete(name=VAR.color.legend.label)+
         scale_shape_discrete(name=VAR.color.legend.label)+
         scale_size_manual(name=VAR.size.legend.label,
-                            values=c("<0.01"=3,
-                                     "<0.05"=2,
-                                     "Not Signif.\n(>0.05)"=1,
-                                     "Sample Too\nSmall to Test"=2
-                                )
+                          values=c("<0.01"=3,
+                                   "<0.05"=2,
+                                   "Not Signif.\n(>0.05)"=1,
+                                   "Sample Too\nSmall to Test"=2
+                          )
         )+
         theme(plot.margin = unit(c(0.25,0.25,0.25,0.25), "cm"))+
         theme(legend.margin = unit(-0.5, "cm"))+
-    theme(legend.key.size = unit(0.25, "cm"))
+        theme(legend.key.size = unit(0.25, "cm"))
     figure<-figure+scale_alpha_manual(name=VAR.size.legend.label,
-                    values=c("<0.01"=1,
-                             "<0.05"=1,
-                             "Not Signif.\n(>0.05)"=1,
-                             "Sample Too\nSmall to Test"=0.5
-                    )
-)#     
+                                      values=c("<0.01"=1,
+                                               "<0.05"=1,
+                                               "Not Signif.\n(>0.05)"=1,
+                                               "Sample Too\nSmall to Test"=0.5
+                                      )
+    )#     
     
     if(is.na(VAR.facet.secondary)){
         figure<-figure+facet_grid(reformulate(VAR.facet.primary)
@@ -2797,7 +2798,7 @@ LatticePercentLinePlot<-function(VAR.color.legend.label
                                  ,VAR.y.series
                                  ,VAR.facet.primary=NA
                                  ,VAR.facet.secondary=NA
-                                 ){
+){
     #     debug(PrepareLabelsAndColors
     
     print.figure<-LatticePercentLineWrapper(VAR.color.legend.label
@@ -2876,8 +2877,8 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     if(is.na(VAR.y.series)){ 
         VAR.y.series<-VAR.facet.primary
     } else if(!VAR.y.series %in% names(VAR.long.DF)){
-            stop(paste(VAR.y.series,"passed as VAR.y.series and is not included in VAR.long.DF"))
-        }
+        stop(paste(VAR.y.series,"passed as VAR.y.series and is not included in VAR.long.DF"))
+    }
     
     
     if(!("Graph" %in% names(VAR.long.DF))){
@@ -3691,6 +3692,19 @@ HistogramOrDensityWrapper<-function(
     }
     
     
+    #     RnDmean <- mean(MCClist$pRnD)
+    #     
+    #     ggplot(MCClist, aes(x=pRnD)) +
+    #         geom_histogram(aes(pRnD="density"),
+    #                        binwidth = .01,
+    #                        color = "red", fill = "light blue", main = "HISTOGRAM") +
+    #         geom_density(alpha = .2, fill = "#FF6666") +
+    #         labs(title = "Distribution of RnD Contracts: MCC level") +
+    #         labs(x = "RnD Contracts Obligated") +
+    #         geom_vline(aes(xintercept=RnDmean, color="blue"),
+    #                    linetype = "dashed", size = 1)
+    #     
+    
     #   
     #   VAR.long.DF<-aggregate(VAR.long.DFVAR.y.variable
     #                          , by=list(VAR.long.DF[,VAR.x.variable]
@@ -3700,7 +3714,7 @@ HistogramOrDensityWrapper<-function(
     #   )
     
     #   names(VAR.long.DF)<-c("Fiscal.Year",VAR.x.variable,VAR.y.series)
-
+    
     
     #Error checking for function calls with no data (possibly a result of the subset)
     if(nrow(VAR.long.DF)==0){
@@ -3734,10 +3748,12 @@ HistogramOrDensityWrapper<-function(
         ylab(VAR.Y.label)+
         xlab(VAR.X.label)+
         ggtitle(VAR.main.label)
-if(!is.na(VAR.y.series)){
-    original+aes_string(color=VAR.y.series,
-                        ,fill=VAR.y.series)
-}
+    # xVariableMean<-mean(VAR.long.DF[,VAR.x.variable])
+    
+    if(!is.na(VAR.y.series)){
+        original+aes_string(color=VAR.y.series,
+                            ,fill=VAR.y.series)
+    }
     
     #     gbinwidth=1,
     #     stat=identity,
@@ -3749,7 +3765,7 @@ if(!is.na(VAR.y.series)){
     #                 ,guide = guide_legend(reverse=TRUE)
     #     )
     #if percentage
-    if(VAR.histogram.or.density=='histogram'){
+    if(VAR.histogram.or.density %in% c('histogram','densogram')){
         
         
         # if(substr(VAR.x.variable,start=1,stop=1)=='p'){
@@ -3795,57 +3811,35 @@ if(!is.na(VAR.y.series)){
                                         size=geom.text.size) 
             
         }
-        #     
-        
-        
-        #Range solution:
-        #Source: http://stackoverflow.com/questions/5677885/ignore-outliers-in-ggplot2-boxplot
-        # compute lower and upper whiskers
-        # xlim1 = boxplot.stats(VAR.long.DF[,VAR.x.variable])$stats[c(1, 5)]
-        if(!is.factor(VAR.long.DF[,VAR.x.variable])&length(VAR.long.DF[,VAR.x.variable])>100){
-            #   stop("test")
-            xlim1 = quantile(VAR.long.DF[,VAR.x.variable], c(0.05, 0.95),na.rm=TRUE)
-            max.x<-max(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
-            min.x<-min(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
-            if((xlim1[2]-xlim1[1])*1.5<(max.x-min.x)){
-                if(xlim1[1]<0)
-                    xlim1[1]<-xlim1[1]*1.25
-                else xlim1[1]<-xlim1[1]*.75
-                if(xlim1[2]<0)
-                    xlim1[2]<-xlim1[2]*.75
-                else xlim1[2]<-xlim1[2]*1.25
-                xlim1[1]<-max(xlim1[1],min.x)
-                xlim1[2]<-min(xlim1[2],max.x)
-                # scale x limits based on xlim1
-                original = original + coord_cartesian(xlim = xlim1)
-            }
-        }
-        
+        #            
         
     }
-    else if (VAR.histogram.or.density=='density'){
+    if (VAR.histogram.or.density %in% c('density','densogram')){
         original<-original+ geom_density(alpha=.2, fill="#FF6666")
-        if(length(VAR.long.DF[,VAR.x.variable])>100){
-            xlim1 = quantile(VAR.long.DF[,VAR.x.variable], c(0.05, 0.95),na.rm=TRUE)
-            max.x<-max(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
-            min.x<-min(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
-            if((xlim1[2]-xlim1[1])*1.5<(max.x-min.x)){
-                if(xlim1[1]<0)
-                    xlim1[1]<-xlim1[1]*1.25
-                else xlim1[1]<-xlim1[1]*.75
-                if(xlim1[2]<0)
-                    xlim1[2]<-xlim1[2]*.75
-                else xlim1[2]<-xlim1[2]*1.25
-                xlim1[1]<-max(xlim1[1],min.x)
-                xlim1[2]<-min(xlim1[2],max.x)
-                # scale x limits based on xlim1
-                original = original + coord_cartesian(xlim = xlim1)
-            }
-        }
+        
     }
     #Source: http://stackoverflow.com/questions/5677885/ignore-outliers-in-ggplot2-boxplot
     # compute lower and upper whiskers
     # ylim1 = boxplot.stats(VAR.long.DF[,VAR.y.series])$stats[c(1, 5)]
+    if(!is.factor(VAR.long.DF[,VAR.x.variable])&length(VAR.long.DF[,VAR.x.variable])>100){
+        xlim1 = quantile(VAR.long.DF[,VAR.x.variable], c(0.05, 0.95),na.rm=TRUE)
+        max.x<-max(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
+        min.x<-min(VAR.long.DF[,VAR.x.variable],na.rm=TRUE)
+        if((xlim1[2]-xlim1[1])*1.5<(max.x-min.x)){
+            if(xlim1[1]<0)
+                xlim1[1]<-xlim1[1]*1.25
+            else xlim1[1]<-xlim1[1]*.75
+            if(xlim1[2]<0)
+                xlim1[2]<-xlim1[2]*.75
+            else xlim1[2]<-xlim1[2]*1.25
+            xlim1[1]<-max(xlim1[1],min.x)
+            xlim1[2]<-min(xlim1[2],max.x)
+            # scale x limits based on xlim1
+            original = original + coord_cartesian(xlim = xlim1)
+        }
+    }    
+    
+    
     
     original<-original+scale_y_continuous(labels=comma)
     if(is.na(VAR.facet.secondary)){
@@ -3866,17 +3860,17 @@ if(!is.na(VAR.y.series)){
             
             
         }
-           }
+    }
     else{
         original<-original+facet_grid(reformulate(VAR.facet.primary ,VAR.facet.secondary)
-                                              , labeller=Label_Wrap
-                                              , scales="free_y" #The scales actually do stay fixed
-#                                               , space="free_y"#But only because the space is free
+                                      , labeller=Label_Wrap
+                                      , scales="free_y" #The scales actually do stay fixed
+                                      #                                               , space="free_y"#But only because the space is free
         )
-#         +scale_y_continuous(expand=c(0,0.75)
-#                              ,labels=comma
-#         )+theme(strip.text.y=element_text(size=axis.text.size,family="times",face="bold",angle=0)
-#         )
+        #         +scale_y_continuous(expand=c(0,0.75)
+        #                              ,labels=comma
+        #         )+theme(strip.text.y=element_text(size=axis.text.size,family="times",face="bold",angle=0)
+        #         )
         
     }
     
@@ -3900,9 +3894,13 @@ if(!is.na(VAR.y.series)){
     #                                 ,"%y"),sep="")
     #   )
     
+    original<-original+geom_vline(xintercept=mean(VAR.long.DF[,VAR.x.variable]), 
+                                  color="blue",
+                                  linetype = "dashed", 
+                                  size = 1)
     
     
-      original<-original+
+    original<-original+
         theme(axis.text.x=element_text(size=axis.text.size))+
         theme(axis.text.y=element_text(size=axis.text.size))+
         theme(axis.title.x=element_text(size=axis.text.size))+
@@ -4064,7 +4062,7 @@ HistogramOrDensity<-function(
         , vp=vplayout(VAR.row,VAR.col)
     )  
     
-
+    
     rm(VAR.color.legend.label
        ,VAR.main.label
        ,VAR.base.row
