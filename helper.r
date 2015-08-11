@@ -2689,6 +2689,17 @@ PointRowWrapper<-function(VAR.main.label,
         VAR.long.DF<-SetExtremesToInf(VAR.long.DF,VAR.value.variable,low,high)
     }
     
+    series.category.DF<-PrepareLabelsAndColors(VAR.Coloration
+                                               ,VAR.long.DF
+                                               ,VAR.series.variable
+    )  
+    
+    size.category.DF<-PrepareLabelsAndColors(VAR.Coloration
+                                               ,VAR.long.DF
+                                               ,VAR.size.variable
+    )  
+    
+    
     figure<-ggplot(VAR.long.DF,
                    aes_string(x=VAR.row.variable,
                               color=VAR.series.variable,
