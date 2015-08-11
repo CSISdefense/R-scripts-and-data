@@ -2694,10 +2694,33 @@ PointRowWrapper<-function(VAR.main.label,
                                                ,VAR.series.variable
     )  
     
+    
+    combined.category.DF<-unique(VAR.long.DF[,c(VAR.series.variable,VAR.size.variable)])
+    
+    names(combined.category.DF[names(combined.category.DF)==VAR.series.variable])<-"variable"
+    join(combined.category.DF,series.category.DF)
+    subset(combined.category.DF,select=c(variable,Label,Display.Order,Color,C,M,Y,K,R,G,B))
+    names(combined.category.DF[names(combined.category.DF)=="variable"])<-"series.variable"
+    names(combined.category.DF[names(combined.category.DF)=="Label"])<-"series.label"
+    names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"Display.Order"
+    names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.series.variable
+    
+    
     size.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                               ,VAR.long.DF
-                                               ,VAR.size.variable
+                                             ,VAR.long.DF
+                                             ,VAR.size.variable
     )  
+    
+    combined.category.DF<-unique(VAR.long.DF[,c(VAR.series.variable,size.category.DF)])
+    
+    
+    names(combined.category.DF[names(combined.category.DF)==VAR.size.variable])<-"variable"
+    join(combined.category.DF,size.category.DF)
+    subset(combined.category.DF,select=c(variable,Label,Display.Order,shape,size,alpha))
+    names(combined.category.DF[names(combined.category.DF)=="variable"])<-"size.variable"
+    names(combined.category.DF[names(combined.category.DF)=="Label"])<-"size.label"
+    names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.size.variable
+    
     
     
     figure<-ggplot(VAR.long.DF,
