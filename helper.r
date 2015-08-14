@@ -2670,8 +2670,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
 PointRowWrapper<-function(VAR.main.label,
                           VAR.row.label,
                           VAR.data.label,
-                          VAR.color.legend.label,
-                          VAR.size.legend.label,
+                          VAR.legend.label,
                           VAR.Coloration,
                           VAR.long.DF,
                           VAR.row.variable,
@@ -2689,6 +2688,12 @@ PointRowWrapper<-function(VAR.main.label,
         VAR.long.DF<-SetExtremesToInf(VAR.long.DF,VAR.value.variable,low,high)
     }
     
+    if(any(is.nan(VAR.long.DF[,VAR.value.variable]))){
+        VAR.data.label<-paste(VAR.data.label,
+                              "Low and High Outliers are Displayed on the Right and Left Axes, Respectively",
+                              sep="\n")
+    }
+    
     series.category.DF<-PrepareLabelsAndColors(VAR.Coloration
                                                ,VAR.long.DF
                                                ,VAR.series.variable
@@ -2697,6 +2702,7 @@ PointRowWrapper<-function(VAR.main.label,
     
     combined.category.DF<-unique(VAR.long.DF[,c(VAR.series.variable,VAR.size.variable)])
     
+<<<<<<< HEAD
     names(combined.category.DF[names(combined.category.DF)==VAR.series.variable])<-"variable"
     join(combined.category.DF,series.category.DF)
     subset(combined.category.DF,select=c(variable,Label,Display.Order,Color,C,M,Y,K,R,G,B))
@@ -2705,15 +2711,45 @@ PointRowWrapper<-function(VAR.main.label,
     names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"series.Display.Order"
     names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.series.variable
     
+=======
+    names(combined.category.DF)[names(combined.category.DF)==VAR.series.variable]<-"variable"
+    combined.category.DF<-plyr::join(combined.category.DF,series.category.DF)
+    combined.category.DF<-subset(combined.category.DF,select=-c(size,alpha))
+    names(combined.category.DF)[names(combined.category.DF)=="variable"]<-"series.variable"
+    names(combined.category.DF)[names(combined.category.DF)=="Label"]<-"series.label"
+    names(combined.category.DF)[names(combined.category.DF)=="Display.Order"]<-"series.Display.Order"
+    names(combined.category.DF)[names(combined.category.DF)=="variable"]<-VAR.series.variable
+>>>>>>> 436c6d81c3fc6572c8ce5ce9221aab00b8d1f41c
     
     size.category.DF<-PrepareLabelsAndColors(VAR.Coloration
                                              ,VAR.long.DF
                                              ,VAR.size.variable
     )  
     
-    combined.category.DF<-unique(VAR.long.DF[,c(VAR.series.variable,size.category.DF)])
+    names(combined.category.DF)[names(combined.category.DF)==VAR.size.variable]<-"variable"
+    combined.category.DF<-plyr::join(combined.category.DF,
+         subset(size.category.DF,select=-c(Color,C,M,Y,K,R,G,B,shape,ColorRGB)),
+         by="variable")
+    names(combined.category.DF)[names(combined.category.DF)=="variable"]<-"size.variable"
+    names(combined.category.DF)[names(combined.category.DF)=="Label"]<-"size.label"
+    names(combined.category.DF)[names(combined.category.DF)=="Display.Order"]<-"size.Display.Order"
+    names(combined.category.DF)[names(combined.category.DF)=="variable"]<-VAR.size.variable
+    
+    combined.category.DF$variable<-paste(combined.category.DF$series.variable,combined.category.DF$size.variable,sep=", ")
+    combined.category.DF$Label<-paste(combined.category.DF$series.label,combined.category.DF$size.label,sep=", ")
+    combined.category.DF$ColorRGB<-as.character(combined.category.DF$ColorRGB)
+    if(!is.null(VAR.long.DF$PointRowJointVariable)){
+        stop("Would be overwriting PointRowJointVariable")
+    }
     
     
+    attach(combined.category.DF)
+    combined.category.DF<-combined.category.DF[order(series.Display.Order,size.Display.Order),]
+    detach(combined.category.DF)
+    
+    VAR.long.DF$PointRowJointVariable<-paste(VAR.long.DF[,VAR.series.variable],VAR.long.DF[,VAR.size.variable],sep=", ")
+    
+<<<<<<< HEAD
     names(combined.category.DF[names(combined.category.DF)==VAR.size.variable])<-"variable"
     join(combined.category.DF,size.category.DF)
     subset(combined.category.DF,select=c(variable,Label,Display.Order,shape,size,alpha))
@@ -2721,41 +2757,48 @@ PointRowWrapper<-function(VAR.main.label,
     names(combined.category.DF[names(combined.category.DF)=="Label"])<-"size.label"
     names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"size.Display.Order"
     names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.size.variable
+=======
+>>>>>>> 436c6d81c3fc6572c8ce5ce9221aab00b8d1f41c
     
     figure<-ggplot(VAR.long.DF,
                    aes_string(x=VAR.row.variable,
-                              color=VAR.series.variable,
+                              color="PointRowJointVariable",
                               #                               fill=VAR.series.variable,
-                              shape=VAR.series.variable,
+                              shape="PointRowJointVariable",
                               y=VAR.value.variable,
-                              size=VAR.size.variable,
-                              alpha=VAR.size.variable
+                              size="PointRowJointVariable",
+                              alpha="PointRowJointVariable"
                               
                    ),
                    main=VAR.main.label
-    )+geom_point()
+    )+geom_point()+guides(color=guide_legend(nrow=2,title.position="top",byrow=TRUE))
     figure<-figure+ggtitle(VAR.main.label)+
         xlab(VAR.row.label)+
-        ylab(VAR.data.label)+
-        scale_color_discrete(name=VAR.color.legend.label)+
-        scale_shape_discrete(name=VAR.color.legend.label)+
-        scale_size_manual(name=VAR.size.legend.label,
-                          values=c("<0.01"=3,
-                                   "<0.05"=2,
-                                   "Not Signif.\n(>0.05)"=1,
-                                   "Sample Too\nSmall to Test"=2
-                          )
-        )+
-        theme(plot.margin = unit(c(0.25,0.25,0.25,0.25), "cm"))+
+        ylab(VAR.data.label)
+    
+    
+        figure<-figure+scale_color_manual(name=VAR.legend.label,
+                             breaks=combined.category.DF$variable,
+                             labels=combined.category.DF$Label,
+                             values=as.character(combined.category.DF$ColorRGB))+
+        scale_shape_manual(name=VAR.legend.label,
+                             breaks=combined.category.DF$variable,
+                           labels=combined.category.DF$Label,
+                             values=combined.category.DF$shape)+
+        scale_size_manual(name=VAR.legend.label,
+                          breaks=combined.category.DF$variable,
+                          labels=combined.category.DF$Label,
+                          values=combined.category.DF$size
+        )+scale_alpha_manual(name=VAR.legend.label,
+                             labels=combined.category.DF$Label,
+                                               breaks=combined.category.DF$variable,
+                                               values=combined.category.DF$alpha
+        )                                     
+        
+    figure<-figure+theme(plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm"))+
         theme(legend.margin = unit(-0.5, "cm"))+
         theme(legend.key.size = unit(0.25, "cm"))
-    figure<-figure+scale_alpha_manual(name=VAR.size.legend.label,
-                                      values=c("<0.01"=1,
-                                               "<0.05"=1,
-                                               "Not Signif.\n(>0.05)"=1,
-                                               "Sample Too\nSmall to Test"=0.5
-                                      )
-    )#     
+
     
     if(is.na(VAR.facet.secondary)){
         figure<-figure+facet_grid(reformulate(VAR.facet.primary)

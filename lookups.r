@@ -972,6 +972,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
         #     }
         #     
+        VAR.df[MajorCommandID=="Uncategorized","MajorCommandName"]<-"Uncategorized"
     }
     else if("MajorCommandID" %in%  names(VAR.df)){
         
@@ -1012,6 +1013,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
         #     }
         #     
+        VAR.df[MajorCommandID=="Uncategorized","MajorCommandName"]<-"Uncategorized"
     }
     
     
