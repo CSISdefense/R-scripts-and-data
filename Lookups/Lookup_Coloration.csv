@@ -173,20 +173,21 @@ Pricing,Time/Mat.,Time/Mat.,7,orange,0,0.393,0.717,0.031,247,150,70,,,
 Pricing,Other,Other,8,green,0.298,0,0.615,0.184,146,208,80,,,
 Pricing,Combination,Combination,9,purple,0.101,0.186,0,0.22,179,162,199,,,
 Pricing,Unlabeled,Unlabeled,10,reddish gray,0,0.008,0.055,0.067,150,120,120,,,
-Pricing,Fixed-Price,Fixed-Price,1,dark blue,0.587,0.317,0,0.345,69,114,167,0,,
-Pricing,Cost-Based,Cost+,4,red,0,0.583,0.599,0.247,192,80,77,1,,
+Pricing,Fixed-Price,Fixed-Price,1,blue,0.587,0.317,0,0.345,0,0,255,16,,
+Pricing,Cost-Based,Cost-Based,4,red,0,0.583,0.599,0.247,255,0,0,17,,
 ,,,,,,,,,,,,,,
 Significance,<0.01,<0.01,1,,,,,,,,,,3,1
 Significance,<0.05,<0.05,2,,,,,,,,,,2,1
-Significance,Not Signif.\n(>0.05),Not Signif.\n(>0.05),3,,,,,,,,,,1,1
-Significance,Sample Too\nSmall to Test,Sample Too\nSmall to Test,4,,,,,,,,,,2,0.5
+Significance,Not Signif.\n(>0.05),\nNot Signif. (>0.05),3,,,,,,,,,,1,1
+Significance,Sample Too\nSmall to Test,Sample\nToo Small to Test,4,,,,,,,,,,2,0.33
 ,    ,,,,,,,,,,,,,
-Hypothesis,Population,Population,1,purple,0.101,0.186,0,0.22,179,162,199,2,,
-Hypothesis,R&D,R&D,2,green,0.298,0,0.615,0.184,146,208,80,5,,
-Hypothesis,MDAP,MDAP,3,orange,0,0.393,0.717,0.031,247,150,70,5,,
-Hypothesis,2+ Year Dur.,2+ Year Dur.,4,teal,0.629,0.131,0,0.314,65,152,175,5,,
-Hypothesis,Comp.,Comp.,5,pale yellow,0,0.247,1,0,254,202,72,5,,
-Hypothesis,Possible Software Eng.,Possible Software Eng.,6,green,0.298,0,0.615,0.184,146,208,80,5,,
+Hypothesis,Population,Population,1,purple,0.101,0.186,0,0.22,204,0,204,15,,
+Hypothesis,R&D,R&D,2,green,0.298,0,0.615,0.184,146,208,80,7,,
+Hypothesis,MDAP,MDAP,3,orange,0,0.393,0.717,0.031,247,150,70,7,,
+Hypothesis,2+ Year Dur.,2+ Year Dur.,4,teal,0.629,0.131,0,0,0,204,204,7,,
+Hypothesis,Comp.,Comp.,5,pale yellow,0,0.247,1,0,254,202,72,7,,
+Hypothesis,Possible Software Eng.,Possible Software Eng.,6,green,0.298,0,0.615,0.184,146,208,80,7,,
+Hypothesis,Software Dev.,Software Dev.,6,green,0.298,0,0.615,0.184,146,208,80,7,,
 ,,,,,,,,,,,,,,
 Contract Size,Deobligation,Deobligation,1,red,0,0.583,0.599,0.247,192,80,77,,,
 Contract Size,Zero value,Zero value,2,pink,0,0.3088,0.318,0.149,217,150,148,,,
