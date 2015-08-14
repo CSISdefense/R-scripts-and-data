@@ -2702,7 +2702,7 @@ PointRowWrapper<-function(VAR.main.label,
     subset(combined.category.DF,select=c(variable,Label,Display.Order,Color,C,M,Y,K,R,G,B))
     names(combined.category.DF[names(combined.category.DF)=="variable"])<-"series.variable"
     names(combined.category.DF[names(combined.category.DF)=="Label"])<-"series.label"
-    names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"Display.Order"
+    names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"series.Display.Order"
     names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.series.variable
     
     
@@ -2719,9 +2719,8 @@ PointRowWrapper<-function(VAR.main.label,
     subset(combined.category.DF,select=c(variable,Label,Display.Order,shape,size,alpha))
     names(combined.category.DF[names(combined.category.DF)=="variable"])<-"size.variable"
     names(combined.category.DF[names(combined.category.DF)=="Label"])<-"size.label"
+    names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"size.Display.Order"
     names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.size.variable
-    
-    
     
     figure<-ggplot(VAR.long.DF,
                    aes_string(x=VAR.row.variable,
@@ -2779,9 +2778,9 @@ PointRowWrapper<-function(VAR.main.label,
     figure<-figure+coord_flip()+
         theme(legend.position="bottom",
               axis.text.x = element_text(angle = 90, hjust = 1),
-              axis.title= element_text(size=10),
-              legend.title= element_text(size=9),
-              legend.title= element_text(size=9))
+              axis.title= element_text(size=9),
+              legend.title= element_text(size=8),
+              legend.text= element_text(size=8))
     if(substr(VAR.value.variable,1,1)=="p" | (!is.na(Percentage) & Percentage==TRUE)){
         figure<-figure+scale_y_continuous( labels = percent_format())
     }
