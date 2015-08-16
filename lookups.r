@@ -666,7 +666,7 @@ read_and_join<-function(VAR.path,
                         by=NULL){
     lookup.file<-read.csv(
         paste(VAR.path,directory,VAR.file,sep=""),
-        header=TRUE, sep=",", na.strings=c("NA","NULL"), dec=".", strip.white=TRUE,
+        header=TRUE, sep=ifelse(substring(VAR.file,nchar(VAR.file)-3)==".csv",",","\t"), na.strings=c("NA","NULL"), dec=".", strip.white=TRUE,
         stringsAsFactors=TRUE
     )
     #Clear out any fields held in common not used in the joining
@@ -972,7 +972,12 @@ apply_lookups<- function(VAR.path,VAR.df){
         #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
         #     }
         #     
-        VAR.df[MajorCommandID=="Uncategorized","MajorCommandName"]<-"Uncategorized"
+        #Rather than have one uncategorized [for ]er year, just manually assigning
+        if (!("Uncategorized" %in% levels(VAR.df$MajorCommandName))){
+            VAR.df$MajorCommandName<-addNA(VAR.df$MajorCommandName,ifany=TRUE)
+            levels(VAR.df$MajorCommandName)[is.na(levels(VAR.df$MajorCommandName))] <- "Uncategorized"
+        }
+        
     }
     else if("MajorCommandID" %in%  names(VAR.df)){
         
@@ -1013,9 +1018,28 @@ apply_lookups<- function(VAR.path,VAR.df){
         #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
         #     }
         #     
-        VAR.df[MajorCommandID=="Uncategorized","MajorCommandName"]<-"Uncategorized"
     }
     
+    if("CSISofficeName" %in%  names(VAR.df)){
+                
+        #Handle NA values if present
+        if(any(is.na(VAR.df$CSISofficeName))){
+            #Make sure unlabeled is within the list of levels
+            if (!("Unlabeled" %in% levels(VAR.df$CSISofficeName))){
+                VAR.df$CSISofficeName<-addNA(VAR.df$CSISofficeName,ifany=TRUE)
+                levels(VAR.df$CSISofficeName)[is.na(levels(VAR.df$CSISofficeName))] <- "Uncategorized"
+            }
+        }
+        
+        VAR.df<-read_and_join(VAR.path,"LOOKUP_CSISofficeName.txt",VAR.df,
+                              by="CSISofficeName")
+        NA.check.df<-subset(VAR.df,is.na(CSISofficeName.PBL), select=c("CSISofficeName"))
+        if(nrow(NA.check.df)>0){
+            print(unique(NA.check.df))
+            stop(paste(nrow(NA.check.df),"rows of NAs generated in CSISofficeName.PBL"))
+        }
+  
+    }
     
     
     if("Contracting.Agency.ID" %in% names(VAR.df))

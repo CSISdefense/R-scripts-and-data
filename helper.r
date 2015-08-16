@@ -2538,9 +2538,6 @@ LatticePlotWrapper<-function(VAR.color.legend.label
                                 ordered=TRUE)
     
     
-    if(class(VAR.long.DF$x.variable)=="Date"){
-        VAR.long.DF$x.variable<-format(VAR.long.DF$x.variable,"%Y")
-    }
     
     original<-qplot(
         x=x.variable
@@ -2555,22 +2552,28 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     )#+ geom_bar(stat="identity")
     
     
+    
+    
     tick.marks<-2
     print.figure<-original
+    
+ 
+    
+    
     if(class(VAR.long.DF$x.variable)=="Date"){
-        print.figure<-print.figure+scale_x_discrete(
-            breaks=
-                c(seq(
-                    as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
-                    as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
-                    by=tick.marks)),
-            labels=
-                paste("'",format(as.Date(as.character(
-                    c(seq(
-                        as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
-                        as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
-                        by=tick.marks))
-                ),"%Y"),"%y"),sep="")  
+        print.figure<-print.figure+scale_x_date(
+            breaks=date_breaks("year"),
+#                 c(seq(
+#                     as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
+#                     as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
+#                     by=tick.marks)),
+            labels=date_format("'%y")
+#                 paste("'",format(as.Date(as.character(
+#                     c(seq(
+#                         as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
+#                         as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
+#                         by=tick.marks))
+#                 ),"%Y"),"%y"),sep="")  
         )
     }
     
@@ -2702,16 +2705,6 @@ PointRowWrapper<-function(VAR.main.label,
     
     combined.category.DF<-unique(VAR.long.DF[,c(VAR.series.variable,VAR.size.variable)])
     
-<<<<<<< HEAD
-    names(combined.category.DF[names(combined.category.DF)==VAR.series.variable])<-"variable"
-    join(combined.category.DF,series.category.DF)
-    subset(combined.category.DF,select=c(variable,Label,Display.Order,Color,C,M,Y,K,R,G,B))
-    names(combined.category.DF[names(combined.category.DF)=="variable"])<-"series.variable"
-    names(combined.category.DF[names(combined.category.DF)=="Label"])<-"series.label"
-    names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"series.Display.Order"
-    names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.series.variable
-    
-=======
     names(combined.category.DF)[names(combined.category.DF)==VAR.series.variable]<-"variable"
     combined.category.DF<-plyr::join(combined.category.DF,series.category.DF)
     combined.category.DF<-subset(combined.category.DF,select=-c(size,alpha))
@@ -2719,7 +2712,7 @@ PointRowWrapper<-function(VAR.main.label,
     names(combined.category.DF)[names(combined.category.DF)=="Label"]<-"series.label"
     names(combined.category.DF)[names(combined.category.DF)=="Display.Order"]<-"series.Display.Order"
     names(combined.category.DF)[names(combined.category.DF)=="variable"]<-VAR.series.variable
->>>>>>> 436c6d81c3fc6572c8ce5ce9221aab00b8d1f41c
+
     
     size.category.DF<-PrepareLabelsAndColors(VAR.Coloration
                                              ,VAR.long.DF
@@ -2748,17 +2741,6 @@ PointRowWrapper<-function(VAR.main.label,
     detach(combined.category.DF)
     
     VAR.long.DF$PointRowJointVariable<-paste(VAR.long.DF[,VAR.series.variable],VAR.long.DF[,VAR.size.variable],sep=", ")
-    
-<<<<<<< HEAD
-    names(combined.category.DF[names(combined.category.DF)==VAR.size.variable])<-"variable"
-    join(combined.category.DF,size.category.DF)
-    subset(combined.category.DF,select=c(variable,Label,Display.Order,shape,size,alpha))
-    names(combined.category.DF[names(combined.category.DF)=="variable"])<-"size.variable"
-    names(combined.category.DF[names(combined.category.DF)=="Label"])<-"size.label"
-    names(combined.category.DF[names(combined.category.DF)=="Display.Order"])<-"size.Display.Order"
-    names(combined.category.DF[names(combined.category.DF)==variable])<-VAR.size.variable
-=======
->>>>>>> 436c6d81c3fc6572c8ce5ce9221aab00b8d1f41c
     
     figure<-ggplot(VAR.long.DF,
                    aes_string(x=VAR.row.variable,
