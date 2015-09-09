@@ -921,9 +921,11 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     
     #***Join relevant variables to lookup tables
-    if("MajorCommandID" %in%  names(VAR.df) & 
+    if("ContractingAgencyID" %in%  names(VAR.df) & 
            "ContractingOfficeID" %in%  names(VAR.df)  &
-           !("ContractingOfficeName" %in%  names(VAR.df))){
+           "Fiscal.Year" %in%  names(VAR.df)  &
+           !("ContractingOfficeName" %in%  names(VAR.df)|
+                 "MajorCommandID"  %in%  names(VAR.df))){
         
         if("MajorCommandCode"%in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
@@ -933,21 +935,33 @@ apply_lookups<- function(VAR.path,VAR.df){
             VAR.df<-subset(VAR.df, select=-c(MajorCommandName))
         }
         
+        if("MajorCommandID"%in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
+        }
         
         #     stop("hammer time")
         
         #Handle NA values if present
-        if(any(is.na(VAR.df$MajorCommandID))){
+        if(any(is.na(VAR.df$ContractingOfficeID))){
             #Make sure unlabeled is within the list of levels
-            if (!("Uncategorized" %in% levels(VAR.df$MajorCommandID))){
-                VAR.df$MajorCommandID<-addNA(VAR.df$MajorCommandID,ifany=TRUE)
-                levels(VAR.df$MajorCommandID)[is.na(levels(VAR.df$MajorCommandID))] <- "Uncategorized"
+            if (!("Uncategorized" %in% levels(VAR.df$ContractingOfficeID))){
+                VAR.df$ContractingOfficeID<-addNA(VAR.df$ContractingOfficeID,ifany=TRUE)
+                levels(VAR.df$ContractingOfficeID)[is.na(levels(VAR.df$ContractingOfficeID))] <- "Uncategorized"
+            }
+        }
+        
+        #Handle NA values if present
+        if(any(is.na(VAR.df$ContractingAgencyID))){
+            #Make sure unlabeled is within the list of levels
+            if (!("Uncategorized" %in% levels(VAR.df$ContractingAgencyID))){
+                VAR.df$ContractingAgencyID<-addNA(VAR.df$ContractingAgencyID,ifany=TRUE)
+                levels(VAR.df$ContractingAgencyID)[is.na(levels(VAR.df$ContractingAgencyID))] <- "Uncategorized"
             }
         }
         
         VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
         
-        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & MajorCommandID!="Uncategorized" 
+        NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & ContractingAgencyID!="Uncategorized" & ContractingAgencyID!="ContractingOfficeID"
                                 & !is.na(Fiscal.Year),
                             select=c("Fiscal.Year",
                                      "ContractingOfficeID",

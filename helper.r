@@ -22,6 +22,46 @@ CleanFileName<-function(Name){
 }
 
 
+facetAdjust <- function(x, pos = c("up", "down"), 
+                        newpage = is.null(vp), vp = NULL)
+{
+    
+    #This function was developed by Julius
+    #http://stackoverflow.com/questions/13297155/add-floating-axis-labels-in-facet-wrap-plot/13316126#13316126
+    # part of print.ggplot
+    ggplot2:::set_last_plot(x)
+    if(newpage)
+        grid.newpage()
+    pos <- match.arg(pos)
+    p <- ggplot_build(x)
+    gtable <- ggplot_gtable(p)
+    # finding dimensions
+    dims <- apply(p$panel$layout[2:3], 2, max)
+    nrow <- dims[1]
+    ncol <- dims[2]
+    # number of panels in the plot
+    panels <- sum(grepl("panel", names(gtable$grobs)))
+    space <- ncol * nrow
+    # missing panels
+    n <- space - panels
+    # checking whether modifications are needed
+    if(panels != space){
+        # indices of panels to fix
+        idx <- (space - ncol - n + 1):(space - ncol)
+        # copying x-axis of the last existing panel to the chosen panels 
+        # in the row above
+        gtable$grobs[paste0("axis_b",idx)] <- list(gtable$grobs[[paste0("axis_b",panels)]])
+        if(pos == "down"){
+            # if pos == down then shifting labels down to the same level as 
+            # the x-axis of last panel
+            rows <- grep(paste0("axis_b\\-[", idx[1], "-", idx[n], "]"), 
+                         gtable$layout$name)
+            lastAxis <- grep(paste0("axis_b\\-", panels), gtable$layout$name)
+            gtable$layout[rows, c("t","b")] <- gtable$layout[lastAxis, c("t")]
+        }
+    }
+}
+
 VariableNumericalFormat<-function(VAR.number,VAR.detail=0){
     if(!is.numeric(VAR.number)){
         stop("VariableNumericalFormat is for number values only.")
@@ -2322,7 +2362,7 @@ LatticePlot<-function(VAR.color.legend.label
     tick.marks<-2
     
     print.figure<-original+scale_x_discrete(
-        breaks=
+        limits=
             c(seq(
                 as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
                 as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
@@ -2348,7 +2388,7 @@ LatticePlot<-function(VAR.color.legend.label
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label
         ,  values=color.list
-        , breaks=c(labels.category.DF$variable)
+        , limits=c(labels.category.DF$variable)
         
     ) 
     
@@ -2589,7 +2629,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label
         ,  values=color.list
-        , breaks=c(labels.category.DF$variable)
+        , limits=c(labels.category.DF$variable)
         , labels=c(labels.category.DF$Label)
         
     ) 
@@ -2753,27 +2793,28 @@ PointRowWrapper<-function(VAR.main.label,
                               
                    ),
                    main=VAR.main.label
-    )+geom_point()+guides(color=guide_legend(nrow=2,title.position="top",byrow=TRUE))
+    )+geom_point()
     figure<-figure+ggtitle(VAR.main.label)+
         xlab(VAR.row.label)+
-        ylab(VAR.data.label)
+        ylab(VAR.data.label)+
+        guides(color=guide_legend(nrow=2,title.position="top",byrow=TRUE))
     
     
         figure<-figure+scale_color_manual(name=VAR.legend.label,
-                             breaks=combined.category.DF$variable,
+                             limits=combined.category.DF$variable,
                              labels=combined.category.DF$Label,
                              values=as.character(combined.category.DF$ColorRGB))+
         scale_shape_manual(name=VAR.legend.label,
-                             breaks=combined.category.DF$variable,
+                             limits=combined.category.DF$variable,
                            labels=combined.category.DF$Label,
                              values=combined.category.DF$shape)+
         scale_size_manual(name=VAR.legend.label,
-                          breaks=combined.category.DF$variable,
+                          limits=combined.category.DF$variable,
                           labels=combined.category.DF$Label,
                           values=combined.category.DF$size
         )+scale_alpha_manual(name=VAR.legend.label,
                              labels=combined.category.DF$Label,
-                                               breaks=combined.category.DF$variable,
+                                               limits=combined.category.DF$variable,
                                                values=combined.category.DF$alpha
         )                                     
         
@@ -3128,7 +3169,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     print.figure<-original#+scale_x_continuous()
     #     print.figure<-original+scale_x_continuous(
     #     name=VAR.main.label,
-    #         breaks=
+    #         limits=
     #             c(seq(
     #                 as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
     #                 as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
@@ -3149,7 +3190,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     #   print.figure<-print.figure+scale_shape_discrete(
     #     VAR.color.legend.label
     #     ,  values=color.list
-    #     , breaks=c(labels.category.DF$variable) 
+    #     , limits=c(labels.category.DF$variable) 
     #   )
     
     if(!is.na(VAR.facet.secondary)){
@@ -3195,7 +3236,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     print.figure<-print.figure+scale_color_manual(
         VAR.color.legend.label
         ,  values=color.list
-        , breaks=c(labels.category.DF$variable)
+        , limits=c(labels.category.DF$variable)
         , labels=c(labels.category.DF$Label)
         , guide = guide_legend(reverse=TRUE)
         
@@ -3328,7 +3369,7 @@ LatticeTrellisPlot<-function(VAR.color.legend.label
     tick.marks<-2
     
     print.figure<-original+scale_x_discrete(
-        breaks=
+        limits=
             c(seq(
                 as.numeric(format(min(VAR.long.DF$Fiscal.Year),"%Y")),
                 as.numeric(format(max(VAR.long.DF$Fiscal.Year),"%Y")),
@@ -3353,7 +3394,7 @@ LatticeTrellisPlot<-function(VAR.color.legend.label
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label,
         values=color.list, 
-        breaks=c(labels.category.DF$variable), 
+        limits=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label)
     )
     
@@ -3451,7 +3492,7 @@ LatticeGGPlot<-function(VAR.color.legend.label
     tick.marks<-2
     
     print.figure<-original+scale_x_discrete(
-        breaks=
+        limits=
             c(seq(
                 as.numeric(format(min(VAR.long.DF$Fiscal.Year),"%Y")),
                 as.numeric(format(max(VAR.long.DF$Fiscal.Year),"%Y")),
@@ -3476,7 +3517,7 @@ LatticeGGPlot<-function(VAR.color.legend.label
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label,
         values=color.list, 
-        breaks=c(labels.category.DF$variable), 
+        limits=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label)
     )
     
@@ -3615,13 +3656,13 @@ FullBarPlot<-function(
     print.figure<-original+scale_fill_manual(
         VAR.color.legend.label,
         values=color.list, 
-        breaks=c(labels.category.DF$variable), 
+        limits=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label),
         guide = guide_legend(reverse=TRUE)
     )
     
     print.figure<-print.figure+scale_x_discrete(
-        breaks=    c(as.numeric(format(min(VAR.long.DF$x.variable),"%Y")):as.numeric(format(max(VAR.long.DF$x.variable)
+        limits=    c(as.numeric(format(min(VAR.long.DF$x.variable),"%Y")):as.numeric(format(max(VAR.long.DF$x.variable)
                                                                                             ,"%Y"))),
         labels=    paste("'",format(as.Date(as.character(c(as.numeric(format(min(VAR.long.DF$x.variable),"%Y"))):as.numeric(format(max(VAR.long.DF$x.variable),"%Y"))),"%Y")
                                     ,"%y"),sep="")
@@ -3940,13 +3981,13 @@ HistogramOrDensityWrapper<-function(
     #   original<-original+scale_fill_manual(
     #     VAR.color.legend.label,
     #     values=color.list, 
-    #     breaks=c(labels.category.DF$variable), 
+    #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
     #   )
     
     #   print.figure<-print.figure+scale_x_discrete(
-    #     breaks=    c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y")):as.numeric(format(max(VAR.long.DF[,VAR.x.variable])
+    #     limits=    c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y")):as.numeric(format(max(VAR.long.DF[,VAR.x.variable])
     #                                                                                          ,"%Y"))),
     #     labels=    paste("'",format(as.Date(as.character(c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y"))):as.numeric(format(max(VAR.long.DF[,VAR.x.variable]),"%Y"))),"%Y")
     #                                 ,"%y"),sep="")
@@ -4276,13 +4317,13 @@ BoxplotWrapper<-function(
     #   print.figure<-original+scale_fill_manual(
     #     VAR.color.legend.label,
     #     values=color.list, 
-    #     breaks=c(labels.category.DF$variable), 
+    #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
     #   )
     
     #   print.figure<-print.figure+scale_x_discrete(
-    #     breaks=    c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y")):as.numeric(format(max(VAR.long.DF[,VAR.x.variable])
+    #     limits=    c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y")):as.numeric(format(max(VAR.long.DF[,VAR.x.variable])
     #                                                                                          ,"%Y"))),
     #     labels=    paste("'",format(as.Date(as.character(c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y"))):as.numeric(format(max(VAR.long.DF[,VAR.x.variable]),"%Y"))),"%Y")
     #                                 ,"%y"),sep="")
@@ -4532,13 +4573,13 @@ ScatterPlot<-function(
     #   print.figure<-original+scale_fill_manual(
     #     VAR.color.legend.label,
     #     values=color.list, 
-    #     breaks=c(labels.category.DF$variable), 
+    #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
     #   )
     
     #   print.figure<-print.figure+scale_x_discrete(
-    #     breaks=    c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y")):as.numeric(format(max(VAR.long.DF[,VAR.x.variable])
+    #     limits=    c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y")):as.numeric(format(max(VAR.long.DF[,VAR.x.variable])
     #                                                                                          ,"%Y"))),
     #     labels=    paste("'",format(as.Date(as.character(c(as.numeric(format(min(VAR.long.DF[,VAR.x.variable]),"%Y"))):as.numeric(format(max(VAR.long.DF[,VAR.x.variable]),"%Y"))),"%Y")
     #                                 ,"%y"),sep="")
@@ -4854,13 +4895,13 @@ TablePlot<-function(
     # +scale_fill_manual(
     #     VAR.color.legend.label,
     #     values=color.list, 
-    #     breaks=c(labels.category.DF$variable), 
+    #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
     #   )
     #   
     #   print.figure<-print.figure+scale_x_discrete(
-    #     breaks=    c(as.numeric(format(min(VAR.long.DF$Fiscal.Year),"%Y")):as.numeric(format(max(VAR.long.DF$Fiscal.Year),"%Y"))),
+    #     limits=    c(as.numeric(format(min(VAR.long.DF$Fiscal.Year),"%Y")):as.numeric(format(max(VAR.long.DF$Fiscal.Year),"%Y"))),
     #     labels=    paste("'",format(as.Date(as.character(c(as.numeric(format(min(VAR.long.DF$Fiscal.Year),"%Y"))):as.numeric(format(max(VAR.long.DF$Fiscal.Year),"%Y"))),"%Y"),"%y"),sep="")
     #   )
     #   
@@ -4990,7 +5031,7 @@ MiniBarPlot<-function(
         gbinwidth=1
     )
     print.figure<-original+scale_x_discrete(
-        breaks=
+        limits=
             c(seq(
                 as.numeric(format(min(VAR.long.DF$Fiscal.Year),"%Y")),
                 as.numeric(format(max(VAR.long.DF$Fiscal.Year),"%Y")),
@@ -5004,7 +5045,7 @@ MiniBarPlot<-function(
             ),"%Y"),"%y"),sep="")
     )
     
-    print.figure<-print.figure+scale_fill_manual(VAR.color.legend.label,values=color.list, breaks=c(labels.category.DF$variable), labels=c(labels.category.DF$Label))
+    print.figure<-print.figure+scale_fill_manual(VAR.color.legend.label,values=color.list, limits=c(labels.category.DF$variable), labels=c(labels.category.DF$Label))
     print.figure<-print.figure+geom_bar(colour="black",stat="identity")
     
     

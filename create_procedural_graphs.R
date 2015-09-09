@@ -1,9 +1,7 @@
 
 
 #*************************************Source Files*****************************************************
-# Path<-"K:\\2007-01 PROFESSIONAL SERVICES\\R scripts and data\\"
-# Path<-"~\\FPDS\\R scripts and data\\"
-# Path<-"C:\\Users\\Greg Sanders\\SkyDrive\\Documents\\R Scripts and Data SkyDrive\\"
+ Path<-"K:\\2007-01 PROFESSIONAL SERVICES\\R scripts and data\\"
 
 
 #*************************************Required Libraries******************************************
@@ -100,9 +98,9 @@ create_procedural_graphs<-function(data.name,section.variable.name,start.year=NU
     
     choice.figures <-read.csv(
         paste(
-            #     Path
-            #         ,"Lookups\\"
-            #         ,
+                 Path
+                     ,"Lookups\\"
+                     ,
             as.character(choice.data$Choice.Figures.File[which.data])
             ,sep=""),
         header=TRUE, sep=",", dec=".", strip.white=TRUE, 
@@ -439,4 +437,4 @@ create_procedural_graphs<-function(data.name,section.variable.name,start.year=NU
 # Not Typically used
 # which.section.variable<-"Agency"
 
-# create_procedural_graphs(which.data,which.section.variable)
+create_procedural_graphs(which.data,which.section.variable)
