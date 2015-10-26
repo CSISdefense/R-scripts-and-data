@@ -2840,10 +2840,20 @@ LatticeLineWrapper<-function(VAR.color.legend.label
         , xlab=VAR.X.label
         , geom="line"
         , stat="identity"
-        , fill=factor(category,levels=labels.category.DF$variable),
+        , color=factor(category,levels=labels.category.DF$variable)
     )#+ geom_bar(stat="identity")
     
     
+    # factor(category,levels=labels.category.DF$variable)),
+#     original<-ggplot(
+#         aes(x=x.variable,
+#             y=y.variable,
+#             color=category),
+#         data=VAR.long.DF,
+#         ylab=VAR.Y.label,
+#         main=VAR.main.label,
+#         xlab=VAR.X.label
+#     )+ geom_line(stat="identity")    
     
     
     tick.marks<-2

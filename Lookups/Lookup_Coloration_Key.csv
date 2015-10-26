@@ -55,3 +55,4 @@ Cost.Based_Significance,Significance
 FxCb,Pricing
 Significance,Significance
 DefOrEqu,Aggregate
+MetricName,Aggregate
