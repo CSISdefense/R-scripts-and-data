@@ -2723,6 +2723,7 @@ LatticeLineWrapper<-function(VAR.color.legend.label
                              ,VAR.y.series
                              ,VAR.facet.primary
                              ,VAR.facet.secondary=NA
+                             ,...
                              ,MovingAverage=1
                              ,MovingSides=1
                              ,DataLabels=NA
@@ -2765,15 +2766,35 @@ LatticeLineWrapper<-function(VAR.color.legend.label
     
     #Reduce the number of rows by aggregating to one row per unique entry in the VAR.facet.primary column.
     if(is.na(VAR.facet.secondary)){
-        VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
-                               , by=list(VAR.long.DF[,VAR.x.variable]
-                                         ,VAR.long.DF[,VAR.y.series]
-                                         ,VAR.long.DF[,VAR.facet.primary]
-                               )
-                               ,FUN = "sum"
-                               ,na.rm =TRUE
+        colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.y.variable]<-"y.variable"
+        VAR.long.DF<-ddply(VAR.long.DF, c(VAR.x.variable,
+                                          VAR.y.series,
+                                          VAR.facet.primary,
+                                          # "Graph",
+                                          ...
+        ), 
+        mutate,
+        y.variable=sum(y.variable)
         )
-        names(VAR.long.DF)<-c("x.variable","category","primary","y.variable")
+        
+        colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.x.variable]<-"x.variable"
+        colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.y.series]<-"category"
+        if(VAR.y.series==VAR.facet.primary){
+            VAR.long.DF$primary<-VAR.long.DF$category
+        } else{
+            colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.facet.primary]<-"primary"
+        }
+        
+#         VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
+#                                , by=cbind(VAR.long.DF[,VAR.x.variable]
+#                                          ,VAR.long.DF[,VAR.y.series]
+#                                          ,VAR.long.DF[,VAR.facet.primary]
+#                                          ,VAR.long.DF[,c(...)]
+#                                )
+#                                ,FUN = "sum"
+#                                ,na.rm =TRUE
+#         )
+#         names(VAR.long.DF)<-c("x.variable","category","primary","y.variable")
         
         if(is.numeric(MovingAverage) & MovingAverage>1){
             VAR.long.DF$y.raw<-VAR.long.DF$y.variable
@@ -2795,10 +2816,11 @@ LatticeLineWrapper<-function(VAR.color.legend.label
                                                     ,VAR.facet.secondary)  
         
         VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
-                               , by=list(VAR.long.DF[,VAR.x.variable]
+                               , by=cbind(VAR.long.DF[,VAR.x.variable]
                                          ,VAR.long.DF[,VAR.y.series]
                                          ,VAR.long.DF[,VAR.facet.primary]
                                          ,VAR.long.DF[,VAR.facet.secondary]
+                                         ,VAR.long.DF[,c(...)]
                                )
                                ,FUN = "sum"
                                ,na.rm =TRUE
@@ -3304,17 +3326,36 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
                 stop(paste(VAR.facet.primary," passed as VAR.facet.primary and is not included in VAR.long.DF"))
             }
             
-            VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
-                                   , by=cbind(VAR.long.DF[,VAR.x.variable]
-                                              ,VAR.long.DF[,VAR.y.series]
-                                              ,VAR.long.DF[,VAR.facet.primary]
-                                              ,VAR.long.DF$Graph
-                                              ,VAR.long.DF[,c(...)]
-                                   )
-                                   ,FUN = "sum"
-                                   ,na.rm =TRUE
-            )
-            names(VAR.long.DF)<-c("x.variable","category","second","Graph",...,"y.variable")
+#             VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
+#                                    , by=str(list(VAR.long.DF[,VAR.x.variable]
+#                                               ,VAR.long.DF[,VAR.y.series]
+#                                               ,VAR.long.DF[,VAR.facet.primary]
+#                                               ,VAR.long.DF$Graph
+#                                               ,VAR.long.DF[,c(...)]
+#                                    ))
+#                                    ,FUN = "sum"
+#                                    ,na.rm =TRUE
+#             )
+            colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.y.variable]<-"y.variable"
+            VAR.long.DF<-ddply(VAR.long.DF, c(VAR.x.variable,
+                                 VAR.y.series,
+                                 VAR.facet.primary,
+                                 "Graph",
+                                 ...
+                                 ), 
+                  summarize,
+                  y.variable=sum(y.variable)
+                  )
+            
+            colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.x.variable]<-"x.variable"
+            colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.y.series]<-"category"
+            colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.facet.primary]<-"second"
+            if(VAR.y.series==VAR.facet.primary){
+                VAR.long.DF$second<-VAR.long.DF$category
+            } else{
+                colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.facet.primary]<-"second"
+            }
+            
             
             if(is.numeric(MovingAverage) & MovingAverage>1){
                 VAR.long.DF$y.raw<-VAR.long.DF$y.variable
@@ -3543,7 +3584,8 @@ LatticeLinePlot<-function(VAR.color.legend.label
                           ,VAR.y.variable
                           ,VAR.y.series
                           ,VAR.facet.primary=NA
-                          ,VAR.facet.secondary=NA){
+                          ,VAR.facet.secondary=NA
+                          ){
     
     print.figure<-LatticePercentLineWrapper(VAR.color.legend.label
                                             ,VAR.main.label
