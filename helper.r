@@ -4,6 +4,7 @@ require(scales)
 require(reshape2)
 require(plyr)
 require(scales)
+require(lubridate)
 
 CleanFileName<-function(Name){
     gsub("__+","_",
@@ -5272,6 +5273,13 @@ TablePlot<-function(
     rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,print.figure)
 }
 
+
+DateToFiscalYear<-function(
+    input.date){
+
+    year(input.date)+ifelse(month(input.date)<10,0,+1)
+    # ymd(paste(          ,"-10-1",sep=""))
+}
 
 
 MiniBarPlot<-function(
