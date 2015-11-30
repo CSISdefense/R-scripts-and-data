@@ -5435,3 +5435,42 @@ facetAdjust <- function(x, pos = c("up", "down"),
     invisible(p)
 }
 
+
+SummaryKable<-function(df,
+                       column=NULL,
+                       caption=""){
+    
+    
+    
+    
+    df<-ddply(df,
+              as.quoted(column),
+              summarise,
+              Total=sum(Obligation.2014,na.rm=TRUE),
+              Avg.1990.1999=sum(ifelse(year(Fiscal.Year)>=1990 & year(Fiscal.Year)<=1999, Obligation.2014,0),na.rm=TRUE)/10,
+              Avg.2000.2009=sum(ifelse(year(Fiscal.Year)>=2000 & year(Fiscal.Year)<=2009, Obligation.2014,0),na.rm=TRUE)/10,
+              Avg.2010.2012=sum(ifelse(year(Fiscal.Year)>=2010 & year(Fiscal.Year)<=2012, Obligation.2014,0),na.rm=TRUE)/3,
+              Avg.2013.2014=sum(ifelse(year(Fiscal.Year)>=2013 & year(Fiscal.Year)<=2014, Obligation.2014,0),na.rm=TRUE)/2
+    )
+    
+    
+    
+    df$CenturyAvgChange<-sprintf("%1.1f%%", 100*(df$Avg.2000.2009/df$Avg.1990.1999-1))
+    df$DrawdownAvgChange<-sprintf("%1.1f%%",100*(df$Avg.2010.2012/df$Avg.2000.2009-1))
+    df$BCAavgChange<-sprintf("%1.1f%%",100*(df$Avg.2013.2014/df$Avg.2010.2012-1))
+    colnames(df)[colnames(df)=="TotalObligation"]<-"Total"
+    colnames(df)[colnames(df)=="Avg.1990.1999"]<-"Avg. '90-'99"
+    colnames(df)[colnames(df)=="Avg.2000.2009"]<-"Avg. '00-'09"
+    colnames(df)[colnames(df)=="Avg.2010.2012"]<-"Avg. '10-'12"
+    colnames(df)[colnames(df)=="Avg.2013.2014"]<-"Avg. '13-'14"
+    colnames(df)[colnames(df)=="CenturyAvgChange"]<-"Century % Change"
+    colnames(df)[colnames(df)=="DrawdownAvgChange"]<-"Drawdown % Change"
+    colnames(df)[colnames(df)=="BCAavgChange"]<-"BCA % Change"
+    
+    df<-df[,colnames(df)!='.id']
+    if(nrow(df)>1){
+        df$Percent<-sprintf("%1.1f%%",100*(df$Total/sum(df$Total)))
+    }
+    df<-df[order(-df$Total),]
+    kable(df,digits=2,caption=caption)
+}
