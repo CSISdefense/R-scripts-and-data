@@ -3184,7 +3184,7 @@ LatticePercentLinePlot<-function(VAR.color.legend.label
                                  ,VAR.facet.secondary=NA
 ){
     #     debug(PrepareLabelsAndColors
-    
+    old.theme<-theme_set(theme_grey())
     print.figure<-LatticePercentLineWrapper(VAR.color.legend.label
                                             ,VAR.main.label
                                             ,VAR.X.label
@@ -3338,11 +3338,13 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
 #                                    ,na.rm =TRUE
 #             )
             colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.y.variable]<-"y.variable"
-            VAR.long.DF<-ddply(VAR.long.DF, c(VAR.x.variable,
+            VAR.long.DF<-ddply(VAR.long.DF,
+                               c(VAR.x.variable,
                                  VAR.y.series,
                                  VAR.facet.primary,
-                                 "Graph",
-                                 ...
+                                 "Graph"
+                                 # ,
+                                 # ...
                                  ), 
                   summarize,
                   y.variable=sum(y.variable)
