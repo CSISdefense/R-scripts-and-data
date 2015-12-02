@@ -3339,14 +3339,13 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
 #             )
             colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.y.variable]<-"y.variable"
             VAR.long.DF<-ddply(VAR.long.DF,
-                               c(VAR.x.variable,
+                               as.quoted(c(VAR.x.variable,
                                  VAR.y.series,
                                  VAR.facet.primary,
-                                 "Graph"
-                                 # ,
-                                 # ...
-                                 ), 
-                  summarize,
+                                 "Graph",
+                                 ...
+                                 )), 
+                  summarise,
                   y.variable=sum(y.variable)
                   )
             
