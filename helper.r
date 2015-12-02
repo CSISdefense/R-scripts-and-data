@@ -2099,7 +2099,6 @@ CheckTotals<-function(VAR.y.series.DF,VAR.matrix,VAR.color.legend.label){
     if(abs(runningtotal)>0.0001){
         result<-paste(VAR.color.legend.label,result)
     }
-    rm(runningtotal,i,j,checksum)
     result
     
 }
@@ -2450,14 +2449,6 @@ LatticePlot<-function(VAR.color.legend.label
     #   print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.color.legend.label
-       ,VAR.main.label
-       ,VAR.base.row
-       ,VAR.base.col
-       ,original
-       ,print.figure
-       ,old.theme
-    )
 }
 
 LatticePlotWrapper<-function(VAR.color.legend.label
@@ -3203,14 +3194,6 @@ LatticePercentLinePlot<-function(VAR.color.legend.label
     #   print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.color.legend.label
-       ,VAR.main.label
-       ,VAR.base.row
-       ,VAR.base.col
-       ,original
-       ,print.figure
-       ,old.theme
-    )
 }
 
 TransformFilter<-function(df,MovingAverage,MovingSides=1,Source="y.variable"){
@@ -3728,7 +3711,6 @@ LatticeTrellisPlot<-function(VAR.color.legend.label
     #   print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,original,print.figure,old.theme)
 }
 
 #******************LatticeGGPlot************************************
@@ -3851,7 +3833,6 @@ LatticeGGPlot<-function(VAR.color.legend.label
     print.figure<-facetAdjust(print.figure,"down")
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     theme_set(old.theme)
-    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,original,print.figure,old.theme)
 }
 
 #**************************FullBarPlot********************************
@@ -4060,12 +4041,6 @@ FullBarPlot<-function(
     #   )  
     
     theme_set(old.theme)
-    rm(VAR.color.legend.label
-       ,VAR.main.label
-       ,VAR.base.row
-       ,VAR.base.col
-       ,print.figure
-    )
 }
 
 
@@ -4470,12 +4445,6 @@ HistogramOrDensity<-function(
     )  
     
     
-    rm(VAR.color.legend.label
-       ,VAR.main.label
-       ,VAR.base.row
-       ,VAR.base.col
-       #      ,print.figure
-    )
 }
 
 
@@ -4970,12 +4939,6 @@ ScatterPlot<-function(
     )  
     
     theme_set(old.theme)
-    rm(VAR.color.legend.label
-       ,VAR.main.label
-       ,VAR.base.row
-       ,VAR.base.col
-       #      ,print.figure
-    )
 }
 
 
@@ -5271,7 +5234,6 @@ TablePlot<-function(
     #   )  
     
     theme_set(old.theme)
-    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,print.figure)
 }
 
 
@@ -5377,7 +5339,6 @@ MiniBarPlot<-function(
     print(print.figure, vp=subplot(VAR.base.row,VAR.base.col))
     
     theme_set(old.theme)
-    rm(VAR.color.legend.label,VAR.main.label,VAR.base.row,VAR.base.col,print.figure)
 }
 
 
