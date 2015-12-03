@@ -5403,9 +5403,26 @@ SummaryKable<-function(df,
                        caption=""){
     
     
+    AnnualDF<-ddply(df,
+                    .(Fiscal.Year),
+                    summarise,
+                    Total=sum(Obligation.2014,na.rm=TRUE)
+    )
     
+    AnnualDF<-ddply(df,
+                    as.quoted(column),
+                    summarise,
+                    Total=sum(Obligation.2014,na.rm=TRUE)
+    )
     
-    df<-ddply(df,
+    AnnualDF<-ddply(AnnualDF,
+                    as.quoted(column,"Year"),
+                    summarise,
+                    Total=sum(Total),
+                    Max=Max(Total)
+    )
+    
+    ResultDF<-ddply(ResultDF,
               as.quoted(column),
               summarise,
               Total=sum(Obligation.2014,na.rm=TRUE),
@@ -5417,12 +5434,12 @@ SummaryKable<-function(df,
     
     
     
-    df$CenturyAvgChange<-sprintf("%1.1f%%", 100*(df$Avg.2000.2009/df$Avg.1990.1999-1))
-    df$DrawdownAvgChange<-sprintf("%1.1f%%",100*(df$Avg.2010.2012/df$Avg.2000.2009-1))
-    df$BCAavgChange<-sprintf("%1.1f%%",100*(df$Avg.2013.2014/df$Avg.2010.2012-1))
-    colnames(df)[colnames(df)=="TotalObligation"]<-"Total"
-    colnames(df)[colnames(df)=="Avg.1990.1999"]<-"Avg. '90-'99"
-    colnames(df)[colnames(df)=="Avg.2000.2009"]<-"Avg. '00-'09"
+    ResultDF$CenturyAvgChange<-sprintf("%1.1f%%", 100*(ResultDF$Avg.2000.2009/ResultDF$Avg.1990.1999-1))
+    ResultDF$DrawdownAvgChange<-sprintf("%1.1f%%",100*(ResultDF$Avg.2010.2012/ResultDF$Avg.2000.2009-1))
+    ResultDF$BCAavgChange<-sprintf("%1.1f%%",100*(ResultDF$Avg.2013.2014/ResultDF$Avg.2010.2012-1))
+    colnames(ResultDF)[colnames(ResultDF)=="TotalObligation"]<-"Total"
+    colnames(ResultDF)[colnames(ResultDF)=="Avg.1990.1999"]<-"Avg. '90-'99"
+    colnames(ResultDF)[colnames(ResultDF)=="Avg.2000.2009"]<-"Avg. '00-'09"
     colnames(df)[colnames(df)=="Avg.2010.2012"]<-"Avg. '10-'12"
     colnames(df)[colnames(df)=="Avg.2013.2014"]<-"Avg. '13-'14"
     colnames(df)[colnames(df)=="CenturyAvgChange"]<-"Century % Change"
