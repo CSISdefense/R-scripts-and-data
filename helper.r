@@ -5400,56 +5400,56 @@ facetAdjust <- function(x, pos = c("up", "down"),
 
 SummaryKable<-function(df,
                        column=NULL,
-                       caption=""){
+                       caption="",
+                       digits=3){
     
     
     AnnualDF<-ddply(df,
-                    .(Fiscal.Year),
+                    as.quoted(c(column,"Fiscal.Year")),
                     summarise,
-                    Total=sum(Obligation.2014,na.rm=TRUE)
+                    Obligation.2014=sum(Obligation.2014,na.rm=TRUE)
+                    
     )
+#     
+#     AnnualDF<-ddply(AnnualDF,
+#                     as.quoted(column),
+#                     summarise,
+#                     Total=sum(Annual),
+#                     Max=max(Annual)
+#     )
     
-    AnnualDF<-ddply(df,
-                    as.quoted(column),
-                    summarise,
-                    Total=sum(Obligation.2014,na.rm=TRUE)
-    )
-    
-    AnnualDF<-ddply(AnnualDF,
-                    as.quoted(column,"Year"),
-                    summarise,
-                    Total=sum(Total),
-                    Max=Max(Total)
-    )
-    
-    ResultDF<-ddply(ResultDF,
+    ResultDF<-ddply(AnnualDF,
               as.quoted(column),
               summarise,
               Total=sum(Obligation.2014,na.rm=TRUE),
+              Max=max(Obligation.2014),
+              MaxYear=max(ifelse(max(Obligation.2014)==Obligation.2014,year(Fiscal.Year),NA),na.rm=T),
               Avg.1990.1999=sum(ifelse(year(Fiscal.Year)>=1990 & year(Fiscal.Year)<=1999, Obligation.2014,0),na.rm=TRUE)/10,
-              Avg.2000.2009=sum(ifelse(year(Fiscal.Year)>=2000 & year(Fiscal.Year)<=2009, Obligation.2014,0),na.rm=TRUE)/10,
+              Avg.2000.2007=sum(ifelse(year(Fiscal.Year)>=2000 & year(Fiscal.Year)<=2007, Obligation.2014,0),na.rm=TRUE)/8,
+              Avg.2008.2009=sum(ifelse(year(Fiscal.Year)>=2008 & year(Fiscal.Year)<=2009, Obligation.2014,0),na.rm=TRUE)/2,
               Avg.2010.2012=sum(ifelse(year(Fiscal.Year)>=2010 & year(Fiscal.Year)<=2012, Obligation.2014,0),na.rm=TRUE)/3,
               Avg.2013.2014=sum(ifelse(year(Fiscal.Year)>=2013 & year(Fiscal.Year)<=2014, Obligation.2014,0),na.rm=TRUE)/2
     )
     
-    
-    
-    ResultDF$CenturyAvgChange<-sprintf("%1.1f%%", 100*(ResultDF$Avg.2000.2009/ResultDF$Avg.1990.1999-1))
-    ResultDF$DrawdownAvgChange<-sprintf("%1.1f%%",100*(ResultDF$Avg.2010.2012/ResultDF$Avg.2000.2009-1))
+    # ResultDF$CenturyAvgChange<-sprintf("%1.1f%%", 100*(ResultDF$Avg.2000.2009/ResultDF$Avg.1990.1999-1))
+    ResultDF$DrawdownAvgChange<-sprintf("%1.1f%%",100*(ResultDF$Avg.2010.2012/ResultDF$Avg.2008.2009-1))
     ResultDF$BCAavgChange<-sprintf("%1.1f%%",100*(ResultDF$Avg.2013.2014/ResultDF$Avg.2010.2012-1))
     colnames(ResultDF)[colnames(ResultDF)=="TotalObligation"]<-"Total"
     colnames(ResultDF)[colnames(ResultDF)=="Avg.1990.1999"]<-"Avg. '90-'99"
-    colnames(ResultDF)[colnames(ResultDF)=="Avg.2000.2009"]<-"Avg. '00-'09"
-    colnames(df)[colnames(df)=="Avg.2010.2012"]<-"Avg. '10-'12"
-    colnames(df)[colnames(df)=="Avg.2013.2014"]<-"Avg. '13-'14"
-    colnames(df)[colnames(df)=="CenturyAvgChange"]<-"Century % Change"
-    colnames(df)[colnames(df)=="DrawdownAvgChange"]<-"Drawdown % Change"
-    colnames(df)[colnames(df)=="BCAavgChange"]<-"BCA % Change"
+    colnames(ResultDF)[colnames(ResultDF)=="Avg.2000.2007"]<-"Avg. '00-'07"
+    colnames(ResultDF)[colnames(ResultDF)=="Avg.2008.2009"]<-"Avg. '08-'09"
+    colnames(ResultDF)[colnames(ResultDF)=="Avg.2010.2012"]<-"Avg. '10-'12"
+    colnames(ResultDF)[colnames(ResultDF)=="Avg.2013.2014"]<-"Avg. '13-'14"
+    # colnames(ResultDF)[colnames(ResultDF)=="CenturyAvgChange"]<-"Century % Change"
+    colnames(ResultDF)[colnames(ResultDF)=="DrawdownAvgChange"]<-"Drawdown % Change"
+    colnames(ResultDF)[colnames(ResultDF)=="BCAavgChange"]<-"BCA % Change"
     
-    df<-df[,colnames(df)!='.id']
-    if(nrow(df)>1){
-        df$Percent<-sprintf("%1.1f%%",100*(df$Total/sum(df$Total)))
+    ResultDF<-ResultDF[,colnames(ResultDF)!='.id']
+    if(nrow(ResultDF)>1){
+        ResultDF$Percent<-sprintf("%1.1f%%",100*(ResultDF$Total/sum(ResultDF$Total)))
     }
-    df<-df[order(-df$Total),]
-    kable(df,digits=2,caption=caption)
+    ResultDF<-ResultDF[order(-ResultDF$Total),]
+    kable(ResultDF,digits=digits,caption=caption)
+    
+
 }
