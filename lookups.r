@@ -667,8 +667,10 @@ read_and_join<-function(VAR.path,
     lookup.file<-read.csv(
         paste(VAR.path,directory,VAR.file,sep=""),
         header=TRUE, sep=ifelse(substring(VAR.file,nchar(VAR.file)-3)==".csv",",","\t"), na.strings=c("NA","NULL"), dec=".", strip.white=TRUE,
-        stringsAsFactors=TRUE
+        stringsAsFactors=FALSE  #This can get weird when true, as sometimes it confuses numerical variables and factors
     )
+    
+    
     #Clear out any fields held in common not used in the joining
     if(!is.null(by)){
         droplist<-names(lookup.file)[names(lookup.file) %in% names(VAR.existing.df)]

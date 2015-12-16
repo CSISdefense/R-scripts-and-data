@@ -105,3 +105,6 @@ pVehMulti-Awd.,pVehMAC
 pVehUnlbd. IDV,pVehIDVUnl
 pVehOther IDV,pVehOIDV
 pVehBPA,pVehBPA
+year,Year
+region,Region
+iYear,Year
