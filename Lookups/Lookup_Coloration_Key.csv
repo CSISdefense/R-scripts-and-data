@@ -1,4 +1,5 @@
 category,coloration.key
+Customer,Agencies
 Customer.detail,Agencies
 Customer.manual.subtitles,Agencies
 Customer.sum,Agencies
@@ -15,6 +16,8 @@ Competition.sum,Competition
 Competition.effective.only,Competition
 Pricing.Mechanism.detail,Pricing
 Pricing.Mechanism.sum,Pricing
+Base,Pricing
+Fee,Pricing
 Indicator,Europe
 Vehicle.detail,Vehicles
 Vehicle.sum,Vehicles

@@ -1,24 +1,25 @@
-Pricing Mechanism,Pricing.Mechanism.Code,Pricing.Mechanism.detail,Pricing.Mechanism.sum,Pricing.Mechanism.hypothesis,Pricing.Mechanism.Fee,Pricing.Mechanism.Incentive,Pricing Mechanism Correlation,Pricing.Mechanism.Graph,IsCostBased,IsFixedPrice,IsIncentive,Pricing.Mechanism.hypothesis.detail
-Combination,#N/A,Combination,Combination,Unlabeled,Unlabeled,FALSE,Other,TRUE,NULL,NULL,NULL,Unlabeled
-Combination (two or more),2,Combination,Combination,Unlabeled,Unlabeled,,Other,TRUE,NULL,NULL,NULL,Unlabeled
-Cost No Fee,S,Cost (Other),Cost+,Cost+,None,,Other,TRUE,NULL,NULL,NULL,Cost+
-Cost Plus Award Fee,R,Cost (Other),Cost+,Cost+,Award,,Other,TRUE,NULL,NULL,NULL,Cost+
-Cost Plus Fixed Fee,U,Cost (Other),Cost+,Cost+,Fixed,,Other,TRUE,NULL,NULL,NULL,Cost+
-Cost Plus Incentive,V,Cost (Plus Incentive),Cost+,Cost+,Incentive,,Other,TRUE,NULL,NULL,NULL,Cost+
-Cost Sharing,T,Cost (Other),Cost+,Cost+,None,,Other,TRUE,NULL,NULL,NULL,Cost+
-Firm Fixed Price,J,Fixed Price (Firm),Fixed,Fixed,None,FALSE,Fixed,TRUE,NULL,NULL,NULL,Fixed
-Fixed Price Award Fee,M,Fixed Price (Other),Fixed,Fixed,Award,FALSE,Fixed,TRUE,0,1,0,Fixed
-Fixed Price Incentive,L,Fixed Price (Other),Fixed,Fixed,Incentive,TRUE,Fixed,TRUE,1,0,1,Fixed
-Fixed Price Level of Effort,B,Fixed Price (Other),Fixed,Other,Level Of Effort,FALSE,Fixed,TRUE,1,0,1,Other
-Fixed Price Redetermination,A,Fixed Price (Other),Fixed,Fixed,Redetermination,FALSE,Fixed,TRUE,1,0,1,Fixed
-Fixed Price with Economic Price Adjustment,K,Fixed Price (Other),Fixed,Fixed,EPA,FALSE,Fixed,TRUE,1,0,1,Fixed
-Labor Hours,Z,Time/Mat.,Time/Mat.,Other,None,FALSE,Other,TRUE,1,0,1,Time/Mat.
-Not Reported,NO,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1,Unlabeled
-Order Dependent (IDV only),1,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1,Unlabeled
-Other (none of the above),3,Other,Other,Other,Unlabeled,FALSE,Other,FALSE,1,0,1,Other
-Time and Materials,Y,Time/Mat.,Time/Mat.,Other,None,FALSE,Other,TRUE,1,0,1,Time/Mat.
-Unlabeled,*,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled
-Unused type 0,0,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled
-Unused type O,O,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled
-Unused type P,P,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled
-Unused type X,X,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled
+Pricing Mechanism,Pricing.Mechanism.Code,Pricing.Mechanism.detail,Pricing.Mechanism.sum,Pricing.Mechanism.hypothesis,Pricing.Mechanism.Fee,Pricing.Mechanism.Incentive,Pricing Mechanism Correlation,Pricing.Mechanism.Graph,IsCostBased,IsFixedPrice,IsIncentive,Pricing.Mechanism.hypothesis.detail,Base,Fee
+Combination,#N/A,Combination,Combination,Unlabeled,Unlabeled,FALSE,Other,TRUE,NULL,NULL,NULL,Unlabeled,Unclear,Other
+Combination (two or more),2,Combination,Combination,Unlabeled,Unlabeled,,Other,TRUE,NULL,NULL,NULL,Unlabeled,Unclear,Other
+Cost No Fee,S,Cost (Other),Cost+,Cost+,None,,Other,TRUE,NULL,NULL,NULL,Cost+,Cost-Based,No Fee
+Cost Plus Award Fee,R,Cost (Other),Cost+,Cost+,Award,,Other,TRUE,NULL,NULL,NULL,Cost+,Cost-Based,Award
+Cost Plus Fixed Fee,U,Cost (Other),Cost+,Cost+,Fixed,,Other,TRUE,NULL,NULL,NULL,Cost+,Cost-Based,Fixed Fee
+Cost Plus Incentive,V,Cost (Plus Incentive),Cost+,Cost+,Incentive,,Other,TRUE,NULL,NULL,NULL,Cost+,Cost-Based,Incentive
+Cost Sharing,T,Cost (Other),Cost+,Cost+,None,,Other,TRUE,NULL,NULL,NULL,Cost+,Cost-Based,Incentive
+Firm Fixed Price,J,Fixed Price (Firm),Fixed,Fixed,None,FALSE,Fixed,TRUE,NULL,NULL,NULL,Fixed,Fixed-Price,No Fee
+Fixed Price Award Fee,M,Fixed Price (Other),Fixed,Fixed,Award,FALSE,Fixed,TRUE,0,1,0,Fixed,Fixed-Price,Award
+Fixed Price Incentive,L,Fixed Price (Other),Fixed,Fixed,Incentive,TRUE,Fixed,TRUE,1,0,1,Fixed,Fixed-Price,Incentive
+Fixed Price Level of Effort,B,Fixed Price (Other),Fixed,Other,Level Of Effort,FALSE,Fixed,TRUE,1,0,1,Other,Cost-Based,Other
+Fixed Price Redetermination,A,Fixed Price (Other),Fixed,Fixed,Redetermination,FALSE,Fixed,TRUE,1,0,1,Fixed,Fixed-Price,Other
+Fixed Price with Economic Price Adjustment,K,Fixed Price (Other),Fixed,Fixed,EPA,FALSE,Fixed,TRUE,1,0,1,Fixed,Fixed-Price,Other
+Labor Hours,Z,Time/Mat.,Time/Mat.,Other,None,FALSE,Other,TRUE,1,0,1,Time/Mat.,Cost-Based,Other
+Not Reported,NO,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1,Unlabeled,Unclear,Unlabeled
+Order Dependent (IDV only),1,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,1,0,1,Unlabeled,Unclear,Other
+Other (none of the above),3,Other,Other,Other,Unlabeled,FALSE,Other,FALSE,1,0,1,Other,Unclear,Other
+Time and Materials,Y,Time/Mat.,Time/Mat.,Other,None,FALSE,Other,TRUE,1,0,1,Time/Mat.,Cost-Based,Other
+Unlabeled,*,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled,Unclear,Unlabeled
+Unused type 0,0,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled,Unclear,Unlabeled
+Unused type O,O,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled,Unclear,Unlabeled
+Unused type P,P,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled,Unclear,Unlabeled
+Unused type X,X,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled,Unclear,Unlabeled
+Unused type,,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,NULL,NULL,NULL,Unlabeled,Unclear,Unlabeled
