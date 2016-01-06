@@ -2436,7 +2436,7 @@ LatticePlot<-function(VAR.color.legend.label
     
     print.figure<-print.figure+
         theme(axis.text.x=element_text(size=axis.text.size))+
-        theme(axis.text.y=element_text(size=axis.text.size))+
+        theme(axis.tfext.y=element_text(size=axis.text.size))+
         theme(strip.text.x=element_text(size=strip.text.size,face="bold"))+
         theme(strip.text.y=element_text(size=strip.text.size))+
         theme(axis.title.x=element_text(size=axis.text.size))+

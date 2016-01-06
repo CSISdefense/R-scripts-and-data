@@ -2132,7 +2132,9 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     
     if("Fiscal.Year"%in% names(VAR.df)){
-        VAR.df$Fiscal.Year <-as.Date(paste("9/30/",as.character(VAR.df$Fiscal.Year),sep=""),"%m/%d/%Y")
+        VAR.df$Fiscal.Year <-as.Date(paste("1/1/",as.character(VAR.df$Fiscal.Year),sep=""),"%m/%d/%Y")
+        VAR.df$Fiscal.Year.End <-as.Date(paste("9/30/",as.character(year(VAR.df$Fiscal.Year)),sep=""),"%m/%d/%Y")
+        VAR.df$Fiscal.Year.Start <-as.Date(paste("10/1/",as.character(year(VAR.df$Fiscal.Year)-1),sep=""),"%m/%d/%Y")
     }
     
     if("Date.Signed"%in% names(VAR.df)){
