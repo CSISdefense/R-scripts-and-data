@@ -108,3 +108,6 @@ pVehBPA,pVehBPA
 year,Year
 region,Region
 iYear,Year
+PE...BLI,PE
+Program.Element...Budget.Line.Item..BLI..Title,PE.Title
+Classification,Classified
