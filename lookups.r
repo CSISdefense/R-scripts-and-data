@@ -1282,6 +1282,35 @@ apply_lookups<- function(VAR.path,VAR.df){
         #             stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductOrServiceArea"))
         #         }
     }
+    else if("ProductServiceOrRnDarea" %in% names(VAR.df))
+    {
+        #Handle NA values if present
+        if(any(is.na(VAR.df$ProductServiceOrRnDarea))){
+            #Make sure unlabeled is within the list of levels
+            if (!("Unlabeled" %in% levels(VAR.df$ProductServiceOrRnDarea))){
+                VAR.df$ProductServiceOrRnDarea<-addNA(VAR.df$ProductServiceOrRnDarea,ifany=TRUE)
+                levels(VAR.df$ProductServiceOrRnDarea)[is.na(levels(VAR.df$ProductServiceOrRnDarea))] <- "Unlabeled"
+            }
+        }
+        
+        if("ServicesCategory.sum" %in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
+        }
+        if("ProductOrServiceArea" %in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(ProductServiceOrRnDarea))
+        }
+        if("ServicesCategory.detail" %in% names(VAR.df)){
+            VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
+        }
+        #     debug(read_and_join)
+        VAR.df<-read_and_join(VAR.path,"LOOKUP_Buckets.csv",VAR.df)
+        NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("ProductServiceOrRnDarea"))
+        if(nrow(NA.check.df)>0){
+            print(unique(NA.check.df))
+            stop(paste(nrow(NA.check.df),"rows of NAs generated in ProductServiceOrRnDarea"))
+        }
+        
+    }
     else if("ProductOrServiceArea" %in% names(VAR.df))
     {
         #Handle NA values if present
@@ -1311,6 +1340,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         }
         
     }
+ 
     else if("ServicesCategory.detail" %in% names(VAR.df))
     {
         

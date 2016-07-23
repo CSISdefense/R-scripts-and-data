@@ -2250,6 +2250,19 @@ PrepareLabelsAndColors<-function(VAR.Coloration
 
 
 
+PrepareFactor<-function(VAR.Coloration
+                          ,VAR.long.DF
+                          ,VAR.y.series){
+    
+    labels.DF<-PrepareLabelsAndColors(VAR.Coloration,
+                                      VAR.long.DF,
+                                      VAR.y.series
+    )
+    factor(VAR.long.DF[,VAR.y.series],
+                                                      levels=c(labels.DF$variable),
+                                                      labels=c(labels.DF$Label),
+                                                      ordered=TRUE)
+}
 
 
 

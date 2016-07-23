@@ -3,11 +3,13 @@ Customer,Agencies
 Customer.detail,Agencies
 Customer.manual.subtitles,Agencies
 Customer.sum,Agencies
+Agency,Agencies
 ServicesCategory.detail,Area
 ServicesCategory.sum,Area
 ServicesCategory.sum,Area
 ProductsCategory.detail,Area
 ProductOrServiceArea,Area
+ProductServiceOrRnDarea,Area
 ProductOrServiceArea.DLA,Area
 Competition.detail,Competition
 Competition.detail,Competition
