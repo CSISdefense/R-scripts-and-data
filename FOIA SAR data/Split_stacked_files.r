@@ -18,7 +18,7 @@ require(xlsx)
 
 #*************************************Functions******************************************
 SplitAtBlankRow<-function(df,FilePrefix="",Increment=1,sDirectory=""){
-  if(length(df)>0){
+  if(nrow(df)>1){
     df[df==""]<-NA
     BlankRows<-rowSums(!is.na(df)) == 0
     TotalRows<-df[,1] %in% c("Total","Subtotal","End Year")
@@ -38,6 +38,9 @@ SplitAtBlankRow<-function(df,FilePrefix="",Increment=1,sDirectory=""){
     else{
       write.csv(df,paste(sDirectory,FilePrefix,"_",Increment,".csv",sep=""))
     }
+  }
+  else if(length(df)>0){
+    write.csv(df,paste(sDirectory,FilePrefix,"_",Increment,".csv",sep=""))
   }
 }
 
@@ -72,8 +75,14 @@ setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA
                "MEADS_2011-12",
                "Low Rate Initial Production",
                "MEADS//")
-  
 
+  debug(SplitAtBlankRow)
+  ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
+               "MEADS_2011-12",
+               "Foreign Military Sales",
+               "MEADS//")
+  
+  
   # ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
   #              "MEADS_2011-12",
   #              "Foreign Military Sales",
