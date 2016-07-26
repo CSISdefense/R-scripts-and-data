@@ -1,8 +1,15 @@
-Col1,Col2,Col3,Col4,Col5,Col6,Col7,Col8,Header
-NA,SAR Baseline,Current APB Development,Current Estimate,,,,,CostSummaryQuantity
-Quantity,Dev Est,NA,NA,,,,,CostSummaryQuantity
-Total Acquisition Cost and Quantity - MISSILE,NA,NA,NA,NA,NA,NA,NA,CostSummaryCost2004
-NA,BY 2004 $M,NA,NA,BY2004,TY $M,NA,NA,CostSummaryCost2004
-NA,NA,NA,NA,$M,NA,NA,NA,CostSummaryCost2004
-Appropriation,SAR Baseline Dev Est,Current APB Development Objective/Threshold,NA,Current Estimate,NA,NA,NA,CostSummaryCost2004
-NA,NA,NA,NA,NA,SAR Baseline Dev Est,Current APB Development Objective,Current Estimate,CostSummaryCost2004
+Col1,Col2,Col3,Col4,Col5,Col6,Col7,Col8,Type,Header
+NA,SAR Baseline,Current APB Development,Current Estimate,,,,,Header,CostSummaryQuantity
+Quantity,Dev Est,NA,NA,,,,,Header,CostSummaryQuantity
+Total Acquisition Cost and Quantity - MISSILE,NA,NA,NA,NA,NA,NA,NA,Name,Total Acquisition Cost and Quantity - MISSILE
+NA,BY 2004 $M,NA,NA,BY2004,TY $M,NA,NA,Header,CostSummaryCost2004
+NA,NA,NA,NA,$M,NA,NA,NA,Header,CostSummaryCost2004
+Appropriation,SAR Baseline Dev Est,Current APB Development Objective/Threshold,NA,Current Estimate,NA,NA,NA,Header,CostSummaryCost2004
+NA,NA,NA,NA,NA,SAR Baseline Dev Est,Current APB Development Objective,Current Estimate,Header,CostSummaryCost2004
+Total Acquisition Cost and Quantity - FIRE UNIT,NA,NA,NA,NA,NA,NA,NA,Name,Total Acquisition Cost and Quantity - FIRE UNIT
+Cost Summary,NA,NA,NA,NA,NA,NA,NA,Type,Cost Summary
+Total Acquisition Cost and Quantity - Total Program,NA,NA,NA,NA,NA,NA,NA,Name,Total Acquisition Cost and Quantity - Total Program
+Appropriation,SAR Baseline Dev Est,Current APB Objective/Threshold,NA,Current Estimate,NA,NA,NA,Header,CostSummaryCost2004
+NA,NA,NA,NA,NA,SAR Baseline Dev Est,Current APB Objective,Current Estimate,Header,CostSummaryCost2004
+NA,SAR Baseline,Current APB Development,Current Estimate,,,,,Header,CostSummaryQuantity
+Quantity,Dev Est,NA,NA,,,,,Header,CostSummaryQuantity
