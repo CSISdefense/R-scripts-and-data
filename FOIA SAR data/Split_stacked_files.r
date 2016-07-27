@@ -20,12 +20,48 @@ require(XLConnect)
 # setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
 #*************************************Functions******************************************
 
-CleanExtract<-function(df){
+CleanExtractAndWrite<-function(df,
+                               HeaderList,
+                               sDirectory,
+                               FilePrefix,
+                               Increment){
+    #Check if there is one name row. If there's multiple names or only a single name, this does not work
+    name.df<-df[!is.na(df$Type) & df$Type=="Name",]
+    if(any(!is.na(name.df$Header))&
+       (min(as.character(name.df$Header),na.rm=TRUE)==max(as.character(name.df$Header),na.rm=TRUE))){
+        df$Section<-min(as.character(name.df$Header),na.rm=TRUE)
+    }
+    
+    sSection<-NA
+    if ("Section" %in% colnames(df)){
+        sSection<-min(df$Section)
+    }
+    
+    sHeader<-NA
     # Label and then remove columns that are completely blank
     # in this extraction. E.g. some extractions are 8 columns, some are 4.
+    df<-df[!df$Type %in% c("Name","Type"),]
+    if(any(!is.na(df$Header))&
+        (min(as.character(df$Header),na.rm=TRUE)==max(as.character(df$Header),na.rm=TRUE))){
+        sHeader<-max(as.character(df$Header),na.rm=TRUE)
+        HeaderList<-subset(HeaderList,Header==sHeader,select=-c(Header,Type))
+        colnames(df)[1:ncol(HeaderList)]<-HeaderList[1,]
+    }
+    df<-df[!df$Type %in% c("Header"),]
     BlankCols<-colSums(!is.na(df)) == 0
     df<-df[,!BlankCols]
-    df<-df$Header[df$Type!="Name"]
+    
+    
+    write.csv(df,
+              gsub(" ","_",paste(sDirectory,
+                    FilePrefix,
+                    "_",
+                    Increment,
+                    ifelse(!is.na(sHeader),paste("_",sHeader,sep=""),""),
+                    ifelse(!is.na(sSection),paste("_",sSection,sep=""),""),
+                    ".csv",sep="")),
+              row.names=FALSE)
+    df
 }
 
 # df$Header[df$Type=="Name"]
@@ -34,125 +70,169 @@ SplitAtBlankRow<-function(df,
                           FilePrefix="",
                           Increment=1,
                           sDirectory="",
-                          HeaderName=""){
+                          HeaderName="",
+                          HeaderList,
+                          Section=NA){
     
-    
+    Header<-NA
     if(nrow(df)>1){
         df[df==""]<-NA
-        BlankRows<-rowSums(!is.na(df)) == 0
+        BlankRows<-rowSums(!is.na(df[,!colnames(df) %in% c("Source","Platform","Section")])) == 0
         
-        # TotalRows<-df[,1] %in% c("Total","Subtotal","End Year")
-        # TotalPriorRow<-c(FALSE,TotalRows)[1:length(BlankRows)]
-        # BlankRows<-BlankRows&TotalPriorRow
-        
+        #First, get rid of blank rows at the start
         if(any(BlankRows)){
+            FirstFilledLine<-min(which(BlankRows == FALSE))
+            if(FirstFilledLine>1){
+                df<-df[FirstFilledLine:nrow(df),]
+                BlankRows<-rowSums(!is.na(df[,!colnames(df) %in% c("Source","Platform","Section")])) == 0
+            }
+        }
+        
+        if(!is.na(Section)){
+            df$Section<-Section
+        }
+        
+        #Second, split up if there are remaining blank rows
+        if(any(BlankRows)){
+            #Remove any blank lines at the start of the extract
+ 
             NextBlankLine<-min(which(BlankRows == TRUE))
             FirstExtract<-df[1:(NextBlankLine-1),]
-            FirstExtract<-CleanExtract(FirstExtract)
-            write.csv(FirstExtract,paste(sDirectory,FilePrefix,"_",Increment,".csv",sep=""),
-                      row.names=FALSE)
+            FirstExtract<-CleanExtractAndWrite(FirstExtract,
+                                               HeaderList,
+                                               sDirectory,
+                                               FilePrefix,
+                                               Increment
+                                               )
+
             #Recursing
+            Section<-NA
+            if ("Section" %in% colnames(FirstExtract)){
+                Section<-min(FirstExtract$Section)
+            }
+            
             SplitAtBlankRow(df[(NextBlankLine+1):length(BlankRows),],
                             FilePrefix=FilePrefix,
                             Increment=Increment+1,
-                            sDirectory=sDirectory)
+                            sDirectory=sDirectory,
+                            HeaderList=HeaderList,
+                            Section=Section)
         }
         else{
             # Label and then remove columns that are completely blank
             # in this extraction. E.g. some extractions are 8 columns, some are 4.
-            df<-CleanExtract(df)
-            write.csv(df,
-                      paste(sDirectory,FilePrefix,"_",Increment,".csv",sep=""),
-                      row.names=FALSE)
+            df<-CleanExtractAndWrite(df,
+                                     HeaderList,
+                                     sDirectory,
+                                     FilePrefix,
+                                     Increment)
         }
     }
     else if(length(df)>0){
         # Label and then remove columns that are completely blank
         # in this extraction. E.g. some extractions are 8 columns, some are 4.
-        df<-CleanExtract(df)
-        write.csv(df,paste(sDirectory,FilePrefix,"_",Increment,".csv",sep=""),
-                  row.names=FALSE)
+        df<-CleanExtractAndWrite(df,
+                                 HeaderList,
+                                 sDirectory,
+                                 FilePrefix,
+                                 Increment)
     }
 }
 
-ReadAndSplit<-function(sFileName,sFilePrefix="",sSheetName="",sDirectory=""){
-    lookup.HeaderList<-read.csv("HeaderList.csv",
-                                na.strings=c("NA",""))
+ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName="",sDirectory=""){
+    lookup.RawHeaderList<-read.csv("RawHeaderList.csv",
+                                na.strings=c("NA",""),
+                                stringsAsFactors = FALSE
+                                )
+    lookup.RawHeaderCleaned<-read.csv("CleanedHeaderList.csv",
+                                   na.strings=c("NA",""),
+                                   stringsAsFactors = FALSE)
     wb<-loadWorkbook(paste(sDirectory,sFileName,sep=""), create = TRUE)
     df<-readWorksheet(wb, 
                       sheet = sSheetName,
                       header = FALSE)
     df<- join(
         df, 
-        lookup.HeaderList,
+        lookup.RawHeaderList,
         match="first"
     )
+    if(!is.na(Platform)){
+        df$Platform<-Platform
+    }
+    if(!is.na(Platform)){
+        df$Source<-Source
+    }
     #Remove type names, as we figure that out based on the headers.
     df<-subset(df,Type!="Type" | is.na(Type))
     SplitAtBlankRow(df,
-                    paste(sFilePrefix,sSheetName,sep="_"),
-                    sDirectory=sDirectory
+                    paste(Platform,Source,sSheetName,sep="_"),
+                    sDirectory=sDirectory,
+                    HeaderList=lookup.RawHeaderCleaned
     )
 }
 
 #*************************************Options*****************************************************
 
 
-# undebug(SplitAtBlankRow)
-# debug(ReadAndSplit)
+
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Cost Summary",
              "MEADS//")
 
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Funding Summary",
              "MEADS//")
 
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Low Rate Initial Production",
              "MEADS//")
 
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Foreign Military Sales",
              "MEADS//")
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Unit Cost",
              "MEADS//")
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Cost Variance",
              "MEADS//")
 
 
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Contracts",
              "MEADS//")
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Deliveries and Expenditures",
              "MEADS//")
 
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS_2011-12",
+             "MEADS","2011-12",
              "Operating and Support Cost",
              "MEADS//")
 
-
+undebug(SplitAtBlankRow)
+# debug(ReadAndSplit)
+# debug(SplitAtBlankRow)
+# debug(ReadAndSplit)
+# debug(SplitAtBlankRow)
+# undebug(CleanExtractAndWrite)
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Cost Summary",
              "MEADS//")
 
@@ -160,56 +240,56 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
 
 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Funding Summary",
              "MEADS//")
 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Annual Funding by Appropriation",
              "MEADS//")
 
 
 
 # ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-#              "MEADS_2013-12",
+#              "MEADS","2013-12",
 #              "Low Rate Initial Production",
 #              "MEADS//")
 # 
 # 
 # ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-#              "MEADS_2013-12",
+#              "MEADS","2013-12",
 #              "Foreign Military Sales",
 #              "MEADS//")
 # 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Unit Cost",
              "MEADS//")
 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Unit Cost History",
              "MEADS//")
 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Cost Variance",
              "MEADS//")
 
 
 # ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-#              "MEADS_2013-12",
+#              "MEADS","2013-12",
 #              "Contracts",
 #              "MEADS//")
 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Deliveries and Expenditures",
              "MEADS//")
 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS_2013-12",
+             "MEADS","2013-12",
              "Operating and Support Cost",
              "MEADS//")
 
