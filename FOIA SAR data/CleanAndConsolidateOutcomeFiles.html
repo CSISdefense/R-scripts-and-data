@@ -311,7 +311,15 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre class="r"><code>#*************************************Unit Cost History*****************************************************
+<pre class="r"><code>dfBudgetHistory&lt;-rbind.fill(
+    # BulkImport(file.path(&quot;MEADS&quot;,&quot;Processing&quot;),&quot;UnitCostHistory&quot;),
+    # BulkImport(file.path(&quot;NATO AGS&quot;,&quot;Processing&quot;),&quot;UnitCostHistory&quot;),
+    BulkImport(file.path(&quot;SM-3 BLOCK IIA&quot;,&quot;Processing&quot;),&quot;FYDPcost&quot;)
+)
+write.csv(dfBudgetHistory,
+          &quot;Data//FYDPcost.csv&quot;
+          ,row.names=FALSE)</code></pre>
+<pre class="r"><code>#*************************************Unit Cost History***************************
 
 debug(ReadAndSplit)
 # debug(CleanExtractAndWrite)
@@ -532,13 +540,7 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ## missing arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;, &quot;MEADS&quot;, &quot;2011-12&quot;, 
 ##     &quot;Unit Cost&quot;, &quot;MEADS//&quot;)</code></pre>
-<pre class="r"><code># 
-# ReadAndSplit(&quot;2013 SAR MEADS Data Draw.xlsx&quot;,
-#              &quot;MEADS&quot;,&quot;2013-12&quot;,
-#              &quot;Unit Cost&quot;,
-#              &quot;MEADS//&quot;)
-
-ReadAndSplit(&quot;2013 SAR MEADS Data Draw.xlsx&quot;,
+<pre class="r"><code>ReadAndSplit(&quot;2013 SAR MEADS Data Draw.xlsx&quot;,
              &quot;MEADS&quot;,&quot;2013-12&quot;,
              &quot;Unit Cost History&quot;,
              &quot;MEADS//&quot;)</code></pre>
@@ -1046,7 +1048,9 @@ ReadAndSplit(&quot;2013 SAR MEADS Data Draw.xlsx&quot;,
     BulkImport(file.path(&quot;NATO AGS&quot;,&quot;Processing&quot;),&quot;UnitCostHistory&quot;),
     BulkImport(file.path(&quot;JSF&quot;,&quot;Processing&quot;),&quot;UnitCostHistory&quot;)
 )
-write.csv(dfUnitCostHistory,&quot;Data//UnitCostHistory.csv&quot;)</code></pre>
+write.csv(dfUnitCostHistory,
+          &quot;Data//UnitCostHistory.csv&quot;,
+          row.names=FALSE)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
              &quot;MEADS&quot;,&quot;2011-12&quot;,
              &quot;Cost Variance&quot;,
@@ -4755,11 +4759,14 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 
 write.csv(rbind.fill(
     BulkImport(file.path(&quot;A400M&quot;,&quot;Processing&quot;),&quot;NAOunitProductionCost&quot;)
-),&quot;Data//NAOunitProductionCost.csv&quot;)
+    ),
+&quot;Data//NAOunitProductionCost.csv&quot;,
+,row.names=FALSE)
 
 write.csv(rbind.fill(
     BulkImport(file.path(&quot;A400M&quot;,&quot;Processing&quot;),&quot;InServiceSupport&quot;)
-),&quot;Data//NAOinServiceSupport.csv&quot;)
+),&quot;Data//NAOinServiceSupport.csv&quot;,
+,row.names=FALSE)
 
 
 #Rotating 2002-2008
@@ -4793,18 +4800,22 @@ Expenditure&lt;-BulkImport(file.path(&quot;A400M&quot;,&quot;Processing&quot;),&
 Expenditure&lt;-rbind.fill(
     subset(Expenditure,!Description %in% c(&quot;Total Expenditure (£m)&quot;,&quot;Total Expenditure&quot;)))
 write.csv(arrange(Expenditure,Source,Description),
-    &quot;Data//NAOexpenditureToDate.csv&quot;)
+    &quot;Data//NAOexpenditureToDate.csv&quot;,
+    row.names=FALSE)
 
 
 Boundaries&lt;-BulkImport(file.path(&quot;A400M&quot;,&quot;Processing&quot;),&quot;CostBoundariesforDemonstrationManufacturePhase&quot;)
 write.csv(rbind.fill(subset(Boundaries,ProjectIncrementName==&quot;A400M&quot;))
-    ,&quot;Data//NAOcostBoundariesforDemonstrationManufacturePhase.csv&quot;)
+    ,&quot;Data//NAOcostBoundariesforDemonstrationManufacturePhase.csv&quot;,
+    row.names=FALSE)
 
 
 
 write.csv(rbind.fill(
     BulkImport(file.path(&quot;A400M&quot;,&quot;Processing&quot;),&quot;CostVariationVsApproveCostForDemonstrationManufacturePhase&quot;)
-),&quot;Data//NAOcostVariationVsApproveCostForDemonstrationManufacturePhase.csv&quot;)</code></pre>
+),
+&quot;Data//NAOcostVariationVsApproveCostForDemonstrationManufacturePhase.csv&quot;,
+row.names=FALSE)</code></pre>
 <pre class="r"><code># 
 # 
 # 

@@ -79,10 +79,21 @@ ReadAndSplit("2015 SM-3 Budget Doc Data Draw.xlsx",
              "SM-3 BLOCK IIA","2015",
              "Sheet1",
              "SM-3 BLOCK IIA//")
+
+
+dfBudgetHistory<-rbind.fill(
+    # BulkImport(file.path("MEADS","Processing"),"UnitCostHistory"),
+    # BulkImport(file.path("NATO AGS","Processing"),"UnitCostHistory"),
+    BulkImport(file.path("SM-3 BLOCK IIA","Processing"),"FYDPcost")
+)
+write.csv(dfBudgetHistory,
+          "Data//FYDPcost.csv"
+          ,row.names=FALSE)
+
 ```
 
 ```{r UnitCostHistory}
-#*************************************Unit Cost History*****************************************************
+#*************************************Unit Cost History***************************
 
 debug(ReadAndSplit)
 # debug(CleanExtractAndWrite)
@@ -91,12 +102,6 @@ ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
              "Unit Cost",
              "MEADS//")
 
-
-# 
-# ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-#              "MEADS","2013-12",
-#              "Unit Cost",
-#              "MEADS//")
 
 ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
              "MEADS","2013-12",
@@ -119,7 +124,9 @@ dfUnitCostHistory<-rbind.fill(
     BulkImport(file.path("NATO AGS","Processing"),"UnitCostHistory"),
     BulkImport(file.path("JSF","Processing"),"UnitCostHistory")
 )
-write.csv(dfUnitCostHistory,"Data//UnitCostHistory.csv")
+write.csv(dfUnitCostHistory,
+          "Data//UnitCostHistory.csv",
+          row.names=FALSE)
 
 ```
 
@@ -303,11 +310,14 @@ ReadAndSplit("NAO Cost Data Draw.xlsx",
 
 write.csv(rbind.fill(
     BulkImport(file.path("A400M","Processing"),"NAOunitProductionCost")
-),"Data//NAOunitProductionCost.csv")
+    ),
+"Data//NAOunitProductionCost.csv",
+,row.names=FALSE)
 
 write.csv(rbind.fill(
     BulkImport(file.path("A400M","Processing"),"InServiceSupport")
-),"Data//NAOinServiceSupport.csv")
+),"Data//NAOinServiceSupport.csv",
+,row.names=FALSE)
 
 
 #Rotating 2002-2008
@@ -341,18 +351,22 @@ Expenditure<-BulkImport(file.path("A400M","Processing"),"NAOexpenditureToDate")
 Expenditure<-rbind.fill(
     subset(Expenditure,!Description %in% c("Total Expenditure (£m)","Total Expenditure")))
 write.csv(arrange(Expenditure,Source,Description),
-    "Data//NAOexpenditureToDate.csv")
+    "Data//NAOexpenditureToDate.csv",
+    row.names=FALSE)
 
 
 Boundaries<-BulkImport(file.path("A400M","Processing"),"CostBoundariesforDemonstrationManufacturePhase")
 write.csv(rbind.fill(subset(Boundaries,ProjectIncrementName=="A400M"))
-    ,"Data//NAOcostBoundariesforDemonstrationManufacturePhase.csv")
+    ,"Data//NAOcostBoundariesforDemonstrationManufacturePhase.csv",
+    row.names=FALSE)
 
 
 
 write.csv(rbind.fill(
     BulkImport(file.path("A400M","Processing"),"CostVariationVsApproveCostForDemonstrationManufacturePhase")
-),"Data//NAOcostVariationVsApproveCostForDemonstrationManufacturePhase.csv")
+),
+"Data//NAOcostVariationVsApproveCostForDemonstrationManufacturePhase.csv",
+row.names=FALSE)
 
 
 ```
