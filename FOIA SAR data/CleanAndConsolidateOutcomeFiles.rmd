@@ -28,8 +28,8 @@ require(reshape2)
 # require(gdata)
 require(XLConnect)
 require(plyr)
-# setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
-setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
+setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
+# setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
 source("CleanText.r")
 ```
 
@@ -53,7 +53,6 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
 
 
 ```{r BudgetDocs}
-
 ReadAndSplit("2011 SM-3 Budget Doc Data Draw.xlsx",
              "SM-3 BLOCK IIA","2011",
              "Sheet1",
@@ -84,7 +83,9 @@ ReadAndSplit("2015 SM-3 Budget Doc Data Draw.xlsx",
 
 ```{r UnitCostHistory}
 #*************************************Unit Cost History*****************************************************
+
 debug(ReadAndSplit)
+# debug(CleanExtractAndWrite)
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
              "MEADS","2011-12",
              "Unit Cost",
@@ -134,7 +135,6 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
              "MEADS","2013-12",
              "Cost Variance",
              "MEADS//")
-
 
 
 
@@ -360,44 +360,44 @@ write.csv(rbind.fill(
 
 ```{r Other}
 
-
-
-
-ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS","2011-12",
-             "Funding Summary",
-             "MEADS//")
-
-
-ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS","2011-12",
-             "Low Rate Initial Production",
-             "MEADS//")
-
-
-ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS","2011-12",
-             "Foreign Military Sales",
-             "MEADS//")
-
-
-
-ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS","2011-12",
-             "Contracts",
-             "MEADS//")
-
-ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS","2011-12",
-             "Deliveries and Expenditures",
-             "MEADS//")
-
-ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
-             "MEADS","2011-12",
-             "Operating and Support Cost",
-             "MEADS//")
-
-undebug(SplitAtBlankRow)
+# 
+# 
+# 
+# ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
+#              "MEADS","2011-12",
+#              "Funding Summary",
+#              "MEADS//")
+# 
+# 
+# ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
+#              "MEADS","2011-12",
+#              "Low Rate Initial Production",
+#              "MEADS//")
+# 
+# 
+# ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
+#              "MEADS","2011-12",
+#              "Foreign Military Sales",
+#              "MEADS//")
+# 
+# 
+# 
+# ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
+#              "MEADS","2011-12",
+#              "Contracts",
+#              "MEADS//")
+# 
+# ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
+#              "MEADS","2011-12",
+#              "Deliveries and Expenditures",
+#              "MEADS//")
+# 
+# ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
+#              "MEADS","2011-12",
+#              "Operating and Support Cost",
+#              "MEADS//")
+# 
+# undebug(SplitAtBlankRow)
 # debug(ReadAndSplit)
 # debug(SplitAtBlankRow)
 # debug(ReadAndSplit)
@@ -406,18 +406,18 @@ undebug(SplitAtBlankRow)
 
 
 
-ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS","2013-12",
-             "Funding Summary",
-             "MEADS//")
-
-ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS","2013-12",
-             "Annual Funding by Appropriation",
-             "MEADS//")
-
-
-
+# ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
+#              "MEADS","2013-12",
+#              "Funding Summary",
+#              "MEADS//")
+# 
+# ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
+#              "MEADS","2013-12",
+#              "Annual Funding by Appropriation",
+#              "MEADS//")
+# 
+# 
+# 
 # ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
 #              "MEADS","2013-12",
 #              "Low Rate Initial Production",
@@ -435,135 +435,135 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
 #              "MEADS","2013-12",
 #              "Contracts",
 #              "MEADS//")
-
-ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS","2013-12",
-             "Deliveries and Expenditures",
-             "MEADS//")
-
-ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
-             "MEADS","2013-12",
-             "Operating and Support Cost",
-             "MEADS//")
-
-#SM3 Block IIA
-ReadAndSplit("2011 SM3 Budget Doc Data Draw.xlsx",
-             "2011_SM3_Block_IIA",
-             "Sheet1",
-             "SM-3 BLOCK IIA//")
-
-ReadAndSplit("2012 SM3 Budget Doc Data Draw.xlsx",
-             "2012_SM3_Block_IIA",
-             "Sheet1",
-             "SM-3 BLOCK IIA//")
-
-ReadAndSplit("2013 SM-3 Budget Data Draw.xlsx",
-             "2013_SM3_Block_IIA",
-             "Sheet1",
-             "SM-3 BLOCK IIA//")
-
-ReadAndSplit("2014 SM-3 Budget Doc Data Draw.xlsx",
-             "2014_SM3_Block_IIA",
-             "Sheet1",
-             "SM-3 BLOCK IIA//")
-
-ReadAndSplit("2015 SM-3 Budget Doc Data Draw.xlsx",
-             "2015_SM3_Block_IIA",
-             "Sheet1",
-             "SM-3 BLOCK IIA//")
-
-ReadAndSplit("SM-3 GAO Data Draw.xlsx",
-             "GAO_SM3_Block_IIA",
-             "Sheet1",
-             "SM-3 BLOCK IIA//")
-
-
-
-##AGS
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "Program Overview",
-             "NATO AGS//")
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2016",
-             "NATO AGS//")
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2015",
-             "NATO AGS//")
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2014",
-             "NATO AGS//")
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2013",
-             "NATO AGS//")
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2012",
-             "NATO AGS//")
-
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2010",
-             "NATO AGS//")
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2009",
-             "NATO AGS//")
-
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2007",
-             "NATO AGS//")
-
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO_AGS",
-             "2004",
-             "NATO AGS//")
-
-
-ReadAndSplit("RQ4 Data Draw.xlsx",
-             "RQ4_",
-             "Cost Summary",
-             "NATO AGS//")
-
-
-ReadAndSplit("RQ4 Data Draw.xlsx",
-             "RQ4_",
-             "Funding Summary",
-             "NATO AGS//")
-
+# 
+# ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
+#              "MEADS","2013-12",
+#              "Deliveries and Expenditures",
+#              "MEADS//")
+# 
+# ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
+#              "MEADS","2013-12",
+#              "Operating and Support Cost",
+#              "MEADS//")
+# 
+# #SM3 Block IIA
+# ReadAndSplit("2011 SM3 Budget Doc Data Draw.xlsx",
+#              "2011_SM3_Block_IIA",
+#              "Sheet1",
+#              "SM-3 BLOCK IIA//")
+# 
+# ReadAndSplit("2012 SM3 Budget Doc Data Draw.xlsx",
+#              "2012_SM3_Block_IIA",
+#              "Sheet1",
+#              "SM-3 BLOCK IIA//")
+# 
+# ReadAndSplit("2013 SM-3 Budget Data Draw.xlsx",
+#              "2013_SM3_Block_IIA",
+#              "Sheet1",
+#              "SM-3 BLOCK IIA//")
+# 
+# ReadAndSplit("2014 SM-3 Budget Doc Data Draw.xlsx",
+#              "2014_SM3_Block_IIA",
+#              "Sheet1",
+#              "SM-3 BLOCK IIA//")
+# 
+# ReadAndSplit("2015 SM-3 Budget Doc Data Draw.xlsx",
+#              "2015_SM3_Block_IIA",
+#              "Sheet1",
+#              "SM-3 BLOCK IIA//")
+# 
+# ReadAndSplit("SM-3 GAO Data Draw.xlsx",
+#              "GAO_SM3_Block_IIA",
+#              "Sheet1",
+#              "SM-3 BLOCK IIA//")
+# 
+# 
+# 
+# ##AGS
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "Program Overview",
+#              "NATO AGS//")
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2016",
+#              "NATO AGS//")
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2015",
+#              "NATO AGS//")
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2014",
+#              "NATO AGS//")
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2013",
+#              "NATO AGS//")
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2012",
+#              "NATO AGS//")
+# 
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2010",
+#              "NATO AGS//")
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2009",
+#              "NATO AGS//")
+# 
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2007",
+#              "NATO AGS//")
+# 
+# 
+# ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+#              "NATO_AGS",
+#              "2004",
+#              "NATO AGS//")
+# 
 # 
 # ReadAndSplit("RQ4 Data Draw.xlsx",
 #              "RQ4_",
-#              "Low Rate Initial Production",
+#              "Cost Summary",
 #              "NATO AGS//")
 # 
-
-ReadAndSplit("RQ4 Data Draw.xlsx",
-             "RQ4_",
-             "Foreign Military Sales",
-             "NATO AGS//")
-
-
-
-
-ReadAndSplit("RQ4 Data Draw.xlsx",
-             "RQ4_",
-             "Contracts",
-             "NATO AGS//")
+# 
+# ReadAndSplit("RQ4 Data Draw.xlsx",
+#              "RQ4_",
+#              "Funding Summary",
+#              "NATO AGS//")
+# 
+# # 
+# # ReadAndSplit("RQ4 Data Draw.xlsx",
+# #              "RQ4_",
+# #              "Low Rate Initial Production",
+# #              "NATO AGS//")
+# # 
+# 
+# ReadAndSplit("RQ4 Data Draw.xlsx",
+#              "RQ4_",
+#              "Foreign Military Sales",
+#              "NATO AGS//")
+# 
+# 
+# 
+# 
+# ReadAndSplit("RQ4 Data Draw.xlsx",
+#              "RQ4_",
+#              "Contracts",
+#              "NATO AGS//")
 
 # ReadAndSplit("RQ4 Data Draw.xlsx",
 #              "RQ4_",

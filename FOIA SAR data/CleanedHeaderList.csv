@@ -1,36 +1,36 @@
-Col1,Col2,Col3,Col4,Col5,Col6,Col7,Col8,Col9,Col10,Col11,Col12,Col13,Type,Header
-BaselineItemEvent,PlanningEstimate,DevelopmentEstimate,ProductionEstimate,CurrentEstimate,,,,,,,,,Header,BaselineHistory
-Appropriation,SARbaselineDevelopmentEstimate2004mil,CurrentAPBdevelopmentObjective2004mil,CurrentAPBdevelopmentThreshold2004mil,CurrentEstimate2004mil,SARbaselineDevelopmentEstimateThenYearMil,CurrentAPBdevelopmentObjectiveThenYearMil,CurrentEstimateThenYearMil,,,,,,Header,CostSummaryCost2004
-Quantity,SARbaselineDevelopmentEstimate,CurrentAPBdevelopment,CurrentEstimate,NA,NA,NA,NA,,,,,,Header,CostSummaryQuantity
-CurrentBaselineCurrentEstimate.Tymil,Econ,Qty,Sch,Eng,Est,Oth,Spt,Total ,APUCcurrentEstimate,,,,Header,UnitCostBreakdownAPUC
-CurrentBaselineCurrentEstimate.Tymil,Econ,Qty,Sch,Eng,Est,Oth,Spt,Total ,PAUCcurrentEstimate,,,,Header,UnitCostBreakdownPAUC
-UnitCostReport,UCRoriginalBaseline2004AprAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,Header,UnitCostOriginalDec2011SAR2004AprAPB
-UnitCostReport,UCRoriginalBaseline2004AugAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,Header,UnitCostOriginalDec2011SAR2004AugAPB
-UnitCostReport,UCRoriginalBaseline2004MarAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,Header,UnitCostOriginalDec2011SAR2004MarAPB
-UnitCostReport,UCRoriginalBaseline2002AugAPB.2002mil,CurrentEstimateDec2013.2002mil,pUCRchange,,,,,,,,,,Header,UnitCostOriginalDec2013SAR2004AugAPB
-UnitCostReport,UCRcuurrentBaseline2004AprAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,Header,UnitCostCurrentDec2011SAR2004AprAPB
-UnitCostReport,UCRcurrentBaseline2004AugAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,Header,UnitCostCurrentDec2011SAR2004AugAPB
-UnitCostReport,UCRcurrentBaseline2004MarAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,Header,UnitCostCurrentDec2011SAR2004MarAPB
-UnitCostReport,UCRcurrentBaseline2002AugAPB.2002mil,CurrentEstimateDec2013.2002mil,pUCRchange,,,,,,,,,,Header,UnitCostCurrentDec2013SAR2004AugAPB
-UCRhistory,Date,PAUC.2004mil,APUC.2004mil,PAUC.thenyear,APUC.thenyear,,,,,,,,Header,UnitCostHistory2004
-UCRhistory,Date,PAUC.2000mil,APUC.2000mil,PAUC.thenyear,APUC.thenyear,,,,,,,,Header,UnitCostHistory2000
-UCRhistory,Date,PAUC.2012mil,APUC.2012mil,PAUC.thenyear,APUC.thenyear,,,,,,,,Header,UnitCostHistory2012
-UnitCostReport,UCRcurrentBaseline2014JunAPB.2012mil,CurrentEstimateDec2015.2012mil,pUCRchange,,,,,,,,,,Header,UnitCostCurrent2015DecSAR2014JunAPB
-UnitCostReport,UCRrevisedOriginalBaseline2012MarAPB.2012mil,CurrentEstimateDec2015.2012mil,pUCRchange,,,,,,,,,,Header,UnitCostRevisedOriginal2015DecSAR2012MarAPB
-UnitCostReport,UCRoriginalBaseline2012MarAPB.2012mil,CurrentEstimateDec2015.2012mil,pUCRchange,,,,,,,,,,Header,UnitCostOriginal2015DecSAR2012MarAPB
-Description,ExpendituretoMarch31PriorYearPoundsMil,InYearExpenditurePoundsMil,TotalExpenditureToCurrentYearMarch31poundsMil,,,,,,,,,,Header,NAOexpenditureToDate
-ProjectIncrementName,ApprovedCostGBPmil,ActualOrForecastCostGBPmil,VariationGBPmil,,,,,,,,,,Header,CostOfAssessmentPhase
-ProjectIncrementName,LowestApprovedGBPmil,BudgetedForGBPmil,HighestApprovedGBPmil,,,,,,,,,,Header,CostBoundariesforDemonstrationManufacturePhase
-ProjectIncrementName,BudgetedForCostGBPmil,ForecastCostGBPmil,VariationGBPmil,InYearVariationGBPmil,,,,,,,,,Header,CostOfDemonstrationManufacturePhaseWide
-Date,Variation (£m),Category,ReasonForVariation,,,,,,,,,,Header,CostVariationVsApproveCostForDemonstrationManufacturePhase
-Category,Increase,Decrease,ReasonForVariation,,,,,,,,,,Header,CostVariationVsApproveCostForDemonstrationManufacturePhaseSplit
-Date,Variation (£m),Category,ReasonForVariation,,,,,,,,,,Header,InServiceSupport
-ProjectIncrementName,CostOfTheAssessmentPhaseOutturnPricesGBPpound,,,,,,,,,,,,Header,CostOfAssessmentPhaseShort
-ProjectIncrementName,ApprovedCostGBPmil,ActualOrForecastCostGBPmil,VariationGBPmil,ApprovedCostAsAProportionOfTotalEstimatedProcurementExpenditure,ActualCostAsAProportionOfTotalEstimatedProcurementExpenditure,,,,,,,,Header,CostOfAssessmentPhaseLong
-Description,UnitProductionCostAtMainProductionDecisionGBPmil,UnitProductionCostCurrentlyGBPmil,QuantitiesRequiredAtMainInvestmentDecision,QuantitiesRequiredCurrently,,,,,,,,,Header,NAOunitProductionCost
-UnitProductionCostAtMainProductionDecisionGBPmil,UnitProductionCostCurrentlyGBPmil,QuantitiesRequiredAtMainInvestmentDecision,QuantitiesRequiredCurrently,,,,,,,,,,Header,NAOunitProductionCostShort
-Category,ProcurementCostOutturnGBPmil,,,,,,,,,,,,Header,CostOfDemonstrationManufacturePhaseLong
-Description,ActualYearMinus2mil,EstimateYearMinus1mil,EstimateYearBaseMil,EstimateYearOCOmil,EstimateYearTotalMil,EstimateYearPlusOneMil,EstimateYearPlusTwoMil,EstimateYearPlusThreeMil,EstimateYearPlusFourMil,CostToCompleteMil,TotalCostMil,,Header,FYDPcostOCO
-Description,AllPriorYears,ActualYearMinus2mil,EstimateYearMinus1mil,EstimateYearBaseMil,EstimateYearOCOmil,EstimateYearTotalMil,EstimateYearPlusOneMil,EstimateYearPlusTwoMil,EstimateYearPlusThreeMil,EstimateYearPlusFourMil,CostToCompleteMil,TotalCostMil,Header,FYDPcostPriorOCO
-Description,RDTnE,Proc,MILCON,Total,,,,,,,,,Header,CostVarianceAccount
-CurrentChangeExplanations,BaseYearMil,ThenYearMil,,,,,,,,,,,Header,CostVarianceDetail
+Col1,Col2,Col3,Col4,Col5,Col6,Col7,Col8,Col9,Col10,Col11,Col12,Col13,Header
+BaselineItemEvent,PlanningEstimate,DevelopmentEstimate,ProductionEstimate,CurrentEstimate,,,,,,,,,BaselineHistory
+Appropriation,SARbaselineDevelopmentEstimate2004mil,CurrentAPBdevelopmentObjective2004mil,CurrentAPBdevelopmentThreshold2004mil,CurrentEstimate2004mil,SARbaselineDevelopmentEstimateThenYearMil,CurrentAPBdevelopmentObjectiveThenYearMil,CurrentEstimateThenYearMil,,,,,,CostSummaryCost2004
+Quantity,SARbaselineDevelopmentEstimate,CurrentAPBdevelopment,CurrentEstimate,NA,NA,NA,NA,,,,,,CostSummaryQuantity
+CurrentBaselineCurrentEstimate.Tymil,Econ,Qty,Sch,Eng,Est,Oth,Spt,Total ,APUCcurrentEstimate,,,,UnitCostBreakdownAPUC
+CurrentBaselineCurrentEstimate.Tymil,Econ,Qty,Sch,Eng,Est,Oth,Spt,Total ,PAUCcurrentEstimate,,,,UnitCostBreakdownPAUC
+UnitCostReport,UCRoriginalBaseline2004AprAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,UnitCostOriginalDec2011SAR2004AprAPB
+UnitCostReport,UCRoriginalBaseline2004AugAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,UnitCostOriginalDec2011SAR2004AugAPB
+UnitCostReport,UCRoriginalBaseline2004MarAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,UnitCostOriginalDec2011SAR2004MarAPB
+UnitCostReport,UCRoriginalBaseline2002AugAPB.2002mil,CurrentEstimateDec2013.2002mil,pUCRchange,,,,,,,,,,UnitCostOriginalDec2013SAR2004AugAPB
+UnitCostReport,UCRcuurrentBaseline2004AprAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,UnitCostCurrentDec2011SAR2004AprAPB
+UnitCostReport,UCRcurrentBaseline2004AugAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,UnitCostCurrentDec2011SAR2004AugAPB
+UnitCostReport,UCRcurrentBaseline2004MarAPB.2004mil,CurrentEstimateDec2011.2004mil,pUCRchange,,,,,,,,,,UnitCostCurrentDec2011SAR2004MarAPB
+UnitCostReport,UCRcurrentBaseline2002AugAPB.2002mil,CurrentEstimateDec2013.2002mil,pUCRchange,,,,,,,,,,UnitCostCurrentDec2013SAR2004AugAPB
+UCRhistory,Date,PAUC.2004mil,APUC.2004mil,PAUC.thenyear,APUC.thenyear,,,,,,,,UnitCostHistory2004
+UCRhistory,Date,PAUC.2000mil,APUC.2000mil,PAUC.thenyear,APUC.thenyear,,,,,,,,UnitCostHistory2000
+UCRhistory,Date,PAUC.2012mil,APUC.2012mil,PAUC.thenyear,APUC.thenyear,,,,,,,,UnitCostHistory2012
+UnitCostReport,UCRcurrentBaseline2014JunAPB.2012mil,CurrentEstimateDec2015.2012mil,pUCRchange,,,,,,,,,,UnitCostCurrent2015DecSAR2014JunAPB
+UnitCostReport,UCRrevisedOriginalBaseline2012MarAPB.2012mil,CurrentEstimateDec2015.2012mil,pUCRchange,,,,,,,,,,UnitCostRevisedOriginal2015DecSAR2012MarAPB
+UnitCostReport,UCRoriginalBaseline2012MarAPB.2012mil,CurrentEstimateDec2015.2012mil,pUCRchange,,,,,,,,,,UnitCostOriginal2015DecSAR2012MarAPB
+Description,ExpendituretoMarch31PriorYearPoundsMil,InYearExpenditurePoundsMil,TotalExpenditureToCurrentYearMarch31poundsMil,,,,,,,,,,NAOexpenditureToDate
+ProjectIncrementName,ApprovedCostGBPmil,ActualOrForecastCostGBPmil,VariationGBPmil,,,,,,,,,,CostOfAssessmentPhase
+ProjectIncrementName,LowestApprovedGBPmil,BudgetedForGBPmil,HighestApprovedGBPmil,,,,,,,,,,CostBoundariesforDemonstrationManufacturePhase
+ProjectIncrementName,BudgetedForCostGBPmil,ForecastCostGBPmil,VariationGBPmil,InYearVariationGBPmil,,,,,,,,,CostOfDemonstrationManufacturePhaseWide
+Date,Variation (£m),Category,ReasonForVariation,,,,,,,,,,CostVariationVsApproveCostForDemonstrationManufacturePhase
+Category,Increase,Decrease,ReasonForVariation,,,,,,,,,,CostVariationVsApproveCostForDemonstrationManufacturePhaseSplit
+Date,Variation (£m),Category,ReasonForVariation,,,,,,,,,,InServiceSupport
+ProjectIncrementName,CostOfTheAssessmentPhaseOutturnPricesGBPpound,,,,,,,,,,,,CostOfAssessmentPhaseShort
+ProjectIncrementName,ApprovedCostGBPmil,ActualOrForecastCostGBPmil,VariationGBPmil,ApprovedCostAsAProportionOfTotalEstimatedProcurementExpenditure,ActualCostAsAProportionOfTotalEstimatedProcurementExpenditure,,,,,,,,CostOfAssessmentPhaseLong
+Description,UnitProductionCostAtMainProductionDecisionGBPmil,UnitProductionCostCurrentlyGBPmil,QuantitiesRequiredAtMainInvestmentDecision,QuantitiesRequiredCurrently,,,,,,,,,NAOunitProductionCost
+UnitProductionCostAtMainProductionDecisionGBPmil,UnitProductionCostCurrentlyGBPmil,QuantitiesRequiredAtMainInvestmentDecision,QuantitiesRequiredCurrently,,,,,,,,,,NAOunitProductionCostShort
+Category,ProcurementCostOutturnGBPmil,,,,,,,,,,,,CostOfDemonstrationManufacturePhaseLong
+Description,ActualYearMinus2mil,EstimateYearMinus1mil,EstimateYearBaseMil,EstimateYearOCOmil,EstimateYearTotalMil,EstimateYearPlusOneMil,EstimateYearPlusTwoMil,EstimateYearPlusThreeMil,EstimateYearPlusFourMil,CostToCompleteMil,TotalCostMil,,FYDPcostOCO
+Description,AllPriorYears,ActualYearMinus2mil,EstimateYearMinus1mil,EstimateYearBaseMil,EstimateYearOCOmil,EstimateYearTotalMil,EstimateYearPlusOneMil,EstimateYearPlusTwoMil,EstimateYearPlusThreeMil,EstimateYearPlusFourMil,CostToCompleteMil,TotalCostMil,FYDPcostPriorOCO
+Description,RDTnE,Proc,MILCON,Total,,,,,,,,,CostVarianceAccount
+CurrentChangeExplanations,BaseYearMil,ThenYearMil,,,,,,,,,,,CostVarianceDetail

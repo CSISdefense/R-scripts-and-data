@@ -16,82 +16,89 @@ require(XLConnect)
 CleanExtractAndWrite<-function(df,
                                HeaderList,
                                sDirectory,
-                               FilePrefix,
-                               Increment){
-    #Check if there is one name row. If there's multiple names or only a single name, this does not work
-    name.df<-df[!is.na(df$Type) & df$Type=="Name",]
-    if(any(!is.na(name.df$Header))&
-       (min(as.character(name.df$Header),na.rm=TRUE)==max(as.character(name.df$Header),na.rm=TRUE))){
-        df$Section<-min(as.character(name.df$Header),na.rm=TRUE)
-        df<-df[!df$Type %in% c("Name"),]
-    }
-    sUnit<-NA
-    unit.df<-df[!is.na(df$Type) & df$Type=="Unit",]
-    if(any(!is.na(unit.df$Header))&
-       (min(as.character(unit.df$Header),na.rm=TRUE)==max(as.character(unit.df$Header),na.rm=TRUE))){
-        sUnit<-min(as.character(unit.df$Header),na.rm=TRUE)
-        df$Unit<-sUnit
-        df<-df[!df$Type %in% c("Unit"),]
-    }
+                               FilePrefix=NA,
+                               Increment=NA){
+  #Check if there is only one name present in the section column, 
+  #If yes, name the section, which can also influence future files in the sheet.
+  #If missing or there are contradicting names, do nothing and move on
+  if(any(!is.na(df$OverrideSection))&
+     (min(as.character(df$OverrideSection),na.rm=TRUE)==max(as.character(df$OverrideSection),na.rm=TRUE))){
+    df$Section<-min(as.character(df$OverrideSection),na.rm=TRUE)
+  }
+  
+  sSection<-NA
+  if ("Section" %in% colnames(df)){
+    sSection<-min(df$Section)
+  }
+  
+  #Check if it lists a unit type (as in then-year vs. base year, currency, etc.)
+  sUnit<-NA
+  if(any(!is.na(df$Unit))&
+     (min(as.character(df$Unit),na.rm=TRUE)==
+      max(as.character(df$Unit),na.rm=TRUE))){
+    sUnit<-min(as.character(df$Unit),na.rm=TRUE)
+    df$Unit<-sUnit
+  }
+  
+  
+  #Determine the source, checking if the file has an override
+  sSource<-NA
+  if(any(!is.na(df$OverrideSource))&
+     (min(as.character(df$OverrideSource),na.rm=TRUE)==
+      max(as.character(df$OverrideSource),na.rm=TRUE))){
+    sSource<-min(as.character(df$OverrideSource),na.rm=TRUE)
+    df$Source<-sSource
+  }
+  else if(any(!is.na(df$Source))&
+          (min(as.character(df$Source),na.rm=TRUE)==
+           max(as.character(df$Source),na.rm=TRUE))){
+    sSource<-min(df$Source)
     
-    sSection<-NA
-    if ("Section" %in% colnames(df)){
-        sSection<-min(df$Section)
-    }
-    
-    #Determine the source, checking if the file has an override
-    sSource<-NA
-    OverrideSource.df<-df[!is.na(df$Type) & df$Type=="OverrideSource",]
-    if(any(!is.na(OverrideSource.df$Header))&
-       (min(as.character(OverrideSource.df$Header),na.rm=TRUE)==max(as.character(OverrideSource.df$Header),na.rm=TRUE))){
-        sSource<-min(as.character(OverrideSource.df$Header),na.rm=TRUE)
-        df$Source<-sSource
-        df<-df[!df$Type %in% c("OverrideSource"),]
-    }
-    else if(any(!is.na(df$Source))&
-       (min(as.character(df$Source),na.rm=TRUE)==max(as.character(df$Source),na.rm=TRUE))){
-        sSource<-min(df$Source)
-
-    }
-
-    sPlatform<-NA
-    if(any(!is.na(df$Platform))&
-       (min(as.character(df$Platform),na.rm=TRUE)==max(as.character(df$Platform),na.rm=TRUE))){
-        sPlatform<-min(df$Platform)
-    }
-
-    sHeader<-NA
-    # Label and then remove columns that are completely blank
-    # in this extraction. E.g. some extractions are 8 columns, some are 4.
-    df<-df[!df$Type %in% c("Type"),]
-    if(any(!is.na(df$Header))&
-       (min(as.character(df$Header),na.rm=TRUE)==max(as.character(df$Header),na.rm=TRUE))){
-        sHeader<-max(as.character(df$Header),na.rm=TRUE)
-        HeaderList<-subset(HeaderList,Header==sHeader,select=-c(Header,Type))
-        colnames(df)[1:ncol(HeaderList)]<-HeaderList[1,]
-        df<-df[!df$Type %in% c("Header"),]
-        
-    }
-    BlankCols<-colSums(!is.na(df)) == 0
-    df<-df[,!BlankCols]
-    
-    ifelse(!file.exists(file.path(sDirectory, "Processing")), 
-           dir.create(file.path(sDirectory, "Processing")), FALSE)
-    
-    #Project and Source are guaranteed to be in 
-    if(ncol(df)>2){
-        write.csv(df,file.path(sDirectory,"Processing",
-                           gsub(" ","_",paste( ifelse(!is.na(sPlatform),paste(sPlatform,"_",sep=""),""),
-                                               ifelse(!is.na(FilePrefix),paste(FilePrefix,"_",sep=""),""),
-                                               ifelse(!is.na(sSource),paste(sSource,"_",sep=""),""),
-                                               Increment,
-                                               ifelse(!is.na(sHeader),paste("_",sHeader,sep=""),""),
-                                               ifelse(!is.na(sUnit),paste("_",sUnit,sep=""),""),
-                                               ifelse(!is.na(sSection),paste("_",sSection,sep=""),""),
-                                               ".csv",sep=""))),
-                  row.names=FALSE)
-        df
-    }
+  }
+  
+  sPlatform<-NA
+  if(any(!is.na(df$Platform))&
+     (min(as.character(df$Platform),na.rm=TRUE)==
+      max(as.character(df$Platform),na.rm=TRUE))){
+    sPlatform<-min(df$Platform)
+  }
+  
+  
+  sHeader<-NA
+  df<-df[!df$Remove==TRUE | is.na(df$Remove) | !is.na(df$Header),]
+  
+  # Label and then remove columns that are completely blank
+  # in this extraction. E.g. some extractions are 8 columns, some are 4.
+  if(any(!is.na(df$Header))&
+     (min(as.character(df$Header),na.rm=TRUE)==max(as.character(df$Header),na.rm=TRUE))){
+    sHeader<-max(as.character(df$Header),na.rm=TRUE)
+    HeaderList<-subset(HeaderList,Header==sHeader,select=-c(Header))
+    colnames(df)[1:ncol(HeaderList)]<-HeaderList[1,]
+    df<-subset(df,is.na(Header)|df$Remove==FALSE,select=-c(Header))
+  }
+  df<-subset(df,select=-c(Remove))
+  BlankCols<-colSums(!is.na(df)) == 0
+  df<-df[,!BlankCols]
+  
+  
+  ifelse(!file.exists(file.path(sDirectory, "Processing")), 
+         dir.create(file.path(sDirectory, "Processing")), FALSE)
+  
+  #Project and Source are guaranteed to be in 
+  if(ncol(df)>2){
+    write.csv(df,file.path(sDirectory,"Processing",
+                           gsub("_[.]csv",".csv",
+                                gsub(" ","_",paste( ifelse(!is.na(sPlatform),paste(sPlatform,"_",sep=""),""),
+                                                    ifelse(!is.na(FilePrefix),paste(FilePrefix,"_",sep=""),""),
+                                                    ifelse(!is.na(sSource),paste(sSource,"_",sep=""),""),
+                                                    ifelse(!is.na(Increment),paste(Increment,"_",sep=""),""),
+                                                    ifelse(!is.na(sHeader),paste(sHeader,"_",sep=""),""),
+                                                    ifelse(!is.na(sUnit),paste(sUnit,"_",sep=""),""),
+                                                    ifelse(!is.na(sSection),paste(sSection,"_",sep=""),""),
+                                                    ".csv",sep="")))),
+              row.names=FALSE)
+    df
+  }
 }
 
 
@@ -155,7 +162,7 @@ SplitAtBlankRow<-function(df,
                                      HeaderList,
                                      sDirectory,
                                      FilePrefix,
-                                     Increment)
+                                     ifelse(Increment==1,NA,Increment))#If only one, we don't need to number it.
         }
     }
     else if(length(df)>0){
@@ -165,11 +172,11 @@ SplitAtBlankRow<-function(df,
                                  HeaderList,
                                  sDirectory,
                                  FilePrefix,
-                                 Increment)
+                                 ifelse(Increment==1,NA,Increment))#If only one, we don't need to number it.
     }
 }
 
-ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName="",sDirectory=""){
+ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName=NA,sDirectory=""){
     lookup.RawHeaderList<-read.csv("RawHeaderList.csv",
                                    na.strings=c("NA",""),
                                    stringsAsFactors = FALSE
@@ -183,12 +190,17 @@ ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName="",sDirectory=
                       header = FALSE)
     #If there's more columns in the header lookup, limit the lookup
     #to only those cases where there is no material in the unused columns
-    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-2)){#One Column
+    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-6)){#One Column
         BlankRows<-is.na(lookup.RawHeaderList[,ncol(df)+1])
         lookup.RawHeaderList<-lookup.RawHeaderList[BlankRows,]
     }
-    else if(ncol(df)<ncol(lookup.RawHeaderList)-2){#MultipleColumns
-        MaterialInUnusuedColumns<-subset(lookup.RawHeaderList,select=-c(Type,Header))
+    else if(ncol(df)<ncol(lookup.RawHeaderList)-6){#MultipleColumns
+        MaterialInUnusuedColumns<-subset(lookup.RawHeaderList,select=-c(Remove,
+                                                                        Header,
+                                                                        OverrideSection,
+                                                                        Subsection,
+                                                                        Unit,
+                                                                        OverrideSource))
         MaterialInUnusuedColumns<-MaterialInUnusuedColumns[,
                                                            (ncol(df)+1):ncol(MaterialInUnusuedColumns)]
         BlankRows<-rowSums(!is.na(MaterialInUnusuedColumns)) == 0
@@ -207,10 +219,11 @@ ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName="",sDirectory=
     if(!is.na(Platform)){
         df$Source<-Source
     }
+    sPrefix<-ifelse(sSheetName %in% c("Sheet1"),NA,sSheetName)
     #Remove type names, as we figure that out based on the headers.
-    df<-subset(df,Type!="Type" | is.na(Type))
+    # df<-subset(df,Type!="Type" | is.na(Type))
     SplitAtBlankRow(df,
-                    NA,
+                    sPrefix,
                     sDirectory=sDirectory,
                     HeaderList=lookup.RawHeaderCleaned
     )

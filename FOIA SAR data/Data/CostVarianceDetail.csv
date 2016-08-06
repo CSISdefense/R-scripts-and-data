@@ -1,103 +1,133 @@
-"Filename","CurrentChangeExplanations","BaseYearMil","ThenYearMil","Type","Platform","Source","Section"
-"MEADS_2013-12_Cost_Variance_3_CostVarianceDetail_FireUnit.csv","RDT&E","$M",NA,"Subheader","MEADS","2013-12","FireUnit"
-"MEADS_2013-12_Cost_Variance_3_CostVarianceDetail_FireUnit.csv","Revised escalation indices (Economic)",NA,"-7",NA,"MEADS","2013-12","FireUnit"
-"MEADS_2013-12_Cost_Variance_3_CostVarianceDetail_FireUnit.csv","Adjustment for current and prior escalation (Estimating)","5.9","7",NA,"MEADS","2013-12","FireUnit"
-"MEADS_2013-12_Cost_Variance_3_CostVarianceDetail_FireUnit.csv","Decrease in FY 2013 funding due to Congressional reduction (Estimating)","-43","-52.7",NA,"MEADS","2013-12","FireUnit"
-"MEADS_2013-12_Cost_Variance_3_CostVarianceDetail_FireUnit.csv","RDT&E","-37.1","-52.7",NA,"MEADS","2013-12","FireUnit"
-"MEADS_2013-12_Cost_Variance_6_CostVarianceDetail_Missile.csv","RDT&E","$M",NA,"Subheader","MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_6_CostVarianceDetail_Missile.csv","Revised escalation indices (Economic)",NA,"-1.1",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_6_CostVarianceDetail_Missile.csv","Adjustment for current and prior escalation (Estimating)","0.9","1.1",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_6_CostVarianceDetail_Missile.csv","RDT&E Subtotal","0.9","0",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","RDT&E","$M",NA,"Subheader","MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Revised escalatio indicies (Economic)",NA,"-54.2",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Stretch-out of procurement buy profile in FY 2020 through FY 2033. (Schedule)","0","93.3",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Adjustment for current and prior escalation. (Estimating)","4.8","5.8",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Additional Schedule Variance due to the acceleration of 30 missiles in FY 2014 (procurement changed from 56 to 86 missiles). (Schedule)","-208.2","-255.9",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Decrease in FY 2013 funding due to Congressional reduction (Estimating)","-3.5","-4.7",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Adjustment for current and prior escalation. (Support)","0.5","0.8",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Increase in Other Support due to stretch-out of procurement buy profile (Support)","28.1","51.9",NA,"MEADS","2013-12","Missile"
-"MEADS_2013-12_Cost_Variance_7_CostVarianceDetail_Missile.csv","Procurement Subtotal","-178.3","-163",NA,"MEADS","2013-12","Missile"
-"RQ4_201X-XX_Cost_Variance_3_CostVarianceDetail.csv","RDT&E","$M",NA,"Subheader","RQ4","201X-XX",NA
-"RQ4_201X-XX_Cost_Variance_5_CostVarianceDetail.csv","Procurement","$M",NA,"Subheader","RQ4","201X-XX",NA
-"JSF_1996-XX_Cost_Variance_3_CostVarianceDetail.csv",NA,"$M",NA,NA,"JSF","1996-XX",NA
-"JSF_1996-XX_Cost_Variance_3_CostVarianceDetail.csv","Revised escalation rates from 1995 to 1997 (Economic)",NA,"-1230.4",NA,"JSF","1996-XX",NA
-"JSF_1996-XX_Cost_Variance_3_CostVarianceDetail.csv","Adjustment to reflect uniform application of escalation in prior estimate (Estimating)","-139.6","-403.7",NA,"JSF","1996-XX",NA
-"JSF_1996-XX_Cost_Variance_3_CostVarianceDetail.csv","RDT&E Subtotal","-139.6","-1634.1",NA,"JSF","1996-XX",NA
-"JSF_2003-12_Cost_Variance_3_CostVarianceDetail.csv","RDT&E","$M",NA,"Subheader","JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_3_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"-4.7",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_3_CostVarianceDetail.csv","Economic adjustment for negative program change. (Economic)",NA,"0.1",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_3_CostVarianceDetail.csv","SDD schedule extension for additional design maturation and known and unknown risks (including anti-tamper) (Schedule)","6664.2","7495.4",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_3_CostVarianceDetail.csv","Adjustment for Current and Prior Inflation. (Estimating)","2.7","2.7",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_3_CostVarianceDetail.csv","Model Refinements to the cost estimating refinements (Estimating)","-2.2","-2.7",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_3_CostVarianceDetail.csv","RDT&E Subtotal","6664.7","7490.8",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","RDT&E","$M",NA,"Subheader","JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"2456.3",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Delay in procure,emt start from FY 2006 to FY 2007 and revised annual quantity profiles (Schedule)","1359.5","5540.4",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Increased quantity procurement of Electro Optical Tracking System (EOTS) (Engineering)","831","1083.8",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Multi-Year Procurement delayed from 2012 to 2014 due to production start delay and revised annual procurement profiles (Estimating)","739.4","904.7",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Design maturation to reflet governmetn assessment based on Lockheed Martin 240-2.2 configuration and December 2003 Bottom-Up Weight #4 (Engineering)","1080.8","1469.3",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Revised Contract Direct Labor and Overhead Rates (Estimating)","10525.5","13669.2",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Learning curve impact of revised SDD and production schedules on prime contractors and subs and vendors (Estimating)","3358","4374",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Increase in standard hardware and general equipment costs. (Estimating)","230.5","330.3",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Increase due to aircraft configuration update, methodology changes, and refined definitions of support requirements (Support)","5330.4","7811.1",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_4_CostVarianceDetail.csv","Procurement Subtotal","23455.1","37639.1",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_5_CostVarianceDetail.csv","MILCON","$M",NA,NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_5_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"3.3",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_5_CostVarianceDetail.csv","Economic adjustment for negative program change. (Economic)",NA,"-1",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_5_CostVarianceDetail.csv","SDD schedule extension for additional design maturation and known and unknown risks (including anti-tamper) (Schedule)","-0.2","-0.2",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_5_CostVarianceDetail.csv","Adjustment for Current and Prior Inflation. (Estimating)","-30.6","-34.1",NA,"JSF","2003-12",NA
-"JSF_2003-12_Cost_Variance_5_CostVarianceDetail.csv","MILCON Subtotal","-30.8","-32",NA,"JSF","2003-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","RDT&E","$M",NA,"Subheader","JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"-234.5",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Adjustment for current and prior escalation. (Estimating)","87.6","100.9",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Revised International funding profile. (Estimating)","0.7","-1.7",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Added additional CV flight test article to reduce risk in accordance with the restructure. (Air Force) (Quantity)","65.4","78.5",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Added additional CV flight test article to reduce risk in accordance with the restructure. (Navy) (Quantity)","65.2","78.5",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Increase for F136 engine Congressional adds in FY09 and FY10 appropriations. (AirForce) (Estimating) ","364.9","430",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Increase for F136 engine Congressional adds in FY09 and FY10 appropriations. (Navy) (Estimating) ","365.7","431.6",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Increase due to revised estimate of required risk funding based on OSD led independent program assessments (Air Force) (Estimating) ","1362.5","1672",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Increase due to revised estimate of required risk funding based on OSD led independent program assessments (Navy). (Estimating)","1360.3","1672",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","Increase for Lockheed Martin and Pratt & Whitney cost overruns. (Air Force) (Estimating)","631.6","775.9",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","  Increase for Lockheed Martin and Pratt & Whitney cost overruns. (Navy) (Estimating) ","642.7","795",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_3_CostVarianceDetail.csv","RDT&E Subtotal ","4946.6","5798.2",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Procurement","$M",NA,"Subheader","JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Current Change Explanations","Year","Year","Subheader","JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Revised escalation indices. (Economic) ",NA,"-11656.6",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Adjustment for current and prior escalation. (Estimating)","101","120.7",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase for revised DoD procurement quantity profile, (i.e., lower nearterm quantity ramp, and procurement completion extended one year to FY 2035). (Air Force) (Schedule)","0","1505.2",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase for revised DoD procurement quantity profile, (i.e., lower nearterm quantity ramp, and procurement completion extended one year to FY 2026). (Navy) (Schedule)","0","643.1",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase for revised slower International procurement quantity profile. (Air Force) (Estimating) ","526","786.9",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase for revised slower International procurement quantity profile. (Navy) (Estimating)","306.1","405",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase due to incorporation of latest prime and subcontractor labor rates. (Air Force) (Estimating) ","1747.2","2615.2",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase due to incorporation of latest prime and subcontractor labor rates. (Navy) (Estimating) ","985.8","1304.5",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase due to wing manufacturing performance, change in subcontractor manufacturing plan, cost of purchased parts, and commonality update. (Air Force) (Estimating)","5618.3","8314.8",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase due to wing manufacturing performance, change in subcontractor manufacturing plan, cost of purchased parts, and commonality update; partially offset by the decrease due to the transition from weight-based estimating to standard-hour content estimating. (Navy) (Estimating)","636.8","926.3",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increases in Propulsion estimate due to raw material prices and hardware/configuration changes. (Air Force) (Estimating) ","4046.4","6050.6",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increases in Propulsion estimate due to raw material prices, hardware/configuration changes, exchange rate updates, and higher than expected lift system hardware costs. (Navy) (Estimating)","1958.9","2591.6",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase in non-recurring/ancillary estimate due to estimate maturity and increase to Diminishing Manufacturing Sources. (Air Force) (Estimating) ","259","291.4",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase in non-recurring/ancillary estimate due to estimate maturity and increase to Diminishing Manufacturing Sources. (Navy) (Estimating)","605.8","696.6",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Adjustment for current and prior escalation. (Support)","13.4","16.2",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Initial Spares increase due to revised estimate. (Air Force) (Support) ","1030","1652.8",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Initial Spares increase due to revised estimate. (Navy) (Support)","421.7","539.8",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase due to cost maturity, definition of customer requirements, and further definition of Service beddown plans. (Air Force) (Support) ","2072.2","2686.5",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Increase due to cost maturity, definition of customer requirements, and further definition of Service beddown plans. (Navy) (Support)","3275.4","4091.3",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Correction to align support and flyaway. (Subtotal)","0","0",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Estimating","2","2.4",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","    (Support) ","(-2.0) ","(-2.4)",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_4_CostVarianceDetail.csv","Procurement Subtotal","23604","23581.9",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_5_CostVarianceDetail.csv","MILCON","$M",NA,NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_5_CostVarianceDetail.csv","Revised escalation indices (Economic)",NA,"-13.8",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_5_CostVarianceDetail.csv","Adjustment for currrent and prior escalation (Estimating)","3.4","4.1",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_5_CostVarianceDetail.csv","Increase for revised MILCON planning (Air Force) (Estimating)","27.6","36.7",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_5_CostVarianceDetail.csv","Increase for revised MILCON planning (Navy) (Estimating)","2.5","3",NA,"JSF","2009-12",NA
-"JSF_2009-12_Cost_Variance_5_CostVarianceDetail.csv","MILCON Subtotal","33.5","30",NA,"JSF","2009-12",NA
-"SM-3_BLOCK_IIA_2011-12_4_CostVarianceDetail.csv","RDT&E $M",NA,NA,"Subheader","SM-3 BLOCK IIA","2011-12",NA
-"SM-3_BLOCK_IIA_2011-12_4_CostVarianceDetail.csv","Additional Aegis SM-3 Block IIA test rounds (Estimating)  ","117.1","153.8",NA,"SM-3 BLOCK IIA","2011-12",NA
-"SM-3_BLOCK_IIA_2011-12_4_CostVarianceDetail.csv","Procurement $M",NA,NA,"Subheader","SM-3 BLOCK IIA","2011-12",NA
-"SM-3_BLOCK_IIA_2011-12_4_CostVarianceDetail.csv","Delayed Aegis SM-3 Block IIA Procurement by one year (Schedule)","-91.5","-124.7",NA,"SM-3 BLOCK IIA","2011-12",NA
-"SM-3_BLOCK_IIA_2014-12_9_CostVarianceDetail.csv","Procurement",NA,NA,"Subheader","SM-3 BLOCK IIA","2014-12",NA
-"SM-3_BLOCK_IIA_2014-12_9_CostVarianceDetail.csv","Aegis realignment to implement SM-3 IB multi-year procurement; reduced SM-3 IIA buys and other program/Congressional adjustments (Estimating)","-243.3","-328.8",NA,"SM-3 BLOCK IIA","2014-12",NA
-"SM-3_BLOCK_IIA_2015-12_1_CostVarianceDetail.csv","RDT&E $M","$M",NA,"Subheader","SM-3 BLOCK IIA","2015-12",NA
-"SM-3_BLOCK_IIA_2015-12_1_CostVarianceDetail.csv","Realigned SM-3 IIA initial procurement to RDT&E for test rounds, SPY-1 modernization, and Aegis Weapon System (AWS) 6.x; other Aegis adjustments. (Estimating)","+362.2","488.5",NA,"SM-3 BLOCK IIA","2015-12",NA
-"SM-3_BLOCK_IIA_2015-12_1_CostVarianceDetail.csv","Procurement","$M",NA,"Subheader","SM-3 BLOCK IIA","2015-12",NA
-"SM-3_BLOCK_IIA_2015-12_1_CostVarianceDetail.csv","Realigned SM-3 IIA missile funding to RDT&E for test rounds. (Estimating)","-189","-250.5",NA,"SM-3 BLOCK IIA","2015-12",NA
+"Filename","CurrentChangeExplanations","BaseYearMil","ThenYearMil","Subsection","Platform","Source","Section"
+"MEADS_Cost_Variance_2013-12_3_CostVarianceDetail_FireUnit.csv","RDT&E","$M",NA,"RDT&E","MEADS","2013-12","FireUnit"
+"MEADS_Cost_Variance_2013-12_3_CostVarianceDetail_FireUnit.csv","Revised escalation indices (Economic)",NA,"-7",NA,"MEADS","2013-12","FireUnit"
+"MEADS_Cost_Variance_2013-12_3_CostVarianceDetail_FireUnit.csv","Adjustment for current and prior escalation (Estimating)","5.9","7",NA,"MEADS","2013-12","FireUnit"
+"MEADS_Cost_Variance_2013-12_3_CostVarianceDetail_FireUnit.csv","Decrease in FY 2013 funding due to Congressional reduction (Estimating)","-43","-52.7",NA,"MEADS","2013-12","FireUnit"
+"MEADS_Cost_Variance_2013-12_3_CostVarianceDetail_FireUnit.csv","RDT&E","-37.1","-52.7",NA,"MEADS","2013-12","FireUnit"
+"MEADS_Cost_Variance_2013-12_6_CostVarianceDetail_Missile.csv","RDT&E","$M",NA,"RDT&E","MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_6_CostVarianceDetail_Missile.csv","Revised escalation indices (Economic)",NA,"-1.1",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_6_CostVarianceDetail_Missile.csv","Adjustment for current and prior escalation (Estimating)","0.9","1.1",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_6_CostVarianceDetail_Missile.csv","RDT&E Subtotal","0.9","0",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","RDT&E","$M",NA,"RDT&E","MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Revised escalatio indicies (Economic)",NA,"-54.2",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Stretch-out of procurement buy profile in FY 2020 through FY 2033. (Schedule)","0","93.3",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Adjustment for current and prior escalation. (Estimating)","4.8","5.8",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Additional Schedule Variance due to the acceleration of 30 missiles in FY 2014 (procurement changed from 56 to 86 missiles). (Schedule)","-208.2","-255.9",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Decrease in FY 2013 funding due to Congressional reduction (Estimating)","-3.5","-4.7",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Adjustment for current and prior escalation. (Support)","0.5","0.8",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Increase in Other Support due to stretch-out of procurement buy profile (Support)","28.1","51.9",NA,"MEADS","2013-12","Missile"
+"MEADS_Cost_Variance_2013-12_7_CostVarianceDetail_Missile.csv","Procurement Subtotal","-178.3","-163",NA,"MEADS","2013-12","Missile"
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","RDT&E","$M",NA,"RDT&E","RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"-6.3",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Removal of Ground Station Technology Refresh development. (Engineering)","-36.7","-49.5",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Addition of Block 30 unique development of Airborne Signals Intelligence Payload. (Engineering)","26.8","36.4",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Addition of Weather upgrades development. (Engineering) Adjustment for current and prior escalation. (Estimating)","21.5","28.8",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv",NA,"3.2","3.9",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Net adjustments due to sequestration and congressional marks to the FY 2012, FY 2013, and FY 2014 PBs (Estimating)","-21.5","-27.7",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Adjustments to reconcile to prior years actual expenditures (Estimating)","-0.3","-0.3",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Revised estimate for System Engineering/Program Managemnet/System Testing to support additional development (Estimating)","97.4","132",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Revised estimate for Government Testing (Estimating)","27.1","36.9",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Revised estimate for Program Office support costs (Estimating)","4.7","6.2",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","Revised Joint Mission Planning System development estimate and inclusion of Block 30 development (Estimating)","25","34.7",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_3_CostVarianceDetail.csv","RDT&E Subtotal","147.2","195.1",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Procurement","$M",NA,"Procurement","RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"-12",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Removal of Ground Station Technology Refresh development. (Engineering)","-21.1","-29",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Removal of Communications Systems Technology Refresh modifications (Engineering)","-28.1","-40.2",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Restored retrofits of Advanced Signals Intelligence Porgram sensors on Block 30 aircraft (engineering)","39.7","57.5",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Addition of Weather Radar modifications (Engineering)","15.9","22.8",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Adjustment for current and prior escalation (Estimating)","6.2","8.2",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Net adjustments due to sequestration and congressional marks for FY 2012, FY 2013, & FY 2014","-120.2","-157.6",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Adjustments to reconcile to prior years actual expenditures (Estimating)","-111.9","-131.6",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Revised estimate of modification for change requests and diminishing manufacturing sources (Estimating)","42","59.7",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Revised estimate and rephasing of program office management/other Government costs due to Blcok 30 continuation (Estimating)","16.5","23.1",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Revised estimate and rephasing of production shutdown costs due to Blcok 30 continuation (Estimating)","49.5","69.4",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Revised estimate for Mode 5/Automatic Dependent Surveillance -Broadcast Out modifications (Estimating)","3.7","6",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Revised estimate for International Maritime Satellite/Communication Security modifications due to rephasing and continuation of Block 30 (Estimating)","29.9","41.3",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Revised estiamte for low cost modifications (Estimating)","2.1","3",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Adjustment to current and prior escalation (Support)","2.5","2.9",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Increase in Other Support Adjustments to reconcile to prior years actual expenditures (Support)","9.5","9.8",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Decrease in Initial Spares. Adjustments to reconcile to prior years actual expenditures. (Support)","-12.9","-8",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_4_CostVarianceDetail.csv","Procurement Subtotal","-76.7","-74.7",NA,"RQ4","201X-XX",NA
+"RQ4_Cost_Variance_201X-XX_5_CostVarianceDetail.csv","Procurement","$M",NA,"Procurement","RQ4","201X-XX",NA
+"JSF_Cost_Variance_1996-XX_3_CostVarianceDetail.csv","Revised escalation rates from 1995 to 1997 (Economic)",NA,"-1230.4",NA,"JSF","1996-XX",NA
+"JSF_Cost_Variance_1996-XX_3_CostVarianceDetail.csv","Adjustment to reflect uniform application of escalation in prior estimate (Estimating)","-139.6","-403.7",NA,"JSF","1996-XX",NA
+"JSF_Cost_Variance_1996-XX_3_CostVarianceDetail.csv","RDT&E Subtotal","-139.6","-1634.1",NA,"JSF","1996-XX",NA
+"JSF_Cost_Variance_2003-12_3_CostVarianceDetail.csv","RDT&E","$M",NA,"RDT&E","JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_3_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"-4.7",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_3_CostVarianceDetail.csv","Economic adjustment for negative program change. (Economic)",NA,"0.1",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_3_CostVarianceDetail.csv","SDD schedule extension for additional design maturation and known and unknown risks (including anti-tamper) (Schedule)","6664.2","7495.4",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_3_CostVarianceDetail.csv","Adjustment for Current and Prior Inflation. (Estimating)","2.7","2.7",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_3_CostVarianceDetail.csv","Model Refinements to the cost estimating refinements (Estimating)","-2.2","-2.7",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_3_CostVarianceDetail.csv","RDT&E Subtotal","6664.7","7490.8",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Procurement","$M",NA,"Procurement","JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"2456.3",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Delay in procure,emt start from FY 2006 to FY 2007 and revised annual quantity profiles (Schedule)","1359.5","5540.4",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Increased quantity procurement of Electro Optical Tracking System (EOTS) (Engineering)","831","1083.8",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Multi-Year Procurement delayed from 2012 to 2014 due to production start delay and revised annual procurement profiles (Estimating)","739.4","904.7",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Design maturation to reflet governmetn assessment based on Lockheed Martin 240-2.2 configuration and December 2003 Bottom-Up Weight #4 (Engineering)","1080.8","1469.3",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Revised Contract Direct Labor and Overhead Rates (Estimating)","10525.5","13669.2",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Learning curve impact of revised SDD and production schedules on prime contractors and subs and vendors (Estimating)","3358","4374",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Increase in standard hardware and general equipment costs. (Estimating)","230.5","330.3",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Increase due to aircraft configuration update, methodology changes, and refined definitions of support requirements (Support)","5330.4","7811.1",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_4_CostVarianceDetail.csv","Procurement Subtotal","23455.1","37639.1",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_5_CostVarianceDetail.csv","MILCON","$M",NA,NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_5_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"3.3",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_5_CostVarianceDetail.csv","Economic adjustment for negative program change. (Economic)",NA,"-1",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_5_CostVarianceDetail.csv","SDD schedule extension for additional design maturation and known and unknown risks (including anti-tamper) (Schedule)","-0.2","-0.2",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_5_CostVarianceDetail.csv","Adjustment for Current and Prior Inflation. (Estimating)","-30.6","-34.1",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2003-12_5_CostVarianceDetail.csv","MILCON Subtotal","-30.8","-32",NA,"JSF","2003-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","RDT&E","$M",NA,"RDT&E","JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Revised escalation indices. (Economic)",NA,"-234.5",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Adjustment for current and prior escalation. (Estimating)","87.6","100.9",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Revised International funding profile. (Estimating)","0.7","-1.7",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Added additional CV flight test article to reduce risk in accordance with the restructure. (Air Force) (Quantity)","65.4","78.5",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Added additional CV flight test article to reduce risk in accordance with the restructure. (Navy) (Quantity)","65.2","78.5",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Increase for F136 engine Congressional adds in FY09 and FY10 appropriations. (AirForce) (Estimating) ","364.9","430",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Increase for F136 engine Congressional adds in FY09 and FY10 appropriations. (Navy) (Estimating) ","365.7","431.6",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Increase due to revised estimate of required risk funding based on OSD led independent program assessments (Air Force) (Estimating) ","1362.5","1672",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Increase due to revised estimate of required risk funding based on OSD led independent program assessments (Navy). (Estimating)","1360.3","1672",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","Increase for Lockheed Martin and Pratt & Whitney cost overruns. (Air Force) (Estimating)","631.6","775.9",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","  Increase for Lockheed Martin and Pratt & Whitney cost overruns. (Navy) (Estimating) ","642.7","795",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_3_CostVarianceDetail.csv","RDT&E Subtotal ","4946.6","5798.2",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Procurement","$M",NA,"Procurement","JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Current Change Explanations","Year","Year","Current Change Explanations","JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Revised escalation indices. (Economic) ",NA,"-11656.6",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Adjustment for current and prior escalation. (Estimating)","101","120.7",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase for revised DoD procurement quantity profile, (i.e., lower nearterm quantity ramp, and procurement completion extended one year to FY 2035). (Air Force) (Schedule)","0","1505.2",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase for revised DoD procurement quantity profile, (i.e., lower nearterm quantity ramp, and procurement completion extended one year to FY 2026). (Navy) (Schedule)","0","643.1",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase for revised slower International procurement quantity profile. (Air Force) (Estimating) ","526","786.9",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase for revised slower International procurement quantity profile. (Navy) (Estimating)","306.1","405",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase due to incorporation of latest prime and subcontractor labor rates. (Air Force) (Estimating) ","1747.2","2615.2",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase due to incorporation of latest prime and subcontractor labor rates. (Navy) (Estimating) ","985.8","1304.5",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase due to wing manufacturing performance, change in subcontractor manufacturing plan, cost of purchased parts, and commonality update. (Air Force) (Estimating)","5618.3","8314.8",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase due to wing manufacturing performance, change in subcontractor manufacturing plan, cost of purchased parts, and commonality update; partially offset by the decrease due to the transition from weight-based estimating to standard-hour content estimating. (Navy) (Estimating)","636.8","926.3",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increases in Propulsion estimate due to raw material prices and hardware/configuration changes. (Air Force) (Estimating) ","4046.4","6050.6",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increases in Propulsion estimate due to raw material prices, hardware/configuration changes, exchange rate updates, and higher than expected lift system hardware costs. (Navy) (Estimating)","1958.9","2591.6",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase in non-recurring/ancillary estimate due to estimate maturity and increase to Diminishing Manufacturing Sources. (Air Force) (Estimating) ","259","291.4",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase in non-recurring/ancillary estimate due to estimate maturity and increase to Diminishing Manufacturing Sources. (Navy) (Estimating)","605.8","696.6",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Adjustment for current and prior escalation. (Support)","13.4","16.2",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Initial Spares increase due to revised estimate. (Air Force) (Support) ","1030","1652.8",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Initial Spares increase due to revised estimate. (Navy) (Support)","421.7","539.8",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase due to cost maturity, definition of customer requirements, and further definition of Service beddown plans. (Air Force) (Support) ","2072.2","2686.5",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Increase due to cost maturity, definition of customer requirements, and further definition of Service beddown plans. (Navy) (Support)","3275.4","4091.3",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Correction to align support and flyaway. (Subtotal)","0","0",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Estimating","2","2.4",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","    (Support) ","(-2.0) ","(-2.4)",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_4_CostVarianceDetail.csv","Procurement Subtotal","23604","23581.9",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_5_CostVarianceDetail.csv","MILCON","$M",NA,NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_5_CostVarianceDetail.csv","Revised escalation indices (Economic)",NA,"-13.8",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_5_CostVarianceDetail.csv","Adjustment for currrent and prior escalation (Estimating)","3.4","4.1",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_5_CostVarianceDetail.csv","Increase for revised MILCON planning (Air Force) (Estimating)","27.6","36.7",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_5_CostVarianceDetail.csv","Increase for revised MILCON planning (Navy) (Estimating)","2.5","3",NA,"JSF","2009-12",NA
+"JSF_Cost_Variance_2009-12_5_CostVarianceDetail.csv","MILCON Subtotal","33.5","30",NA,"JSF","2009-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2011-12_4_CostVarianceDetail.csv","RDT&E $M",NA,NA,"RDT&E $M","SM-3 BLOCK IIA","2011-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2011-12_4_CostVarianceDetail.csv","Additional Aegis SM-3 Block IIA test rounds (Estimating)  ","117.1","153.8",NA,"SM-3 BLOCK IIA","2011-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2011-12_4_CostVarianceDetail.csv","Procurement $M",NA,NA,"Procurement $M","SM-3 BLOCK IIA","2011-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2011-12_4_CostVarianceDetail.csv","Delayed Aegis SM-3 Block IIA Procurement by one year (Schedule)","-91.5","-124.7",NA,"SM-3 BLOCK IIA","2011-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2014-12_9_CostVarianceDetail.csv","Procurement",NA,NA,"Procurement","SM-3 BLOCK IIA","2014-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2014-12_9_CostVarianceDetail.csv","Aegis realignment to implement SM-3 IB multi-year procurement; reduced SM-3 IIA buys and other program/Congressional adjustments (Estimating)","-243.3","-328.8",NA,"SM-3 BLOCK IIA","2014-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2015-12_1_CostVarianceDetail.csv","RDT&E $M","$M",NA,"RDT&E $M","SM-3 BLOCK IIA","2015-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2015-12_1_CostVarianceDetail.csv","Realigned SM-3 IIA initial procurement to RDT&E for test rounds, SPY-1 modernization, and Aegis Weapon System (AWS) 6.x; other Aegis adjustments. (Estimating)","+362.2","488.5",NA,"SM-3 BLOCK IIA","2015-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2015-12_1_CostVarianceDetail.csv","Procurement","$M",NA,"Procurement","SM-3 BLOCK IIA","2015-12",NA
+"SM-3_BLOCK_IIA_SM-3_SARs_2015-12_1_CostVarianceDetail.csv","Realigned SM-3 IIA missile funding to RDT&E for test rounds. (Estimating)","-189","-250.5",NA,"SM-3 BLOCK IIA","2015-12",NA
