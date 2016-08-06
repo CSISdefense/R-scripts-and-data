@@ -109,7 +109,8 @@ SplitAtBlankRow<-function(df,
                           sDirectory="",
                           HeaderName="",
                           HeaderList,
-                          Section=NA){
+                          Section=NA,
+                          Source=NA){
     
     Header<-NA
     if(nrow(df)>1){
@@ -129,6 +130,12 @@ SplitAtBlankRow<-function(df,
             df$Section<-Section
         }
         
+        
+        if(!is.na(Source)){
+          df$Source<-Source
+        }
+        
+        
         #Second, split up if there are remaining blank rows
         if(any(BlankRows)){
             #Remove any blank lines at the start of the extract
@@ -143,9 +150,15 @@ SplitAtBlankRow<-function(df,
             )
             
             #Recursing
+            
+            #Check if there's a filled in section to pass on to the next block
             Section<-NA
             if ("Section" %in% colnames(FirstExtract)){
                 Section<-min(FirstExtract$Section)
+            }
+            #Check if there's a filled in source to pass on to the next block
+            if ("Source" %in% colnames(FirstExtract)){
+              Source<-min(FirstExtract$Source)
             }
             
             SplitAtBlankRow(df[(NextBlankLine+1):length(BlankRows),],
@@ -153,7 +166,8 @@ SplitAtBlankRow<-function(df,
                             Increment=Increment+1,
                             sDirectory=sDirectory,
                             HeaderList=HeaderList,
-                            Section=Section)
+                            Section=Section,
+                            Source=Source)
         }
         else{
             # Label and then remove columns that are completely blank
@@ -176,7 +190,11 @@ SplitAtBlankRow<-function(df,
     }
 }
 
-ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName=NA,sDirectory=""){
+ReadAndSplit<-function(sFileName,
+                       Platform=NA,
+                       Source=NA,
+                       sSheetName=NA,
+                       sDirectory=""){
     lookup.RawHeaderList<-read.csv("RawHeaderList.csv",
                                    na.strings=c("NA",""),
                                    stringsAsFactors = FALSE
@@ -216,7 +234,7 @@ ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName=NA,sDirectory=
     if(!is.na(Platform)){
         df$Platform<-Platform
     }
-    if(!is.na(Platform)){
+    if(!is.na(Source)){
         df$Source<-Source
     }
     sPrefix<-ifelse(sSheetName %in% c("Sheet1"),NA,sSheetName)
@@ -225,7 +243,8 @@ ReadAndSplit<-function(sFileName,Platform=NA,Source=NA,sSheetName=NA,sDirectory=
     SplitAtBlankRow(df,
                     sPrefix,
                     sDirectory=sDirectory,
-                    HeaderList=lookup.RawHeaderCleaned
+                    HeaderList=lookup.RawHeaderCleaned,
+                    Source=Source
     )
 }
 

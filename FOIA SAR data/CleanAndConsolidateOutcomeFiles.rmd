@@ -49,6 +49,16 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
              "MEADS//")
 
 
+dfCostSummary<-rbind.fill(
+    BulkImport(file.path("MEADS","Processing"),"CostSummary")
+    # BulkImport(file.path("NATO AGS","Processing"),"UnitCostHistory"),
+    # BulkImport(file.path("SM-3 BLOCK IIA","Processing"),"FYDPcost")
+)
+write.csv(dfCostSummary,
+          "Data//CostSummary.csv"
+          ,row.names=FALSE)
+
+
 ```
 
 
@@ -69,7 +79,6 @@ ReadAndSplit("2013 SM-3 Budget Doc Data Draw.xlsx",
              "Sheet1",
              "SM-3 BLOCK IIA//")
 
-
 ReadAndSplit("2014 SM-3 Budget Doc Data Draw.xlsx",
              "SM-3 BLOCK IIA","2014",
              "Sheet1",
@@ -79,6 +88,12 @@ ReadAndSplit("2015 SM-3 Budget Doc Data Draw.xlsx",
              "SM-3 BLOCK IIA","2015",
              "Sheet1",
              "SM-3 BLOCK IIA//")
+
+debug(SplitAtBlankRow)
+ReadAndSplit("All Docs_M777 Data Draw.xlsx",
+             "LW155 M777",NA,
+             "All Years_vol2.summary",
+             "LW155 M777//")
 
 
 dfBudgetHistory<-rbind.fill(
@@ -196,7 +211,7 @@ ReadAndSplit("2015-12 JSF SAR DataDraw.xlsx",
 
 
 ReadAndSplit("SM-3 IIA Data Draw.xlsx",
-             "SM-3 BLOCK IIA","Variable",
+             "SM-3 BLOCK IIA",NA,
              "SM-3 SARs",
              "SM-3 BLOCK IIA//")
 
