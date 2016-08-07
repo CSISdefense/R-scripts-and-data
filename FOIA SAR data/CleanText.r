@@ -196,15 +196,16 @@ ReadAndSplit<-function(sFileName,
                                    na.strings=c("NA",""),
                                    stringsAsFactors = FALSE
     )
-    lookup.RawHeaderCleaned<-read.csv("CleanedHeaderList.csv",
+    lookup.CleanHeaderList<-read.csv("CleanedHeaderList.csv",
                                       na.strings=c("NA",""),
                                       stringsAsFactors = FALSE)
     wb<-loadWorkbook(file.path(sDirectory,sFileName), create = TRUE)
     df<-readWorksheet(wb, 
                       sheet = sSheetName,
-                      header = FALSE)
+                      header = FALSE,
+                      dateTimeFormat = "%Y-%m-%d")
     
-   
+   getOption("XLConnect.dateTimeFormat")
     
     #If there's more columns in the header lookup, limit the lookup
     #to only those cases where there is no material in the unused columns
@@ -242,7 +243,7 @@ ReadAndSplit<-function(sFileName,
     SplitAtBlankRow(df,
                     sPrefix,
                     sDirectory=sDirectory,
-                    HeaderList=lookup.RawHeaderCleaned,
+                    HeaderList=lookup.CleanHeaderList,
                     Source=Source
     )
 }
