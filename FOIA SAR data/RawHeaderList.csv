@@ -181,11 +181,35 @@ Procurement $M,NA,NA,,,,,,,,,,,FALSE,,,Procurement $M,,
 NA,$M,NA,,,,,,,,,,,TRUE,,,,,
 1998_vol2.2summary - Feb 1997,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,TRUE,,,,,1997-02
 RDT&E Budget Item Justification Sheet (R-2 Exhibit),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,TRUE,,,,,
-Budget Activity  5 - Engineering and Manufacturing Development,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,TRUE,,,RDT&E Budget Activity  5 - Engineering and Manufacturing Development,,
+Budget Activity  5 - Engineering and Manufacturing Development,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,FALSE,,,RDT&E Budget Activity  5 - Engineering and Manufacturing Development,,
 COST (in thousands),FY 1996 Actual,FY 1997 Estimate,FY 1998 Estimate ,FY 1999 Estimate ,FY 2000 Estimate,FY 2001 Estimate,FY 2002 Estimate,FY 2003 Estimate,Cost to Complete,Total Cost,,,TRUE,FYDPcost6,,,Then Year $T,
 1999_vol2.2summary - Feb 1998,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,1998-02
-Budget Activity 5 - Engineering and Manufacturing Development,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,RDT&E Budget Activity  5 - Engineering and Manufacturing Development,,
-COST (in thousands),FY 1997 Actual,FY 1998 Estimate ,FY 1999 Estimate ,FY 2000 Estimate,FY 2001 Estimate,FY 2002 Estimate,FY 2003 Estimate,Cost to Complete,Total Cost,,,,TRUE,FYDPcost,,,,
-2000_000oo_0604854A - Feb 1999,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,1999-02
-COST (in thousands) ,FY 1999 Estimate,FY 2000 Estimate,FY 2001 Estimate,FY 2002 Estimate,FY 2003 Estimate,FY 2004 Estimate,FY 2005 Estimate,Cost to  Complete,Total Cost,,,,TRUE,,,,,
-Other Program Funding Summary ,FY 1998,FY 1999,FY 2000,FY 2001,FY 2002,FY 2003,FY 2004,FY 2005,To Complete,Total Cost ,,,TRUE,,,Other Program Element,,
+Budget Activity 5 - Engineering and Manufacturing Development,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,FALSE,,,RDT&E Budget Activity  5 - Engineering and Manufacturing Development,,
+COST (in thousands),FY 1997 Actual,FY 1998 Estimate ,FY 1999 Estimate ,FY 2000 Estimate,FY 2001 Estimate,FY 2002 Estimate,FY 2003 Estimate,Cost to Complete,Total Cost,,,,TRUE,FYDPcost,,,Then Year $T,
+2000_000oo_0604854A - Feb 1999,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,
+Other Program Funding Summary ,FY 1998,FY 1999,FY 2000,FY 2001,FY 2002,FY 2003,FY 2004,FY 2005,To Complete,Total Cost ,,,FALSE,FYDPcostExtraHist,,Other Program Element,,
+2001_vol2.summary - Feb 2000,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,2000-02
+COST (in thousands),FY 1999 Actual,FY 2000 Estimate,FY 2001 Estimate,FY 2002 Estimate,FY 2003 Estimate,FY 2004 Estimate,FY 2005 Estimate,Cost to Complete,Total Cost,,,,TRUE,FYDPcost,,,Then Year $T,
+COST (in thousands) ,FY 1999 Estimate,FY 2000 Estimate,FY 2001 Estimate,FY 2002 Estimate,FY 2003 Estimate,FY 2004 Estimate,FY 2005 Estimate,Cost to  Complete,Total Cost,,,,TRUE,FYDPcost,,,Then Year $T,
+Other Program Funding Summary,Prior Year,FY 1999,FY 2000,FY2001,FY 2002,FY 2003,FY 2004,FY 2005,To Complete,Total Cost,,,TRUE,FYDPcostPriorOCO,,,Then Year $T,
+2002_vol2.2summary - June 2001,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,TRUE,,,,,2001-06
+COST (in thousands),FY 2000 Actual,FY 2001 Estimate,FY 2002 Estimate,FY 2003 Estimate,FY 2004 Estimate,FY 2005 Estimate,FY 2006 Estimate,Fy 2007 Estimate,Cost to Complete,Total Cost,,,TRUE,FYDPcost6,,,Then Year $T,
+Other Program Funding Summary,FY 2000,FY2001,FY 2002,FY 2003,FY 2004,FY 2005,FY 2006,FY 2007,To Complete,Total Cost,,,FALSE,FYDPcost6,,Other Program Element,Then Year $T,
+2003_vol2.2summary - Feb 2002,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,2002-02
+COST (in thousands),FY 2001 Actual,FY 2002 Estimate,FY 2003 Estimate,FY 2004 Estimate,FY 2005 Estimate,FY 2006 Estimate,Fy 2007 Estimate,Cost to Complete,Total Cost,,,,TRUE,FYDPcost,,,Then Year $T,
+Other Program Funding Summary,FY2001,FY 2002,FY 2003,FY 2004,FY 2005,FY 2006,FY 2007,To Complete,Total Cost,,,,FALSE,FYDPcost,,Other Program Element,Then Year $T,
+2004_vol2.2summary - Feb 2003,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,TRUE,,,,,2003-02
+System Development and Demonstration,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,FALSE,,,RDT&E Budget Activity 5 - System Design and Development,,
+COST (in thousands),FY 2002 Actual,FY 2003 Estimate,FY 2004 Estimate,FY 2005 Estimate,FY 2006 Estimate,FY 2007 Estimate,FY 2008 Estimate,FY 2009 Estimate,Cost to Complete,Total Cost,,,TRUE,FYDPcost6,,,Then Year $T,
+Other Program Funding Summary,FY 2002,FY 2003,FY 2004,FY 2005,FY 2006,FY 2007,FY 2008,FY 2009,Cost Complete,Total Cost,,,FALSE,FYDPcost,,Other Program Element,Then Year $T,
+2005_vol2.2summary - Feb 2004,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,2004-02
+COST (in thousands),FY 2003 Actual,FY 2004 Estimate,FY 2005 Estimate,FY 2006 Estimate,FY 2007 Estimate,FY 2008 Estimate,FY 2009 Estimate,Cost to Complete,Total Cost,,,,TRUE,FYDPcost,,Other Program Element,Then Year $T,
+2006_vol2.2summary - Feb 2005,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,2005-02
+Budget Activity 5 - System Development and Demonstration ,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,FALSE,,,RDT&E Budget Activity 5 - System Design and Development,,
+COST (in thousands) ,FY 2004 Actual,FY 2005 Actual ,FY 2006 Actual,FY 2007 Actual ,FY 2008 Actual,FY 2009 Actual ,FY 2010 Actual,Cost to Complete,Total Cost ,,,,TRUE,FYDPcost,,,Then Year $T,
+2007_vol2.2summary - Feb 2006,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,2006-02
+COST (in thousands) ,FY 2005 Actual,FY 2006 Actual,FY 2007 Actual,FY 2008 Actual,FY 2009 Actual,FY 2010 Actual,FY 2011 Actual,Cost to Complete,Total Cost ,,,,TRUE,FYDPcost,,,Then Year $T,
+35827,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,1998-02
+Appropriation / Budget Activity/Serial No:,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,TRUE,,,,,
+"Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009",NA,NA,NA,NA,NA,NA,NA,NA,NA,,,,FALSE,,,"Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009",,
+NA,FY 1997,FY 1998,FY 1999,FY 2000,FY 2001,FY 2002,FY 2003,To Complete,Total Prog,,,,TRUE,FYDPcost,,,,

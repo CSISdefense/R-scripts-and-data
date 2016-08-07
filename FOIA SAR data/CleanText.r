@@ -65,8 +65,6 @@ CleanExtractAndWrite<-function(df,
   
   
   sHeader<-NA
-  df<-df[!df$Remove==TRUE | is.na(df$Remove) | !is.na(df$Header),]
-  
   # Label and then remove columns that are completely blank
   # in this extraction. E.g. some extractions are 8 columns, some are 4.
   if(any(!is.na(df$Header))&
@@ -74,7 +72,7 @@ CleanExtractAndWrite<-function(df,
     sHeader<-max(as.character(df$Header),na.rm=TRUE)
     HeaderList<-subset(HeaderList,Header==sHeader,select=-c(Header))
     colnames(df)[1:ncol(HeaderList)]<-HeaderList[1,]
-    df<-subset(df,is.na(Header)|df$Remove==FALSE,select=-c(Header))
+    df<-subset(df,is.na(Remove)|df$Remove==FALSE,select=-c(Header))
   }
   df<-subset(df,select=-c(Remove))
   BlankCols<-colSums(!is.na(df)) == 0
@@ -206,6 +204,9 @@ ReadAndSplit<-function(sFileName,
     df<-readWorksheet(wb, 
                       sheet = sSheetName,
                       header = FALSE)
+    
+   
+    
     #If there's more columns in the header lookup, limit the lookup
     #to only those cases where there is no material in the unused columns
     if(ncol(df)+1==(ncol(lookup.RawHeaderList)-6)){#One Column
@@ -224,7 +225,6 @@ ReadAndSplit<-function(sFileName,
         BlankRows<-rowSums(!is.na(MaterialInUnusuedColumns)) == 0
         lookup.RawHeaderList<-lookup.RawHeaderList[BlankRows,]
     }
-    
     
     df<- join(
         df, 

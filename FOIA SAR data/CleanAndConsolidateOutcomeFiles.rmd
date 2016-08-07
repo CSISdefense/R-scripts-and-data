@@ -48,6 +48,12 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
              "Cost Summary",
              "MEADS//")
 
+debug(ReadAndSplit)
+ReadAndSplit("M777 LW155 GAO Data Draw.xlsx",
+             "LW155 M777",NA,
+             "Sheet1",
+             "LW155 M777//")
+
 
 dfCostSummary<-rbind.fill(
     BulkImport(file.path("MEADS","Processing"),"CostSummary")
@@ -89,11 +95,99 @@ ReadAndSplit("2015 SM-3 Budget Doc Data Draw.xlsx",
              "Sheet1",
              "SM-3 BLOCK IIA//")
 
-debug(SplitAtBlankRow)
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777",NA,
              "All Years_vol2.summary",
              "LW155 M777//")
+
+ReadAndSplit("All Docs_M777 Data Draw.xlsx",
+             "LW155 M777","1998-02",
+             "1999_PMC_BOOK.summary",
+             "LW155 M777//")
+
+ReadAndSplit("All Docs_M777 Data Draw.xlsx",
+             "LW155 M777",NA,
+             "All Years_RDTEN_BA_4",
+             "LW155 M777//")
+
+ReadAndSplit("All Docs_M777 Data Draw.xlsx",
+             "LW155 M777",NA,
+             "All Years_RDTEN_BA_4",
+             "LW155 M777//")
+
+
+ReadAndSplit("All Docs_M777 Data Draw.xlsx",
+             "LW155 M777",NA,
+             "All Years_wtcv",
+             "LW155 M777//")
+
+
+ReadAndSplit("All Docs_M777 Data Draw.xlsx",
+             "LW155 M777",NA,
+             "All Years_N_BA4",
+             "LW155 M777//")
+
+
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",NA,
+             "Program Overview",
+             "NATO AGS//")
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2004,
+             "2004",
+             "NATO AGS//")
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2007,
+             "2007",
+             "NATO AGS//")
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2009,
+             "2009",
+             "NATO AGS//")
+
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2010,
+             "2010",
+             "NATO AGS//")
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2012,
+             "2012",
+             "NATO AGS//")
+
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2012,
+             "2012",
+             "NATO AGS//")
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2013,
+             "2013",
+             "NATO AGS//")
+
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2014,
+             "2014",
+             "NATO AGS//")
+
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2015,
+             "2015",
+             "NATO AGS//")
+
+
+ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
+             "NATO AGS",2016,
+             "2016",
+             "NATO AGS//")
 
 
 dfBudgetHistory<-rbind.fill(
