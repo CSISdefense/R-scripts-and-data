@@ -72,9 +72,8 @@ CleanExtractAndWrite<-function(df,
     sHeader<-max(as.character(df$Header),na.rm=TRUE)
     HeaderList<-subset(HeaderList,Header==sHeader,select=-c(Header))
     colnames(df)[1:ncol(HeaderList)]<-HeaderList[1,]
-    df<-subset(df,is.na(Remove)|df$Remove==FALSE,select=-c(Header))
+    df<-subset(df,is.na(Remove)|df$Remove==FALSE,select=-c(Header,Remove))
   }
-  df<-subset(df,select=-c(Remove))
   BlankCols<-colSums(!is.na(df)) == 0
   df<-df[,!BlankCols]
   
