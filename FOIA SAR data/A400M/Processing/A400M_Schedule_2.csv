@@ -1,0 +1,7 @@
+"Col1","Col2","Col3","Col4","Platform"
+"Reasons for variations from approved ISD",NA,NA,NA,"A400M"
+"Factor","Increase (months)","Decrease (months)","Explanation","A400M"
+"Changed Budgetary Priorities","16",NA,"Change in the customers' requirement flowing from changed budgetary priorities","A400M"
+"Risk Differential",NA,"10","Difference between the risk allowed for in the msot likely (50%) and highest acceptable (90%) estimates at Main Gate (-10 months)","A400M"
+"Total","16","-10",NA,"A400M"
+"Net Variation","6",NA,NA,"A400M"

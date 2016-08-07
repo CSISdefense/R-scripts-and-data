@@ -201,6 +201,45 @@ write.csv(dfBudgetHistory,
 
 ```
 
+```{r Schedule}
+#************************************Schedule *****************************
+
+
+ReadAndSplit("NATO AGS Schedule Info.xlsx",
+             "NATO AGS",NA,
+             "Schedule",
+             "NATO AGS//")
+
+
+ReadAndSplit("LW155 M777 Schedule Info.xlsx",
+             "LW155 M777",NA,
+             "Schedule",
+             "LW155 M777//")
+
+
+ReadAndSplit("SM-3 IIA Schedule Info.xlsx",
+             "SM-3 BLOCK IIA",NA,
+             "Schedule",
+             "SM-3 BLOCK IIA//")
+
+# debug(ReadAndSplit) Posit.date introduces error
+# ReadAndSplit("MEADS Schedule Info.xlsx",
+#              "MEADS",NA,
+#              "Schedule",
+#              "MEADS//")
+
+ReadAndSplit("JSF Schedule Info.xlsx",
+             "JSF",NA,
+             "Schedule",
+             "JSF//")
+
+ReadAndSplit("A400M Schedule Info.xlsx",
+             "A400M",NA,
+             "Schedule",
+             "A400M//")
+
+```
+
 ```{r UnitCostHistory}
 #*************************************Unit Cost History***************************
 
