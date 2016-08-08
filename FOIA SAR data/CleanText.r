@@ -237,7 +237,7 @@ ReadAndSplit<-function(sFileName,
     if(!is.na(Source)){
         df$Source<-Source
     }
-    sPrefix<-ifelse(sSheetName %in% c("Sheet1"),NA,sSheetName)
+    sPrefix<-ifelse(sSheetName %in% c("Sheet1","Table 1"),NA,sSheetName)
     #Remove type names, as we figure that out based on the headers.
     # df<-subset(df,Type!="Type" | is.na(Type))
     SplitAtBlankRow(df,

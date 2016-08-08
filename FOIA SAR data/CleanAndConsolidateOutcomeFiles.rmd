@@ -28,8 +28,8 @@ require(reshape2)
 # require(gdata)
 require(XLConnect)
 require(plyr)
-setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
-# setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
+# setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
+setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
 source("CleanText.r")
 ```
 
@@ -103,11 +103,6 @@ ReadAndSplit("All Docs_M777 Data Draw.xlsx",
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777","1998-02",
              "1999_PMC_BOOK.summary",
-             "LW155 M777//")
-
-ReadAndSplit("All Docs_M777 Data Draw.xlsx",
-             "LW155 M777",NA,
-             "All Years_RDTEN_BA_4",
              "LW155 M777//")
 
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
@@ -292,6 +287,13 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
              "MEADS//")
 
 
+ReadAndSplit("Cleaned PATRIOT_MEADS_CAP-SAR_31_DEC_2011.xlsx",
+             "MEADS","2011-12",
+             "Cost Variance",
+             "MEADS//")
+
+
+
 
 ReadAndSplit("RQ4 Data Draw.xlsx",
              "RQ4","201X-XX",
@@ -303,6 +305,9 @@ ReadAndSplit("JSF 1996 SAR Data Draw.xlsx",
              "JSF","1996-XX",
              "Cost Variance",
              "JSF//")
+
+
+
 
 
 ReadAndSplit("JSF Dec 2003 SAR Data Draw.xlsx",
@@ -323,6 +328,12 @@ ReadAndSplit("JSF Dec 2009 SAR Data Draw.xlsx",
              "Cost Variance",
              "JSF//")
 
+ReadAndSplit("Cleaned 09-F-1079_JSF_SARS_1996_Present.xlsx",
+             "JSF","2009-12",
+             "Table 1",
+             "JSF//")
+
+
 
 
 ReadAndSplit("JSF Dec 2010 SAR Data Draw.xlsx",
@@ -330,10 +341,25 @@ ReadAndSplit("JSF Dec 2010 SAR Data Draw.xlsx",
              "Cost Variance",
              "JSF//")
 
+ReadAndSplit("Cleaned F-35-SAR-25_DEC_2010.xlsx",
+             "JSF","2010-12",
+             "Pg 43",
+             "JSF//")
+
+
+
 ReadAndSplit("JSF Dec 2013 SAR Data Draw.xlsx",
              "JSF","2013-12",
              "Cost Variance",
              "JSF//")
+
+
+ReadAndSplit("Cleaned 14-F-0402_DOC_27_F-35December2013SAR.xlsx",
+             "JSF","2013-12",
+             "Pg 80",
+             "JSF//")
+
+
 
 
 ReadAndSplit("2015-12 JSF SAR DataDraw.xlsx",
@@ -342,11 +368,22 @@ ReadAndSplit("2015-12 JSF SAR DataDraw.xlsx",
              "JSF//")
 
 
+ReadAndSplit("Cleaned 15-F-0540_F-35_SAR_Dec_2014.xlsx",
+             "JSF","2014-12",
+             "Pg 75",
+             "JSF//")
+ReadAndSplit("Cleaned 16-F-0402_DOC_42_F-35_DEC_2015_SAR.xlsx",
+             "JSF","2015-12",
+             "Pg 75",
+             "JSF//")
+
+
 
 ReadAndSplit("SM-3 IIA Data Draw.xlsx",
              "SM-3 BLOCK IIA",NA,
              "SM-3 SARs",
              "SM-3 BLOCK IIA//")
+
 
 
 
