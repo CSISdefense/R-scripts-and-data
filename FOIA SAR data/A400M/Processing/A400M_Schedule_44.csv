@@ -1,7 +1,7 @@
 "Col1","Col2","Col3","Col4","Platform"
 "Timescale Variation",NA,NA,NA,"A400M"
 "Date","Variation (months)","Factor","Explanation","A400M"
-"2015-01-01 00:00:00","6","Technical Factors","Updated programme estimate based on an assessment of the Airbus Defence & Space revised delivery schedule","A400M"
+"2015-01-01","6","Technical Factors","Updated programme estimate based on an assessment of the Airbus Defence & Space revised delivery schedule","A400M"
 "Historic","***","Procurement Processes (International Collaboration)","A change due to programme rebalancing","A400M"
 "Historic","***","Technical Factors","Updated programme estimate based upon A400M Task Force outputs and Air Support Cluster assessment","A400M"
 "Historic","***","Technical Factors","Updated programme proposal received from Airbus Military, including revised production approach","A400M"
