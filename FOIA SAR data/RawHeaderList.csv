@@ -341,7 +341,7 @@ Appropriations Budget Activity/Serial Number,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 NA,Prior Years,FY 1999,FY 2000,FY 2001,FY 2002,FY 2003,FY 2004,FY 2005,FY 2006,FY 2007,To Complete,Total Program,TRUE,FYDPprior9year,,,,,,1999
 NA,FY 00,NA,NA,FY 01,NA,NA,FY 02,NA,NA,FY 03,NA,NA,TRUE,UnitCost4year,,,,,,2000
 NA,Total Cost,Qty,Unit Cost,Total Cost,Qty,Unit Cost,Total Cost,Qty,Unit Cost,Total Cost,Qty,Unit Cost,TRUE,UnitCost4year,,,,,,
-NA,$0 ,Each,$0 ,$0 ,Each,$0 ,$0 ,Each,$0 ,$0 ,Each,$0 ,TRUE,UnitCost4year,,,,,,
+NA,$000,Each,$000,$000,Each,$000,$000,Each,$000,$000,Each,$000,TRUE,UnitCost4year,,,,Thousands,,
 2003_wtcv G01700 - Feb 2002,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,TRUE,,G01700,BudgetAccount,"Procurement: Wheeled and Tracked Vehicles, Army",,2002-02,
 2004_wctv G01700 Feb 2003,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,TRUE,,G01700,BudgetAccount,"Procurement: Wheeled and Tracked Vehicles, Army",,2003-02,
 NA,Prior Years,FY 2001,FY 2002,FY 2003,FY 2004,FY 2005,FY 2006,FY 2007,FY 2008,FY 2009,To Complete,Total Program,TRUE,FYDPprior9year,,,,,,2001
@@ -352,6 +352,7 @@ NA,Prior Years,FY 2003,FY 2004,FY 2005,FY 2006,FY 2007,FY 2008,FY 2009,FY 2010,F
 NA,Prior Years,FY 2005,FY 2006,FY 2007,FY 2008,FY 2009,FY 2010,FY 2011,To Complete,Total Program,,,TRUE,FYDPprior7year,,,,,,2005
 WTCV Cost Elements,FY 05,NA,NA,FY 06,NA,NA,FY 07,NA,NA,,,,TRUE,UnitCost3year,,BudgetAccount,"Procurement: Wheeled and Tracked Vehicles, Army",,,2005
 NA,Total Cost,Qty,Unit Cost,Total Cost,Qty,Unit Cost,Total Cost,Qty,Unit Cost,,,,TRUE,UnitCost3year,,,,,,
+NA,$000,Units,$000,$000,Units,$000,$000,Units,$000,,,,TRUE,UnitCost3year,,,,Thousands,,
 2008_wctv G01700 - Feb 2007,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,TRUE,,G01700,BudgetAccount,"Procurement: Wheeled and Tracked Vehicles, Army",,2007-02,
 NA,Prior Years,FY 2006,FY 2007,FY 2008,FY 2009,FY 2010,FY 2011,FY 2012,FY 2013,To Complete,Total Program,,TRUE,FYDPprior8year,,,,,,2006
 2009_wctv G01700 - Feb 2008,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,TRUE,,G01700,BudgetAccount,"Procurement: Wheeled and Tracked Vehicles, Army",,2008-02,
@@ -366,5 +367,3 @@ NA,Prior Years,FY 2010,FY 2011,FY 2012 Base,FY 2012 OCO,FY 2012 Total,FY 2013,FY
 NA,Prior Years,FY 2012,FY 2013,FY 2014 Base,FY 2014 OCO,FY 2014 Total,Fy 2015,FY 2016,FY 2017,FY 2018,To Complete,Total Prog,TRUE,FYDPprior7yearOCO,,,,,,2012
 2015_wctv G01700 - March 2014,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,TRUE,,G01700,BudgetAccount,"Procurement: Wheeled and Tracked Vehicles, Army",,2014-03,
 NA,Prior Years,FY 2013,FY 2014,FY 2015 Base,FY 2015 OCO,FY 2015 Total,FY 2016,FY 2017,FY 2018,FY 2019,To Complete,Total Prog,TRUE,FYDPprior7yearOCO,,,,,,2013
-NA,$0 ,Units,$0 ,$0 ,Units,$0 ,$0 ,Units,$0 ,,,,TRUE,UnitCost3year,,,,,,
-NA,$0 ,Each,$0 ,$0 ,Each,$0 ,$0 ,Each,$0 ,$0 ,Each,$0 ,TRUE,UnitCost4year,,,,,,
