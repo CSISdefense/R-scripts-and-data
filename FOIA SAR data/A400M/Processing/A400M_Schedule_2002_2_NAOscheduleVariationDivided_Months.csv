@@ -1,0 +1,5 @@
+"ReasonsForVariationsFromApprovedISDfactor","Increase","Decrease","Explanation","Unit","Platform","Source"
+"Changed Budgetary Priorities","16",NA,"Change in the customers' requirement flowing from changed budgetary priorities","Months","A400M","2002"
+"Risk Differential",NA,"10","Difference between the risk allowed for in the msot likely (50%) and highest acceptable (90%) estimates at Main Gate (-10 months)","Months","A400M","2002"
+"Total","16","-10",NA,"Months","A400M","2002"
+"Net Variation","6",NA,NA,"Months","A400M","2002"

@@ -116,7 +116,7 @@ ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "All Years_wtcv",
              "LW155 M777//")
 
-debug(ReadAndSplit)
+
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777",NA,
              "All Years_N_BA4",
@@ -205,7 +205,7 @@ ReadAndSplit("NATO AGS Schedule Info.xlsx",
              "Schedule",
              "NATO AGS//")
 
-
+debug(ReadAndSplit)
 ReadAndSplit("LW155 M777 Schedule Info.xlsx",
              "LW155 M777",NA,
              "Schedule",
@@ -217,11 +217,10 @@ ReadAndSplit("SM-3 IIA Schedule Info.xlsx",
              "Schedule",
              "SM-3 BLOCK IIA//")
 
-# debug(ReadAndSplit) Posit.date introduces error
-# ReadAndSplit("MEADS Schedule Info.xlsx",
-#              "MEADS",NA,
-#              "Schedule",
-#              "MEADS//")
+ReadAndSplit("MEADS Schedule Info.xlsx",
+             "MEADS",NA,
+             "Schedule",
+             "MEADS//")
 
 ReadAndSplit("JSF Schedule Info.xlsx",
              "JSF",NA,

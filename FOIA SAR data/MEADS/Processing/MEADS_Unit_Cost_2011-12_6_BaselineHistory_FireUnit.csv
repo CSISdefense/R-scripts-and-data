@@ -1,8 +1,0 @@
-"BaselineItemEvent","PlanningEstimate","DevelopmentEstimate","ProductionEstimate","CurrentEstimate","Platform","Source","Section"
-"Milestone A","N/A","N/A","N/A","N/A","MEADS","2011-12","FireUnit"
-"Milestone B","N/A","2004-08-01","N/A","2004-08-01","MEADS","2011-12","FireUnit"
-"Milestone C","N/A","2012-11-01","N/A","2012-11-01","MEADS","2011-12","FireUnit"
-"IOC","N/A","2017-09-01","N/A","2017-09-01","MEADS","2011-12","FireUnit"
-"Total Cost (TY $M)","N/A","21839.4","N/A","3177.1","MEADS","2011-12","FireUnit"
-"Total Quantity","N/A","48","N/A","0","MEADS","2011-12","FireUnit"
-"Prog. Acq. Unit Cost (PAUC) ","N/A","454.988","N/A","N/A","MEADS","2011-12","FireUnit"

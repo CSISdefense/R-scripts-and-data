@@ -1,8 +1,0 @@
-"BaselineItemEvent","PlanningEstimate","DevelopmentEstimate","ProductionEstimate","CurrentEstimate","Platform","Source","Section"
-"Milestone I","N/A","1996-11-01","N/A","1996-11-01","JSF","2015-12","Aircraft"
-"Milestone B","2001-03-01","2012-03-01","N/A","2012-03-01","JSF","2015-12","Aircraft"
-"Milestone C","TBD","2019-04-01","N/A","2019-04-01","JSF","2015-12","Aircraft"
-"IOC","TBD","TBD","N/A","2015-07-01","JSF","2015-12","Aircraft"
-"Total Cost (TY $M)","24800","331855.2","N/A","318390.9","JSF","2015-12","Aircraft"
-"Total Quantity","N/A","2457","N/A","2457","JSF","2015-12","Aircraft"
-"Prog. Acq. Unit Cost (PAUC) ","N/A","135.065","N/A","129.585","JSF","2015-12","Aircraft"

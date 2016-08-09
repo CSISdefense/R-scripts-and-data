@@ -220,23 +220,28 @@ ReadAndSplit<-function(sFileName,
                       sheet = sSheetName,
                       header = FALSE,
                       dateTimeFormat = "%Y-%m-%d")
-    
-   getOption("XLConnect.dateTimeFormat")
+   
+   #Convert all columns to characters for ease of joining
+   #http://stackoverflow.com/questions/3796266/change-the-class-of-many-columns-in-a-data-frame
+   cols<-1:ncol(df)
+   df[,cols] = apply(df[,cols], 2, function(x) as.character(x))
+   
     
     #If there's more columns in the header lookup, limit the lookup
     #to only those cases where there is no material in the unused columns
-    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-7)){#One Column
+    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-8)){#One Column
         BlankRows<-is.na(lookup.RawHeaderList[,ncol(df)+1])
         lookup.RawHeaderList<-lookup.RawHeaderList[BlankRows,]
     }
-    else if(ncol(df)<ncol(lookup.RawHeaderList)-7){#MultipleColumns
+    else if(ncol(df)<ncol(lookup.RawHeaderList)-8){#MultipleColumns
         MaterialInUnusuedColumns<-subset(lookup.RawHeaderList,select=-c(Remove,
                                                                         Header,
                                                                         OverrideSection,
                                                                         SubsectionName,
                                                                         SubsectionValue,
                                                                         Unit,
-                                                                        OverrideSource))
+                                                                        OverrideSource,
+                                                                        FirstYearInSequence))
         MaterialInUnusuedColumns<-MaterialInUnusuedColumns[,
                                                            (ncol(df)+1):ncol(MaterialInUnusuedColumns)]
         BlankRows<-rowSums(!is.na(MaterialInUnusuedColumns)) == 0
