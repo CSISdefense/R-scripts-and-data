@@ -25,11 +25,27 @@ CleanExtractAndWrite<-function(df,
      (min(as.character(df$OverrideSection),na.rm=TRUE)==max(as.character(df$OverrideSection),na.rm=TRUE))){
     df$Section<-min(as.character(df$OverrideSection),na.rm=TRUE)
   }
-  
   sSection<-NA
   if ("Section" %in% colnames(df)){
     sSection<-min(df$Section)
   }
+  
+  
+  if("SubsectionValue" %in% colnames(df) & !is.na(min(df$SubsectionValue,na.rm=TRUE))){
+    dfSubsection<-data.frame(Subsection=c(NA))
+    for(i in 1:nrow(df)){
+      #First assign any new SubSectionName Values
+      if(!is.na(df$SubsectionValue[i]))
+        dfSubsection[1,df$SubsectionName[i]]<-df$SubsectionValue[i]
+      
+      #Second, propogate any assigned subsections, including the one possibly just finished.
+      for(j in which(!is.na(dfSubsection[1,]))){
+        df[i,colnames(dfSubsection)[j]]<-dfSubsection[1,j]
+      }
+    }
+    rm(dfSubsection)
+  }
+  
   
   #Check if it lists a unit type (as in then-year vs. base year, currency, etc.)
   sUnit<-NA
@@ -209,15 +225,16 @@ ReadAndSplit<-function(sFileName,
     
     #If there's more columns in the header lookup, limit the lookup
     #to only those cases where there is no material in the unused columns
-    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-6)){#One Column
+    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-7)){#One Column
         BlankRows<-is.na(lookup.RawHeaderList[,ncol(df)+1])
         lookup.RawHeaderList<-lookup.RawHeaderList[BlankRows,]
     }
-    else if(ncol(df)<ncol(lookup.RawHeaderList)-6){#MultipleColumns
+    else if(ncol(df)<ncol(lookup.RawHeaderList)-7){#MultipleColumns
         MaterialInUnusuedColumns<-subset(lookup.RawHeaderList,select=-c(Remove,
                                                                         Header,
                                                                         OverrideSection,
-                                                                        Subsection,
+                                                                        SubsectionName,
+                                                                        SubsectionValue,
                                                                         Unit,
                                                                         OverrideSource))
         MaterialInUnusuedColumns<-MaterialInUnusuedColumns[,

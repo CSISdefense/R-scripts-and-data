@@ -110,18 +110,13 @@ ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "All Years_RDTEN_BA_4",
              "LW155 M777//")
 
-ReadAndSplit("All Docs_M777 Data Draw.xlsx",
-             "LW155 M777",NA,
-             "All Years_RDTEN_BA_4",
-             "LW155 M777//")
-
 
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777",NA,
              "All Years_wtcv",
              "LW155 M777//")
 
-
+debug(ReadAndSplit)
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777",NA,
              "All Years_N_BA4",

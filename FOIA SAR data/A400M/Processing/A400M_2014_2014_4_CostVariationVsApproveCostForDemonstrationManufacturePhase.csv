@@ -1,6 +1,6 @@
 "Date","Variation (£m)","Category","ReasonForVariation","Platform","Source"
 "41548","-14","Inflation","A reduction to the future provision for variation of price due to the delivery of two aircraft ealier than previously scheduled","A400M","2014"
-"2013-07-01 00:00:00","-43","Exchange Rate","A reduction due to changes in the MoD central planing assumption on £ : € exchange rate","A400M","2014"
+"2013-07-01","-43","Exchange Rate","A reduction due to changes in the MoD central planing assumption on £ : € exchange rate","A400M","2014"
 "Historic","-2","Procurement Process","A reduction in the cost of the design and development work required to enable UK A400M aircraft to operate the defensive aids systems","A400M","2014"
 "Historic","-8","Technical Factors","A reduction in the forecast cost of the fuel tank inerting system","A400M","2014"
 "Historic","2","Technical Factors","An increase due to the refinement of mission planning system requirement","A400M","2014"
