@@ -1,16 +1,6 @@
-<<<<<<< HEAD
 "CurrentChangeExplanations","BaseYearMil","ThenYearMil","Platform","Source","Account"
 "Revised escalation indices (Economic)","N/A","-13.8","JSF","2009-12","MILCON"
 "Adjustment for currrent and prior escalation (Estimating)","3.4","4.1","JSF","2009-12","MILCON"
 "Increase for revised MILCON planning (Air Force) (Estimating)","27.6","36.7","JSF","2009-12","MILCON"
 "Increase for revised MILCON planning (Navy) (Estimating)","2.5","3","JSF","2009-12","MILCON"
 "MILCON Subtotal","33.5","30","JSF","2009-12","MILCON"
-=======
-"CurrentChangeExplanations","BaseYearMil","ThenYearMil","Subsection","Platform","Source"
-"MILCON","$M",NA,"MILCON","JSF","2009-12"
-"Revised escalation indices (Economic)","N/A","-13.8",NA,"JSF","2009-12"
-"Adjustment for currrent and prior escalation (Estimating)","3.4","4.1",NA,"JSF","2009-12"
-"Increase for revised MILCON planning (Air Force) (Estimating)","27.6","36.7",NA,"JSF","2009-12"
-"Increase for revised MILCON planning (Navy) (Estimating)","2.5","3",NA,"JSF","2009-12"
-"MILCON Subtotal","33.5","30",NA,"JSF","2009-12"
->>>>>>> b4f126fe342ea6fd996eb66a10904f569315083d

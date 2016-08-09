@@ -1,16 +1,6 @@
-<<<<<<< HEAD
 "CurrentChangeExplanations","BaseYearMil","ThenYearMil","Platform","Source","Account"
 "Revised escalation indices. (Economic)","N/A","3.3","JSF","2003-12","MILCON"
 "Economic adjustment for negative program change. (Economic)","N/A","-1","JSF","2003-12","MILCON"
 "SDD schedule extension for additional design maturation and known and unknown risks (including anti-tamper) (Schedule)","-0.2","-0.2","JSF","2003-12","MILCON"
 "Adjustment for Current and Prior Inflation. (Estimating)","-30.6","-34.1","JSF","2003-12","MILCON"
 "MILCON Subtotal","-30.8","-32","JSF","2003-12","MILCON"
-=======
-"CurrentChangeExplanations","BaseYearMil","ThenYearMil","Subsection","Platform","Source"
-"MILCON","$M",NA,"MILCON","JSF","2003-12"
-"Revised escalation indices. (Economic)","N/A","3.3",NA,"JSF","2003-12"
-"Economic adjustment for negative program change. (Economic)","N/A","-1",NA,"JSF","2003-12"
-"SDD schedule extension for additional design maturation and known and unknown risks (including anti-tamper) (Schedule)","-0.2","-0.2",NA,"JSF","2003-12"
-"Adjustment for Current and Prior Inflation. (Estimating)","-30.6","-34.1",NA,"JSF","2003-12"
-"MILCON Subtotal","-30.8","-32",NA,"JSF","2003-12"
->>>>>>> b4f126fe342ea6fd996eb66a10904f569315083d
