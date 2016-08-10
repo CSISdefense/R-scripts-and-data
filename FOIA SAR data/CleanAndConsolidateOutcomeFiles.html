@@ -347,8 +347,8 @@ ReadAndSplit(&quot;M777 LW155 GAO Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -399,8 +399,8 @@ ReadAndSplit(&quot;M777 LW155 GAO Data Draw.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -509,8 +509,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -547,8 +547,8 @@ write.csv(dfCostSummary,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -605,8 +605,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -643,8 +643,8 @@ write.csv(dfCostSummary,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -701,8 +701,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -739,17 +739,14 @@ write.csv(dfCostSummary,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
+## missing arguments, returning NA
+
+## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;2013 SM-3 Budget Doc Data Draw.xlsx&quot;, &quot;SM-3 BLOCK IIA&quot;, 
 ##     &quot;2013&quot;, &quot;Sheet1&quot;, &quot;SM-3 BLOCK IIA//&quot;)</code></pre>
@@ -793,8 +790,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -839,8 +836,8 @@ write.csv(dfCostSummary,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
@@ -897,8 +894,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -943,8 +940,8 @@ write.csv(dfCostSummary,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
@@ -1001,8 +998,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -1053,8 +1050,8 @@ write.csv(dfCostSummary,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -1193,8 +1190,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -1246,8 +1243,8 @@ write.csv(dfCostSummary,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -1301,8 +1298,8 @@ write.csv(dfCostSummary,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -1353,8 +1350,8 @@ write.csv(dfCostSummary,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -1527,8 +1524,7 @@ write.csv(dfCostSummary,
 ## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;, &quot;LW155 M777&quot;, NA, 
 ##     &quot;All Years_RDTEN_BA_4&quot;, &quot;LW155 M777//&quot;)</code></pre>
-<pre class="r"><code>debug(ReadAndSplit)
-ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
+<pre class="r"><code>ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
              &quot;LW155 M777&quot;,NA,
              &quot;All Years_wtcv&quot;,
              &quot;LW155 M777//&quot;)</code></pre>
@@ -1568,8 +1564,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -1613,8 +1609,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
@@ -1729,8 +1725,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -1781,8 +1777,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
@@ -1876,8 +1872,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -1928,8 +1924,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -1955,10 +1951,6 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 <pre><code>## Warning in min(as.character(df$Source), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Source), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, NA, 
 ##     &quot;Program Overview&quot;, &quot;NATO AGS//&quot;)</code></pre>
@@ -2002,8 +1994,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -2055,33 +2047,11 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
-##     Source = Source)</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2004, 
+##     Source = Source)
+## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2004, 
 ##     &quot;2004&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
              &quot;NATO AGS&quot;,2007,
@@ -2123,8 +2093,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -2176,33 +2146,11 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
-##     Source = Source)</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2007, 
+##     Source = Source)
+## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2007, 
 ##     &quot;2007&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
              &quot;NATO AGS&quot;,2009,
@@ -2244,8 +2192,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -2297,32 +2245,14 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2009, 
 ##     &quot;2009&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
@@ -2365,8 +2295,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -2403,32 +2333,14 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2010, 
 ##     &quot;2010&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
@@ -2471,8 +2383,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -2509,55 +2421,14 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
+## missing arguments, returning NA
+
+## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
 ## returning NA</code></pre>
@@ -2573,138 +2444,6 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2012, 
-##     &quot;2012&quot;, &quot;NATO AGS//&quot;)</code></pre>
-<pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
-             &quot;NATO AGS&quot;,2012,
-             &quot;2012&quot;,
-             &quot;NATO AGS//&quot;)</code></pre>
-<pre><code>## debugging in: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2012, 
-##     &quot;2012&quot;, &quot;NATO AGS//&quot;)
-## debug: {
-##     lookup.RawHeaderList &lt;- read.csv(&quot;RawHeaderList.csv&quot;, na.strings = c(&quot;NA&quot;, 
-##         &quot;&quot;), stringsAsFactors = FALSE)
-##     lookup.CleanHeaderList &lt;- read.csv(&quot;CleanedHeaderList.csv&quot;, 
-##         na.strings = c(&quot;NA&quot;, &quot;&quot;), stringsAsFactors = FALSE)
-##     wb &lt;- loadWorkbook(file.path(sDirectory, sFileName), create = TRUE)
-##     df &lt;- readWorksheet(wb, sheet = sSheetName, header = FALSE, 
-##         dateTimeFormat = &quot;%Y-%m-%d&quot;)
-##     cols &lt;- 1:ncol(df)
-##     df[, cols] = apply(df[, cols], 2, function(x) as.character(x))
-##     if (ncol(df) + 1 == (ncol(lookup.RawHeaderList) - 8)) {
-##         BlankRows &lt;- is.na(lookup.RawHeaderList[, ncol(df) + 
-##             1])
-##         lookup.RawHeaderList &lt;- lookup.RawHeaderList[BlankRows, 
-##             ]
-##     }
-##     else if (ncol(df) &lt; ncol(lookup.RawHeaderList) - 8) {
-##         MaterialInUnusuedColumns &lt;- subset(lookup.RawHeaderList, 
-##             select = -c(Remove, Header, OverrideSection, SubsectionName, 
-##                 SubsectionValue, Unit, OverrideSource, FirstYearInSequence))
-##         MaterialInUnusuedColumns &lt;- MaterialInUnusuedColumns[, 
-##             (ncol(df) + 1):ncol(MaterialInUnusuedColumns)]
-##         BlankRows &lt;- rowSums(!is.na(MaterialInUnusuedColumns)) == 
-##             0
-##         lookup.RawHeaderList &lt;- lookup.RawHeaderList[BlankRows, 
-##             ]
-##     }
-##     df &lt;- join(df, lookup.RawHeaderList, match = &quot;first&quot;)
-##     if (!is.na(Platform)) {
-##         df$Platform &lt;- Platform
-##     }
-##     if (!is.na(Source)) {
-##         df$Source &lt;- Source
-##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
-##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
-##         Source = Source)
-## }
-## debug: lookup.RawHeaderList &lt;- read.csv(&quot;RawHeaderList.csv&quot;, na.strings = c(&quot;NA&quot;, 
-##     &quot;&quot;), stringsAsFactors = FALSE)
-## debug: lookup.CleanHeaderList &lt;- read.csv(&quot;CleanedHeaderList.csv&quot;, na.strings = c(&quot;NA&quot;, 
-##     &quot;&quot;), stringsAsFactors = FALSE)
-## debug: wb &lt;- loadWorkbook(file.path(sDirectory, sFileName), create = TRUE)
-## debug: df &lt;- readWorksheet(wb, sheet = sSheetName, header = FALSE, dateTimeFormat = &quot;%Y-%m-%d&quot;)
-## debug: cols &lt;- 1:ncol(df)
-## debug: df[, cols] = apply(df[, cols], 2, function(x) as.character(x))
-## debug: if (ncol(df) + 1 == (ncol(lookup.RawHeaderList) - 8)) {
-##     BlankRows &lt;- is.na(lookup.RawHeaderList[, ncol(df) + 1])
-##     lookup.RawHeaderList &lt;- lookup.RawHeaderList[BlankRows, ]
-## } else if (ncol(df) &lt; ncol(lookup.RawHeaderList) - 8) {
-##     MaterialInUnusuedColumns &lt;- subset(lookup.RawHeaderList, 
-##         select = -c(Remove, Header, OverrideSection, SubsectionName, 
-##             SubsectionValue, Unit, OverrideSource, FirstYearInSequence))
-##     MaterialInUnusuedColumns &lt;- MaterialInUnusuedColumns[, (ncol(df) + 
-##         1):ncol(MaterialInUnusuedColumns)]
-##     BlankRows &lt;- rowSums(!is.na(MaterialInUnusuedColumns)) == 
-##         0
-##     lookup.RawHeaderList &lt;- lookup.RawHeaderList[BlankRows, ]
-## }
-## debug: BlankRows &lt;- is.na(lookup.RawHeaderList[, ncol(df) + 1])
-## debug: lookup.RawHeaderList &lt;- lookup.RawHeaderList[BlankRows, ]
-## debug: df &lt;- join(df, lookup.RawHeaderList, match = &quot;first&quot;)</code></pre>
-<pre><code>## Joining by: Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8, Col9, Col10, Col11, Col12</code></pre>
-<pre><code>## debug: if (!is.na(Platform)) {
-##     df$Platform &lt;- Platform
-## }
-## debug: df$Platform &lt;- Platform
-## debug: if (!is.na(Source)) {
-##     df$Source &lt;- Source
-## }
-## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
-## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
-##     Source = Source)</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -2721,54 +2460,26 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2012, 
 ##     &quot;2012&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
@@ -2811,8 +2522,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -2857,8 +2568,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -2867,22 +2578,10 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
 ## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -2891,18 +2590,10 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2013, 
 ##     &quot;2013&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
@@ -2945,8 +2636,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -2991,32 +2682,26 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
+<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
+<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
+<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
+## arguments, returning NA</code></pre>
+<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
+## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2014, 
 ##     &quot;2014&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
@@ -3059,8 +2744,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -3105,8 +2790,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -3115,22 +2800,10 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
 ## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -3139,62 +2812,26 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
+<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
+<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
-## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2015, 
 ##     &quot;2015&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;,
@@ -3237,8 +2874,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -3283,8 +2920,8 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -3293,22 +2930,10 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
 ## returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -3317,18 +2942,10 @@ ReadAndSplit(&quot;All Docs_M777 Data Draw.xlsx&quot;,
 ## arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$Unit), na.rm = TRUE): no non-missing
 ## arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
-## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
 <pre><code>## Warning in max(as.character(df$OverrideSource), na.rm = TRUE): no non-
 ## missing arguments, returning NA</code></pre>
-<pre><code>## Warning in min(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
-<pre><code>## Warning in max(as.character(df$Header), na.rm = TRUE): no non-missing
-## arguments, returning NA</code></pre>
 <pre><code>## exiting from: ReadAndSplit(&quot;AGS Budget Docs Data Draw.xlsx&quot;, &quot;NATO AGS&quot;, 2016, 
 ##     &quot;2016&quot;, &quot;NATO AGS//&quot;)</code></pre>
 <pre class="r"><code>dfBudgetHistory&lt;-rbind.fill(
@@ -3382,8 +2999,8 @@ ReadAndSplit(&quot;NATO AGS Schedule Info.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -3434,8 +3051,8 @@ ReadAndSplit(&quot;NATO AGS Schedule Info.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -3565,8 +3182,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -3602,8 +3219,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -3908,8 +3525,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -3960,8 +3577,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -4074,8 +3691,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -4126,8 +3743,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
@@ -4253,8 +3870,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -4305,8 +3922,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -4435,8 +4052,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -4487,8 +4104,8 @@ ReadAndSplit(&quot;LW155 M777 Schedule Info.xlsx&quot;,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -5213,8 +4830,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -5266,8 +4883,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
@@ -5504,8 +5121,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -5557,8 +5174,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(df$SubsectionValue, na.rm = TRUE): no non-missing arguments,
@@ -5711,8 +5328,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -5764,8 +5381,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -5864,8 +5481,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -5917,8 +5534,8 @@ ReadAndSplit(&quot;2011_SAR DataDraw_MEADS.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$Unit), na.rm = TRUE): no non-missing
@@ -6163,8 +5780,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -6216,8 +5833,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
@@ -6302,8 +5919,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -6355,8 +5972,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
@@ -6489,8 +6106,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -6542,8 +6159,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -6648,8 +6265,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -6701,8 +6318,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -6787,8 +6404,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -6840,8 +6457,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -6958,8 +6575,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -7011,8 +6628,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -7081,8 +6698,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -7134,8 +6751,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -7252,8 +6869,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -7305,8 +6922,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -7375,8 +6992,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -7428,8 +7045,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
@@ -7514,8 +7131,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -7567,8 +7184,8 @@ write.csv(dfUnitCostHistory,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$FirstYearInSequence), na.rm = TRUE): no non-
@@ -7653,8 +7270,8 @@ write.csv(dfUnitCostHistory,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -7705,8 +7322,8 @@ write.csv(dfUnitCostHistory,
 ## debug: if (!is.na(Source)) {
 ##     df$Source &lt;- Source
 ## }
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -7961,8 +7578,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -8014,8 +7631,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -8190,8 +7807,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -8243,8 +7860,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -8379,8 +7996,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -8432,8 +8049,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -8568,8 +8185,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -8621,8 +8238,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -8757,8 +8374,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -8810,8 +8427,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -8946,8 +8563,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -8999,8 +8616,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -9153,8 +8770,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -9206,8 +8823,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -9342,8 +8959,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -9395,8 +9012,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -9513,8 +9130,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -9566,8 +9183,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -9684,8 +9301,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -9737,8 +9354,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -9855,8 +9472,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -9908,8 +9525,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -10026,8 +9643,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -10079,8 +9696,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -10197,8 +9814,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -10250,8 +9867,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -10366,8 +9983,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -10419,8 +10036,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -10499,8 +10116,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -10552,8 +10169,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-
@@ -10616,8 +10233,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     if (!is.na(Source)) {
 ##         df$Source &lt;- Source
 ##     }
-##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), 
-##         NA, sSheetName)
+##     sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, 
+##         Source), NA, sSheetName)
 ##     SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##         Source = Source)
 ## }
@@ -10669,8 +10286,8 @@ ReadAndSplit(&quot;NAO Cost Data Draw.xlsx&quot;,
 ##     df$Source &lt;- Source
 ## }
 ## debug: df$Source &lt;- Source
-## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;), NA, 
-##     sSheetName)
+## debug: sPrefix &lt;- ifelse(sSheetName %in% c(&quot;Sheet1&quot;, &quot;Table 1&quot;, Source), 
+##     NA, sSheetName)
 ## debug: SplitAtBlankRow(df, sPrefix, sDirectory = sDirectory, HeaderList = lookup.CleanHeaderList, 
 ##     Source = Source)</code></pre>
 <pre><code>## Warning in min(as.character(df$OverrideSection), na.rm = TRUE): no non-

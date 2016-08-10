@@ -110,7 +110,6 @@ ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "All Years_RDTEN_BA_4",
              "LW155 M777//")
 
-debug(ReadAndSplit)
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777",NA,
              "All Years_wtcv",
@@ -155,11 +154,6 @@ ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
              "2012",
              "NATO AGS//")
 
-
-ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
-             "NATO AGS",2012,
-             "2012",
-             "NATO AGS//")
 
 ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
              "NATO AGS",2013,
