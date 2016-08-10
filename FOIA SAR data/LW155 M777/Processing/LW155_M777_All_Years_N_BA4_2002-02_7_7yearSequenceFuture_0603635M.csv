@@ -1,4 +1,11 @@
+<<<<<<< HEAD:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_N_BA4_2002-02_7_7yearSequenceFuture_0603635M.csv
 "Description","Year1","Year2","Year3","Year4","Year5","Year6","Year7","CostToCompleteMil","TotalCostMil","FirstYearInSequence","Platform","Section","Source","Budget Account","LineItem"
 "C2112 Lightweight 155mm howitzer","13.446","13.085","11.633","5.97","0","0","0","0","44.134","2001","LW155 M777","0603635M","2002-02","RDT&E Budget Activity 4: Demonstration Validation",NA
 "Line Item No. & Name",NA,"FY 2002","FY 2003","FY 2004","FY2005","FY2006","FY 2007","Cost to Complete","Total Program","2001","LW155 M777","0603635M","2002-02","RDT&E Budget Activity 4: Demonstration Validation","Other Program Funding Summary"
 "(U) PMC, BLI #218500, Howitzer, Medium Towed 155MM","11.004","0","62.643","111.489","179.325","181.183","75.363","0","621.007","2001","LW155 M777","0603635M","2002-02","RDT&E Budget Activity 4: Demonstration Validation","Other Program Funding Summary"
+=======
+"Description","ActualYearMinus2mil","EstimateYearMinus1mil","EstimateYearTotalMil","EstimateYearPlusOneMil","EstimateYearPlusTwoMil","EstimateYearPlusThreeMil","EstimateYearPlusFourMil","CostToCompleteMil","TotalCostMil","Platform","Section","Source","Budget Account","LineItem"
+"C2112 Lightweight 155mm howitzer","13.446","13.085","11.633","5.97","0","0","0","0","44.134","LW155 M777","0603635M","2002-02","RDT&E Budget Activity 4: Demonstration Validation",NA
+"Line Item No. & Name",NA,"FY 2002","FY 2003","FY 2004","FY2005","FY2006","FY 2007","Cost to Complete","Total Program","LW155 M777","0603635M","2002-02","RDT&E Budget Activity 4: Demonstration Validation","Other Program Funding Summary"
+"(U) PMC, BLI #218500, Howitzer, Medium Towed 155MM","11.004","0","62.643","111.489","179.325","181.183","75.363","0","621.007","LW155 M777","0603635M","2002-02","RDT&E Budget Activity 4: Demonstration Validation","Other Program Funding Summary"
+>>>>>>> f2b2fc71731fdbd2de22a945e5c1c973fbebe402:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_N_BA4_2002-02_7_FYDPcost_0603635M.csv

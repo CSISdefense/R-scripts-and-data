@@ -1,3 +1,4 @@
+<<<<<<< HEAD:FOIA SAR data/LW155 M777/Processing/LW155_M777_1999_PMC_BOOK.summary_1998-02_7yearSequenceFuture.csv
 "Description","Year3","Year4","Year5","Year6","Year7","CostToCompleteMil","TotalCostMil","FirstYearInSequence","Platform","Source","BudgetAccount"
 "Proc Qty",NA,"70","120","120","120","96","526","1997","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
 "Gross Cost","10","86.3","116.8","121.6","117.7","100","552.4","1997","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
@@ -8,3 +9,15 @@
 "Total Proc Cost","10","86.3","120.2","127.5","122.7","102.6","569.3","1997","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
 "Flyaway U/C",NA,NA,NA,NA,NA,NA,"1.1","1997","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
 "Wpn Sys Proc U/C",NA,"1.2","1","1","1","1","1.1","1997","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+=======
+"Description","EstimateYearTotalMil","EstimateYearPlusOneMil","EstimateYearPlusTwoMil","EstimateYearPlusThreeMil","EstimateYearPlusFourMil","CostToCompleteMil","TotalCostMil","Platform","Source","BudgetAccount"
+"Proc Qty",NA,"70","120","120","120","96","526","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Gross Cost","10","86.3","116.8","121.6","117.7","100","552.4","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Less PY Adv Proc",NA,NA,NA,NA,NA,NA,NA,"LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Plus CY Adv Proc",NA,NA,NA,NA,NA,NA,NA,"LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Net Proc (P-1)","10","86.3","116.8","121.6","117.7","100","552.4","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Initial Spares",NA,NA,"3.4","5.9","5","2.6","16.9","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Total Proc Cost","10","86.3","120.2","127.5","122.7","102.6","569.3","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Flyaway U/C",NA,NA,NA,NA,NA,NA,"1.1","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+"Wpn Sys Proc U/C",NA,"1.2","1","1","1","1","1.1","LW155 M777","1998-02","Procurement, Marine Corps (1109) / Weapons and Tracked Combat Vehicles (2) / 009"
+>>>>>>> f2b2fc71731fdbd2de22a945e5c1c973fbebe402:FOIA SAR data/LW155 M777/Processing/LW155_M777_1999_PMC_BOOK.summary_1998-02_FYDPcost.csv

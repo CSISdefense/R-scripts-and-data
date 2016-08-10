@@ -1,3 +1,9 @@
+<<<<<<< HEAD:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_N_BA4_1997-02_1_8yearSequenceEstimateFuture_0603635M.csv
 "Description","Year1Actual","Year2Estimate","Year3Estimate","Year4Estimate","Year5Estimate","Year6Estimate","Year7Estimate","Year8Estimate","CostToCompleteMil","TotalCostMil","FirstYearInSequence","Platform","Section","Budget Account","LineItem","Source"
 "C2112 Howitzer, Medium Towed 155MM (LW 155)","14392","13269","35303","33915","8624","0","0","0","0","124300","1996","LW155 M777","0603635M","RDT&E Budget Activity 4: Demonstration Validation",NA,"1997-02"
 "(U) PMC, BLI #218500, Howitzer, Medium Towed 155MM","0","0","0","7590","106359","148435","142081","142034","CONT.","CONT.","1996","LW155 M777","0603635M","RDT&E Budget Activity 4: Demonstration Validation","Other Program Funding Summary","1997-02"
+=======
+"Description","ActualYearMinus2mil","EstimateYearMinus1mil","EstimateYearTotalMil","EstimateYearPlusOneMil","EstimateYearPlusTwoMil","EstimateYearPlusThreeMil","EstimateYearPlusFourMil","EstimateYearPlusFiveMil","CostToCompleteMil","TotalCostMil","Platform","Section","Budget Account","LineItem","Source"
+"C2112 Howitzer, Medium Towed 155MM (LW 155)","14392","13269","35303","33915","8624","0","0","0","0","124300","LW155 M777","0603635M","RDT&E Budget Activity 4: Demonstration Validation",NA,"1997-02"
+"(U) PMC, BLI #218500, Howitzer, Medium Towed 155MM","0","0","0","7590","106359","148435","142081","142034","CONT.","CONT.","LW155 M777","0603635M","RDT&E Budget Activity 4: Demonstration Validation","Other Program Funding Summary","1997-02"
+>>>>>>> f2b2fc71731fdbd2de22a945e5c1c973fbebe402:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_N_BA4_1997-02_1_FYDPcost6_0603635M.csv
