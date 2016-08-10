@@ -55,6 +55,15 @@ CleanExtractAndWrite<-function(df,
     sUnit<-min(as.character(df$Unit),na.rm=TRUE)
     df$Unit<-sUnit
   }
+
+  #Check if it lists a first year in sequence e.g. are there FY1999. FY2000, FY2001 columns.
+  sFirstYearInSequence<-NA
+  if(any(!is.na(df$FirstYearInSequence))&
+     (min(as.character(df$FirstYearInSequence),na.rm=TRUE)==
+      max(as.character(df$FirstYearInSequence),na.rm=TRUE))){
+    sFirstYearInSequence<-min(as.character(df$FirstYearInSequence),na.rm=TRUE)
+    df$FirstYearInSequence<-sFirstYearInSequence
+  }
   
   
   #Determine the source, checking if the file has an override
@@ -105,7 +114,8 @@ CleanExtractAndWrite<-function(df,
                                                     ifelse(!is.na(FilePrefix),paste(FilePrefix,"_",sep=""),""),
                                                     ifelse(!is.na(sSource),paste(sSource,"_",sep=""),""),
                                                     ifelse(!is.na(Increment),paste(Increment,"_",sep=""),""),
-                                                    ifelse(!is.na(sHeader),paste(sHeader,"_",sep=""),""),
+                                                    ifelse(!is.na(sHeader),sHeader,"MissingHeader"),
+                                                    "_",
                                                     ifelse(!is.na(sUnit),paste(sUnit,"_",sep=""),""),
                                                     ifelse(!is.na(sSection),paste(sSection,"_",sep=""),""),
                                                     ".csv",sep="")))),
@@ -220,23 +230,28 @@ ReadAndSplit<-function(sFileName,
                       sheet = sSheetName,
                       header = FALSE,
                       dateTimeFormat = "%Y-%m-%d")
-    
-   getOption("XLConnect.dateTimeFormat")
+   
+   #Convert all columns to characters for ease of joining
+   #http://stackoverflow.com/questions/3796266/change-the-class-of-many-columns-in-a-data-frame
+   cols<-1:ncol(df)
+   df[,cols] = apply(df[,cols], 2, function(x) as.character(x))
+   
     
     #If there's more columns in the header lookup, limit the lookup
     #to only those cases where there is no material in the unused columns
-    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-7)){#One Column
+    if(ncol(df)+1==(ncol(lookup.RawHeaderList)-8)){#One Column
         BlankRows<-is.na(lookup.RawHeaderList[,ncol(df)+1])
         lookup.RawHeaderList<-lookup.RawHeaderList[BlankRows,]
     }
-    else if(ncol(df)<ncol(lookup.RawHeaderList)-7){#MultipleColumns
+    else if(ncol(df)<ncol(lookup.RawHeaderList)-8){#MultipleColumns
         MaterialInUnusuedColumns<-subset(lookup.RawHeaderList,select=-c(Remove,
                                                                         Header,
                                                                         OverrideSection,
                                                                         SubsectionName,
                                                                         SubsectionValue,
                                                                         Unit,
-                                                                        OverrideSource))
+                                                                        OverrideSource,
+                                                                        FirstYearInSequence))
         MaterialInUnusuedColumns<-MaterialInUnusuedColumns[,
                                                            (ncol(df)+1):ncol(MaterialInUnusuedColumns)]
         BlankRows<-rowSums(!is.na(MaterialInUnusuedColumns)) == 0
