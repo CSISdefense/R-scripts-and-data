@@ -1,9 +1,3 @@
-<<<<<<< HEAD:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_vol2.summary_2000-02_5_7yearSequenceEstimateFuture_Then_Year_$T.csv
 "Description","Year1Actual","Year2Estimate","Year3Estimate","Year4Estimate","Year5Estimate","Year6Estimate","Year7Estimate","CostToCompleteMil","TotalCostMil","Unit","FirstYearInSequence","Platform","Source","BudgetActivity"
 "Total Program Element Cost","963","4782","20105","54832","238310","464900","438221","Continuing","Continuing","Then Year $T","1999","LW155 M777","2000-02","RDT&E Budget Activity  5 - Engineering and Manufacturing Development"
 "D509 Lightweight 155M Howitzer",NA,NA,NA,NA,NA,NA,NA,NA,NA,"Then Year $T","1999","LW155 M777","2000-02","RDT&E Budget Activity  5 - Engineering and Manufacturing Development"
-=======
-"Description","ActualYearMinus2mil","EstimateYearMinus1mil","EstimateYearTotalMil","EstimateYearPlusOneMil","EstimateYearPlusTwoMil","EstimateYearPlusThreeMil","EstimateYearPlusFourMil","CostToCompleteMil","TotalCostMil","Unit","Platform","Source","BudgetActivity"
-"Total Program Element Cost","963","4782","20105","54832","238310","464900","438221","Continuing","Continuing","Then Year $T","LW155 M777","2000-02","RDT&E Budget Activity  5 - Engineering and Manufacturing Development"
-"D509 Lightweight 155M Howitzer",NA,NA,NA,NA,NA,NA,NA,NA,NA,"Then Year $T","LW155 M777","2000-02","RDT&E Budget Activity  5 - Engineering and Manufacturing Development"
->>>>>>> f2b2fc71731fdbd2de22a945e5c1c973fbebe402:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_vol2.summary_2000-02_5_FYDPcost_Then_Year_$T.csv

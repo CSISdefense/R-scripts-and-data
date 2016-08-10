@@ -1,9 +1,3 @@
-<<<<<<< HEAD:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_N_BA4_1999-02_3_8yearSequenceEstimateFuture_0603635M.csv
 "Description","Year1Actual","Year2Estimate","Year3Estimate","Year4Estimate","Year5Estimate","Year6Estimate","Year7Estimate","Year8Estimate","CostToCompleteMil","TotalCostMil","FirstYearInSequence","Platform","Section","Source","LineItem"
 "C2112 Howitzer, Medium Towed 155MM XM777 (LW 155)","36180","32332","23237","12105","0","0","0","0","0","131931","1998","LW155 M777","0603635M","1999-02",NA
 "(U) PMC, BLI #218500, Howitzer, Medium Towed 155MM","0","0","0","9763","91427","115455","144231","88241","0","449107","1998","LW155 M777","0603635M","1999-02","Other Program Funding Summary"
-=======
-"Description","ActualYearMinus2mil","EstimateYearMinus1mil","EstimateYearTotalMil","EstimateYearPlusOneMil","EstimateYearPlusTwoMil","EstimateYearPlusThreeMil","EstimateYearPlusFourMil","EstimateYearPlusFiveMil","CostToCompleteMil","TotalCostMil","Platform","Section","Source","LineItem"
-"C2112 Howitzer, Medium Towed 155MM XM777 (LW 155)","36180","32332","23237","12105","0","0","0","0","0","131931","LW155 M777","0603635M","1999-02",NA
-"(U) PMC, BLI #218500, Howitzer, Medium Towed 155MM","0","0","0","9763","91427","115455","144231","88241","0","449107","LW155 M777","0603635M","1999-02","Other Program Funding Summary"
->>>>>>> f2b2fc71731fdbd2de22a945e5c1c973fbebe402:FOIA SAR data/LW155 M777/Processing/LW155_M777_All_Years_N_BA4_1999-02_3_FYDPcost6_0603635M.csv
