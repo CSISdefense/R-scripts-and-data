@@ -1,4 +1,4 @@
-"NA","NA.1","NA.2","NA.3","NA.4","NA.5","NA.6","NA.7","NA.8","NA.9","NA.10","Unit","FirstYearInSequence","Platform","Source","LineItem"
+"Description","Year1","Year2","Year3","Year4","Year5","Year6","Year7","Year8","CostToCompleteMil","TotalCostMil","Unit","FirstYearInSequence","Platform","Source","LineItem"
 "RDTE, BA5, Army, PE 0603854, D505 ","262152","352051","447949","0","0","0","0","0","0","0","Then Year $T","2000","LW155 M777","2001-06","Other Program Element"
 "Procurement, WTCV,Army","0","0","0","0","0","0","0","0","0","0","Then Year $T","2000","LW155 M777","2001-06","Other Program Element"
 "Procurement, WTCV, Army","0","0","0","0","0","0","0","0","0","0","Then Year $T","2000","LW155 M777","2001-06","Other Program Element"

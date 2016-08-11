@@ -1,4 +1,4 @@
-"NA","NA.1","NA.2","NA.3","NA.4","NA.5","NA.6","NA.7","NA.8","NA.9","NA.10","Unit","FirstYearInSequence","Platform","Source","LineItem"
+"Description","Year1","Year2","Year3","Year4","Year5","Year6","Year7","Year8","CostToCompleteMil","TotalCostMil","Unit","FirstYearInSequence","Platform","Source","LineItem"
 "RDTE, Navy LW155 Towed How 060363M","14494","11633","5970","0","0","0","0","0","0","32097","Then Year $T","2002","LW155 M777","2003-02","Other Program Element"
 "Procurement, Marine Crops LW 155 Towed Howitzer with TAD Prod, Bli 218500","0","62643","111489","179325","181183","75363","0","0","0","610003","Then Year $T","2002","LW155 M777","2003-02","Other Program Element"
 "Procurement, WTCV, Army, LW155 with TAD G01700","1091","0","4998","51079","100720","135844","58999","33604","74300","460653","Then Year $T","2002","LW155 M777","2003-02","Other Program Element"

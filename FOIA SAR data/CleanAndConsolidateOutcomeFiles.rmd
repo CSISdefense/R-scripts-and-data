@@ -48,7 +48,6 @@ ReadAndSplit("2013 SAR MEADS Data Draw.xlsx",
              "Cost Summary",
              "MEADS//")
 
-debug(ReadAndSplit)
 ReadAndSplit("M777 LW155 GAO Data Draw.xlsx",
              "LW155 M777",NA,
              "Sheet1",
@@ -115,7 +114,7 @@ ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "All Years_wtcv",
              "LW155 M777//")
 
-debug(ReadAndSplit)
+
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777",NA,
              "All Years_N_BA4",
@@ -199,7 +198,7 @@ ReadAndSplit("NATO AGS Schedule Info.xlsx",
              "Schedule",
              "NATO AGS//")
 
-debug(ReadAndSplit)
+
 ReadAndSplit("LW155 M777 Schedule Info.xlsx",
              "LW155 M777",NA,
              "Schedule",
@@ -231,7 +230,7 @@ ReadAndSplit("A400M Schedule Info.xlsx",
 ```{r UnitCostHistory}
 #*************************************Unit Cost History***************************
 
-debug(ReadAndSplit)
+
 # debug(CleanExtractAndWrite)
 ReadAndSplit("2011_SAR DataDraw_MEADS.xlsx",
              "MEADS","2011-12",
