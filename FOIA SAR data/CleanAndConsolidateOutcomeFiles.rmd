@@ -28,8 +28,8 @@ require(reshape2)
 # require(gdata)
 require(XLConnect)
 require(plyr)
-setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
-# setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
+# setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
+setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
 source("CleanText.r")
 ```
 
@@ -192,12 +192,29 @@ write.csv(dfBudgetHistory,
 ```{r Schedule}
 #************************************Schedule *****************************
 
-
+debug(ReadAndSplit)
 ReadAndSplit("NATO AGS Schedule Info.xlsx",
              "NATO AGS",NA,
              "Schedule",
              "NATO AGS//")
 
+AGSschedule<-BulkImport(file.path("NATO AGS","Processing"),"Schedule")
+AGSschedule<-AGSschedule[(is.na(AGSschedule$Remove)|
+                             AGSschedule$Remove!="true")&
+                             (is.na(AGSschedule$Agency)|
+                         AGSschedule$Agency!="Air Force"),]
+
+AGSschedule$StartDate<-USfiscalYearQuarterToMidDate(AGSschedule$StartYear,AGSschedule$StartQuarter)
+AGSschedule$EndDate<-USfiscalYearQuarterToMidDate(AGSschedule$EndYear,AGSschedule$EndQuarter)
+
+ggplot(data=AGSschedule,
+       aes(x=StartDate,
+                 xend=EndDate , 
+                 y=Source,
+                 yend=Source,
+           color=Source))+
+    geom_segment(arrow=arrow(ends="both",length=unit(0.1,"centimeter")))+
+    facet_wrap("Events")
 
 ReadAndSplit("LW155 M777 Schedule Info.xlsx",
              "LW155 M777",NA,

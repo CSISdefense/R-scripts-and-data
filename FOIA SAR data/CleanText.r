@@ -218,10 +218,23 @@ ReadAndSplit<-function(sFileName,
                        Source=NA,
                        sSheetName=NA,
                        sDirectory=""){
-    lookup.RawHeaderList<-read.csv("RawHeaderList.csv",
-                                   na.strings=c("NA",""),
-                                   stringsAsFactors = FALSE
-    )
+    
+    
+    
+    wb<-loadWorkbook("RawHeaderList.xlsx", create = TRUE)
+    lookup.RawHeaderList<-readWorksheet(wb, 
+                      sheet = "RawHeaderList",
+                      header = TRUE,
+                      dateTimeFormat = "%Y-%m-%d")
+    lookup.RawHeaderList[lookup.RawHeaderList=="NA"]<-NA
+    #I preferred this approach, but ran into date oddities.
+    #The best fix is probably to stop doing my RawHeaderList updating in Excel
+    #But until I'm ready to make that jump easier to just store it in excel and
+    #corruption as it imports and exports CSV data.
+    # lookup.RawHeaderList<-read.csv("RawHeaderList.csv",
+    #                                na.strings=c("NA",""),
+    #                                stringsAsFactors = FALSE
+    # )
     lookup.CleanHeaderList<-read.csv("CleanedHeaderList.csv",
                                       na.strings=c("NA",""),
                                       stringsAsFactors = FALSE)
@@ -230,7 +243,7 @@ ReadAndSplit<-function(sFileName,
                       sheet = sSheetName,
                       header = FALSE,
                       dateTimeFormat = "%Y-%m-%d")
-   
+    df[df=="NA"]<-NA
    #Convert all columns to characters for ease of joining
    #http://stackoverflow.com/questions/3796266/change-the-class-of-many-columns-in-a-data-frame
    cols<-1:ncol(df)
@@ -286,6 +299,22 @@ read.tables <- function(file.names, ...) {
     ldply(file.names, function(fn) data.frame(Filename=fn, read.csv(fn, ...)))
 }
 
+
+USfiscalYearQuarterToMidDate<-function(CalendarYear,FiscalQuarter){
+    df<-data.frame(CalendarYear=CalendarYear,
+                   FiscalQuarter=FiscalQuarter)
+    lookup.quarter<-read.csv("FiscalQuarter.csv",
+                                     na.strings=c("NA",""),
+                                     stringsAsFactors = FALSE)
+    df<-plyr::join(df,
+                  lookup.quarter)
+    df$MidDate<-as.Date(paste(df$CalendarYear+df$YearAdjust,
+                              df$MidMonth,
+                              df$MidDay,
+                              sep="-"
+                        ))
+    df$MidDate
+}
 
 
 BulkImport<-function(Path,Header){
