@@ -28,6 +28,7 @@ require(reshape2)
 # require(gdata)
 require(XLConnect)
 require(plyr)
+require(ggplot2)
 # setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
 setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
 source("CleanText.r")
@@ -220,22 +221,37 @@ ReadAndSplit("LW155 M777 Schedule Info.xlsx",
              "LW155 M777",NA,
              "Schedule",
              "LW155 M777//")
-
+M777schedule<-BulkImport(file.path("LW155 M777","Processing"),"Schedule")
 
 ReadAndSplit("SM-3 IIA Schedule Info.xlsx",
              "SM-3 BLOCK IIA",NA,
              "Schedule",
              "SM-3 BLOCK IIA//")
 
+debug(ReadAndSplit)
 ReadAndSplit("MEADS Schedule Info.xlsx",
              "MEADS",NA,
              "Schedule",
              "MEADS//")
+MEADSschedule<-BulkImport(file.path("MEADS","Processing"),"Schedule")
+
+
+ggplot(data=MEADSschedule,
+       aes(x=SARbaselineDevEst,
+                 xend=CurrentEstimate , 
+                 y=Source,
+                 yend=Source,
+           color=Source))+
+    geom_segment(arrow=arrow(ends="both",length=unit(0.1,"centimeter")))+
+    facet_grid(Milestones ~ Increment)
 
 ReadAndSplit("JSF Schedule Info.xlsx",
              "JSF",NA,
              "Schedule",
              "JSF//")
+JSFschedule<-BulkImport(file.path("JSF","Processing"),"Schedule",
+                        na.strings=c("","NA","N/A","TBD"))
+
 
 ReadAndSplit("A400M Schedule Info.xlsx",
              "A400M",NA,

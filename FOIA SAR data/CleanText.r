@@ -243,12 +243,12 @@ ReadAndSplit<-function(sFileName,
                       sheet = sSheetName,
                       header = FALSE,
                       dateTimeFormat = "%Y-%m-%d")
-    df[df=="NA"]<-NA
+   
    #Convert all columns to characters for ease of joining
    #http://stackoverflow.com/questions/3796266/change-the-class-of-many-columns-in-a-data-frame
    cols<-1:ncol(df)
    df[,cols] = apply(df[,cols], 2, function(x) as.character(x))
-   
+   df[df=="NA"]<-NA
     
     #If there's more columns in the header lookup, limit the lookup
     #to only those cases where there is no material in the unused columns
@@ -317,7 +317,12 @@ USfiscalYearQuarterToMidDate<-function(CalendarYear,FiscalQuarter){
 }
 
 
-BulkImport<-function(Path,Header){
+BulkImport<-function(Path,
+                     Header,
+                     na.strings=c("NA",
+                                   "--",
+                                   "-- ",
+                                   "N/A")){
     WD<-getwd()
     setwd(file.path(WD,Path))
     data.files<-file.path(list.files(pattern=paste(".*"
@@ -329,10 +334,7 @@ BulkImport<-function(Path,Header){
     )
     
     results<-read.tables(data.files,
-                header=TRUE, sep=",", na.strings=c("NA",
-                                                   "--",
-                                                   "-- ",
-                                                   "N/A"), dec=".", strip.white=TRUE, 
+                header=TRUE, sep=",", na.strings=na.strings, dec=".", strip.white=TRUE, 
                 stringsAsFactors=FALSE
     )
     setwd(WD)
