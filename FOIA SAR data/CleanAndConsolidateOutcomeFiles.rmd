@@ -236,6 +236,31 @@ ReadAndSplit("MEADS Schedule Info.xlsx",
 MEADSschedule<-BulkImport(file.path("MEADS","Processing"),"Schedule")
 
 
+ggplot(data=MEADSschedule,
+       aes(x=SARbaselineDevEst,
+                 xend=CurrentEstimate , 
+                 y=Source,
+                 yend=Source,
+           color=Source))+
+    geom_segment(arrow=arrow(ends="both",length=unit(0.1,"centimeter")))+
+    facet_grid(Milestones ~ Increment)
+
+ReadAndSplit("JSF Schedule Info.xlsx",
+             "JSF",NA,
+             "Schedule",
+             "JSF//")
+JSFschedule<-BulkImport(file.path("JSF","Processing"),"Schedule",
+                        na.strings=c("","NA","N/A","TBD"))
+JSFschedule$SARbaselineDevEstDate<-as.Date(JSFschedule$SARbaselineDevEst)
+JSFschedule$CurrentAPBobjectiveDate<-as.Date(JSFschedule$CurrentAPBobjective)
+JSFschedule$CurrentAPBthresholdDate<-as.Date(JSFschedule$CurrentAPBthreshold)
+JSFschedule$CurrentEstimateDate<-as.Date(JSFschedule$CurrentEstimate)
+JSFschedule$CurrentEstimateDate[is.na(JSFschedule$CurrentEstimateDate)]<-
+    as.Date(JSFschedule$CurrentEstimate[is.na(JSFschedule$CurrentEstimateDate)],"%b %Y %d")
+```{r}
+
+```
+
 ggplot(data=JSFschedule,
        aes(x=SARbaselineDevEst,
                  xend=CurrentEstimate , 
@@ -245,16 +270,6 @@ ggplot(data=JSFschedule,
     geom_segment(arrow=arrow(ends="both",length=unit(0.1,"centimeter")))+
     facet_wrap("Milestones")
 
-ReadAndSplit("JSF Schedule Info.xlsx",
-             "JSF",NA,
-             "Schedule",
-             "JSF//")
-JSFschedule<-BulkImport(file.path("JSF","Processing"),"Schedule",
-                        na.strings=c("","NA","N/A","TBD"))
-JSFschedule$SARbaselineDevEst<-as.Date(JSFschedule$SARbaselineDevEst)
-JSFschedule$CurrentAPBobjective<-as.Date(JSFschedule$CurrentAPBobjective)
-JSFschedule$CurrentAPBthreshold<-as.Date(JSFschedule$CurrentAPBthreshold)
-JSFschedule$CurrentEstimate<-as.Date(JSFschedule$CurrentEstimate)
 
 ReadAndSplit("A400M Schedule Info.xlsx",
              "A400M",NA,
