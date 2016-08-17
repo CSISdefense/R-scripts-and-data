@@ -340,3 +340,9 @@ BulkImport<-function(Path,
     setwd(WD)
     results
 }
+
+as.Date.extra.check<-function(){
+    JSFschedule$CurrentEstimateDate<-as.Date(JSFschedule$CurrentEstimate)
+    JSFschedule$CurrentEstimateDate[is.na(JSFschedule$CurrentEstimateDate)]<-
+        as.Date(JSFschedule$CurrentEstimate[is.na(JSFschedule$CurrentEstimateDate)],"%b %Y %d")
+}
