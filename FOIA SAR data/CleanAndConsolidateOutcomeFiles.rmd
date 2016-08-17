@@ -29,8 +29,8 @@ require(reshape2)
 require(XLConnect)
 require(plyr)
 require(ggplot2)
-setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
-# setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
+# setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
+setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
 source("CleanText.r")
 ```
 
@@ -246,12 +246,12 @@ M777sequence<-M777sequence[,!colnames(M777sequence) %in%  c("Events",
 M777sequence<-M777sequence[order(M777sequence$Source,M777sequence$Filename),]
 unique(M777sequence$FQuarter)
 M777sequence$Date<-USfiscalYearQuarterToMidDate(M777sequence$FYear,M777sequence$FQuarter)
-M777sequence<-subset(M777sequence,Description %in% c("IOC",
-                                                     "Initial Operational Capability",
-                                                     "Initial Operational Capability ",
-                                                     "Full Rate Production Decision"))
-write(unique(M777sequence$Description),"Event.csv")
+colnames(M777sequence)[colnames(M777sequence)=="Description"]<-"Events"
+lookup.event<-read.csv("Event.csv",na.strings = c("","NA"))
+M777sequence<-join(M777sequence,lookup.event)
 
+
+write(unique(M777sequence$Description),"Event.csv")
 
 
 
@@ -259,12 +259,17 @@ M777schedule<-M777schedule[order(M777schedule$Source,
                                  M777schedule$Description,
                                  M777schedule$FYear),]
 
+# View(subset(M777sequence,!is.na(Events.sum)))
+
 
 
 ReadAndSplit("SM-3 IIA Schedule Info.xlsx",
              "SM-3 BLOCK IIA",NA,
              "Schedule",
              "SM-3 BLOCK IIA//")
+SM3schedule<-BulkImport(file.path("SM-3 BLOCK IIA","Processing"),"Schedule")
+
+
 
 debug(ReadAndSplit)
 ReadAndSplit("MEADS Schedule Info.xlsx",
