@@ -29,8 +29,8 @@ require(reshape2)
 require(XLConnect)
 require(plyr)
 require(ggplot2)
-# setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
-setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
+setwd("D://Users//Greg Sanders//Documents//Development//R-scripts-and-data//FOIA SAR data")
+# setwd("K://2007-01 PROFESSIONAL SERVICES//R scripts and data//FOIA SAR data")
 source("CleanText.r")
 ```
 
@@ -191,6 +191,7 @@ write.csv(dfBudgetHistory,
 ```
 
 ```{r Schedule}
+
 #************************************Schedule *****************************
 
 debug(ReadAndSplit)
@@ -217,11 +218,48 @@ ggplot(data=AGSschedule,
     geom_segment(arrow=arrow(ends="both",length=unit(0.1,"centimeter")))+
     facet_wrap("Events")
 
+
 ReadAndSplit("LW155 M777 Schedule Info.xlsx",
              "LW155 M777",NA,
              "Schedule",
              "LW155 M777//")
 M777schedule<-BulkImport(file.path("LW155 M777","Processing"),"Schedule")
+M777sequence<-subset(M777schedule, is.na(StartYear))
+M777sequence<-melt(M777sequence,variable.name="FYear",
+          value.name="FQuarter",
+          measure.vars=paste("Year",1:9,sep="")
+)
+M777sequence$FQuarter[M777sequence$FQuarter==0]<-NA
+M777sequence<-subset(M777sequence,!is.na(FQuarter))
+M777schedule<-subset(M777schedule,!is.na(StartYear))
+M777schedule<-M777schedule[,!colnames(M777schedule) %in% paste("Year",1:9,sep="")]
+#Can ignore what's in M777 as it's the upgrade program, and thus out of scope.
+rm(M777schedule)
+M777sequence$FYear<-as.numeric(substring(as.character(M777sequence$FYear),5))-
+  1+M777sequence$FirstYearInSequence
+M777sequence<-M777sequence[,!colnames(M777sequence) %in%  c("Events",
+                                                            "StartQuarter",
+                                                            "StartYear",
+                                                            "EndQuarter",
+                                                            "EndYear",
+                                                            "LineItem")]
+M777sequence<-M777sequence[order(M777sequence$Source,M777sequence$Filename),]
+unique(M777sequence$FQuarter)
+M777sequence$Date<-USfiscalYearQuarterToMidDate(M777sequence$FYear,M777sequence$FQuarter)
+M777sequence<-subset(M777sequence,Description %in% c("IOC",
+                                                     "Initial Operational Capability",
+                                                     "Initial Operational Capability ",
+                                                     "Full Rate Production Decision"))
+write(unique(M777sequence$Description),"Event.csv")
+
+
+
+
+M777schedule<-M777schedule[order(M777schedule$Source,
+                                 M777schedule$Description,
+                                 M777schedule$FYear),]
+
+
 
 ReadAndSplit("SM-3 IIA Schedule Info.xlsx",
              "SM-3 BLOCK IIA",NA,
@@ -257,9 +295,7 @@ JSFschedule$CurrentAPBthresholdDate<-as.Date(JSFschedule$CurrentAPBthreshold)
 JSFschedule$CurrentEstimateDate<-as.Date(JSFschedule$CurrentEstimate)
 JSFschedule$CurrentEstimateDate[is.na(JSFschedule$CurrentEstimateDate)]<-
     as.Date(JSFschedule$CurrentEstimate[is.na(JSFschedule$CurrentEstimateDate)],"%b %Y %d")
-```{r}
 
-```
 
 ggplot(data=JSFschedule,
        aes(x=SARbaselineDevEst,
@@ -279,7 +315,8 @@ ReadAndSplit("A400M Schedule Info.xlsx",
 ```
 
 ```{r UnitCostHistory}
-#*************************************Unit Cost History***************************
+
+# *************************************Unit Cost History***************************
 
 
 # debug(CleanExtractAndWrite)
