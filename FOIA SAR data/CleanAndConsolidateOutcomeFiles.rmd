@@ -247,11 +247,11 @@ M777sequence<-M777sequence[order(M777sequence$Source,M777sequence$Filename),]
 unique(M777sequence$FQuarter)
 M777sequence$Date<-USfiscalYearQuarterToMidDate(M777sequence$FYear,M777sequence$FQuarter)
 colnames(M777sequence)[colnames(M777sequence)=="Description"]<-"Events"
-lookup.event<-read.csv("Event.csv",na.strings = c("","NA"))
+lookup.event<-read.csv("Events.csv",na.strings = c("","NA"))
 M777sequence<-join(M777sequence,lookup.event)
 
 
-write(unique(M777sequence$Description),"Event.csv")
+
 
 
 
@@ -289,10 +289,15 @@ SM3sequence<-SM3sequence[order(SM3sequence$Source,SM3sequence$Filename),]
 unique(SM3sequence$FQuarter)
 SM3sequence$Date<-USfiscalYearQuarterToMidDate(SM3sequence$FYear,SM3sequence$FQuarter)
 colnames(SM3sequence)[colnames(SM3sequence)=="Description"]<-"Events"
-lookup.event<-read.csv("Event.csv",na.strings = c("","NA"))
+lookup.event<-read.csv("Events.csv",na.strings = c("","NA"))
 SM3sequence<-join(SM3sequence,lookup.event)
-
-
+unique(SM3sequence$Events)
+if(any(subset(SM3schedule,StartYear!=EndYear | StartQuarter != EndQuarter))){
+  stop("Don't just remove it because the end dates don't already match.")
+}
+SM3schedule<-SM3schedule[,!colnames(SM3schedule) %in% c("EndQuarter","EndYear")]
+SM3schedule$Date<-USfiscalYearQuarterToMidDate(SM3schedule$StartYear,SM3schedule$StartQuarter)
+test<-rbind.fill(SM3schedule,SM3sequence)
 
 
 
