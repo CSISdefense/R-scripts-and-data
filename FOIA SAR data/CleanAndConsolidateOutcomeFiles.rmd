@@ -95,6 +95,42 @@ ReadAndSplit("2015 SM-3 Budget Doc Data Draw.xlsx",
              "Sheet1",
              "SM-3 BLOCK IIA//")
 
+
+SM3budget<-BulkImport(file.path("SM-3 BLOCK IIA","Processing"),"OCO")
+# SM3sequence<-subset(SM3schedule, is.na(StartYear))
+# SM3sequence<-melt(SM3sequence,variable.name="FYear",
+#           value.name="FQuarter",
+#           measure.vars=paste("Year",1:5,sep="")
+# )
+# SM3sequence$FQuarter[SM3sequence$FQuarter==0]<-NA
+# SM3sequence<-subset(SM3sequence,!is.na(FQuarter))
+# SM3schedule<-subset(SM3schedule,!is.na(StartYear))
+# SM3schedule<-SM3schedule[,!colnames(SM3schedule) %in% paste("Year",1:9,sep="")]
+# SM3sequence$FYear<-as.numeric(substring(as.character(SM3sequence$FYear),5))-
+#   1+SM3sequence$FirstYearInSequence
+# SM3sequence<-SM3sequence[,!colnames(SM3sequence) %in%  c("Events",
+#                                                             "StartQuarter",
+#                                                             "StartYear",
+#                                                             "EndQuarter",
+#                                                             "EndYear",
+#                                                             "LineItem")]
+# SM3sequence<-SM3sequence[order(SM3sequence$Source,SM3sequence$Filename),]
+# unique(SM3sequence$FQuarter)
+# SM3sequence$Date<-USfiscalYearQuarterToMidDate(SM3sequence$FYear,SM3sequence$FQuarter)
+# colnames(SM3sequence)[colnames(SM3sequence)=="Description"]<-"Events"
+# lookup.event<-read.csv("Events.csv",na.strings = c("","NA"))
+# SM3sequence<-join(SM3sequence,lookup.event)
+# unique(SM3sequence$Events)
+# if(any(subset(SM3schedule,StartYear!=EndYear | StartQuarter != EndQuarter))){
+#   stop("Don't just remove it because the end dates don't already match.")
+# }
+# SM3schedule<-SM3schedule[,!colnames(SM3schedule) %in% c("EndQuarter","EndYear")]
+# SM3schedule$Date<-USfiscalYearQuarterToMidDate(SM3schedule$StartYear,SM3schedule$StartQuarter)
+# test<-rbind.fill(SM3schedule,SM3sequence)
+# 
+
+
+
 ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "LW155 M777",NA,
              "All Years_vol2.summary",
@@ -121,7 +157,7 @@ ReadAndSplit("All Docs_M777 Data Draw.xlsx",
              "All Years_N_BA4",
              "LW155 M777//")
 
-
+M777budget<-BulkImport(file.path("LW155 M777","Processing"),"Future")
 
 ReadAndSplit("AGS Budget Docs Data Draw.xlsx",
              "NATO AGS",NA,

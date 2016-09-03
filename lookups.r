@@ -663,7 +663,10 @@ read_and_join<-function(VAR.path,
                         VAR.file,
                         VAR.existing.df,
                         directory="Lookups\\",
-                        by=NULL){
+                        by=NULL,
+                        NewColumnsTrump=TRUE){
+    
+    
     lookup.file<-read.csv(
         paste(VAR.path,directory,VAR.file,sep=""),
         header=TRUE, sep=ifelse(substring(VAR.file,nchar(VAR.file)-3)==".csv",",","\t"), na.strings=c("NA","NULL"), dec=".", strip.white=TRUE,
@@ -671,11 +674,24 @@ read_and_join<-function(VAR.path,
     )
     
     
+    #Remove nonsense characters sometimes added to start of files
+    colnames(VAR.existing.df)[substring(colnames(VAR.existing.df),1,3)=="ï.."]<-
+        substring(colnames(VAR.existing.df)[substring(colnames(VAR.existing.df),1,3)=="ï.."],4)
+    
+    #Remove nonsense characters sometimes added to start of files
+    colnames(lookup.file)[substring(colnames(lookup.file),1,3)=="ï.."]<-
+        substring(colnames(lookup.file)[substring(colnames(lookup.file),1,3)=="ï.."],4)
+    
+    
+    
     #Clear out any fields held in common not used in the joining
     if(!is.null(by)){
         droplist<-names(lookup.file)[names(lookup.file) %in% names(VAR.existing.df)]
         droplist<-droplist[droplist!=by]
-        VAR.existing.df<-VAR.existing.df[,!names(VAR.existing.df) %in% droplist]
+        if(NewColumnsTrump)
+            VAR.existing.df<-VAR.existing.df[,!names(VAR.existing.df) %in% droplist]
+        else
+            lookup.file<-lookup.file[,!names(lookup.file) %in% droplist]
     }
     
     
@@ -702,13 +718,9 @@ read_and_join<-function(VAR.path,
     #   }
     
     
-    if("ï..CSIScontractID" %in% colnames(lookup.file)){
-        colnames(lookup.file)[colnames(lookup.file)=="ï..CSIScontractID"]<-"CSIScontractID"
-    }
-    
     if("CSIScontractID" %in% colnames(lookup.file)){
         if(!is.numeric(lookup.file$CSIScontractID)){
-            lookup.file$CSIScontractID<-as.numeric(levels(lookup.file$CSIScontractID))
+            lookup.file$CSIScontractID<-as.numeric(as.character(lookup.file$CSIScontractID))
         }
     }
     
@@ -847,6 +859,12 @@ append_contract_fixes<- function(VAR.path,VAR.df){
 }
 #***********************Standardize Variable Names
 standardize_variable_names<- function(VAR.Path,VAR.df){
+    #Remove nonsense characters sometimes added to start of files
+    colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="ï.."]<-
+        substring(colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="ï.."],4)
+    
+    
+    
     #***Standardize variable names
     NameList<-read.csv(
         paste(
@@ -855,6 +873,7 @@ standardize_variable_names<- function(VAR.Path,VAR.df){
         header=TRUE, sep=",", na.strings=c("NA","NULL"), dec=".", strip.white=TRUE, 
         stringsAsFactors=FALSE
     )
+    
     
 #     NameList<-subset(NameList,toupper(Original) %in% toupper(colnames(VAR.df)))
     for(x in 1:nrow(NameList)){
