@@ -297,7 +297,16 @@ if(any(subset(SM3schedule,StartYear!=EndYear | StartQuarter != EndQuarter))){
 }
 SM3schedule<-SM3schedule[,!colnames(SM3schedule) %in% c("EndQuarter","EndYear")]
 SM3schedule$Date<-USfiscalYearQuarterToMidDate(SM3schedule$StartYear,SM3schedule$StartQuarter)
-test<-rbind.fill(SM3schedule,SM3sequence)
+SM3schedule<-rbind.fill(SM3schedule,SM3sequence)
+
+
+
+ggplot(data=SM3schedule,
+       aes(x=Date,
+                 y=Source,
+           color=Source))+
+    geom_point()+
+    facet_wrap("Events")
 
 
 
