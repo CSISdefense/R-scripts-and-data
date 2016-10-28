@@ -1,0 +1,9 @@
+name: Contract_Obligations_by_Vendor_Size
+account: csis
+server: shinyapps.io
+appId: 107782
+bundleId: 479453
+url: https://csis.shinyapps.io/Contract_Obligations_by_Vendor_Size/
+when: 1465849264.75568
+asMultiple: FALSE
+asStatic: FALSE

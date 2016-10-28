@@ -1,0 +1,41 @@
+---
+title: "Focal Chart (Top)"
+output: 
+  flexdashboard::flex_dashboard:
+    vertical_layout: scroll 
+    
+runtime: shiny 
+---
+   
+```{r setup, include=FALSE}
+library(flexdashboard)
+```   
+    
+### Chart 1
+    
+```{r echo = FALSE}
+
+shinyAppFile("A.R", options=list(width="100%", height=840))
+
+
+```
+    
+### Chart 2
+
+```{r echo = FALSE}
+
+
+shinyAppFile("B.R", options=list(width="100%", height=840))
+
+
+```
+
+### Chart 3
+
+```{r echo = FALSE}
+
+
+shinyAppFile("C.R", options=list(width="100%", height=840))
+
+
+```

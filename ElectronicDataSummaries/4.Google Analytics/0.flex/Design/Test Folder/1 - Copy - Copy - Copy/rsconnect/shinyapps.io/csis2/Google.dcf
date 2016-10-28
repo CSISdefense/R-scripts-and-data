@@ -1,0 +1,9 @@
+name: Google
+account: csis2
+server: shinyapps.io
+appId: 124653
+bundleId: 552288
+url: https://csis2.shinyapps.io/Google/
+when: 1473356276.61267
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,9 @@
+name: Google_Analytics
+account: csis
+server: shinyapps.io
+appId: 121903
+bundleId: 540856
+url: https://csis.shinyapps.io/Google_Analytics/
+when: 1472138873.26626
+asMultiple: FALSE
+asStatic: FALSE
