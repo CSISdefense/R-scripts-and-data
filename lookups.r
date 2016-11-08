@@ -366,8 +366,8 @@ import_figures_and_tables <- function(VAR.Path
     #   }
     
     if("Customer" %in% names(imported.data ) &
-           !is.na(VAR.choice.data$Customer[VAR.which.data]) & 
-           VAR.choice.data$Customer[VAR.which.data]!=""){
+       !is.na(VAR.choice.data$Customer[VAR.which.data]) & 
+       VAR.choice.data$Customer[VAR.which.data]!=""){
         imported.data<-subset(imported.data,Customer==VAR.choice.data$Customer[VAR.which.data])
     }
     
@@ -868,19 +868,19 @@ standardize_variable_names<- function(VAR.Path,VAR.df){
     #***Standardize variable names
     NameList<-read.csv(
         paste(
-                  VAR.Path,
+            VAR.Path,
             "Lookups\\","Lookup_StandardizeVariableNames.csv",sep=""),
         header=TRUE, sep=",", na.strings=c("NA","NULL"), dec=".", strip.white=TRUE, 
         stringsAsFactors=FALSE
     )
     
     
-#     NameList<-subset(NameList,toupper(Original) %in% toupper(colnames(VAR.df)))
+    #     NameList<-subset(NameList,toupper(Original) %in% toupper(colnames(VAR.df)))
     for(x in 1:nrow(NameList)){
-#         if(toupper(NameList$Original[[x]]) %in% OldNameListUpper){
-            colnames(VAR.df)[toupper(colnames(VAR.df))==toupper(NameList$Original[[x]])]<-
-                NameList$Replacement[[x]]
-#         }
+        #         if(toupper(NameList$Original[[x]]) %in% OldNameListUpper){
+        colnames(VAR.df)[toupper(colnames(VAR.df))==toupper(NameList$Original[[x]])]<-
+            NameList$Replacement[[x]]
+        #         }
     }
     
     VAR.df
@@ -943,10 +943,10 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     #***Join relevant variables to lookup tables
     if("ContractingAgencyID" %in%  names(VAR.df) & 
-           "ContractingOfficeID" %in%  names(VAR.df)  &
-           "Fiscal.Year" %in%  names(VAR.df)  &
-           !("ContractingOfficeName" %in%  names(VAR.df)|
-                 "MajorCommandID"  %in%  names(VAR.df))){
+       "ContractingOfficeID" %in%  names(VAR.df)  &
+       "Fiscal.Year" %in%  names(VAR.df)  &
+       !("ContractingOfficeName" %in%  names(VAR.df)|
+         "MajorCommandID"  %in%  names(VAR.df))){
         
         if("MajorCommandCode"%in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
@@ -983,7 +983,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
         
         NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & ContractingAgencyID!="Uncategorized" & ContractingAgencyID!="ContractingOfficeID"
-                                & !is.na(Fiscal.Year),
+                            & !is.na(Fiscal.Year),
                             select=c("Fiscal.Year",
                                      "ContractingOfficeID",
                                      "ContractingOfficeName",
@@ -1056,7 +1056,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
     
     if("CSISofficeName" %in%  names(VAR.df)){
-                
+        
         #Handle NA values if present
         if(any(is.na(VAR.df$CSISofficeName))){
             #Make sure unlabeled is within the list of levels
@@ -1073,7 +1073,7 @@ apply_lookups<- function(VAR.path,VAR.df){
             print(unique(NA.check.df))
             stop(paste(nrow(NA.check.df),"rows of NAs generated in CSISofficeName.PBL"))
         }
-  
+        
     }
     
     
@@ -1359,7 +1359,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         }
         
     }
- 
+    
     else if("ServicesCategory.detail" %in% names(VAR.df))
     {
         
@@ -1458,7 +1458,7 @@ apply_lookups<- function(VAR.path,VAR.df){
             stop(paste(nrow(NA.check.df),"rows of NAs generated in Countries"))
         }
     }
-#     browser()
+    #     browser()
     if("Pricing.Mechanism" %in% names(VAR.df)){ 
         VAR.df$Pricing.Mechanism[VAR.df$Pricing.Mechanism==""]<-NA
         
@@ -1854,6 +1854,9 @@ apply_lookups<- function(VAR.path,VAR.df){
             }
             if("Deflator.2014"%in% names(VAR.df)){
                 VAR.df$Obligation.2014<-VAR.df$Action.Obligation/VAR.df$Deflator.2014/1000000000
+            }
+            if("Deflator.2015"%in% names(VAR.df)){
+                VAR.df$Obligation.2015<-VAR.df$Action.Obligation/VAR.df$Deflator.2015/1000000000
             }
         }
         
