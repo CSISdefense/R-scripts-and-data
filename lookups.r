@@ -1207,7 +1207,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         }
         
         VAR.df<-read_and_join(VAR.path,"LOOKUP_SubFunder.csv",VAR.df)
-        NA.check.df<-subset(VAR.df, is.na(SubFunder.Sum), select=c("Fiscal.Year","Funder","SubFunder"))
+        NA.check.df<-subset(VAR.df, is.na(SubFunder.Sum) & !is.na(Funder), select=c("Fiscal.Year","Funder","SubFunder"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
             stop(paste(nrow(NA.check.df),"rows of NAs generated in SubFunder.Sum"))
@@ -1234,7 +1234,7 @@ apply_lookups<- function(VAR.path,VAR.df){
         }
         
         VAR.df<-read_and_join(VAR.path,"LOOKUP_State_Code.csv",VAR.df)
-        NA.check.df<-subset(VAR.df, is.na(StateText), select=c("PoPstateCode","StateText"))
+        NA.check.df<-subset(VAR.df, is.na(StateText) & !is.na(PoPstateCode), select=c("PoPstateCode","StateText"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
             stop(paste(nrow(NA.check.df),"rows of NAs generated in StateText"))
