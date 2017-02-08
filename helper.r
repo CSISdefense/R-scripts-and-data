@@ -2539,7 +2539,10 @@ LatticePlotWrapper<-function(VAR.color.legend.label
             VAR.long.DF$y.variable<-VAR.long.DF$MovingAverage
         }
         
-        VAR.long.DF<-ddply(VAR.long.DF,.(x.variable,primary),mutate,ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
+        VAR.long.DF<-ddply(VAR.long.DF,
+                           .(x.variable,primary),
+                           mutate,
+                           ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
         
     }
     else{
@@ -2812,7 +2815,10 @@ LatticeLineWrapper<-function(VAR.color.legend.label
             VAR.long.DF$y.variable<-VAR.long.DF$MovingAverage
         }
         
-        VAR.long.DF<-ddply(VAR.long.DF,.(x.variable,primary),mutate,ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
+        VAR.long.DF<-ddply(VAR.long.DF,
+                           .(x.variable,primary),
+                           mutate,
+                           ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
         
     }
     else{
