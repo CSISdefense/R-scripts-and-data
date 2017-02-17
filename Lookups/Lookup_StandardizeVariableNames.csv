@@ -116,9 +116,9 @@ Budget.Activity.Short.Title,BudgetActivityTitle
 Budget.Sub.Activity,BudgetSubActivity
 Budget.Sub.Activity.Title,BudgetSubActivityTitle
 BSA,BSA
-BSA.Title,BSAtitle
+BSA..Title,BSAtitle
 AG.Title,AGtitle
-SAG.Title,SAGtitle
+SAG…,SAGtitle
 Facility.Category.Title,FacilityCategoryTitle
 State.Country,StateCountry
 State.Country.Title,StateCountryTitle
