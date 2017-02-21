@@ -159,3 +159,6 @@ X.....Auth.........Amount...,AuthAmount
 X...Auth.for....Appn.Amount.,AuthForAppnAmount
 X.....Appn.........Amount...,AppnAmount
 X.....TOA..........Amount...,TOAamount
+AG...Budget.SubActivity..BSA..Title,BudgetSubActivityTitle
+SAG...Budget.Line.Item..BLI..Title,BudgetLineItem
+SAG...BLI,SAG
