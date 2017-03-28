@@ -107,7 +107,7 @@ pVehBPA,pVehBPA
 year,Year
 region,Region
 iYear,Year
-Classification,Classified
+Classification,Classified  
 Account,Account
 Account.Title,AccountTitle
 Budget.Activity,BudgetActivity
@@ -115,8 +115,9 @@ Budget.Activity.Title,BudgetActivityTitle
 Budget.Activity.Short.Title,BudgetActivityTitle
 Budget.Sub.Activity,BudgetSubActivity
 Budget.Sub.Activity.Title,BudgetSubActivityTitle
+Budget.Sub.Activity..BSA..Title,BudgetSubActivityTitle
 BSA,BSA
-BSA..Title,BSAtitle
+BSA.Title,BSAtitle
 AG.Title,AGtitle
 SAG…,SAGtitle
 Facility.Category.Title,FacilityCategoryTitle
@@ -162,3 +163,8 @@ X.....TOA..........Amount...,TOAamount
 AG...Budget.SubActivity..BSA..Title,BudgetSubActivityTitle
 SAG...Budget.Line.Item..BLI..Title,BudgetLineItem
 SAG...BLI,SAG
+Add/.Non-Add,AddOrNonAdd
+TOAamount,TOAamount
+,
+X..Emergency......Disaster...Relief.Act.of......2013....,EmergencyDisasterReliefActof2013
+X....TOA..Total...Base.Request.with.CR.Adj..,TOA.Total.Base.Request
