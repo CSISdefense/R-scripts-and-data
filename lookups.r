@@ -19,6 +19,28 @@ ClassifyDuration<-function(VAR.Week.Count){
     
 }
 
+
+UpdateLookupTable<-function(Schema,TableName,
+                            TargetColumn,
+                            UpdateValue,
+                            ComparisonList,
+                            EvaluationColumn=NA){
+  #Our database has a convention that most single column primary keys have have a table name equal to their name
+  if(!is.numeric(ComparisonList)) ComparisonList<-paste("'",ComparisonList,"'",sep='')
+  ComparisonList<-paste(ComparisonList,collapse=', ')
+  
+  if (is.na(EvaluationColumn)) EvaluationColumn<-TableName
+  Update<-paste('UPDATE ',Schema,'.',TableName,'\n',
+        'SET ',TargetColumn,'=',UpdateValue,'\n',
+        'WHERE ',EvaluationColumn,' in (',ComparisonList,') AND\n',
+        '(',TargetColumn,' is NULL or ',TargetColumn,'<>',UpdateValue,')\n',
+        sep='')
+  
+  Update
+}
+
+
+
 CreateDuration<-function(VAR.Week.Count){
     VAR.Week.Count<-sapply(VAR.Week.Count,ClassifyDuration)
     factor(VAR.Week.Count
@@ -675,12 +697,12 @@ read_and_join<-function(VAR.path,
     
     
     #Remove nonsense characters sometimes added to start of files
-    colnames(VAR.existing.df)[substring(colnames(VAR.existing.df),1,3)=="ï.."]<-
-        substring(colnames(VAR.existing.df)[substring(colnames(VAR.existing.df),1,3)=="ï.."],4)
+    colnames(VAR.existing.df)[substring(colnames(VAR.existing.df),1,3)=="?.."]<-
+        substring(colnames(VAR.existing.df)[substring(colnames(VAR.existing.df),1,3)=="?.."],4)
     
     #Remove nonsense characters sometimes added to start of files
-    colnames(lookup.file)[substring(colnames(lookup.file),1,3)=="ï.."]<-
-        substring(colnames(lookup.file)[substring(colnames(lookup.file),1,3)=="ï.."],4)
+    colnames(lookup.file)[substring(colnames(lookup.file),1,3)=="?.."]<-
+        substring(colnames(lookup.file)[substring(colnames(lookup.file),1,3)=="?.."],4)
     
     
     
@@ -860,8 +882,8 @@ append_contract_fixes<- function(VAR.path,VAR.df){
 #***********************Standardize Variable Names
 standardize_variable_names<- function(VAR.Path,VAR.df){
     #Remove nonsense characters sometimes added to start of files
-    colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="ï.."]<-
-        substring(colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="ï.."],4)
+    colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="?.."]<-
+        substring(colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="?.."],4)
     
     
     
