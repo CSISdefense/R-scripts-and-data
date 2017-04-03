@@ -183,3 +183,7 @@ Annualized.CR.Base..,AnnualizedCRbase
 X..Appn.OCO...Request.with....CR.Adj...,AppnOCOrequestWithCRadj
 X...TOA.OCO...Request.with....CR.Adj...,TOAOCOrequestWithCRadj
 X....Appn......Annualized....CR.OCO....,AppnAnnualizedCROCO
+X.........Appn.........Amount...,AppnAmount
+X.........Auth.........Amount...,AuthAmount
+X.......Auth.for....Appn.Amount.,AuthForAppnAmount
+X.....TOA.Base....Request.with....CR.Adj....,TOAbaseRequestWithCRadj
