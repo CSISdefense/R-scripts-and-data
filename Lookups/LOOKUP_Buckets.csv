@@ -1,32 +1,32 @@
-ProductServiceOrRnDarea,ProductOrServiceArea,ServicesCategory.detail,ServicesCategory.sum,ProductsCategory.detail,ProductOrServiceArea.DLA,ProductOrServicesCategory.Graph
-PAMS,PAMS,PAMS,Services (Non-R&D),Services,PAMS,TRUE
-R&D,R&D,R&D,R&D,R&D,Other Services,TRUE
-ERS,ERS,ERS,Services (Non-R&D),Services (Non-R&D),Other Services,TRUE
-FRS&C,FRS&C,FRS&C,Services (Non-R&D),Services (Non-R&D),FRS&C,TRUE
-ICT,ICT,ICT,Services (Non-R&D),Services (Non-R&D),ICT,TRUE
-MED,MED,MED,Services (Non-R&D),Services (Non-R&D),Other Services,TRUE
-Other,Other,Products,Products (All),Other,Other Products,TRUE
-Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE
-Products,Products,Products,Products (All),Products (All),Products,TRUE
-Fuels,Fuels,Fuels,Products (All),Fuels,Fuels,TRUE
-NULL,NULL,Unlabeled,Unlabeled,Unlabeled,NULL,FALSE
-Fuel,Fuel,Fuels,Products (All),Fuels,Fuels,TRUE
-All Services,All Services,All Services,All Services,All Services,All Services,TRUE
-Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),TRUE
-Services,Services,Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services,TRUE
-Ships,Ships,Products,Products (All),Ships,Other Platform/Weap.,TRUE
-Missiles & Space,Missiles & Space,Products,Products (All),Missiles & Space,Other Platform/Weap.,TRUE
-Launchers & Munitions,Launchers & Munitions,Products,Products (All),Launchers & Munitions,Other Platform/Weap.,TRUE
-Ground Vehicles,Ground Vehicles,Products,Products (All),Ground Vehicles,Ground Vehicles,TRUE
-Engines & Power Plants,Engines & Power Plants,Products,Products (All),Engines & Power Plants,Engines & Power Pl.,TRUE
-Electronics & Communications,Electronics & Communications,Products,Products (All),Electronics & Communications,Electronics & Comm.,TRUE
-Clothing & Subsistence,Clothing & Subsistence,Products,Products (All),Clothing & Subsistence,Clothing & Sub.,TRUE
-Aircraft,Aircraft,Products,Products (All),Aircraft,Aircraft,TRUE
-Basic Research (6.1),R&D,R&D,R&D,R&D,Other Services,TRUE
-Applied Research (6.2),R&D,R&D,R&D,R&D,Other Services,TRUE
-Advanced Technology Development (6.3),R&D,R&D,R&D,R&D,Other Services,TRUE
-Advanced Component Development & Prototypes (6.4),R&D,R&D,R&D,R&D,Other Services,TRUE
-System Development & Demonstration (6.5),R&D,R&D,R&D,R&D,Other Services,TRUE
-Operational Systems Development (6.7),R&D,R&D,R&D,R&D,Other Services,TRUE
-Operation of Government R&D Facilities,R&D,R&D,R&D,R&D,Other Services,TRUE
-Uncategorized R&D,R&D,R&D,R&D,R&D,Other Services,TRUE
+ProductServiceOrRnDarea,ProductOrServiceArea,ServicesCategory.detail,ServicesCategory.sum,ProductsCategory.detail,ProductOrServiceArea.DLA,ProductOrServicesCategory.Graph,ServicesCategory.sum,SupplyServiceFRC
+PAMS,PAMS,PAMS,Services (Non-R&D),Services,PAMS,TRUE,Services (Non-R&D),Services
+R&D,R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+ERS,ERS,ERS,Services (Non-R&D),Services (Non-R&D),Other Services,TRUE,Services (Non-R&D),Services
+FRS&C,FRS&C,FRS&C,Services (Non-R&D),Services (Non-R&D),FRS&C,TRUE,Services (Non-R&D),FRS&C
+ICT,ICT,ICT,Services (Non-R&D),Services (Non-R&D),ICT,TRUE,Services (Non-R&D),Services
+MED,MED,MED,Services (Non-R&D),Services (Non-R&D),Other Services,TRUE,Services (Non-R&D),Services
+Other,Other,Products,Products (All),Other,Other Products,TRUE,Products (All),Supply
+Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,Unlabeled,FALSE,Unlabeled,Unlabeled
+Products,Products,Products,Products (All),Products (All),Products,TRUE,Products (All),Supply
+Fuels,Fuels,Fuels,Products (All),Fuels,Fuels,TRUE,Products (All),Supply
+NULL,NULL,Unlabeled,Unlabeled,Unlabeled,NULL,FALSE,Unlabeled,Unlabeled
+Fuel,Fuel,Fuels,Products (All),Fuels,Fuels,TRUE,Products (All),Supply
+All Services,All Services,All Services,All Services,All Services,All Services,TRUE,All Services,Services
+Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),TRUE,Services (Non-R&D),Services
+Services,Services,Services (Non-R&D),Services (Non-R&D),Services (Non-R&D),Services,TRUE,Services (Non-R&D),Services
+Ships,Ships,Products,Products (All),Ships,Other Platform/Weap.,TRUE,Products (All),Supply
+Missiles & Space,Missiles & Space,Products,Products (All),Missiles & Space,Other Platform/Weap.,TRUE,Products (All),Supply
+Launchers & Munitions,Launchers & Munitions,Products,Products (All),Launchers & Munitions,Other Platform/Weap.,TRUE,Products (All),Supply
+Ground Vehicles,Ground Vehicles,Products,Products (All),Ground Vehicles,Ground Vehicles,TRUE,Products (All),Supply
+Engines & Power Plants,Engines & Power Plants,Products,Products (All),Engines & Power Plants,Engines & Power Pl.,TRUE,Products (All),Supply
+Electronics & Communications,Electronics & Communications,Products,Products (All),Electronics & Communications,Electronics & Comm.,TRUE,Products (All),Supply
+Clothing & Subsistence,Clothing & Subsistence,Products,Products (All),Clothing & Subsistence,Clothing & Sub.,TRUE,Products (All),Supply
+Aircraft,Aircraft,Products,Products (All),Aircraft,Aircraft,TRUE,Products (All),Supply
+Basic Research (6.1),R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+Applied Research (6.2),R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+Advanced Technology Development (6.3),R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+Advanced Component Development & Prototypes (6.4),R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+System Development & Demonstration (6.5),R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+Operational Systems Development (6.7),R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+Operation of Government R&D Facilities,R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
+Uncategorized R&D,R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Services
