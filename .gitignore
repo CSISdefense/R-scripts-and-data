@@ -6,3 +6,4 @@ Legacy Code/
 .RDataTmp2
 .RDataTmp3
 Data/
+*.Rhistory
