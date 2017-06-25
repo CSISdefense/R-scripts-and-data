@@ -2367,7 +2367,7 @@ LatticePlot<-function(VAR.color.legend.label
         , main=VAR.main.label
         , xlab=VAR.X.label
         , geom="bar"
-        , stat="identity"
+        # , stat="identity"
         , fill=factor(category,levels=labels.category.DF$variable),
     )#+ geom_bar(stat="identity")
     
@@ -2585,19 +2585,19 @@ LatticePlotWrapper<-function(VAR.color.legend.label
                                 labels=c(labels.primary.DF$Label),
                                 ordered=TRUE)
     
+    VAR.long.DF$category<-factor(VAR.long.DF$category,
+                                 levels=labels.category.DF$variable)
     
-    
-    original<-qplot(
-        x=x.variable
-        , y=y.variable
+    original<-ggplot(
+        aes_string(x="x.variable"
+        , y="y.variable"
+        , fill="category")
         , data=VAR.long.DF
-        , ylab=VAR.Y.label
-        , main=VAR.main.label
-        , xlab=VAR.X.label
-        , geom="bar"
-        , stat="identity"
-        , fill=factor(category,levels=labels.category.DF$variable),
-    )#+ geom_bar(stat="identity")
+        
+    )+ geom_bar(stat="identity")+
+      xlab(VAR.X.label)+
+    ylab(VAR.Y.label)+
+    ggtitle(VAR.main.label, subtitle = NULL)
     
     
     
@@ -2687,7 +2687,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     }
     else{
         print.figure<-print.figure+facet_grid(primary ~ secondary
-                                              , labeller=Label_Wrap
+                                              # , labeller=Label_Wrap
                                               , scales="free_y" #The scales actually do stay fixed
                                               , space="free_y"#But only because the space is free
         )+scale_y_continuous(expand=c(0,0.75)
@@ -2872,7 +2872,7 @@ LatticeLineWrapper<-function(VAR.color.legend.label
         , main=VAR.main.label
         , xlab=VAR.X.label
         , geom="line"
-        , stat="identity"
+        # , stat="identity"
         , color=factor(category,levels=labels.category.DF$variable)
     )#+ geom_bar(stat="identity")
     

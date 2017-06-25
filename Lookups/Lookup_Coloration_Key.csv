@@ -9,12 +9,14 @@ ServicesCategory.sum,Area
 ServicesCategory.sum,Area
 ProductsCategory.detail,Area
 ProductOrServiceArea,Area
+SupplyServiceERS,Area
 ProductServiceOrRnDarea,Area
 ProductOrServiceArea.DLA,Area
 Competition.detail,Competition
 Competition.detail,Competition
 Competition.multisum,Competition
 Competition.sum,Competition
+No.Competition.sum,Competition
 Competition.effective.only,Competition
 Pricing.Mechanism.detail,Pricing
 Pricing.Mechanism.sum,Pricing
@@ -61,3 +63,6 @@ FxCb,Pricing
 Significance,Significance
 DefOrEqu,Aggregate
 MetricName,Aggregate
+OCOlabelDetail,Crisis
+International,International
+IsCSISOCO,Crisis
