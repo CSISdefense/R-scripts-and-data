@@ -54,6 +54,7 @@ JointScore,PBL
 ATLpolicy,Regime
 USDATL,Regime
 MajorCommandName,MajorCommand
+Theater,International
 ContractingOfficeName,ContractingOffice
 CSISofficeName,ContractingOffice
 CSISofficeName.PBL,ContractingOffice
@@ -66,3 +67,4 @@ MetricName,Aggregate
 OCOlabelDetail,Crisis
 International,International
 IsCSISOCO,Crisis
+OCOcrisisScore,NumericScore
