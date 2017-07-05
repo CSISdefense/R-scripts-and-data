@@ -67,4 +67,8 @@ MetricName,Aggregate
 OCOlabelDetail,Crisis
 International,International
 IsCSISOCO,Crisis
-OCOcrisisScore,NumericScore
+OCOcrisisScore,Crisis
+IsOCOcrisisFunding,Crisis
+OCOscoreBuckets,Crisis
+UnmodifiedUltimateDurationCategory,Duration
+isUndefinitizedAction,UCA
