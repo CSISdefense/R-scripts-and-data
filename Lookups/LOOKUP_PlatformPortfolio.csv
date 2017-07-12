@@ -13,3 +13,7 @@ Unlabeled,Unlabeled,Unlabeled,Other Systems,FALSE
 Aircraft,Aircraft and Drones,Aircraft and Drones,Major Weapons,TRUE
 Unmanned,Aircraft and Drones,Aircraft and Drones,Major Weapons,TRUE
 NULL,Unlabeled,Unlabeled,Other Systems,TRUE
+"Electronics, Comms, & Sensors","Electronics, Comms, & Sensors","Electronics, Comms, & Sensors",Other Systems,TRUE
+Ordnance and Missiles,Ordnance and Missiles,Ordnance and Missiles,Major Weapons,TRUE
+Space Systems,Space Systems,Space Systems,Major Weapons,TRUE
+Missile Defense,Missile Defense,Missile Defense,Major Weapons,TRUE

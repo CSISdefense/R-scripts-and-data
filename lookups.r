@@ -1,5 +1,6 @@
 require(stringr)
 require(plyr)
+require(lubridate)
 
 ClassifyDuration<-function(VAR.Week.Count){
     
