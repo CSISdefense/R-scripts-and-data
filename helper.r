@@ -2118,7 +2118,7 @@ PrepareLabelsAndColors<-function(VAR.Coloration
 {
     
     
-    
+    VAR.long.DF<-as.data.frame(VAR.long.DF)
     #Confirm that the category is even available in the data set.
     if(!VAR.y.series %in% names(VAR.long.DF)){
         stop(paste(VAR.y.series,"is not found in data frame passed to PrepareLabelsAndColors"))
@@ -2146,10 +2146,6 @@ PrepareLabelsAndColors<-function(VAR.Coloration
     labels.category.DF$variable <- gsub("\\\\n","\n",labels.category.DF$variable)
     labels.category.DF$Label <- gsub("\\\\n","\n",labels.category.DF$Label)
     
-    #Check for any values in the VAR.y.series field that are not assigned a color.
-    NA.labels<-subset(VAR.long.DF,!(VAR.long.DF[,VAR.y.series] %in% labels.category.DF$variable))
-    
-    
     if(anyDuplicated(labels.category.DF$variable)>0){
       print(labels.category.DF$variable[
         duplicated(labels.category.DF$variable)])
@@ -2160,6 +2156,9 @@ PrepareLabelsAndColors<-function(VAR.Coloration
       )
     }
     
+    
+    #Check for any values in the VAR.y.series field that are not assigned a color.
+    NA.labels<-subset(VAR.long.DF,!(data.frame(VAR.long.DF)[,VAR.y.series] %in% labels.category.DF$variable))
     
     if (nrow(NA.labels)>0){
         print(unique(NA.labels[,VAR.y.series]))

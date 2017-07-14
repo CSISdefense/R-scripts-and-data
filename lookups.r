@@ -880,6 +880,21 @@ append_contract_fixes<- function(VAR.path,VAR.df){
     
     VAR.df
 }
+
+
+#************************************Remove NAs
+replace_nas_with_unlabeled<- function(VAR.df,VAR.column){
+  VAR.df<-as.data.frame(VAR.df)
+  if(any(is.na(VAR.df[VAR.column,]))){
+    #Make sure unlabeled is within the list of levels
+    if (!("Unlabeled" %in% levels(VAR.df[,VAR.column]))){
+      VAR.df[,VAR.column]<-addNA(VAR.df[,VAR.column],ifany=TRUE)
+      levels(VAR.df[,VAR.column])[is.na(levels(VAR.df[,VAR.column]))] <- "Unlabeled"
+    }
+  }
+  VAR.df
+}
+
 #***********************Standardize Variable Names
 standardize_variable_names<- function(VAR.Path,VAR.df){
     #Remove nonsense characters sometimes added to start of files
