@@ -2179,7 +2179,6 @@ PrepareLabelsAndColors<-function(VAR.Coloration
     #Order the names.DF and then pass on the same order to the actual data in VAR.long.DF
     names.DF<-names.DF[order(names.DF$Display.Order),]
     
-    #         names.DF$colorRGB<-rgb(red=names.DF$r,green=r,names.DF$g,blue=names.DF$b)
     
     #When there is an override color, use it instead of the default.
     #   if (!is.na(VAR.override.coloration)&VAR.y.series!=VAR.override.coloration){
@@ -2251,9 +2250,7 @@ PrepareLabelsAndColors<-function(VAR.Coloration
     #     
     #     rm(colors.DF,labels.category.DF)
     #   }
-    
-    
-    
+
     names.DF
 }
 
