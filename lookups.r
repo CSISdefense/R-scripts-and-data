@@ -972,7 +972,10 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
     VAR.df<-read_and_join(VAR.path,
                           "LOOKUP_Vehicle_Classification.csv",
                           VAR.df,
-                          by="Award.or.IDV.Type",
+                          by=c("Award.or.IDV.Type",
+                               "IDV.Part.8.Or.Part.13",
+                               "IDV.Multiple.Or.Single.Award.IDV",
+                               "IDV.Type"),
                           NA.check.columns="Competed.Criteria"
     )
   }
@@ -991,10 +994,12 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(Vehicle.sum))
     }
     
-    VAR.df<-read_and_join(VAR.path,"LOOKUP_Vehicle.csv",VAR.df)
-    
-    NA_check_df(VAR.df,"Vehicle.sum")
-    NA_check_df(VAR.df,"Vehicle.detail")
+    VAR.df<-read_and_join(VAR.path,
+                          "LOOKUP_Vehicle.csv",
+                          VAR.df,
+                          by="Vehicle",
+                          NA.check.columns=c("Vehicle.sum","Vehicle.detail")
+                          )
   }
   
   if(("Competed.Criteria"%in% names(VAR.df))
@@ -1006,7 +1011,12 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(Competition.detail))
     }
     
-    VAR.df<-read_and_join(VAR.path,"LOOKUP_Competition_Classification.csv",VAR.df)
+    VAR.df<-read_and_join(VAR.path,
+                          "LOOKUP_Competition_Classification.csv",
+                          VAR.df,
+                          by="Award.or.IDV.Type",
+                          NA.check.columns="Competed.Criteria"
+    )
     
     NA.check.df<-subset(VAR.df, is.na(Updated.Competition), select=c("Competed.Criteria","Fair.Competed","Extent.Competed.Sum","Offers","Updated.Competition"))
     if(nrow(NA.check.df)>0){
