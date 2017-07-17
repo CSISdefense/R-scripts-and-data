@@ -665,17 +665,18 @@ NA.check<-function(VAR.df
                    , VAR.output
                    , VAR.file
 ){
-    
+    #Limit just to relevant columns
     NA.check.df<-subset(VAR.df
-                        , is.na(VAR.df[[VAR.output]])
-                        , select=c(VAR.input)
+                        , select=c(VAR.input,VAR.output)
     )
+    #Drop all rows
+    NA.check.df<-NA.check.df[!complete.cases(NA.check.df),]
     
     if(nrow(NA.check.df)>0){
         print(unique(NA.check.df))
         stop(paste(nrow(NA.check.df)
                    ,"rows of NAs generated in "
-                   ,VAR.output
+                   ,paste(VAR.output,collapse=", ")
                    ,"from "
                    ,VAR.file)
         )
@@ -687,6 +688,7 @@ read_and_join<-function(VAR.path,
                         VAR.existing.df,
                         directory="Lookups\\",
                         by=NULL,
+                        NA.check.columns=NULL,
                         NewColumnsTrump=TRUE){
     
     
@@ -764,6 +766,14 @@ read_and_join<-function(VAR.path,
         )
         
     }
+    
+    if(!is.null(by)&is.null(NA.check.columns)){
+      NA.check(VAR.df,
+               VAR.input=by,
+               VAR.output=NA.check.columns,
+               VAR.file=VAR.file)
+    }
+
     
     #   print(head(VAR.file))
     #   print(head(VAR.existing.df))
@@ -925,58 +935,142 @@ standardize_variable_names<- function(VAR.Path,VAR.df){
 }
 
 
+
+competition_vehicle_lookups<-function(VAR.path,VAR.df){
+  if("Fair.Opportunity.Limited.Sources" %in% names(VAR.df)){
+    VAR.df<-read_and_join(VAR.path,
+                          "LOOKUP_Fair_Opportunity.csv",
+                          VAR.df,
+                          by="Fair.Opportunity.Limited.Sources",
+                          NA.check.columns="Fair.Competed"
+    )
+  }
+  if("Number.of.Offers.Received" %in% names(VAR.df)){
+    offers.lookup<-data.frame(cbind(unique(VAR.df$Number.of.Offers.Received)))
+    #     offers.lookup<-cbind(offers.lookup,label.offers2(offers.lookup$Number.of.Offers.Received))
+    names(offers.lookup)<-c("Number.of.Offers.Received")
+    offers.lookup<-ddply(offers.lookup, .(Number.of.Offers.Received), transform, Offers=label.offers2(min(Number.of.Offers.Received)))
+    VAR.df<- join(
+      VAR.df,
+      offers.lookup,
+      match="first"
+    )
+    
+    #offers<-ddply(VAR.df, label.offers)
+    #offers.lookup<-ddply(VAR.df, .(Number.of.Offers.Received), label.offers)
+
+    NA_check_df(VAR.df,"Offers")
+  }
+  
+  
+  if(("Award.or.IDV.Type") %in% names(VAR.df)
+     &&  ("IDV.Part.8.Or.Part.13" %in% names(VAR.df))
+     && ("IDV.Multiple.Or.Single.Award.IDV"%in% names(VAR.df))
+     && ("IDV.Type" %in% names(VAR.df)))
+  {
+    
+    VAR.df<-read_and_join(VAR.path,
+                          "LOOKUP_Vehicle_Classification.csv",
+                          VAR.df,
+                          by="Award.or.IDV.Type",
+                          NA.check.columns="Competed.Criteria"
+    )
+  }
+  else if("Vehicle" %in% names(VAR.df))
+  {
+    
+    replace_nas_with_unlabeled(VAR.df,"Vehicle")
+    
+    VAR.df$Vehicle<-factor(toupper(as.character(VAR.df$Vehicle)))
+    
+    if("Vehicle.detail" %in% names(VAR.df)){
+      VAR.df<-subset(VAR.df, select=-c(Vehicle.detail))
+    }
+    
+    if("Vehicle.sum" %in% names(VAR.df)){
+      VAR.df<-subset(VAR.df, select=-c(Vehicle.sum))
+    }
+    
+    VAR.df<-read_and_join(VAR.path,"LOOKUP_Vehicle.csv",VAR.df)
+    
+    NA_check_df(VAR.df,"Vehicle.sum")
+    NA_check_df(VAR.df,"Vehicle.detail")
+  }
+  
+  if(("Competed.Criteria"%in% names(VAR.df))
+     &&  ("Fair.Competed" %in% names(VAR.df))
+     && ("Extent.Competed.Sum" %in% names(VAR.df))
+     && ("Offers" %in% names(VAR.df)))
+  {
+    if("Competition.detail" %in% names(VAR.df)){
+      VAR.df<-subset(VAR.df, select=-c(Competition.detail))
+    }
+    
+    VAR.df<-read_and_join(VAR.path,"LOOKUP_Competition_Classification.csv",VAR.df)
+    
+    NA.check.df<-subset(VAR.df, is.na(Updated.Competition), select=c("Competed.Criteria","Fair.Competed","Extent.Competed.Sum","Offers","Updated.Competition"))
+    if(nrow(NA.check.df)>0){
+      print(unique(NA.check.df))
+      stop(paste(nrow(NA.check.df),"rows of NAs generated in Updated.Competition"))
+    }
+    NA.check.df<-subset(VAR.df, is.na(Original.Competition), select=c("Competed.Criteria","Fair.Competed","Extent.Competed.Sum","Offers","Original.Competition"))
+    if(nrow(NA.check.df)>0){
+      print(unique(NA.check.df))
+      stop(paste(nrow(NA.check.df),"rows of NAs generated in Original.Competition"))
+    }
+  }
+  else if("CompetitionClassification" %in% names(VAR.df)
+          && "ClassifyNumberOfOffers" %in% names(VAR.df)){
+    
+    if("Competition.sum" %in% names(VAR.df)){
+      VAR.df<-subset(VAR.df, select=-c(Competition.sum))
+    }
+    
+    if("Competition.detail" %in% names(VAR.df)){
+      VAR.df<-subset(VAR.df, select=-c(Competition.detail))
+    }
+    
+    if("Competion.Graph" %in% names(VAR.df)){
+      VAR.df<-subset(VAR.df, select=-c(Competion.Graph))
+    }
+    
+    replace_nas_with_unlabeled(VAR.df,"ClassifyNumberOfOffers")
+    
+    VAR.df<-read_and_join(VAR.path,"Lookup_SQL_CompetitionClassification.csv",VAR.df)
+    
+    
+    
+    NA.check.df<-subset(VAR.df, is.na(Competition.sum), select=c("CompetitionClassification","ClassifyNumberOfOffers"))
+    if(nrow(NA.check.df)>0){
+      print(unique(NA.check.df))
+      stop(paste(nrow(NA.check.df),"rows of NAs generated in Competition.sum"))
+    }
+    
+    NA.check.df<-subset(VAR.df, is.na(Competition.detail), select=c("CompetitionClassification","ClassifyNumberOfOffers"))
+    if(nrow(NA.check.df)>0){
+      print(unique(NA.check.df))
+      stop(paste(nrow(NA.check.df),"rows of NAs generated in Competition.detail"))
+    }
+  }
+  
+  else if(("Extent.Competed.Sum" %in% names(VAR.df))
+          && ("Offers" %in% names(VAR.df)))
+  {
+    VAR.df<-read_and_join(VAR.path,"LOOKUP_Competition_Classification_woFairOpportunity.csv",VAR.df)
+    
+    NA.check.df<-subset(VAR.df, is.na(Original.Competition), select=c("Extent.Competed.Sum","Offers"))
+    if(nrow(NA.check.df)>0){
+      print(unique(NA.check.df))
+      stop(paste(nrow(NA.check.df),"rows of NAs generated in Original.Competition"))
+    }
+  }
+  
+  VAR.df  
+}
+
 #***********************Apply Lookups***********************
 apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-standardize_variable_names(VAR.path,VAR.df)
-    
-    
-    #***Pivot the data frame when necessary.
-    #   if (!is.na(choice.figures$wide.section.variable[figureNUM])){
-    #     #Get a list of variable names that aren't years
-    #     id.var.list<-names(VAR.df)
-    #     id.var.list<-subset(id.var.list
-    #                         , !(id.var.list>="x1900"
-    #                             && id.var.list<="x2200")
-    #     )
-    #     VAR.df<-melt(VAR.df
-    #                  , id.var=id.var.list
-    #     )
-    #     VAR.df$value<-FactorToNumber(VAR.df$value)
-    #     
-    #     colnames(VAR.df)[colnames(VAR.df)=="value"]<-choice.figures$wide.section.variable[figureNUM]
-    #     
-    #     colnames(VAR.df)[colnames(VAR.df)=="variable"]<-"Fiscal.Year"
-    #       
-    #       VAR.df$Fiscal.Year<-str_sub(VAR.df$Fiscal.Year,2)
-    #     #Rearranging the raw data so that it is long rather than wide. A fairly minor step because we only have two numerical variables.
-    #     #   VAR.df<-melt(VAR.df, measure.vars=c(
-    #     #     "Action.Obligation",
-    #     #     "Actions"  
-    #     #   ))
-    #     #                                      
-    #     #   print(paste("Post melt"))
-    #     #   print(head(VAR.df))
-    #     
-    #     #       Contracting.Agency.Name, 
-    #     #       Contracting.Agency.ID, 
-    #     #       Contracting.Department.ID, 
-    #     #       Award.or.IDV.Type, 
-    #     #       IDV.Part.8.Or.Part.13, 
-    #     #       IDV.Multiple.Or.Single.Award.IDV, 
-    #     #       IDV.Type, 
-    #     #       Extent.Competed, 
-    #     #       Fair.Opportunity.Limited.Sources, 
-    #     #       Number.of.Offers.Received, 
-    #     #       Fiscal.Year, 
-    #     #       Action.Obligation, 
-    #     #       Actions, 
-    #     #       Download.Date
-    #     #   print("Start lookup")
-    #     
-    #     
-    #   }
-    #   
-    
     
     
     #***Join relevant variables to lookup tables
@@ -998,26 +1092,10 @@ apply_lookups<- function(VAR.path,VAR.df){
             VAR.df<-subset(VAR.df, select=-c(MajorCommandCode))
         }
         
-        #     stop("hammer time")
-        
-        #Handle NA values if present
-        if(any(is.na(VAR.df$ContractingOfficeID))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Uncategorized" %in% levels(VAR.df$ContractingOfficeID))){
-                VAR.df$ContractingOfficeID<-addNA(VAR.df$ContractingOfficeID,ifany=TRUE)
-                levels(VAR.df$ContractingOfficeID)[is.na(levels(VAR.df$ContractingOfficeID))] <- "Uncategorized"
-            }
-        }
-        
-        #Handle NA values if present
-        if(any(is.na(VAR.df$ContractingAgencyID))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Uncategorized" %in% levels(VAR.df$ContractingAgencyID))){
-                VAR.df$ContractingAgencyID<-addNA(VAR.df$ContractingAgencyID,ifany=TRUE)
-                levels(VAR.df$ContractingAgencyID)[is.na(levels(VAR.df$ContractingAgencyID))] <- "Uncategorized"
-            }
-        }
-        
+      
+      replace_nas_with_unlabeled(VAR.df,"ContractingOfficeID")
+      replace_nas_with_unlabeled(VAR.df,"ContractingAgencyID")
+      
         VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
         
         NA.check.df<-subset(VAR.df, is.na(MajorCommandCode) & ContractingAgencyID!="Uncategorized" & ContractingAgencyID!="ContractingOfficeID"
@@ -1062,22 +1140,14 @@ apply_lookups<- function(VAR.path,VAR.df){
             VAR.df<-subset(VAR.df, select=-c(MajorCommandName))
         }
         
-        #Handle NA values if present
-        if(any(is.na(VAR.df$MajorCommandID))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$MajorCommandID))){
-                VAR.df$MajorCommandID<-addNA(VAR.df$MajorCommandID,ifany=TRUE)
-                levels(VAR.df$MajorCommandID)[is.na(levels(VAR.df$MajorCommandID))] <- "Uncategorized"
-            }
-        }
+      replace_nas_with_unlabeled(VAR.df,"MajorCommandID")
+      
         
         VAR.df<-read_and_join(VAR.path,"Lookup_MajorCommandID.csv",VAR.df,
                               by="MajorCommandID")
-        NA.check.df<-subset(VAR.df,is.na(MajorCommandCode), select=c("MajorCommandID"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in MajorCommandCode"))
-        }
+        
+        NA_check_df(VAR.df,"MajorCommandCode")
+        
         #     
         #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
         #     if(nrow(NA.check.df)>0){
@@ -1095,17 +1165,11 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     if("CSISofficeName" %in%  names(VAR.df)){
         
-        #Handle NA values if present
-        if(any(is.na(VAR.df$CSISofficeName))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$CSISofficeName))){
-                VAR.df$CSISofficeName<-addNA(VAR.df$CSISofficeName,ifany=TRUE)
-                levels(VAR.df$CSISofficeName)[is.na(levels(VAR.df$CSISofficeName))] <- "Uncategorized"
-            }
-        }
+      replace_nas_with_unlabeled(VAR.df,"CSISofficeName")
         
         VAR.df<-read_and_join(VAR.path,"LOOKUP_CSISofficeName.txt",VAR.df,
                               by="CSISofficeName")
+        
         NA.check.df<-subset(VAR.df,is.na(CSISofficeName.PBL), select=c("CSISofficeName"))
         if(nrow(NA.check.df)>0){
             print(unique(NA.check.df))
@@ -1130,14 +1194,9 @@ apply_lookups<- function(VAR.path,VAR.df){
         if("SubCustomer"%in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(SubCustomer))
         }
-        if(any(is.na(VAR.df$Contracting.Agency.ID))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Uncategorized" %in% levels(VAR.df$Contracting.Agency.ID))){
-                VAR.df$Contracting.Agency.ID<-addNA(VAR.df$Contracting.Agency.ID,ifany=TRUE)
-                levels(VAR.df$Contracting.Agency.ID)[is.na(levels(VAR.df$Contracting.Agency.ID))] <- "Uncategorized"
-            }
-        }
-        #     debug(read_and_join)
+      
+      replace_nas_with_unlabeled(VAR.df,"Contracting.Agency.ID")
+      
         VAR.df<-read_and_join(VAR.path,"LOOKUP_Contracting_Agencies.csv",VAR.df)
         NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name) , select=c("Contracting.Agency.ID"))
         if(nrow(NA.check.df)>0){
@@ -1176,22 +1235,9 @@ apply_lookups<- function(VAR.path,VAR.df){
             VAR.df<-subset(VAR.df, select=-c(SubCustomer.sum))
         }
         
-        #     stop("hammer time")
-        #Handle NA values if present
-        if(any(is.na(VAR.df$SubCustomer))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Uncategorized" %in% levels(VAR.df$SubCustomer))){
-                VAR.df$SubCustomer<-addNA(VAR.df$SubCustomer,ifany=TRUE)
-                levels(VAR.df$SubCustomer)[is.na(levels(VAR.df$SubCustomer))] <- "Uncategorized"
-            }
-        }
-        if(any(is.na(VAR.df$Customer))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Uncategorized" %in% levels(VAR.df$Customer))){
-                VAR.df$Customer<-addNA(VAR.df$Customer,ifany=TRUE)
-                levels(VAR.df$Customer)[is.na(levels(VAR.df$Customer))] <- "Uncategorized"
-            }
-        }
+      replace_nas_with_unlabeled(VAR.df,"SubCustomer")
+      replace_nas_with_unlabeled(VAR.df,"Customer")
+      
         #     debug(read_and_join)
         VAR.df<-read_and_join(VAR.path,"Lookup_SubCustomer.csv",VAR.df)
         NA.check.df<-subset(VAR.df,is.na(SubCustomer.sum), select=c("Customer","SubCustomer"))
@@ -1217,24 +1263,14 @@ apply_lookups<- function(VAR.path,VAR.df){
         stop("Customer is missing from the table, SubCustomer does not stand alone.")
     }
     else if("Customer" %in% names(VAR.df)){
-        
-        #     stop("hammer time")
-        #Handle NA values if present
-        if(any(is.na(VAR.df$Customer))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$Customer))){
-                VAR.df$Customer<-addNA(VAR.df$Customer,ifany=TRUE)
-                levels(VAR.df$Customer)[is.na(levels(VAR.df$Customer))] <- "Unlabeled"
-            }
-        }
-        #     debug(read_and_join)
-        VAR.df<-read_and_join(VAR.path,"Lookup_Customer.csv",VAR.df)
-        NA.check.df<-subset(VAR.df,is.na(Customer.sum), select=c("Customer","Customer.sum"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Customer.sum"))
-        }
-        
+      replace_nas_with_unlabeled(VAR.df,"Customer")
+      VAR.df<-read_and_join(VAR.path,"Lookup_Customer.csv",VAR.df)
+      NA.check.df<-subset(VAR.df,is.na(Customer.sum), select=c("Customer","Customer.sum"))
+      if(nrow(NA.check.df)>0){
+        print(unique(NA.check.df))
+        stop(paste(nrow(NA.check.df),"rows of NAs generated in Customer.sum"))
+      }
+      
     }
     
     
@@ -1251,6 +1287,11 @@ apply_lookups<- function(VAR.path,VAR.df){
             stop(paste(nrow(NA.check.df),"rows of NAs generated in SubFunder.Sum"))
         }
     }
+    
+    
+    VAR.df<-competition_vehicle_lookups(VAR.path,VAR.df)
+    VAR.df$Action.Obligation<-FactorToNumber(VAR.df$Action.Obligation)
+    VAR.df$Actions<-FactorToNumber(VAR.df$Actions)
     
     
     if("PoPstateCode" %in% names(VAR.df)){
@@ -1341,16 +1382,9 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
     else if("ProductServiceOrRnDarea" %in% names(VAR.df))
     {
-        #Handle NA values if present
-        if(any(is.na(VAR.df$ProductServiceOrRnDarea))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$ProductServiceOrRnDarea))){
-                VAR.df$ProductServiceOrRnDarea<-addNA(VAR.df$ProductServiceOrRnDarea,ifany=TRUE)
-                levels(VAR.df$ProductServiceOrRnDarea)[is.na(levels(VAR.df$ProductServiceOrRnDarea))] <- "Unlabeled"
-            }
-        }
-        
-        if("ServicesCategory.sum" %in% names(VAR.df)){
+      replace_nas_with_unlabeled(VAR.df,"ProductServiceOrRnDarea")
+
+              if("ServicesCategory.sum" %in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
         }
         if("ProductOrServiceArea" %in% names(VAR.df)){
@@ -1370,14 +1404,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
     else if("ProductOrServiceArea" %in% names(VAR.df))
     {
-        #Handle NA values if present
-        if(any(is.na(VAR.df$ProductOrServiceArea))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$ProductOrServiceArea))){
-                VAR.df$ProductOrServiceArea<-addNA(VAR.df$ProductOrServiceArea,ifany=TRUE)
-                levels(VAR.df$ProductOrServiceArea)[is.na(levels(VAR.df$ProductOrServiceArea))] <- "Unlabeled"
-            }
-        }
+      replace_nas_with_unlabeled(VAR.df,"ServicesCategory.sum")
         
         if("ServicesCategory.sum" %in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
@@ -1424,16 +1451,8 @@ apply_lookups<- function(VAR.path,VAR.df){
             VAR.df<-subset(VAR.df, select=-c(PlatformPortfolio.sum))
         }
         
-        #Handle NA values if present
-        if(any(is.na(VAR.df$PlatformPortfolio))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$PlatformPortfolio))){
-                VAR.df$PlatformPortfolio<-addNA(VAR.df$PlatformPortfolio,ifany=TRUE)
-                levels(VAR.df$PlatformPortfolio)[is.na(levels(VAR.df$PlatformPortfolio))] <- "Unlabeled"
-            }
-        }
-        
-        #           debug(read_and_join)
+      replace_nas_with_unlabeled(VAR.df,"PlatformPortfolio")
+      
         VAR.df<-read_and_join(VAR.path,"Lookup_PlatformPortfolio.csv",VAR.df)
         NA.check.df<-subset(VAR.df, is.na(PlatformPortfolio.sum), select=c("PlatformPortfolio"))
         if(nrow(NA.check.df)>0){
@@ -1443,17 +1462,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
     
     
-    
-    if("Fair.Opportunity.Limited.Sources" %in% names(VAR.df)){
-        VAR.df<-read_and_join(VAR.path,"LOOKUP_Fair_Opportunity.csv",VAR.df)
-        
-        NA.check.df<-subset(VAR.df, is.na(Fair.Competed) & !is.na(Fair.Opportunity.Limited.Sources), select=c("Fair.Opportunity.Limited.Sources","Fair.Competed"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Fair.Competed"))
-        }
-    }
-    
+
     if("Arms.Type" %in% names(VAR.df)){
         #     debug(read_and_join)
         VAR.df<-read_and_join(VAR.path,"LOOKUP_ArmsType.csv",VAR.df)
@@ -1500,17 +1509,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     if("Pricing.Mechanism" %in% names(VAR.df)){ 
         VAR.df$Pricing.Mechanism[VAR.df$Pricing.Mechanism==""]<-NA
         
-        #Handle NA values if present
-        if(any(is.na(VAR.df$Pricing.Mechanism))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$Pricing.Mechanism))){
-                VAR.df$Pricing.Mechanism<-addNA(VAR.df$Pricing.Mechanism,ifany=TRUE)
-                levels(VAR.df$Pricing.Mechanism)[is.na(levels(VAR.df$Pricing.Mechanism))] <- "Unlabeled"
-            }
-        }
-        
-        
-        
+        replace_nas_with_unlabeled(VAR.df,"Pricing.Mechanism")
+
         if("Pricing.Mechanism.sum" %in% names(VAR.df)){
             VAR.df<-subset(VAR.df, select=-c(Pricing.Mechanism.sum))
         }
@@ -1638,15 +1638,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     
     if("Vendor.Size" %in% names(VAR.df)){
-        
-        #Handle NAs    
-        if(any(is.na(VAR.df$Vendor.Size))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$Vendor.Size))){
-                VAR.df$Vendor.Size<-addNA(VAR.df$Vendor.Size,ifany=TRUE)
-                levels(VAR.df$Vendor.Size)[is.na(levels(VAR.df$Vendor.Size))] <- "Unlabeled"
-            }
-        }
+      replace_nas_with_unlabeled(VAR.df,"Vendor.Size")
+      
         
         VAR.df<-read_and_join(VAR.path,"LOOKUP_Contractor_Size.csv",VAR.df)
         
@@ -1666,14 +1659,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     
     if("Contract.Size" %in% names(VAR.df)){
-        #Handle NA values if present
-        if(any(is.na(VAR.df$Contract.Size))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$Contract.Size))){
-                VAR.df$Contract.Size<-addNA(VAR.df$Contract.Size,ifany=TRUE)
-                levels(VAR.df$Contract.Size)[is.na(levels(VAR.df$Contract.Size))] <- "Unlabeled"
-            }
-        }
+      replace_nas_with_unlabeled(VAR.df,"Contract.Size")
         
         VAR.df<-read_and_join(VAR.path,"LOOKUP_Contract_Size.csv",VAR.df)
         
@@ -1703,15 +1689,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
     
     if("systemequipmentcode" %in% names(VAR.df)){
-        if(any(is.na(VAR.df$systemequipmentcode))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$systemequipmentcode))){
-                VAR.df$systemequipmentcode<-addNA(VAR.df$systemequipmentcode,ifany=TRUE)
-                levels(VAR.df$systemequipmentcode)[is.na(levels(VAR.df$systemequipmentcode))] <- "Unlabeled"
-            }
-        }
-        
-        
+      replace_nas_with_unlabeled(VAR.df,"systemequipmentcode")
+      
         VAR.df<-read_and_join(VAR.path,"LOOKUP_systemequipmentcode.csv",VAR.df)
         
         NA.check.df<-subset(VAR.df, is.na(systemequipmentcode)|is.na(systemequipmentshorttext), select=c("systemequipmentcode","systemequipmentcodeText","systemequipmentshorttext"))
@@ -1723,159 +1702,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     
     
-    if("Number.of.Offers.Received" %in% names(VAR.df)){
-        offers.lookup<-data.frame(cbind(unique(VAR.df$Number.of.Offers.Received)))
-        #     offers.lookup<-cbind(offers.lookup,label.offers2(offers.lookup$Number.of.Offers.Received))
-        names(offers.lookup)<-c("Number.of.Offers.Received")
-        offers.lookup<-ddply(offers.lookup, .(Number.of.Offers.Received), transform, Offers=label.offers2(min(Number.of.Offers.Received)))
-        VAR.df<- join(
-            VAR.df,
-            offers.lookup,
-            match="first"
-        )
         
-        #offers<-ddply(VAR.df, label.offers)
-        #offers.lookup<-ddply(VAR.df, .(Number.of.Offers.Received), label.offers)
-        
-        NA.check.df<-subset(VAR.df, is.na(Offers), select=c("Offers"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Offers"))
-        }
-        
-    }
-    
-    if(("Award.or.IDV.Type") %in% names(VAR.df)
-       &&  ("IDV.Part.8.Or.Part.13" %in% names(VAR.df))
-       && ("IDV.Multiple.Or.Single.Award.IDV"%in% names(VAR.df))
-       && ("IDV.Type" %in% names(VAR.df)))
-    {
-        
-        VAR.df<-read_and_join(VAR.path,"LOOKUP_Vehicle_Classification.csv",VAR.df)
-        
-        NA.check.df<-subset(VAR.df, is.na(Competed.Criteria), select=c("Award.or.IDV.Type","IDV.Part.8.Or.Part.13","IDV.Multiple.Or.Single.Award.IDV","IDV.Type","Competed.Criteria"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Competed.Criteria"))
-        }
-    }
-    else if("Vehicle" %in% names(VAR.df))
-    {
-        
-        
-        #Handle NA values if present
-        if(any(is.na(VAR.df$Vehicle))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$Vehicle))){
-                VAR.df$Vehicle<-addNA(VAR.df$Vehicle,ifany=TRUE)
-                levels(VAR.df$Vehicle)[is.na(levels(VAR.df$Vehicle))] <- "Unlabeled"
-            }
-        }
-        
-        VAR.df$Vehicle<-factor(toupper(as.character(VAR.df$Vehicle)))
-        
-        if("Vehicle.detail" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Vehicle.detail))
-        }
-        
-        if("Vehicle.sum" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Vehicle.sum))
-        }
-        
-        VAR.df<-read_and_join(VAR.path,"LOOKUP_Vehicle.csv",VAR.df)
-        
-        
-        NA.check.df<-subset(VAR.df, is.na(Vehicle.sum) , select=c("Vehicle"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Vehicle.sum"))
-        }
-        
-        NA.check.df<-subset(VAR.df, is.na(Vehicle.detail), select=c("Vehicle"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Vehicle.detail"))
-        }
-    }
-    
-    if(("Competed.Criteria"%in% names(VAR.df))
-       &&  ("Fair.Competed" %in% names(VAR.df))
-       && ("Extent.Competed.Sum" %in% names(VAR.df))
-       && ("Offers" %in% names(VAR.df)))
-    {
-        if("Competition.detail" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Competition.detail))
-        }
-        
-        VAR.df<-read_and_join(VAR.path,"LOOKUP_Competition_Classification.csv",VAR.df)
-        
-        NA.check.df<-subset(VAR.df, is.na(Updated.Competition), select=c("Competed.Criteria","Fair.Competed","Extent.Competed.Sum","Offers","Updated.Competition"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Updated.Competition"))
-        }
-        NA.check.df<-subset(VAR.df, is.na(Original.Competition), select=c("Competed.Criteria","Fair.Competed","Extent.Competed.Sum","Offers","Original.Competition"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Original.Competition"))
-        }
-    }
-    else if("CompetitionClassification" %in% names(VAR.df)
-            && "ClassifyNumberOfOffers" %in% names(VAR.df)){
-        
-        if("Competition.sum" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Competition.sum))
-        }
-        
-        if("Competition.detail" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Competition.detail))
-        }
-        
-        if("Competion.Graph" %in% names(VAR.df)){
-            VAR.df<-subset(VAR.df, select=-c(Competion.Graph))
-        }
-        
-        #Handle NA values if present
-        if(any(is.na(VAR.df$ClassifyNumberOfOffers))){
-            #Make sure unlabeled is within the list of levels
-            if (!("Unlabeled" %in% levels(VAR.df$ClassifyNumberOfOffers))){
-                VAR.df$ClassifyNumberOfOffers<-addNA(VAR.df$ClassifyNumberOfOffers,ifany=TRUE)
-                levels(VAR.df$ClassifyNumberOfOffers)[is.na(levels(VAR.df$ClassifyNumberOfOffers))] <- "Unlabeled"
-            }
-        }
-        
-        VAR.df<-read_and_join(VAR.path,"Lookup_SQL_CompetitionClassification.csv",VAR.df)
-        
-        
-        
-        NA.check.df<-subset(VAR.df, is.na(Competition.sum), select=c("CompetitionClassification","ClassifyNumberOfOffers"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Competition.sum"))
-        }
-        
-        NA.check.df<-subset(VAR.df, is.na(Competition.detail), select=c("CompetitionClassification","ClassifyNumberOfOffers"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Competition.detail"))
-        }
-    }
-    
-    else if(("Extent.Competed.Sum" %in% names(VAR.df))
-            && ("Offers" %in% names(VAR.df)))
-    {
-        VAR.df<-read_and_join(VAR.path,"LOOKUP_Competition_Classification_woFairOpportunity.csv",VAR.df)
-        
-        NA.check.df<-subset(VAR.df, is.na(Original.Competition), select=c("Extent.Competed.Sum","Offers"))
-        if(nrow(NA.check.df)>0){
-            print(unique(NA.check.df))
-            stop(paste(nrow(NA.check.df),"rows of NAs generated in Original.Competition"))
-        }
-    }
-    
-    VAR.df$Action.Obligation<-FactorToNumber(VAR.df$Action.Obligation)
-    VAR.df$Actions<-FactorToNumber(VAR.df$Actions)
-    
     if("Fiscal.Year"%in% names(VAR.df)){
         VAR.df<-read_and_join(VAR.path,"LOOKUP_Deflators.csv",VAR.df)  
         NA.check.df<-subset(VAR.df,  is.na(Deflator.2014) & is.na(Deflator.2013) & !is.na(Fiscal.Year), select=c("Fiscal.Year","Deflator.2013","Deflator.2014"))
