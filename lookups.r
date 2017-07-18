@@ -688,9 +688,14 @@ read_and_join<-function(VAR.path,
                         VAR.existing.df,
                         directory="Lookups\\",
                         by=NULL,
-                        NA.check.columns=NULL,
+                        ReplaceNAsColumns=NULL,
                         NewColumnsTrump=TRUE,
+                        NA.check.columns=NULL,
                         OnlyKeepCheckedColumns=FALSE){
+  
+  if(!is.null(ReplaceNAsColumns)){
+    VAR.existing.df<-replace_nas_with_unlabeled(VAR.existing.df,ReplaceNAsColumns)
+  }
   
   
   lookup.file<-read.csv(
@@ -776,8 +781,8 @@ read_and_join<-function(VAR.path,
     #Clear out any fields held in common not used in the joining
    
      if(OnlyKeepCheckedColumns==TRUE){
-    droplist<-names(lookup.file)[!names(lookup.file) %in% names(by)
-                                 &!names(lookup.file) %in% names(NA.check.columns)]
+    droplist<-names(lookup.file)[!names(lookup.file) %in% by
+                                 &!names(lookup.file) %in% NA.check.columns]
     
     VAR.existing.df<-VAR.existing.df[,!names(VAR.existing.df) %in% droplist]
      }
