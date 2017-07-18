@@ -789,6 +789,7 @@ read_and_join<-function(VAR.path,
   }
 
 
+
 #   print(head(VAR.file))
 #   print(head(VAR.existing.df))
 VAR.existing.df
@@ -1205,7 +1206,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   
   if("Contracting.Agency.ID" %in% names(VAR.df))
   {
-    
+
     if("Contracting.Department.ID" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(Contracting.Department.ID))
     }
@@ -1218,6 +1219,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     if("SubCustomer"%in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(SubCustomer))
     }
+
     
     replace_nas_with_unlabeled(VAR.df,"Contracting.Agency.ID")
     

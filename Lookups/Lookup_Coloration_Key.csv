@@ -30,6 +30,7 @@ Vendor.Size.detail,Vendors
 Vendor.Size.sum,Vendors
 Shiny.VendorSize,Vendors
 RoughUniqueEntitySize,Vendors
+Shiny.VendorSize,Vendors
 comparison.dollar.type.detail,Dollar Type
 comparison.dollar.type.sum,Dollar Type
 SubFunder.Detail,Agencies
