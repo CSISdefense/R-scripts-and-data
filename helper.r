@@ -2113,10 +2113,13 @@ Label_Wrap <- function(variable, value) {
 PrepareLabelsAndColors<-function(VAR.Coloration
                                  ,VAR.long.DF
                                  ,VAR.y.series
+                                 ,ReplaceNAs=FALSE
                                  #                                  ,VAR.override.coloration=NA
 )
 {
-    
+    if(ReplaceNAs==TRUE){
+      VAR.long.DF<-replace_nas_with_unlabeled(VAR.long.DF,VAR.y.series)
+    }
     
     VAR.long.DF<-as.data.frame(VAR.long.DF)
     #Confirm that the category is even available in the data set.
