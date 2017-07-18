@@ -11,6 +11,7 @@ ProductsCategory.detail,Area
 ProductOrServiceArea,Area
 SupplyServiceERS,Area
 ProductServiceOrRnDarea,Area
+ProductServiceOrRnDarea.sum,Area
 ProductOrServiceArea.DLA,Area
 Competition.detail,Competition
 Competition.detail,Competition
@@ -27,6 +28,7 @@ Vehicle.detail,Vehicles
 Vehicle.sum,Vehicles
 Vendor.Size.detail,Vendors
 Vendor.Size.sum,Vendors
+Shiny.VendorSize,Vendors
 RoughUniqueEntitySize,Vendors
 Shiny.VendorSize,Vendors
 comparison.dollar.type.detail,Dollar Type
