@@ -1,4 +1,4 @@
-ProductServiceOrRnDarea,ProductOrServiceArea,ServicesCategory.detail,ServicesCategory.sum,ProductsCategory.detail,ProductOrServiceArea.DLA,ProductOrServicesCategory.Graph,ServicesCategory.sum,SupplyServiceFRC,SupplyServiceERS
+ProductServiceOrRnDarea,ProductOrServiceArea,ServicesCategory.detail,ServicesCategory.sum,ProductsCategory.detail,ProductOrServiceArea.DLA,ProductOrServicesCategory.Graph,ProductServiceOrRnDarea.sum,SupplyServiceFRC,SupplyServiceERS
 PAMS,PAMS,PAMS,Services (Non-R&D),Services,PAMS,TRUE,Services (Non-R&D),Other Services,Other Services
 R&D,R&D,R&D,R&D,R&D,Other Services,TRUE,R&D,Other Services,Other Services
 ERS,ERS,ERS,Services (Non-R&D),Services (Non-R&D),Other Services,TRUE,Services (Non-R&D),Other Services,Equipment-Related Services

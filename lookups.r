@@ -767,8 +767,8 @@ read_and_join<-function(VAR.path,
         
     }
     
-    if(!is.null(by)&is.null(NA.check.columns)){
-      NA.check(VAR.df,
+    if(!is.null(by)&!is.null(NA.check.columns)){
+      NA.check(VAR.existing.df,
                VAR.input=by,
                VAR.output=NA.check.columns,
                VAR.file=VAR.file)
@@ -1651,7 +1651,11 @@ apply_lookups<- function(VAR.path,VAR.df){
       replace_nas_with_unlabeled(VAR.df,"Vendor.Size")
       
         
-        VAR.df<-read_and_join(VAR.path,"LOOKUP_Contractor_Size.csv",VAR.df)
+        VAR.df<-read_and_join(VAR.path,
+                              "LOOKUP_Contractor_Size.csv",
+                              VAR.df,
+                              by="Vendor.Size",
+                              NA.check.columns="Vendor.Size.detail")
         
         NA.check.df<-subset(VAR.df, is.na(Vendor.Size.detail), select=c("Vendor.Size"))
         if(nrow(NA.check.df)>0){
