@@ -956,7 +956,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
   else if("Vehicle" %in% names(VAR.df))
   {
     
-    replace_nas_with_unlabeled(VAR.df,"Vehicle")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"Vehicle")
     
     VAR.df$Vehicle<-factor(toupper(as.character(VAR.df$Vehicle)))
     
@@ -1018,7 +1018,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(Competion.Graph))
     }
     
-    replace_nas_with_unlabeled(VAR.df,"ClassifyNumberOfOffers")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"ClassifyNumberOfOffers")
     
     VAR.df<-read_and_join(VAR.path,"Lookup_SQL_CompetitionClassification.csv",VAR.df)
     
@@ -1077,8 +1077,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
     
     
-    replace_nas_with_unlabeled(VAR.df,"ContractingOfficeID")
-    replace_nas_with_unlabeled(VAR.df,"ContractingAgencyID")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"ContractingOfficeID")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"ContractingAgencyID")
     
     VAR.df<-read_and_join(VAR.path,"Defense_Major_Command_Codes_and_Offices.csv",VAR.df)
     
@@ -1124,7 +1124,7 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(MajorCommandName))
     }
     
-    replace_nas_with_unlabeled(VAR.df,"MajorCommandID")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"MajorCommandID")
     
     
     VAR.df<-read_and_join(VAR.path,"Lookup_MajorCommandID.csv",VAR.df,
@@ -1149,7 +1149,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   
   if("CSISofficeName" %in%  names(VAR.df)){
     
-    replace_nas_with_unlabeled(VAR.df,"CSISofficeName")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"CSISofficeName")
     
     VAR.df<-read_and_join(VAR.path,"LOOKUP_CSISofficeName.txt",VAR.df,
                           by="CSISofficeName")
@@ -1180,7 +1180,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
 
     
-    replace_nas_with_unlabeled(VAR.df,"Contracting.Agency.ID")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"Contracting.Agency.ID")
     
     VAR.df<-read_and_join(VAR.path,"LOOKUP_Contracting_Agencies.csv",VAR.df)
     NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name) , select=c("Contracting.Agency.ID"))
@@ -1255,7 +1255,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     stop("Customer is missing from the table, SubCustomer does not stand alone.")
   }
   else if("Customer" %in% names(VAR.df)){
-    replace_nas_with_unlabeled(VAR.df,"Customer")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"Customer")
     VAR.df<-read_and_join(VAR.path,"Lookup_Customer.csv",VAR.df)
     NA.check.df<-subset(VAR.df,is.na(Customer.sum), select=c("Customer","Customer.sum"))
     if(nrow(NA.check.df)>0){
@@ -1374,7 +1374,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   }
   else if("ProductServiceOrRnDarea" %in% names(VAR.df))
   {
-    replace_nas_with_unlabeled(VAR.df,"ProductServiceOrRnDarea")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"ProductServiceOrRnDarea")
     
     if("ServicesCategory.sum" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
@@ -1396,7 +1396,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   }
   else if("ProductOrServiceArea" %in% names(VAR.df))
   {
-    replace_nas_with_unlabeled(VAR.df,"ServicesCategory.sum")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"ProductOrServiceArea")
     
     if("ServicesCategory.sum" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
@@ -1443,7 +1443,7 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(PlatformPortfolio.sum))
     }
     
-    replace_nas_with_unlabeled(VAR.df,"PlatformPortfolio")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"PlatformPortfolio")
     
     VAR.df<-read_and_join(VAR.path,"Lookup_PlatformPortfolio.csv",VAR.df)
     NA.check.df<-subset(VAR.df, is.na(PlatformPortfolio.sum), select=c("PlatformPortfolio"))
@@ -1501,7 +1501,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   if("Pricing.Mechanism" %in% names(VAR.df)){ 
     VAR.df$Pricing.Mechanism[VAR.df$Pricing.Mechanism==""]<-NA
     
-    replace_nas_with_unlabeled(VAR.df,"Pricing.Mechanism")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"Pricing.Mechanism")
     
     if("Pricing.Mechanism.sum" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(Pricing.Mechanism.sum))
@@ -1524,20 +1524,10 @@ apply_lookups<- function(VAR.path,VAR.df){
     
     VAR.df<-csis360::read_and_join(VAR.df,
       "LOOKUP_Pricing_Mechanism.csv",
-      by=c("Pricing.Mechanism")
+      by=c("Pricing.Mechanism"),
+      skip_check_var=c("IsCostBased","Pricing.Mechanism.Code","IsFixedPrice",	"IsIncentive"),
+      replace_na_var=("Pricing.Mechanism")
     )
-
-    NA.check.df<-subset(VAR.df, is.na(Pricing.Mechanism.sum), select=c("Pricing.Mechanism"))
-    if(nrow(NA.check.df)>0){
-      print(unique(NA.check.df))
-      stop(paste(nrow(NA.check.df),"rows of NAs generated in Pricing.Mechanism.sum"))
-    }
-    
-    NA.check.df<-subset(VAR.df, is.na(Pricing.Mechanism.detail), select=c("Pricing.Mechanism"))
-    if(nrow(NA.check.df)>0){
-      print(unique(NA.check.df))
-      stop(paste(nrow(NA.check.df),"rows of NAs generated in Pricing.Mechanism.detail"))
-    }
   }  
   #   else if ("Pricing.Mechanism.Code" %in% names(VAR.df)){ 
   #     #Replace blank strings with Unlabeled
@@ -1631,7 +1621,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   
   
   if("Vendor.Size" %in% names(VAR.df)){
-    replace_nas_with_unlabeled(VAR.df,"Vendor.Size")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"Vendor.Size")
     
     
     VAR.df<-read_and_join(VAR.path,"LOOKUP_Contractor_Size.csv",VAR.df)
@@ -1652,7 +1642,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   
   
   if("Contract.Size" %in% names(VAR.df)){
-    replace_nas_with_unlabeled(VAR.df,"Contract.Size")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"Contract.Size")
     
     VAR.df<-read_and_join(VAR.path,"LOOKUP_Contract_Size.csv",VAR.df)
     
@@ -1682,7 +1672,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   }
   
   if("systemequipmentcode" %in% names(VAR.df)){
-    replace_nas_with_unlabeled(VAR.df,"systemequipmentcode")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"systemequipmentcode")
     
     VAR.df<-read_and_join(VAR.path,"LOOKUP_systemequipmentcode.csv",VAR.df)
     
