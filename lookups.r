@@ -1,6 +1,7 @@
-require(stringr)
-require(plyr)
-require(lubridate)
+library(stringr)
+library(plyr)
+library(lubridate)
+library(csis360)
 
 ClassifyDuration<-function(VAR.Week.Count){
   
@@ -907,48 +908,6 @@ append_contract_fixes<- function(VAR.path,VAR.df){
 }
 
 
-#************************************Remove NAs
-replace_nas_with_unlabeled<- function(VAR.df,VAR.column){
-  VAR.df<-as.data.frame(VAR.df)
-  if(any(is.na(VAR.df[VAR.column,]))){
-    #Make sure unlabeled is within the list of levels
-    if (!("Unlabeled" %in% levels(VAR.df[,VAR.column]))){
-      VAR.df[,VAR.column]<-addNA(VAR.df[,VAR.column],ifany=TRUE)
-      levels(VAR.df[,VAR.column])[is.na(levels(VAR.df[,VAR.column]))] <- "Unlabeled"
-    }
-  }
-  VAR.df
-}
-
-#***********************Standardize Variable Names
-standardize_variable_names<- function(VAR.Path,VAR.df){
-  #Remove nonsense characters sometimes added to start of files
-  colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="?.."]<-
-    substring(colnames(VAR.df)[substring(colnames(VAR.df),1,3)=="?.."],4)
-  
-  
-  
-  #***Standardize variable names
-  NameList<-read.csv(
-    paste(
-      VAR.Path,
-      "Lookups\\","Lookup_StandardizeVariableNames.csv",sep=""),
-    header=TRUE, sep=",", na.strings=c("NA","NULL"), dec=".", strip.white=TRUE, 
-    stringsAsFactors=FALSE
-  )
-  
-  
-  #     NameList<-subset(NameList,toupper(Original) %in% toupper(colnames(VAR.df)))
-  for(x in 1:nrow(NameList)){
-    #         if(toupper(NameList$Original[[x]]) %in% OldNameListUpper){
-    colnames(VAR.df)[toupper(colnames(VAR.df))==toupper(NameList$Original[[x]])]<-
-      NameList$Replacement[[x]]
-    #         }
-  }
-  
-  VAR.df
-}
-
 
 
 competition_vehicle_lookups<-function(VAR.path,VAR.df){
@@ -1095,7 +1054,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
 
 #***********************Apply Lookups***********************
 apply_lookups<- function(VAR.path,VAR.df){
-  VAR.df<-standardize_variable_names(VAR.path,VAR.df)
+  VAR.df<-csis360::standardize_variable_names(VAR.df)
   
   
   #***Join relevant variables to lookup tables
@@ -1261,28 +1220,35 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(SubCustomer.sum))
     }
     
-    replace_nas_with_unlabeled(VAR.df,"SubCustomer")
-    replace_nas_with_unlabeled(VAR.df,"Customer")
+
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"SubCustomer","Uncategorized")
+    VAR.df<-replace_nas_with_unlabeled(VAR.df,"Customer","Uncategorized")
     
     #     debug(read_and_join)
-    VAR.df<-read_and_join(VAR.path,"Lookup_SubCustomer.csv",VAR.df)
-    NA.check.df<-subset(VAR.df,is.na(SubCustomer.sum), select=c("Customer","SubCustomer"))
-    if(nrow(NA.check.df)>0){
-      print(unique(NA.check.df))
-      stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.sum"))
-    }
+    VAR.df<-csis360::read_and_join(VAR.df,
+      "Lookup_SubCustomer.csv",
+      by=c("Customer","SubCustomer")
+    )
     
-    NA.check.df<-subset(VAR.df, is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-    if(nrow(NA.check.df)>0){
-      print(unique(NA.check.df))
-      stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.detail"))
-    }
     
-    NA.check.df<-subset(VAR.df, is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-    if(nrow(NA.check.df)>0){
-      print(unique(NA.check.df))
-      stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
-    }
+    # VAR.df<-read_and_join(VAR.path,"Lookup_SubCustomer.csv",VAR.df)
+    # NA.check.df<-subset(VAR.df,is.na(SubCustomer.sum), select=c("Customer","SubCustomer"))
+    # if(nrow(NA.check.df)>0){
+    #   print(unique(NA.check.df))
+    #   stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.sum"))
+    # }
+    # 
+    # NA.check.df<-subset(VAR.df, is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
+    # if(nrow(NA.check.df)>0){
+    #   print(unique(NA.check.df))
+    #   stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.detail"))
+    # }
+    
+    # NA.check.df<-subset(VAR.df, is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
+    # if(nrow(NA.check.df)>0){
+    #   print(unique(NA.check.df))
+    #   stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
+    # }
     
   }
   else if ("SubCustomer" %in% names(VAR.df)){
@@ -1417,7 +1383,7 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(ProductServiceOrRnDarea))
     }
     if("ServicesCategory.detail" %in% names(VAR.df)){
-      VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
+      VAR.df<-subset(VAR.df, select=-c(ServicesCategory.detail))
     }
     #     debug(read_and_join)
     VAR.df<-read_and_join(VAR.path,"LOOKUP_Buckets.csv",VAR.df)
@@ -1556,10 +1522,11 @@ apply_lookups<- function(VAR.path,VAR.df){
     #     stop("hammertiime")
     
     
-    
-    VAR.df<-read_and_join(VAR.path,"LOOKUP_Pricing_Mechanism.csv",VAR.df)
-    
-    
+    VAR.df<-csis360::read_and_join(VAR.df,
+      "LOOKUP_Pricing_Mechanism.csv",
+      by=c("Pricing.Mechanism")
+    )
+
     NA.check.df<-subset(VAR.df, is.na(Pricing.Mechanism.sum), select=c("Pricing.Mechanism"))
     if(nrow(NA.check.df)>0){
       print(unique(NA.check.df))
