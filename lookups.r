@@ -1697,10 +1697,11 @@ apply_lookups<- function(VAR.path,VAR.df){
 
   if("Fiscal.Year"%in% names(VAR.df)){
     VAR.df<-csis360::read_and_join(VAR.df,
-                                   "LOOKUP_Deflators.csv",
+                                   "Lookup_Deflators.csv",
                                    by="Fiscal.Year",
                                    new_var_checked=FALSE,
-                                   skip_check_var="Deflator.2016")
+                                   path="https://raw.githubusercontent.com/CSISdefense/Lookup-Tables/master/data/",
+                                   directory="economic/")
     # NA.check.df<-subset(VAR.df,  is.na(Deflator.2014) & is.na(Deflator.2013) & !is.na(Fiscal.Year), select=c("Fiscal.Year","Deflator.2013","Deflator.2014"))
     # if(nrow(NA.check.df)>0){
     #   print(unique(NA.check.df))
