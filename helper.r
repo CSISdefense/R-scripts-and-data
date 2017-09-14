@@ -2313,7 +2313,7 @@ LatticePlot<-function(VAR.color.legend.label
     #     )  
     #   }
     
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     
@@ -2409,7 +2409,7 @@ LatticePlot<-function(VAR.color.legend.label
     
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label
-        ,  values=color.list
+        ,  values=c(labels.category.DF$RGB)
         , limits=c(labels.category.DF$variable)
         
     ) 
@@ -2499,17 +2499,11 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     
     #Prepare labels for the category variable
     #   if(is.na(VAR.override.coloration)){
-    labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                               ,VAR.long.DF
-                                               ,VAR.y.series
-                                               #                                     ,VAR.override.coloration
-    )  
+    labels.category.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.y.series)
+       
     
-    labels.primary.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                              ,VAR.long.DF
-                                              ,VAR.facet.primary
-                                              #                                     ,VAR.override.coloration
-    )
+    labels.primary.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.facet.primary)
+      
     #   }
     #   else{
     #     labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
@@ -2518,8 +2512,8 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     #     )  
     #   }
     
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
-    names(color.list)<-c(labels.category.DF$variable)
+    # color.list<-c(labels.category.DF$RGB)
+    # names(color.list)<-c(labels.category.DF$variable)
     
     
     
@@ -2555,9 +2549,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
         
     }
     else{
-        labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                                    ,VAR.long.DF
-                                                    ,VAR.facet.secondary)  
+        labels.secondary.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.facet.secondary)
         
         VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                , by=list(VAR.long.DF[,VAR.x.variable]
@@ -2645,7 +2637,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label
-        ,  values=color.list
+        ,  values=c(labels.category.DF$RGB)
         , limits=c(labels.category.DF$variable)
         , labels=c(labels.category.DF$Label)
         
@@ -2774,7 +2766,7 @@ LatticeLineWrapper<-function(VAR.color.legend.label
     #     )  
     #   }
     
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     
@@ -2937,7 +2929,7 @@ LatticeLineWrapper<-function(VAR.color.legend.label
     
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label
-        ,  values=color.list
+        ,  values=c(labels.category.DF$RGB)
         , limits=c(labels.category.DF$variable)
         , labels=c(labels.category.DF$Label)
         
@@ -3081,7 +3073,7 @@ PointRowWrapper<-function(VAR.main.label,
     
     combined.category.DF$variable<-paste(combined.category.DF$series.variable,combined.category.DF$size.variable,sep=", ")
     combined.category.DF$Label<-paste(combined.category.DF$series.label,combined.category.DF$size.label,sep=", ")
-    combined.category.DF$ColorRGB<-as.character(combined.category.DF$ColorRGB)
+    combined.category.DF$RGB<-as.character(combined.category.DF$RGB)
     if(!is.null(VAR.long.DF$PointRowJointVariable)){
         stop("Would be overwriting PointRowJointVariable")
     }
@@ -3114,7 +3106,7 @@ PointRowWrapper<-function(VAR.main.label,
         figure<-figure+scale_color_manual(name=VAR.legend.label,
                              limits=combined.category.DF$variable,
                              labels=combined.category.DF$Label,
-                             values=as.character(combined.category.DF$ColorRGB))+
+                             values=as.character(combined.category.DF$RGB))+
         scale_shape_manual(name=VAR.legend.label,
                              limits=combined.category.DF$variable,
                            labels=combined.category.DF$Label,
@@ -3290,7 +3282,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
                                                ,VAR.long.DF
                                                ,VAR.y.series
     )  
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     old.theme<-theme_set(theme_grey())
@@ -3526,7 +3518,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     
     #   print.figure<-print.figure+scale_shape_discrete(
     #     VAR.color.legend.label
-    #     ,  values=color.list
+    #     ,  values=c(labels.category.DF$RGB)
     #     , limits=c(labels.category.DF$variable) 
     #   )
     
@@ -3572,7 +3564,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     
     print.figure<-print.figure+scale_color_manual(
         VAR.color.legend.label
-        ,  values=color.list
+        ,  values=c(labels.category.DF$RGB)
         , limits=c(labels.category.DF$variable)
         , labels=c(labels.category.DF$Label)
         , guide = guide_legend(reverse=TRUE)
@@ -3655,7 +3647,7 @@ LatticeTrellisPlot<-function(VAR.color.legend.label
                                                ,VAR.long.DF
                                                ,VAR.y.series
     )  
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     
@@ -3731,7 +3723,7 @@ LatticeTrellisPlot<-function(VAR.color.legend.label
     
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label,
-        values=color.list, 
+        values=c(labels.category.DF$RGB), 
         limits=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label)
     )
@@ -3777,7 +3769,7 @@ LatticeGGPlot<-function(VAR.color.legend.label
                                                ,VAR.long.DF
                                                ,VAR.y.series
     )  
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     
@@ -3853,7 +3845,7 @@ LatticeGGPlot<-function(VAR.color.legend.label
     
     print.figure<-print.figure+scale_fill_manual(
         VAR.color.legend.label,
-        values=color.list, 
+        values=c(labels.category.DF$RGB), 
         limits=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label)
     )
@@ -3954,7 +3946,7 @@ FullBarPlot<-function(
     
     old.theme<-theme_set(theme_grey())
     
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     #   #Break the data into groups of one calendar year
@@ -3993,7 +3985,7 @@ FullBarPlot<-function(
     )#+ scale_fill_hue()
     print.figure<-original+scale_fill_manual(
         VAR.color.legend.label,
-        values=color.list, 
+        values=c(labels.category.DF$RGB), 
         limits=c(labels.category.DF$variable), 
         labels=c(labels.category.DF$Label),
         guide = guide_legend(reverse=TRUE)
@@ -4163,7 +4155,7 @@ HistogramOrDensityWrapper<-function(
     #   )  
     old.theme<-theme_set(theme_grey())
     
-    #   color.list<-c(as.character(labels.category.DF$ColorRGB))
+    #   color.list<-c(labels.category.DF$RGB)
     #   names(color.list)<-c(labels.category.DF$variable)
     
     
@@ -4312,7 +4304,7 @@ HistogramOrDensityWrapper<-function(
     # }
     #   original<-original+scale_fill_manual(
     #     VAR.color.legend.label,
-    #     values=color.list, 
+    #     values=c(labels.category.DF$RGB), 
     #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
@@ -4554,7 +4546,7 @@ BoxplotWrapper<-function(
     #   )  
     old.theme<-theme_set(theme_grey())
     
-    #   color.list<-c(as.character(labels.category.DF$ColorRGB))
+    #   color.list<-c(labels.category.DF$RGB)
     #   names(color.list)<-c(labels.category.DF$variable)
     
     
@@ -4642,7 +4634,7 @@ BoxplotWrapper<-function(
     # }
     #   print.figure<-original+scale_fill_manual(
     #     VAR.color.legend.label,
-    #     values=color.list, 
+    #     values=c(labels.category.DF$RGB), 
     #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
@@ -4827,7 +4819,7 @@ ScatterPlot<-function(
     #   )  
     old.theme<-theme_set(theme_grey())
     
-    #   color.list<-c(as.character(labels.category.DF$ColorRGB))
+    #   color.list<-c(labels.category.DF$RGB)
     #   names(color.list)<-c(labels.category.DF$variable)
     
     
@@ -4898,7 +4890,7 @@ ScatterPlot<-function(
     # }
     #   print.figure<-original+scale_fill_manual(
     #     VAR.color.legend.label,
-    #     values=color.list, 
+    #     values=c(labels.category.DF$RGB), 
     #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
@@ -5108,7 +5100,7 @@ TablePlot<-function(
     
     old.theme<-theme_set(theme_grey())
     
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     #   #Break the data into groups of one calendar year
@@ -5214,7 +5206,7 @@ TablePlot<-function(
     #     theme(axis.text.y=element_text(size=axis.text.size))+
     # +scale_fill_manual(
     #     VAR.color.legend.label,
-    #     values=color.list, 
+    #     values=c(labels.category.DF$RGB), 
     #     limits=c(labels.category.DF$variable), 
     #     labels=c(labels.category.DF$Label),
     #     guide = guide_legend(reverse=TRUE)
@@ -5327,7 +5319,7 @@ MiniBarPlot<-function(
     old.theme<-theme_set(theme_grey())
     
     
-    color.list<-c(as.character(labels.category.DF$ColorRGB))
+    color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
     #   year.range<-c(as.numeric(format(min(VAR.long.DF$Fiscal.Year),"%Y")):as.numeric(format(max(VAR.long.DF$Fiscal.Year),"%Y")))
@@ -5371,7 +5363,7 @@ MiniBarPlot<-function(
             ),"%Y"),"%y"),sep="")
     )
     
-    print.figure<-print.figure+scale_fill_manual(VAR.color.legend.label,values=color.list, limits=c(labels.category.DF$variable), labels=c(labels.category.DF$Label))
+    print.figure<-print.figure+scale_fill_manual(VAR.color.legend.label,values=c(labels.category.DF$RGB), limits=c(labels.category.DF$variable), labels=c(labels.category.DF$Label))
     print.figure<-print.figure+geom_bar(colour="black",stat="identity")
     
     
