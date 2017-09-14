@@ -1139,20 +1139,6 @@ apply_lookups<- function(VAR.path,VAR.df){
 
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"MajorCommandID")
 
-
-    #
-    #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-    #     if(nrow(NA.check.df)>0){
-    #       print(unique(NA.check.df))
-    #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.detail"))
-    #     }
-    #
-    #     NA.check.df<-subset(VAR.df,is.na(SubCustomer.detail), select=c("Customer","SubCustomer"))
-    #     if(nrow(NA.check.df)>0){
-    #       print(unique(NA.check.df))
-    #       stop(paste(nrow(NA.check.df),"rows of NAs generated in SubCustomer.component"))
-    #     }
-    #
   }
 
   if("CSISofficeName" %in%  names(VAR.df)){
@@ -1162,12 +1148,6 @@ apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-csis360::read_and_join(VAR.df,
                                    "LOOKUP_CSISofficeName.txt",
                           by="CSISofficeName")
-
-    # NA.check.df<-subset(VAR.df,is.na(CSISofficeName.PBL), select=c("CSISofficeName"))
-    # if(nrow(NA.check.df)>0){
-    #   print(unique(NA.check.df))
-    #   stop(paste(nrow(NA.check.df),"rows of NAs generated in CSISofficeName.PBL"))
-    # }
 
   }
 

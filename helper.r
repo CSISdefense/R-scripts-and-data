@@ -3278,10 +3278,8 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
     }
     
     #Prepare labels for the category variable
-    labels.category.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                               ,VAR.long.DF
-                                               ,VAR.y.series
-    )  
+    labels.category.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.y.series)
+    
     color.list<-c(labels.category.DF$RGB)
     names(color.list)<-c(labels.category.DF$variable)
     
@@ -3330,11 +3328,8 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
         VAR.long.DF<-ddply(VAR.long.DF, .(x.variable), transform, p=y.variable/y.total)
         
     } else {
-        labels.primary.DF<-PrepareLabelsAndColors(VAR.Coloration
-                                                  ,VAR.long.DF
-                                                  ,VAR.facet.primary
-                                                  #                                     ,VAR.override.coloration
-        )
+        labels.primary.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.facet.primary)
+         
         
         if(is.na(VAR.facet.secondary)){
             if(!VAR.facet.primary %in% names(VAR.long.DF)){
@@ -3404,10 +3399,7 @@ LatticePercentLineWrapper<-function(VAR.color.legend.label
                 stop(paste(VAR.facet.secondary,"passed as VAR.facet.secondary and is not included in VAR.long.DF"))
             }
             
-            labels.secondary.DF<-PrepareLabelsAndColors(VAR.Coloration,
-                                                        VAR.long.DF,
-                                                        VAR.facet.secondary
-            )  
+            labels.secondary.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.facet.secondary)
             colnames(VAR.long.DF)[colnames(VAR.long.DF)==VAR.y.variable]<-"y.variable"
             VAR.long.DF<-ddply(VAR.long.DF, c(VAR.x.variable,
                                               VAR.y.series,
