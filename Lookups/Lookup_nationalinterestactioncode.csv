@@ -15,7 +15,7 @@ H10E,Hurricane Earl 2010,1,Disaster
 H11I,Hurricane Irene 2011,1,Disaster
 H12I,Hurricane Isaac 2012 ,1,Disaster
 H13S,Hurricane Sandy 2013,1,Disaster
-I09P,Inauguration 2009,0,NULL
+I09P,Inauguration 2009,0,Unlabeled
 NONE,None,NULL,NULL
 O10G,Gulf Oil Spill 0410,0,OCO
 O12F,Operation Enduring Freedom (OEF),0,OCO
