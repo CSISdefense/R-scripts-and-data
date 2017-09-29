@@ -2483,7 +2483,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
                              ,VAR.x.variable
                              ,VAR.y.variable
                              ,VAR.y.series
-                             ,VAR.facet.primary
+                             ,VAR.facet.primary=NA
                              ,VAR.facet.secondary=NA
                              ,MovingAverage=1
                              ,MovingSides=1
@@ -2502,7 +2502,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     labels.category.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.y.series)
        
     
-    labels.primary.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.facet.primary)
+
       
     #   }
     #   else{
@@ -2518,9 +2518,39 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     
     
     old.theme<-theme_set(theme_grey())
+    if(!is.na(VAR.facet.primary)){
+      labels.primary.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.facet.primary)
+    }
     
+    if(is.na(VAR.facet.primary)){
+       VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
+        , by=list(VAR.long.DF[,VAR.x.variable]
+          ,VAR.long.DF[,VAR.y.series]
+        )
+        ,FUN = "sum"
+        ,na.rm =TRUE
+      )
+      names(VAR.long.DF)<-c("x.variable","category","y.variable")
+      
+      if(is.numeric(MovingAverage) & MovingAverage>1){
+        VAR.long.DF$y.raw<-VAR.long.DF$y.variable
+        VAR.long.DF<-ddply(VAR.long.DF, 
+          .(category),
+          .fun=TransformFilter,
+          MovingAverage,
+          MovingSides
+        )
+        VAR.long.DF$y.variable<-VAR.long.DF$MovingAverage
+      }
+      
+      VAR.long.DF<-ddply(VAR.long.DF,
+        .(x.variable),
+        mutate,
+        ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
+      
+    }
     #Reduce the number of rows by aggregating to one row per unique entry in the VAR.facet.primary column.
-    if(is.na(VAR.facet.secondary)){
+    else if(is.na(VAR.facet.secondary)){
         VAR.long.DF<-aggregate(VAR.long.DF[,VAR.y.variable]
                                , by=list(VAR.long.DF[,VAR.x.variable]
                                          ,VAR.long.DF[,VAR.y.series]
@@ -2580,12 +2610,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
         rm(labels.secondary.DF)
         
     }
-    
-    VAR.long.DF$primary<-factor(VAR.long.DF$primary,
-                                levels=c(labels.primary.DF$variable),
-                                labels=c(labels.primary.DF$Label),
-                                ordered=TRUE)
-    
+
     VAR.long.DF$category<-factor(VAR.long.DF$category,
                                  levels=labels.category.DF$variable)
     
@@ -2607,7 +2632,12 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     print.figure<-original
     
  
-    
+    if(!is.na(VAR.facet.primary)){
+      VAR.long.DF$primary<-factor(VAR.long.DF$primary,
+        levels=c(labels.primary.DF$variable),
+        labels=c(labels.primary.DF$Label),
+        ordered=TRUE)
+    }
     
     if(class(VAR.long.DF$x.variable)=="Date"){
         print.figure<-print.figure+scale_x_date(
@@ -2644,26 +2674,25 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     ) 
     
     
-    
-    
-    if(is.na(VAR.facet.secondary)){
+    if(!is.na(VAR.facet.primary)){
+      if(is.na(VAR.facet.secondary)){
         if(!is.na(VAR.ncol)){
-            print.figure<-print.figure+facet_wrap(~ primary
-                                                  ,ncol=VAR.ncol
-                                                  #                                           , labeller=Label_Wrap
-                                                  #                                           , scales="fixed", space="free_y"
-            )+scale_y_continuous(labels=comma)    
+          print.figure<-print.figure+facet_wrap(~ primary
+            ,ncol=VAR.ncol
+            #                                           , labeller=Label_Wrap
+            #                                           , scales="fixed", space="free_y"
+          )+scale_y_continuous(labels=comma)    
         }
         else{
-            print.figure<-print.figure+facet_wrap(~ primary
-                                                  #                                           ,ncol=VAR.ncol
-                                                  #                                           , labeller=Label_Wrap
-                                                  #                                           , scales="fixed", space="free_y"
-            )+scale_y_continuous(labels=comma)
+          print.figure<-print.figure+facet_wrap(~ primary
+            #                                           ,ncol=VAR.ncol
+            #                                           , labeller=Label_Wrap
+            #                                           , scales="fixed", space="free_y"
+          )+scale_y_continuous(labels=comma)
         }
         # +scale_y_continuous(expand=c(0,0.75)#)+scale_y_continuous(expand=c(0,0.75)
         #     )
-        
+      }
         
         #Don't add numbers at all if there's over 10 facets or 500 rows
         if(isTRUE(DataLabels) |
@@ -2685,7 +2714,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
                           #,color=color.list This doesn't work yet
                 )
         }
-    }
+    
     else{
         print.figure<-print.figure+facet_grid(primary ~ secondary
                                               # , labeller=Label_Wrap
@@ -2696,6 +2725,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
         )+theme(strip.text.y=element_text(size=axis.text.size,family="times",face="bold",angle=0)
         )
         
+    }
     }
     
     #   
