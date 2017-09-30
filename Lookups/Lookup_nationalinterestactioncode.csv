@@ -1,29 +1,29 @@
-nationalinterestactioncode	nationalinterestactioncodeText	IsHurricane	NIAcrisisFunding
-	Unlabeled	NULL	NULL
-: 	Unlabeled	NULL	NULL
-F081	Midwest Storms And Flooding 2008	0	Disaster
-H05K	Hurricane Katrina 2005	1	Disaster
-H05O	Hurricane Ophelia 2005	1	Disaster
-H05R	Hurricane Rita 2005	1	Disaster
-H05W	Hurricane Wilma 2005	1	Disaster
-H06C	Hurricane Chris 2006	1	Disaster
-H06E	Hurricane Ernesto 2006	1	Disaster
-H08G	Hurricane Gustav 2008	1	Disaster
-H08H	Hurricane Hanna 2008	1	Disaster
-H08I	Hurricane Ike 2008	1	Disaster
-H10E	Hurricane Earl 2010	1	Disaster
-H11I	Hurricane Irene 2011	1	Disaster
-H12I	Hurricane Isaac 2012 	1	Disaster
-H13S	Hurricane Sandy 2013	1	Disaster
-I09P	Inauguration 2009	0	Unlabeled
-NONE	None	NULL	NULL
-O10G	Gulf Oil Spill 0410	0	Disaster
-O12F	Operation Enduring Freedom (OEF)	0	OCO
-O14E	Operation United Assistance (OUA) - Ebola Outbreak West Africa	0	OCO
-O14S	Operations In Iraq And Syria	0	OCO
-O15F	Operation Freedom'S Sentinel (OFS)	0	OCO
-Q10H	Haiti Earthquake 2010	0	Disaster
-Q11J	Pacific Earthquake/Tsunami 2011	0	Disaster
-T10S	"American Samoa Earthquake, Tsunami And Flooding"	0	Disaster
-T13O	Oklahoma Tornado And Storm 2013	0	Disaster
-W081	California Wildfires 2008	0	Disaster
+nationalinterestactioncode,nationalinterestactioncodeText,IsHurricane,NIAcrisisFunding
+,Unlabeled,NULL,NULL
+: ,Unlabeled,NULL,NULL
+F081,Midwest Storms And Flooding 2008,0,Disaster
+H05K,Hurricane Katrina 2005,1,Disaster
+H05O,Hurricane Ophelia 2005,1,Disaster
+H05R,Hurricane Rita 2005,1,Disaster
+H05W,Hurricane Wilma 2005,1,Disaster
+H06C,Hurricane Chris 2006,1,Disaster
+H06E,Hurricane Ernesto 2006,1,Disaster
+H08G,Hurricane Gustav 2008,1,Disaster
+H08H,Hurricane Hanna 2008,1,Disaster
+H08I,Hurricane Ike 2008,1,Disaster
+H10E,Hurricane Earl 2010,1,Disaster
+H11I,Hurricane Irene 2011,1,Disaster
+H12I,Hurricane Isaac 2012 ,1,Disaster
+H13S,Hurricane Sandy 2013,1,Disaster
+I09P,Inauguration 2009,0,Unlabeled
+NONE,None,NULL,NULL
+O10G,Gulf Oil Spill 0410,0,Disaster
+O12F,Operation Enduring Freedom (OEF),0,OCO
+O14E,Operation United Assistance (OUA) - Ebola Outbreak West Africa,0,OCO
+O14S,Operations In Iraq And Syria,0,OCO
+O15F,Operation Freedom'S Sentinel (OFS),0,OCO
+Q10H,Haiti Earthquake 2010,0,Disaster
+Q11J,Pacific Earthquake/Tsunami 2011,0,Disaster
+T10S,"American Samoa Earthquake, Tsunami And Flooding",0,Disaster
+T13O,Oklahoma Tornado And Storm 2013,0,Disaster
+W081,California Wildfires 2008,0,Disaster
