@@ -1,4 +1,4 @@
-﻿nationalinterestactioncode,nationalinterestactioncodeText,IsHurricane,NAICcrisisFunding
+nationalinterestactioncode,nationalinterestactioncodeText,IsHurricane,NIAcrisisFunding
 ,Unlabeled,NULL,NULL
 : ,Unlabeled,NULL,NULL
 F081,Midwest Storms And Flooding 2008,0,Disaster
@@ -17,7 +17,7 @@ H12I,Hurricane Isaac 2012 ,1,Disaster
 H13S,Hurricane Sandy 2013,1,Disaster
 I09P,Inauguration 2009,0,Unlabeled
 NONE,None,NULL,NULL
-O10G,Gulf Oil Spill 0410,0,OCO
+O10G,Gulf Oil Spill 0410,0,Disaster
 O12F,Operation Enduring Freedom (OEF),0,OCO
 O14E,Operation United Assistance (OUA) - Ebola Outbreak West Africa,0,OCO
 O14S,Operations In Iraq And Syria,0,OCO

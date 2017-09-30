@@ -2501,8 +2501,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     #   if(is.na(VAR.override.coloration)){
     labels.category.DF<-prepare_labels_and_colors(VAR.long.DF,VAR.y.series)
        
-    
-
+  
       
     #   }
     #   else{
@@ -2614,6 +2613,14 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     VAR.long.DF$category<-factor(VAR.long.DF$category,
                                  levels=labels.category.DF$variable)
     
+    if(!is.na(VAR.facet.primary)){
+      VAR.long.DF$primary<-factor(VAR.long.DF$primary,
+                                  levels=c(labels.primary.DF$variable),
+                                  labels=c(labels.primary.DF$Label),
+                                  ordered=TRUE)
+    }
+    
+       
     original<-ggplot(
         aes_string(x="x.variable"
         , y="y.variable"
@@ -2632,16 +2639,9 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     print.figure<-original
     
  
-    if(!is.na(VAR.facet.primary)){
-      VAR.long.DF$primary<-factor(VAR.long.DF$primary,
-        levels=c(labels.primary.DF$variable),
-        labels=c(labels.primary.DF$Label),
-        ordered=TRUE)
-    }
-    
     if(class(VAR.long.DF$x.variable)=="Date"){
         print.figure<-print.figure+scale_x_date(
-            breaks=date_breaks("year"),
+            breaks=date_breaks("2 years"),
 #                 c(seq(
 #                     as.numeric(format(min(VAR.long.DF$x.variable),"%Y")),
 #                     as.numeric(format(max(VAR.long.DF$x.variable),"%Y")),
