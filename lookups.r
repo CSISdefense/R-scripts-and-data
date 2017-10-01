@@ -1286,7 +1286,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"PlatformPortfolio")
 
     VAR.df<-csis360::read_and_join(VAR.df,
-                                   "Lookup_PlatformPortfolio.csv")
+                                   "LOOKUP_PlatformPortfolio.csv")
     NA.check.df<-subset(VAR.df, is.na(PlatformPortfolio.sum), select=c("PlatformPortfolio"))
     if(nrow(NA.check.df)>0){
       print(unique(NA.check.df))
