@@ -1,10 +1,10 @@
-require(ggplot2)
-require(grid)
-require(scales)
-require(reshape2)
-require(plyr)
-require(scales)
-require(lubridate)
+library(ggplot2)
+library(grid)
+library(scales)
+library(reshape2)
+library(plyr)
+library(scales)
+library(lubridate)
 
 CleanFileName<-function(Name){
     gsub("__+","_",
