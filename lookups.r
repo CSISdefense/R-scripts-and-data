@@ -1086,7 +1086,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   else if("Customer" %in% names(VAR.df)){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Customer")
     VAR.df<-csis360::read_and_join(VAR.df,
-                                   "Lookup_Customer.csv",
+                                   "LOOKUP_Customer.csv",
                                    by=c("Customer"))
     # NA.check.df<-subset(VAR.df,is.na(Customer.sum), select=c("Customer","Customer.sum"))
     # if(nrow(NA.check.df)>0){
