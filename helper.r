@@ -1,10 +1,10 @@
-require(ggplot2)
-require(grid)
-require(scales)
-require(reshape2)
-require(plyr)
-require(scales)
-require(lubridate)
+library(ggplot2)
+library(grid)
+library(scales)
+library(reshape2)
+library(plyr)
+library(scales)
+library(lubridate)
 
 CleanFileName<-function(Name){
     gsub("__+","_",
@@ -2494,6 +2494,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     
     if("Graph" %in% names(VAR.long.DF)){
         VAR.long.DF<-subset(VAR.long.DF, Graph==TRUE)
+        VAR.long.DF[,VAR.y.series]
     }  
     if(is.na(VAR.y.series)) VAR.y.series<-VAR.facet.primary
     
@@ -2602,6 +2603,12 @@ LatticePlotWrapper<-function(VAR.color.legend.label
             VAR.long.DF$y.variable<-VAR.long.DF$MovingAverage
         }
         
+        VAR.long.DF<-ddply(VAR.long.DF,
+          .(x.variable,primary,secondary),
+          mutate,
+          ytextposition=cumsum(y.variable)-0.5*y.variable)#.(Fiscal.Year)
+        
+        
         VAR.long.DF$secondary<-factor(VAR.long.DF$secondary
                                       ,levels=c(labels.secondary.DF$variable)
                                       ,labels=c(labels.secondary.DF$Label)
@@ -2631,6 +2638,7 @@ LatticePlotWrapper<-function(VAR.color.legend.label
       xlab(VAR.X.label)+
     ylab(VAR.Y.label)+
     ggtitle(VAR.main.label, subtitle = NULL)
+    
     
     
     
@@ -2673,6 +2681,27 @@ LatticePlotWrapper<-function(VAR.color.legend.label
         
     ) 
     
+    #Don't add numbers at all if there's over 10 facets or 500 rows
+    if(isTRUE(DataLabels) |
+        (is.na(DataLabels) &
+            length(levels(VAR.long.DF$primary))<=10 & nrow(VAR.long.DF)<200
+        )){
+      #Drop the labeling detail for crowded graphs.
+      NumericalDetail<-1
+      if(nrow(VAR.long.DF)>50){ NumericalDetail<-0 }
+      print.figure<-print.figure+
+        geom_text(aes(label=VariableNumericalFormat(y.variable,NumericalDetail)
+          #                     format(round(y.variable,3),  scientific=FALSE, trim=TRUE, big.mark=",")
+          #                   format(y.variable, digits=1, drop0trailing=TRUE, trim=TRUE, big.mark=",")
+          #apply(y.variable,VariableNumericalFormat)
+          ,y=ytextposition
+        )
+          ,size=geom.text.size        
+          ,hjust=0.5
+          ,vjust=0.5
+          #,color=color.list This doesn't work yet
+        )
+    }
     
     if(!is.na(VAR.facet.primary)){
       if(is.na(VAR.facet.secondary)){
@@ -2692,29 +2721,9 @@ LatticePlotWrapper<-function(VAR.color.legend.label
         }
         # +scale_y_continuous(expand=c(0,0.75)#)+scale_y_continuous(expand=c(0,0.75)
         #     )
+      
+     
       }
-        
-        #Don't add numbers at all if there's over 10 facets or 500 rows
-        if(isTRUE(DataLabels) |
-               (is.na(DataLabels) &
-                    length(levels(VAR.long.DF$primary))<=10 & nrow(VAR.long.DF)<200
-               )){
-            #Drop the labeling detail for crowded graphs.
-            NumericalDetail<-1
-            if(nrow(VAR.long.DF)>50){ NumericalDetail<-0 }
-            print.figure<-print.figure+
-                geom_text(aes(label=VariableNumericalFormat(y.variable,NumericalDetail)
-                              #                     format(round(y.variable,3),  scientific=FALSE, trim=TRUE, big.mark=",")
-                              #                   format(y.variable, digits=1, drop0trailing=TRUE, trim=TRUE, big.mark=",")
-                              #apply(y.variable,VariableNumericalFormat)
-                              ,y=ytextposition)
-                          ,size=geom.text.size
-                          ,hjust=0.5
-                          ,vjust=0.5
-                          #,color=color.list This doesn't work yet
-                )
-        }
-    
     else{
         print.figure<-print.figure+facet_grid(primary ~ secondary
                                               # , labeller=Label_Wrap

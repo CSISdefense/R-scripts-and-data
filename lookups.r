@@ -3,6 +3,7 @@ library(plyr)
 library(lubridate)
 library(csis360)
 
+
 ClassifyDuration<-function(VAR.Week.Count){
 
   if (is.na(VAR.Week.Count) )
