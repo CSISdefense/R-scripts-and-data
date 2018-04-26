@@ -1,4 +1,4 @@
-Product or Service Code,ProductOrServiceCodeText,PrivateSecurityCategory,CBOcategory,ProductOrServiceArea,ProductOrServiceCode1L,ProductOrServiceCode2L,ProductOrServiceCode2R,ProductOrServiceCode1L1R,DoDportfolio,CSISPortfolio,Simple,HostNation3Category,JointPortfolio
+ProductOrServiceCode,ProductOrServiceCodeText,PrivateSecurityCategory,CBOcategory,ProductOrServiceArea,ProductOrServiceCode1L,ProductOrServiceCode2L,ProductOrServiceCode2R,ProductOrServiceCode1L1R,DoDportfolio,CSISPortfolio,Simple,HostNation3Category,JointPortfolio
 ,NULL,NULL,NULL,NULL,,,,,NULL,NULL,NULL,NULL,NULL
 : ,NULL,NULL,NULL,NULL,:,: ,: ,: ,NULL,NULL,NULL,NULL,NULL
 1000,,ERROR,ERROR,Products,1,10,0,10,Weapons & Ammunition,Weapons & Ammunition,Products,Commodity,Weapons and Vehicles
