@@ -1099,11 +1099,11 @@ apply_lookups<- function(VAR.path,VAR.df){
 
   }
 
-
-  if("Product.or.Service.Code" %in% names(VAR.df))
+  colnames(VAR.df)[colnames(VAR.df) %in% c("ProdServ","Product.or.Service.Code")]<-"ProductOrServiceCode"
+  if("ProductOrServiceCode" %in% names(VAR.df))
   {
-    if(is.integer(VAR.df$Product.or.Service.Code)){
-      VAR.df$Product.or.Service.Code<-factor(VAR.df$Product.or.Service.Code)
+    if(is.integer(VAR.df$ProductOrServiceCode)){
+      VAR.df$Product.or.Service.Code<-factor(VAR.df$ProductOrServiceCode)
     }
 
     if("Product.or.Service.Description" %in% names(VAR.df)){
@@ -1112,8 +1112,10 @@ apply_lookups<- function(VAR.path,VAR.df){
 
     #           debug(csis360::read_and_join)
     VAR.df<-csis360::read_and_join(VAR.df,
-                                   "Lookup_ProdServ_Codes.csv",
-                                   by="ProductOrServiceArea")
+                                   "ProductOrServiceCodes.csv",
+                                   path="https://raw.githubusercontent.com/CSISdefense/Lookup-Tables/master/",
+                                   directory="",
+                                   by="ProductOrServiceCode")
     #         NA.check.df<-subset(VAR.df, is.na(ProductOrServiceArea), select=c("Product.or.Service.Code"))
     #         if(nrow(NA.check.df)>0){
     #             print(unique(NA.check.df))
