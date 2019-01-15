@@ -337,7 +337,7 @@ import_country_file <- function(VAR.Path
   #                                     ,"Total"
   #                                     ,"Checksum"))
   #
-  #   import.data.file<-csis360::read_and_join(
+  #   import.data.file<-read_and_join(
   #     import.data.file
   #     ,"Lookup_name_fix.csv"
   #   )
@@ -445,7 +445,7 @@ import_figures_and_tables_file <- function(VAR.Path
                                     ,"Total"
                                     ,"Checksum"))
 
-  import.data.file<-csis360::read_and_join(
+  import.data.file<-read_and_join(
     import.data.file
     ,"Lookup_name_fix.csv"
 
@@ -677,7 +677,7 @@ label.offers2 <- function(x){
 
 competition_vehicle_lookups<-function(VAR.path,VAR.df){
   if("Fair.Opportunity.Limited.Sources" %in% names(VAR.df)){
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                           "LOOKUP_Fair_Opportunity.csv",
                           by="Fair.Opportunity.Limited.Sources",
                           NA.check.columns="Fair.Competed"
@@ -707,7 +707,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
      && ("IDV.Type" %in% names(VAR.df)))
   {
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                           "LOOKUP_Vehicle_Classification.csv",
                           by=c("Award.or.IDV.Type",
                                "IDV.Part.8.Or.Part.13",
@@ -731,7 +731,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(Vehicle.sum))
     }
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                           "LOOKUP_Vehicle.csv",
                           by="Vehicle",
                           NA.check.columns=c("Vehicle.sum","Vehicle.detail")
@@ -747,7 +747,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(Competition.detail))
     }
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                           "LOOKUP_Competition_Classification.csv",
                           by="Award.or.IDV.Type",
                           NA.check.columns="Competed.Criteria"
@@ -780,7 +780,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
     }
 
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"ClassifyNumberOfOffers")
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "Lookup_SQL_CompetitionClassification.csv",
                                    by=c("CompetitionClassification",
                                         "ClassifyNumberOfOffers"))
@@ -803,7 +803,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
   else if(("Extent.Competed.Sum" %in% names(VAR.df))
           && ("Offers" %in% names(VAR.df)))
   {
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Competition_Classification_woFairOpportunity.csv",
                                    by=c("Extent.Competed.Sum","Offers"))
 
@@ -819,7 +819,7 @@ competition_vehicle_lookups<-function(VAR.path,VAR.df){
 
 #***********************Apply Lookups***********************
 apply_lookups<- function(VAR.path,VAR.df){
-  VAR.df<-csis360::standardize_variable_names(VAR.df)
+  VAR.df<-standardize_variable_names(VAR.df)
 
 
   #***Join relevant variables to lookup tables
@@ -845,7 +845,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"ContractingOfficeID")
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"ContractingAgencyID")
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "Defense_Major_Command_Codes_and_Offices.csv",
                                    by=c("Fiscal.Year",
                                         "ContractingAgencyID",
@@ -896,7 +896,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
     # VAR.df<-replace_nas_with_unlabeled(VAR.df,"MajorCommandName","Uncategorized")
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "Lookup_MajorCommandID.csv",
                                    by="MajorCommandID",
                                    skip_check_var=c("ContractingOfficeCode",
@@ -912,7 +912,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"CSISofficeName","Uncategorized")
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_CSISofficeName.txt",
                           by="CSISofficeName")
 
@@ -938,7 +938,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Contracting.Agency.ID","Uncategorized")
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Contracting_Agencies.csv",
                                    by=c("Contracting.Agency.ID"))
     # NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name) , select=c("Contracting.Agency.ID"))
@@ -962,9 +962,9 @@ apply_lookups<- function(VAR.path,VAR.df){
     names(VAR.df)[which(names(VAR.df)=="Contracting.Department.ID")]<-"Contracting.Agency.ID"
     #     stop("safety")
 
-    #     debug(csis360::read_and_join)
+    #     debug(read_and_join)
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Contracting_Agencies.csv",
                                    by=c("Contracting.Agency.ID"))
     # NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name), select=c("Fiscal.Year","Contracting.Agency.ID"))
@@ -984,8 +984,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"SubCustomer","Uncategorized")
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Customer","Uncategorized")
 
-    #     debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #     debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
       "Lookup_SubCustomer.csv",
       by=c("Customer","SubCustomer")
     )
@@ -996,7 +996,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   }
   else if("Customer" %in% names(VAR.df)){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Customer")
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Customer.csv",
                                    by=c("Customer"))
     # NA.check.df<-subset(VAR.df,is.na(Customer.sum), select=c("Customer","Customer.sum"))
@@ -1014,7 +1014,7 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(SubFunder.Sum))
     }
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_SubFunder.csv",
                                    by=c("Funder","Subfunder"))
     # NA.check.df<-subset(VAR.df, is.na(SubFunder.Sum) & !is.na(Funder), select=c("Fiscal.Year","Funder","SubFunder"))
@@ -1048,7 +1048,7 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(CSIS.Region))
     }
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_State_Code.csv")
     NA.check.df<-subset(VAR.df, is.na(StateText) & !is.na(PoPstateCode), select=c("PoPstateCode","StateText"))
     if(nrow(NA.check.df)>0){
@@ -1079,8 +1079,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     #   if("SubCustomer"%in% names(VAR.df)){
     #     VAR.df<-subset(VAR.df, select=-c(SubCustomer))
     #   }
-    #       debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #       debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_OMBagencyBureau.csv")
     NA.check.df<-subset(VAR.df
                         , is.na(CSISbureau) #& !is.na(OMBbureauCode)
@@ -1110,8 +1110,8 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(Product.or.Service.Description))
     }
 
-    #           debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #           debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "ProductOrServiceCodes.csv",
                                    path="https://raw.githubusercontent.com/CSISdefense/Lookup-Tables/master/",
                                    directory="",
@@ -1135,8 +1135,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     if("ServicesCategory.detail" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.detail))
     }
-    #     debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #     debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Buckets.csv",
                                    by="ProductOrServiceArea")
     NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("ProductServiceOrRnDarea"))
@@ -1153,8 +1153,8 @@ apply_lookups<- function(VAR.path,VAR.df){
     if("ServicesCategory.sum" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
     }
-    #     debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #     debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Buckets.csv")
     NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("ProductOrServiceArea"))
     if(nrow(NA.check.df)>0){
@@ -1177,8 +1177,8 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
     }
 
-    #     debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #     debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Buckets.csv")
     NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("Fiscal.Year","ServicesCategory.detail"))
     if(nrow(NA.check.df)>0){
@@ -1199,7 +1199,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"PlatformPortfolio")
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_PlatformPortfolio.csv")
     NA.check.df<-subset(VAR.df, is.na(PlatformPortfolio.sum), select=c("PlatformPortfolio"))
     if(nrow(NA.check.df)>0){
@@ -1211,8 +1211,8 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
   if("Arms.Type" %in% names(VAR.df)){
-    #     debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #     debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_ArmsType.csv")
 
 
@@ -1227,8 +1227,8 @@ apply_lookups<- function(VAR.path,VAR.df){
   }
 
   if("Country" %in% names(VAR.df)){
-    #     debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #     debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Country.csv")
 
 
@@ -1242,8 +1242,8 @@ apply_lookups<- function(VAR.path,VAR.df){
 
   }
   else if("Destination.Country" %in% names(VAR.df)){
-    #     debug(csis360::read_and_join)
-    VAR.df<-csis360::read_and_join(VAR.df,
+    #     debug(read_and_join)
+    VAR.df<-read_and_join(VAR.df,
                                    "LOOKUP_Country.csv")
 
 
@@ -1280,7 +1280,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     #     stop("hammertiime")
 
 
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
       "LOOKUP_Pricing_Mechanism.csv",
       by=c("Pricing.Mechanism"),
       skip_check_var=c("IsCostBased","Pricing.Mechanism.Code","IsFixedPrice",	"IsIncentive"),
@@ -1337,7 +1337,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   #
   #
   #
-  #     VAR.df<-csis360::read_and_join(VAR.df,"LOOKUP_Pricing_Mechanism.csv")
+  #     VAR.df<-read_and_join(VAR.df,"LOOKUP_Pricing_Mechanism.csv")
   #
   #
   #     NA.check.df<-subset(VAR.df, !is.na(Pricing.Mechanism.Code) & is.na(Pricing.Mechanism.sum), select=c("Pricing.Mechanism"))
@@ -1355,7 +1355,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
   if("Contractor.Size" %in% names(VAR.df)){
-    VAR.df<-csis360::read_and_join(VAR.df,"LOOKUP_Contractor_Size_named.csv")
+    VAR.df<-read_and_join(VAR.df,"LOOKUP_Contractor_Size_named.csv")
 
     NA.check.df<-subset(VAR.df, is.na(Contractor.Size.detail), select=c("Contractor.Size"))
     if(nrow(NA.check.df)>0){
@@ -1382,7 +1382,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Vendor.Size")
 
 
-    VAR.df<-csis360::read_and_join(VAR.df,"LOOKUP_Contractor_Size.csv")
+    VAR.df<-read_and_join(VAR.df,"LOOKUP_Contractor_Size.csv")
 
     NA.check.df<-subset(VAR.df, is.na(Vendor.Size.detail), select=c("Vendor.Size"))
     if(nrow(NA.check.df)>0){
@@ -1402,7 +1402,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   if("Contract.Size" %in% names(VAR.df)){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Contract.Size")
 
-    VAR.df<-csis360::read_and_join(VAR.df,"LOOKUP_Contract_Size.csv")
+    VAR.df<-read_and_join(VAR.df,"LOOKUP_Contract_Size.csv")
 
     NA.check.df<-subset(VAR.df, is.na(Contract.Size.detail), select=c("Contract.Size"))
     if(nrow(NA.check.df)>0){
@@ -1420,7 +1420,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
   if("Extent.Competed" %in% names(VAR.df)){
-    VAR.df<-csis360::read_and_join(VAR.df,"LOOKUP_Extent_Competed.csv")
+    VAR.df<-read_and_join(VAR.df,"LOOKUP_Extent_Competed.csv")
 
     NA.check.df<-subset(VAR.df, is.na(Extent.Competed.Sum), select=c("Extent.Competed.Sum"))
     if(nrow(NA.check.df)>0){
@@ -1432,7 +1432,7 @@ apply_lookups<- function(VAR.path,VAR.df){
   if("systemequipmentcode" %in% names(VAR.df)){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"systemequipmentcode")
 
-    VAR.df<-csis360::read_and_join(VAR.df,"LOOKUP_systemequipmentcode.csv")
+    VAR.df<-read_and_join(VAR.df,"LOOKUP_systemequipmentcode.csv")
 
     NA.check.df<-subset(VAR.df, is.na(systemequipmentcode)|is.na(systemequipmentshorttext), select=c("systemequipmentcode","systemequipmentcodeText","systemequipmentshorttext"))
     if(nrow(NA.check.df)>0){
@@ -1445,7 +1445,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
   if("Fiscal.Year"%in% names(VAR.df)){
-    VAR.df<-csis360::read_and_join(VAR.df,
+    VAR.df<-read_and_join(VAR.df,
                                    "Lookup_Deflators.csv",
                                    by="Fiscal.Year",
                                    new_var_checked=FALSE,
@@ -1581,7 +1581,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
 
-    VAR.df<-csis360::read_and_join(
+    VAR.df<-read_and_join(
       VAR.df,
       "LOOKUP_comparison_dollar_type.csv"
       )
