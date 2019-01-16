@@ -2637,7 +2637,8 @@ LatticePlotWrapper<-function(VAR.color.legend.label
     )+ geom_bar(stat="identity")+
       xlab(VAR.X.label)+
     ylab(VAR.Y.label)+
-    ggtitle(VAR.main.label, subtitle = NULL)
+    ggtitle(VAR.main.label, subtitle = NULL)+
+      get_plot_theme()
     
     
     
