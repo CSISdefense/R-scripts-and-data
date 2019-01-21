@@ -1154,8 +1154,11 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
     }
     #     debug(read_and_join)
+    colnames(VAR.df)[colnames(VAR.df)=="ProductOrServiceArea"]<-"ProductServiceOrRnDarea"
     VAR.df<-read_and_join(VAR.df,
-                                   "LOOKUP_Buckets.csv")
+                                   "LOOKUP_Buckets.csv",by="ProductServiceOrRnDarea")
+    colnames(VAR.df)[colnames(VAR.df)=="ProductServiceOrRnDarea"]<-"ProductOrServiceArea"
+    
     NA.check.df<-subset(VAR.df, is.na(ServicesCategory.sum), select=c("ProductOrServiceArea"))
     if(nrow(NA.check.df)>0){
       print(unique(NA.check.df))
