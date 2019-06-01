@@ -871,7 +871,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Customer","Uncategorized")
 
     #     debug(read_and_join)
-    VAR.df<-read_and_join(VAR.df,
+    VAR.df<-read_and_join_experiment(VAR.df,
       "Lookup_SubCustomer.csv",
       by=c("Customer","SubCustomer")
     )
