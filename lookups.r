@@ -121,14 +121,6 @@ CreateSize<-function(VAR.Dollar.Value){
 }
 
 
-FactorToNumber<-function(VAR.factor){
-  if ((is.factor(VAR.factor))||(is.character(VAR.factor))){
-    VAR.factor<-gsub('\\$','',as.character( VAR.factor))
-    VAR.factor<-as.double(gsub('\\,','',as.character( VAR.factor)))
-  }
-  VAR.factor
-}
-
 
 
 
