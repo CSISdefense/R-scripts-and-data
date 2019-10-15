@@ -1008,7 +1008,7 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
     }
     if("ProductOrServiceArea" %in% names(VAR.df)){
-      VAR.df<-subset(VAR.df, select=-c(ProductServiceOrRnDarea))
+      VAR.df<-subset(VAR.df, select=-c(ProductOrServiceArea))
     }
     if("ServicesCategory.detail" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.detail))
