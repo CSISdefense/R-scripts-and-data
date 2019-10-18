@@ -121,14 +121,6 @@ CreateSize<-function(VAR.Dollar.Value){
 }
 
 
-FactorToNumber<-function(VAR.factor){
-  if ((is.factor(VAR.factor))||(is.character(VAR.factor))){
-    VAR.factor<-gsub('\\$','',as.character( VAR.factor))
-    VAR.factor<-as.double(gsub('\\,','',as.character( VAR.factor)))
-  }
-  VAR.factor
-}
-
 
 
 
@@ -871,7 +863,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Customer","Uncategorized")
 
     #     debug(read_and_join)
-    VAR.df<-read_and_join(VAR.df,
+    VAR.df<-read_and_join_experiment(VAR.df,
       "Lookup_SubCustomer.csv",
       by=c("Customer","SubCustomer")
     )
@@ -1016,7 +1008,7 @@ apply_lookups<- function(VAR.path,VAR.df){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.sum))
     }
     if("ProductOrServiceArea" %in% names(VAR.df)){
-      VAR.df<-subset(VAR.df, select=-c(ProductServiceOrRnDarea))
+      VAR.df<-subset(VAR.df, select=-c(ProductOrServiceArea))
     }
     if("ServicesCategory.detail" %in% names(VAR.df)){
       VAR.df<-subset(VAR.df, select=-c(ServicesCategory.detail))
