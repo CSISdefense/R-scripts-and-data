@@ -1481,31 +1481,23 @@ apply_lookups<- function(VAR.path,VAR.df){
                               ,labels = c("Products"
                                           ,"Services"
                                           ,"R&D"
-                                          ,"Mixed or Unlabeled"),
+                                          ,"Mixed or Unlabeled")
     )
   }
 
   if("IsTerminated" %in% names(VAR.df))
   {
-
-    VAR.df$IsTerminated<-factor(VAR.df$IsTerminated,
-                                levels = c(0,1),
-                                labels = c("Unterminated", "Terminated")
+    levels(VAR.df$IsTerminated)<-list("Unterminated"=c("Unterminated","0",0),
+                                      "Terminated"=c("Terminated","1",1)
     )
-
-
-
-
-    #     addNA(VAR.df$IsTerminated, ifany = TRUE)
   }
 
   if("IsClosed" %in% names(VAR.df))
   {
-
-    VAR.df$IsClosed<-factor(VAR.df$IsClosed,
-                            levels = c(0,1),
-                            labels = c("Unspecified", "Closed")
+    levels(VAR.df$IsClosed)<-list("Unspecified"=c("Unspecified","0",0),
+                                      "Closed"=c("Closed","1",1)
     )
+                                      
     #     addNA(VAR.df$IsClosed, ifany = TRUE)
   }
   if("numberofoffersreceived" %in% names(VAR.df)){
@@ -1540,22 +1532,25 @@ apply_lookups<- function(VAR.path,VAR.df){
 
   if("MaxOfisChangeOrder" %in% names(VAR.df))
   {
-
-    VAR.df$MaxOfisChangeOrder<-factor(VAR.df$MaxOfisChangeOrder,
-                                      levels = c(0,1),
-                                      labels = c("No Change Order", "Change Order(s)")
+    levels(VAR.df$MaxOfisChangeOrder)<-list("No Change Order"=c("No Change Order","0",0),
+                                  "Closed"=c("Change Order(s)","1",1)
     )
+    
     addNA(VAR.df$MaxOfisChangeOrder, ifany = TRUE)
   }
 
   if("IsFixedPrice" %in% names(VAR.df))
   {
-
-    VAR.df$IsFixedPrice<-factor(VAR.df$IsFixedPrice,
-                                exclude=NULL,
-                                levels = c(1,0,NA),
-                                labels = c("Fixed Price", "Other","Combination \nor Unlabeled")
+    levels(VAR.df$IsFixedPrice)<-list("Other"=c("Other","0",0),
+                                      "Fixed Price"=c("Fixed Price","1",1),
+                                      "Combination \nor Unlabeled"=c("Combination \nor Unlabeled",NA)
     )
+
+    # VAR.df$IsFixedPrice<-factor(VAR.df$IsFixedPrice,
+    #                             exclude=NULL,
+    #                             levels = c(1,0,NA),
+    #                             labels = c("Fixed Price", "Other","Combination \nor Unlabeled")
+    # )
     if (!("Combination \nor Unlabeled" %in% levels(VAR.df$IsFixedPrice))){
       VAR.df$IsFixedPrice<-addNA(VAR.df$IsFixedPrice,ifany=TRUE)
       levels(VAR.df$IsFixedPrice)[is.na(levels(VAR.df$IsFixedPrice))] <- "Combination \nor Unlabeled"
@@ -1758,11 +1753,16 @@ apply_lookups<- function(VAR.path,VAR.df){
 
   if("UnmodifiedIsSomeCompetition" %in% names(VAR.df))
   {
-    VAR.df$UnmodifiedIsSomeCompetition<-factor(VAR.df$UnmodifiedIsSomeCompetition,
-                                               exclude=NULL,
-                                               levels = c(1,0,NA),
-                                               labels = c("Comp.", "No Comp.","Unlabeled")
+    levels(VAR.df$UnmodifiedIsSomeCompetition)<-list("No Comp."=c("No Comp.","0",0),
+                                      "Comp."=c("Comp.","1",1),
+                                      "Unlabeled"=c("Unlabeled",NA)
     )
+    
+    # VAR.df$UnmodifiedIsSomeCompetition<-factor(VAR.df$UnmodifiedIsSomeCompetition,
+    #                                            exclude=NULL,
+    #                                            levels = c(1,0,NA),
+    #                                            labels = c("Comp.", "No Comp.","Unlabeled")
+    # )
   }
 
   if("IsSomeCompetition" %in% names(VAR.df))
@@ -1791,6 +1791,12 @@ apply_lookups<- function(VAR.path,VAR.df){
       )
 
     }
+    levels(VAR.df$IsSomeCompetition)<-list("No Comp."=c("No Comp.","0",0),
+                                           "Comp."=c("Comp.","1",1),
+                                           "Mixed or \nUnlabeled"=c("Mixed or \nUnlabeled",NA)
+    )
+    
+    
     VAR.df$IsSomeCompetition<-factor(VAR.df$IsSomeCompetition,
                                      exclude=NULL,
                                      levels = c(1,0,NA),
