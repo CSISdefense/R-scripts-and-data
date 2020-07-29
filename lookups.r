@@ -273,7 +273,7 @@ import_country_file <- function(VAR.Path
                          , id.var=id.var.list
   )
 
-  import.data.file$value<-FactorToNumber(import.data.file$value)
+  import.data.file$value<-text_to_number(import.data.file$value)
 
 
   colnames(import.data.file)[colnames(import.data.file)=="variable"]<-"Fiscal.Year"
@@ -904,8 +904,8 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
   VAR.df<-competition_vehicle_lookups(VAR.path,VAR.df)
-  VAR.df$Action.Obligation<-FactorToNumber(VAR.df$Action.Obligation)
-  VAR.df$Actions<-FactorToNumber(VAR.df$Actions)
+  VAR.df$Action.Obligation<-text_to_number(VAR.df$Action.Obligation)
+  VAR.df$Actions<-text_to_number(VAR.df$Actions)
 
 
   if("PoPstateCode" %in% names(VAR.df)){
@@ -1340,7 +1340,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
     if("Action.Obligation"%in% names(VAR.df)){
-      VAR.df$Action.Obligation<-FactorToNumber(VAR.df$Action.Obligation)
+      VAR.df$Action.Obligation<-text_to_number(VAR.df$Action.Obligation)
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$Obligation.2013<-VAR.df$Action.Obligation/VAR.df$Deflator.2013/1000000000
       }
@@ -1359,21 +1359,21 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
     if("GBKdisbursements"%in% names(VAR.df)){
-      VAR.df$GBKdisbursements<-FactorToNumber(VAR.df$GBKdisbursements)
+      VAR.df$GBKdisbursements<-text_to_number(VAR.df$GBKdisbursements)
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$GBKdisbursements.ConstantB<-VAR.df$GBKdisbursements/VAR.df$Deflator.2013/1000000000
       }
     }
 
     if("GBKobligations"%in% names(VAR.df)){
-      VAR.df$SumOfObligations<-FactorToNumber(VAR.df$GBKobligations)
+      VAR.df$SumOfObligations<-text_to_number(VAR.df$GBKobligations)
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$GBKobligations.2013<-VAR.df$GBKobligations/VAR.df$Deflator.2013/1000000000
       }
     }
 
     if("Outlay"%in% names(VAR.df)){
-      VAR.df$Outlay<-FactorToNumber(VAR.df$Outlay)
+      VAR.df$Outlay<-text_to_number(VAR.df$Outlay)
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$Outlay.2013<-VAR.df$Outlay/VAR.df$Deflator.2013/1000000000
       }
@@ -1381,14 +1381,14 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
     if("OutlayNoOffsetAccount"%in% names(VAR.df)){
-      VAR.df$OutlayNoOffsetAccount<-FactorToNumber(VAR.df$OutlayNoOffsetAccount)
+      VAR.df$OutlayNoOffsetAccount<-text_to_number(VAR.df$OutlayNoOffsetAccount)
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$OutlayNoOffsetAccount.2013<-VAR.df$OutlayNoOffsetAccount/VAR.df$Deflator.2013/1000000000
       }
     }
 
     if("OutlayOffsetAccount"%in% names(VAR.df)){
-      VAR.df$OutlayOffsetAccount<-FactorToNumber(VAR.df$OutlayOffsetAccount)
+      VAR.df$OutlayOffsetAccount<-text_to_number(VAR.df$OutlayOffsetAccount)
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$OutlayOffsetAccount.2013<-VAR.df$OutlayOffsetAccount/VAR.df$Deflator.2013/1000000000
       }
@@ -1397,7 +1397,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
     if("Fed_Grant_Funding_Amount"%in% names(VAR.df)){
-      VAR.df$Fed_Grant_Funding_Amount	   <-FactorToNumber(VAR.df$Fed_Grant_Funding_Amount	   )
+      VAR.df$Fed_Grant_Funding_Amount	   <-text_to_number(VAR.df$Fed_Grant_Funding_Amount	   )
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$Fed_Grant_Funding_Amount.2013<-VAR.df$Fed_Grant_Funding_Amount	   /VAR.df$Deflator.2013/1000000000
       }
@@ -1405,7 +1405,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
 
     if("ContractObligatedAmount"%in% names(VAR.df)){
-      VAR.df$ContractObligatedAmount<-FactorToNumber(VAR.df$ContractObligatedAmount)
+      VAR.df$ContractObligatedAmount<-text_to_number(VAR.df$ContractObligatedAmount)
       if("Deflator.2013"%in% names(VAR.df)){
         VAR.df$ContractObligatedAmount.2013<-VAR.df$ContractObligatedAmount/VAR.df$Deflator.2013/1000000000
       }
@@ -1506,7 +1506,7 @@ apply_lookups<- function(VAR.path,VAR.df){
 
   if("UnmodifiedNumberOfOffersReceived" %in% names(VAR.df))
   {
-    VAR.df$UnmodifiedNumberOfOffersReceived<-FactorToNumber(VAR.df$UnmodifiedNumberOfOffersReceived)
+    VAR.df$UnmodifiedNumberOfOffersReceived<-text_to_number(VAR.df$UnmodifiedNumberOfOffersReceived)
     VAR.df$UnmodifiedNumberOfOffersReceived[VAR.df$UnmodifiedNumberOfOffersReceived==0]<-NA
     if("numberofoffersreceived" %in% names(VAR.df)){
       VAR.df$UnmodifiedNumberOfOffersReceived[is.na(VAR.df$UnmodifiedNumberOfOffersReceived)]<-VAR.df$numberofoffersreceived[is.na(VAR.df$UnmodifiedNumberOfOffersReceived)]
@@ -1574,7 +1574,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
   }
   if("ContractBaseAndAllOptionsValue" %in% names(VAR.df)){
-    VAR.df$ContractBaseAndAllOptionsValue<-FactorToNumber(VAR.df$ContractBaseAndAllOptionsValue)
+    VAR.df$ContractBaseAndAllOptionsValue<-text_to_number(VAR.df$ContractBaseAndAllOptionsValue)
     VAR.df$LogOfContractBaseAndAllOptionsValue<-log10(VAR.df$ContractBaseAndAllOptionsValue)
     VAR.df$LogOfContractBaseAndAllOptionsValue[is.infinite(VAR.df$LogOfContractBaseAndAllOptionsValue)]<-0
 
@@ -1590,7 +1590,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
   }
   if("ContractBaseAndExercisedOptionsValue" %in% names(VAR.df)){
-    VAR.df$ContractBaseAndExercisedOptionsValue<-FactorToNumber(VAR.df$ContractBaseAndExercisedOptionsValue)
+    VAR.df$ContractBaseAndExercisedOptionsValue<-text_to_number(VAR.df$ContractBaseAndExercisedOptionsValue)
     VAR.df$LogOfContractBaseAndExercisedOptionsValue<-log10(VAR.df$ContractBaseAndExercisedOptionsValue)
     VAR.df$LogOfContractBaseAndExercisedOptionsValue[is.infinite(VAR.df$LogOfContractBaseAndExercisedOptionsValue)]<-0
 
@@ -1606,7 +1606,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
   }
   if("UnmodifiedContractObligatedAmount" %in% names(VAR.df)){
-    VAR.df$UnmodifiedContractObligatedAmount<-FactorToNumber(VAR.df$UnmodifiedContractObligatedAmount)
+    VAR.df$UnmodifiedContractObligatedAmount<-text_to_number(VAR.df$UnmodifiedContractObligatedAmount)
     VAR.df$LogOfUnmodifiedContractObligatedAmount<-log10(VAR.df$UnmodifiedContractObligatedAmount)
     VAR.df$LogOfUnmodifiedContractObligatedAmount[is.infinite(VAR.df$LogOfUnmodifiedContractObligatedAmount)]<-0
     if("Action.Obligation" %in% names(VAR.df)){
@@ -1624,7 +1624,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
   }
   if("UnmodifiedContractBaseAndAllOptionsValue" %in% names(VAR.df)){
-    VAR.df$UnmodifiedContractBaseAndAllOptionsValue<-FactorToNumber(VAR.df$UnmodifiedContractBaseAndAllOptionsValue)
+    VAR.df$UnmodifiedContractBaseAndAllOptionsValue<-text_to_number(VAR.df$UnmodifiedContractBaseAndAllOptionsValue)
     VAR.df$LogOfUnmodifiedContractBaseAndAllOptionsValue<-log10(VAR.df$UnmodifiedContractBaseAndAllOptionsValue)
     VAR.df$LogOfUnmodifiedContractBaseAndAllOptionsValue[is.infinite(VAR.df$LogOfUnmodifiedContractBaseAndAllOptionsValue)]<-0
 
@@ -1645,7 +1645,7 @@ apply_lookups<- function(VAR.path,VAR.df){
     }
   }
   if("UnmodifiedContractBaseAndExercisedOptionsValue" %in% names(VAR.df)){
-    VAR.df$UnmodifiedContractBaseAndExercisedOptionsValue<-FactorToNumber(VAR.df$UnmodifiedContractBaseAndExercisedOptionsValue)
+    VAR.df$UnmodifiedContractBaseAndExercisedOptionsValue<-text_to_number(VAR.df$UnmodifiedContractBaseAndExercisedOptionsValue)
     VAR.df$LogOfUnmodifiedContractBaseAndExercisedOptionsValue<-log10(VAR.df$UnmodifiedContractBaseAndExercisedOptionsValue)
     VAR.df$LogOfUnmodifiedContractBaseAndExercisedOptionsValue[is.infinite(VAR.df$LogOfUnmodifiedContractBaseAndExercisedOptionsValue)]<-0
     if("ContractBaseAndExercisedOptionsValue" %in% names(VAR.df)){
