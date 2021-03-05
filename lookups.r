@@ -816,10 +816,13 @@ apply_lookups<- function(VAR.path,VAR.df){
 
     VAR.df<-replace_nas_with_unlabeled(VAR.df,"Contracting.Agency.ID","Uncategorized")
 
-    VAR.df<-read_and_join(VAR.df,
-                                   "LOOKUP_Contracting_Agencies.csv",
-                                   by=c("Contracting.Agency.ID"))
-    # NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name) , select=c("Contracting.Agency.ID"))
+    VAR.df<-read_and_join_experiment(VAR.df,
+                                  "Agency_AgencyID.csv",
+                                  by=c("Contracting.Agency.ID"="AgencyID"),
+                                  path="https://raw.githubusercontent.com/CSISdefense/Lookup-Tables/master/",
+                                  dir="")
+
+        # NA.check.df<-subset(VAR.df, is.na(Contracting.Agency.Name) , select=c("Contracting.Agency.ID"))
     # if(nrow(NA.check.df)>0){
     #   print(unique(NA.check.df))
     #   stop(paste(nrow(NA.check.df),"rows of NAs generated in Contracting.Agency.Name"))
